@@ -112,6 +112,41 @@ Profit Factor: 1.42
 PNL total (R$): 3,280.50
 ```
 
+### Modo 3: Importar dados manuais por CSV (preços diários)
+
+Padronize seus arquivos CSV no diretório:
+
+```powershell
+# Diretório padrão (será criado se não existir)
+backend/data/manual
+```
+
+Formato esperado (colunas em PT-BR, como o exemplo anexado):
+
+- Data (dd.mm.yyyy), Último, Abertura, Máxima, Mínima, Vol., Var%
+- Exemplos de valores: "04.11.2025", "152.944", "44,99K", "0,03%"
+
+Importar um arquivo específico:
+
+```powershell
+python backend/src/cli_importar_csv.py importar-diario --arquivo backend/data/manual/ibov.csv --instrumento WIN --fonte investing.com
+```
+
+Importar todos os CSVs do diretório padrão:
+
+```powershell
+python backend/src/cli_importar_csv.py importar-diario --dir backend/data/manual --instrumento WIN --fonte manual
+```
+
+Regras de parsing:
+
+- Data: "dd.mm.yyyy" → ISO "YYYY-MM-DD" (UTC)
+- Números em PT-BR: remove milhar "." e troca vírgula "," por ponto "."
+- Volume: "K"=mil, "M"=milhão (ex: 44,99K → 44990)
+- Var%: convertido para fração (0,03% → 0.0003)
+
+Destino dos dados: tabela `precos_diarios` no SQLite (para uso futuro em ATR, backtests e calibração).
+
 ## Validação Automática (Aprovada)
 
 Esta etapa automatiza a verificação do resultado das recomendações pendentes usando dados intraday.

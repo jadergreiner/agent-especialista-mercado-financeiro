@@ -110,6 +110,23 @@ def inicializar_banco(caminho_bd: Optional[Path] = None) -> None:
             CREATE INDEX IF NOT EXISTS idx_recom_timestamp ON recomendacoes(timestamp);
             CREATE INDEX IF NOT EXISTS idx_recom_instr ON recomendacoes(instrumento);
             CREATE INDEX IF NOT EXISTS idx_res_recom ON resultados(id_recomendacao);
+
+            -- Tabela opcional para importação de preços diários (dados manuais)
+            CREATE TABLE IF NOT EXISTS precos_diarios (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                data TEXT NOT NULL,                -- ISO date YYYY-MM-DD (UTC)
+                instrumento TEXT NOT NULL,         -- Ex: 'WIN' ou 'IBOV-FUT'
+                ultimo REAL NOT NULL,
+                abertura REAL NOT NULL,
+                maxima REAL NOT NULL,
+                minima REAL NOT NULL,
+                volume INTEGER,                    -- número de contratos/negócios
+                variacao_pct REAL,                 -- variação em fração (ex: 0.0003 = 0,03%)
+                fonte TEXT,                        -- origem do arquivo (ex: 'investing.com')
+                arquivo TEXT,                      -- nome do arquivo importado
+                inserido_em TEXT NOT NULL          -- timestamp UTC de inserção
+            );
+            CREATE UNIQUE INDEX IF NOT EXISTS idx_precos_diarios_uniq ON precos_diarios(data, instrumento, ifnull(fonte, ''));
             """
         )
         
