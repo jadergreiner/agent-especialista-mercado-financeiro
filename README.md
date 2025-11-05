@@ -126,14 +126,50 @@ git checkout develop
 
 ## 🎓 Começando
 
-Atualmente o projeto está em fase de prototipagem via prompt. Para interagir com o agente especialista, utilize este repositório como contexto e faça perguntas sobre análise de mercado, correlações, timing de posições, etc.
+### Uso via CLI (Recomendado)
+
+O sistema possui uma interface de linha de comando intuitiva onde você pode fazer análises com comandos simples:
+
+```bash
+cd backend
+python cli.py
+```
+
+Então basta digitar o ticker do ativo:
+```
+💬 Digite o ativo para análise: BTCUSD
+```
+
+**Exemplos de comandos:**
+- `BTCUSD` - Análise completa de Bitcoin
+- `PETR4 rapida` - Análise rápida de Petrobras
+- `AAPL tecnica` - Análise técnica de Apple
+- `ajuda` - Ver todos os comandos disponíveis
+
+### Uso Programático
+
+```python
+from backend.src.agents.orquestrador_analise import OrquestradorAnalise, TipoAnalise
+
+orquestrador = OrquestradorAnalise()
+
+# Análise simples - apenas o ticker
+resultado = orquestrador.analisar("BTCUSD")
+print(resultado['recomendacao_geral'])
+
+# Análise rápida
+resultado = orquestrador.analisar("PETR4", TipoAnalise.RAPIDA)
+```
+
+Ver documentação completa em: [`docs/TEMPLATE_ANALISE.md`](docs/TEMPLATE_ANALISE.md)
 
 ## 📊 Casos de Uso
 
-1. **Análise de Correlação**: "Qual a correlação entre S&P500 e EUR/USD nos últimos 3 meses?"
-2. **Impacto de Notícias**: "Como o anúncio do FED afeta ações de tecnologia?"
-3. **Timing de Posição**: "Qual o melhor ponto de entrada em AAPL baseado em análise técnica?"
-4. **Gestão de Risco**: "Qual o tamanho ideal de posição considerando correlações do portfólio?"
+1. **Análise Rápida**: Digite apenas o ticker (ex: `BTCUSD`) e receba análise completa
+2. **Análise Técnica**: Indicadores, tendências, suportes e resistências
+3. **Análise de Correlação**: Relacionamentos entre ativos e mudanças de regime
+4. **Timing de Posição**: Pontos ótimos de entrada/saída com gestão de risco
+5. **Sentimento de Mercado**: Impacto de notícias e sentimento geral
 
 ## 📄 Licença
 

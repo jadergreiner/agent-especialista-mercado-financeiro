@@ -81,16 +81,16 @@ def analisar_ativo(
 ) -> dict:
     """
     Analisa um ativo do mercado financeiro.
-    
+
     Args:
         ticker: Código do ativo (ex: 'PETR4', 'AAPL')
         periodo_dias: Quantidade de dias para análise histórica
         incluir_volume: Se deve incluir análise de volume
         tipo_analise: Tipo de análise ('completa', 'tecnica', 'fundamental')
-        
+
     Returns:
         Dicionário com resultados da análise
-        
+
     Raises:
         ValueError: Se ticker inválido ou período negativo
     """
@@ -102,26 +102,26 @@ def analisar_ativo(
 ### Formato Padrão (Google Style em Português)
 ```python
 def calcular_sharpe_ratio(
-    retornos: list[float], 
+    retornos: list[float],
     taxa_livre_risco: float = 0.0
 ) -> float:
     """
     Calcula o índice de Sharpe para uma série de retornos.
-    
+
     O índice de Sharpe mede o retorno ajustado ao risco de um investimento,
     comparando o excesso de retorno com a volatilidade.
-    
+
     Args:
         retornos: Lista de retornos percentuais do ativo
         taxa_livre_risco: Taxa livre de risco anualizada (padrão 0.0)
-        
+
     Returns:
         Valor do índice de Sharpe (retorno/risco)
-        
+
     Raises:
         ValueError: Se a lista de retornos estiver vazia
         ZeroDivisionError: Se o desvio padrão for zero
-        
+
     Example:
         >>> retornos = [0.01, 0.02, -0.01, 0.03]
         >>> calcular_sharpe_ratio(retornos)
@@ -135,25 +135,25 @@ def calcular_sharpe_ratio(
 class AnalisadorCorrelacao:
     """
     Analisa correlações entre múltiplos ativos de mercado.
-    
+
     Esta classe implementa análise de correlação rolante, matriz de correlação
     e identificação de mudanças de regime em relacionamentos entre ativos.
-    
+
     Attributes:
         ativos: Lista de tickers dos ativos sendo analisados
         periodo_dias: Janela de tempo para cálculo de correlação
         matriz_correlacao: Matriz numpy com correlações atuais
-        
+
     Example:
         >>> analisador = AnalisadorCorrelacao(['PETR4', 'VALE3'])
         >>> analisador.calcular_matriz()
         >>> print(analisador.matriz_correlacao)
     """
-    
+
     def __init__(self, ativos: list[str], periodo_dias: int = 90):
         """
         Inicializa o analisador de correlação.
-        
+
         Args:
             ativos: Lista com códigos dos ativos
             periodo_dias: Período para cálculo (padrão 90 dias)
@@ -203,9 +203,9 @@ Data: 2025-11-05
 ### Formato de Mensagem
 ```bash
 # Formato: <tipo>: <descrição curta>
-# 
+#
 # <corpo detalhado (opcional)>
-# 
+#
 # <footer (opcional)>
 
 # Tipos:
@@ -335,17 +335,17 @@ import pytest
 def test_calcular_correlacao_retorna_valor_entre_menos_um_e_um():
     """
     Testa se a correlação calculada está no intervalo válido [-1, 1].
-    
+
     A correlação de Pearson deve sempre retornar valores entre -1 e 1,
     onde -1 indica correlação negativa perfeita e 1 correlação positiva perfeita.
     """
     # Arrange (Preparar)
     dados_ativo1 = [1, 2, 3, 4, 5]
     dados_ativo2 = [2, 4, 6, 8, 10]
-    
+
     # Act (Agir)
     resultado = calcular_correlacao(dados_ativo1, dados_ativo2)
-    
+
     # Assert (Verificar)
     assert -1 <= resultado <= 1, "Correlação deve estar entre -1 e 1"
 
