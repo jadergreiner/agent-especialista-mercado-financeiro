@@ -12,6 +12,7 @@ from dataclasses import dataclass, asdict
 from datetime import datetime
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
+from collections import defaultdict
 
 # Caminho padrão do banco de dados (em backend/data/recomendacoes.sqlite)
 PASTA_DADOS_PADRAO = Path(__file__).resolve().parents[2] / "data"
@@ -258,6 +259,122 @@ def calcular_metricas_basicas(
             'acuracia': (len(acertos) / len(executadas)) if executadas else None,
             'pnl_total_reais': soma_pnl,
             'profit_factor': profit_factor,
+        }
+    finally:
+        conn.close()
+
+
+def calcular_metricas_detalhadas(
+    dias: int = 30, caminho_bd: Optional[Path] = None
+) -> Dict[str, Any]:
+    """
+    Métricas detalhadas por categoria: tendência, saldo macro e horário (sessões).
+    Considera todas as recomendações com resultado nos últimos N dias.
+    """
+    conn = _conectar(caminho_bd)
+    try:
+        cur = conn.cursor()
+        cur.execute(
+            """
+            SELECT r.tendencia, r.saldo_macro, r.timestamp, r.instrumento, r.direcao,
+                   x.status, x.acertou, x.pnl_reais
+            FROM recomendacoes r
+            JOIN resultados x ON x.id_recomendacao = r.id
+            WHERE x.timestamp_validacao >= datetime('now', ?)
+            """,
+            (f'-{dias} days',),
+        )
+        linhas = cur.fetchall()
+        # Índices: 0=tendencia,1=saldo_macro,2=timestamp,3=instrumento,4=direcao,5=status,6=acertou,7=pnl_reais
+        def add_metric(bucket: Dict[str, Dict[str, Any]], chave: str, status: str, acertou: Optional[int], pnl: Optional[float]):
+            m = bucket.setdefault(chave, {
+                'sinais': 0,
+                'executadas': 0,
+                'canceladas_ou_expiradas': 0,
+                'acertos': 0,
+                'erros': 0,
+                'pnl_total_reais': 0.0,
+                'profit_factor': None,
+                '_pnl_pos': 0.0,
+                '_pnl_neg': 0.0,
+            })
+            m['sinais'] += 1
+            if status == 'executada':
+                m['executadas'] += 1
+                if acertou == 1:
+                    m['acertos'] += 1
+                elif acertou == 0:
+                    m['erros'] += 1
+                valor = (pnl or 0.0)
+                m['pnl_total_reais'] += valor
+                if valor > 0:
+                    m['_pnl_pos'] += valor
+                elif valor < 0:
+                    m['_pnl_neg'] += -valor
+            else:
+                m['canceladas_ou_expiradas'] += 1
+
+        def cat_saldo(v: int) -> str:
+            if v <= -3:
+                return '≤ -3'
+            if -2 <= v <= -1:
+                return '-2 a -1'
+            if 0 <= v <= 1:
+                return '0 a +1'
+            if 2 <= v <= 3:
+                return '+2 a +3'
+            return '≥ +4'
+
+        def cat_horario(ts: str) -> str:
+            # Usa hora local do timestamp registrado
+            try:
+                dt = datetime.fromisoformat(ts)
+            except Exception:
+                return 'Indefinido'
+            h = dt.hour
+            if 10 <= h <= 10:
+                return 'Abertura (10h)'
+            if 11 <= h <= 12:
+                return 'Manhã (11-12h)'
+            if 13 <= h <= 14:
+                return 'Meio (13-14h)'
+            if 15 <= h <= 16:
+                return 'Tarde (15-16h)'
+            if 17 <= h <= 23:
+                return 'Fechamento/After (≥17h)'
+            return 'Pré-abertura (<10h)'
+
+        buckets_tend = {}
+        buckets_saldo = {}
+        buckets_hora = {}
+        for tnd, saldo, ts, _instr, _dir, st, ac, pnl in linhas:
+            add_metric(buckets_tend, (tnd or 'Indefinido').upper(), st, ac, pnl)
+            add_metric(buckets_saldo, cat_saldo(int(saldo or 0)), st, ac, pnl)
+            add_metric(buckets_hora, cat_horario(ts or ''), st, ac, pnl)
+
+        def finalize(bucket: Dict[str, Dict[str, Any]]):
+            for k, m in bucket.items():
+                if m['executadas']:
+                    m['acuracia'] = m['acertos'] / m['executadas']
+                else:
+                    m['acuracia'] = None
+                if m['_pnl_neg'] > 0:
+                    m['profit_factor'] = m['_pnl_pos'] / m['_pnl_neg']
+                else:
+                    m['profit_factor'] = None
+                # remover internos
+                m.pop('_pnl_pos', None)
+                m.pop('_pnl_neg', None)
+
+        finalize(buckets_tend)
+        finalize(buckets_saldo)
+        finalize(buckets_hora)
+
+        return {
+            'periodo_dias': dias,
+            'por_tendencia': buckets_tend,
+            'por_saldo_macro': buckets_saldo,
+            'por_horario': buckets_hora,
         }
     finally:
         conn.close()

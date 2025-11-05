@@ -17,6 +17,7 @@ from persistencia.recomendacoes import (
     listar_pendentes,
     registrar_resultado,
     calcular_metricas_basicas,
+    calcular_metricas_detalhadas,
 )
 from avaliacao.validador_automatico import validar_pendentes
 
@@ -93,6 +94,28 @@ def build_parser() -> argparse.ArgumentParser:
     p_met = sub.add_parser('metricas', help='Calcular métricas básicas (últimos N dias)')
     p_met.add_argument('--dias', type=int, default=30)
     p_met.set_defaults(func=cmd_metricas)
+
+    p_metd = sub.add_parser('metricas-detalhadas', help='Métricas por categoria (tendência, saldo macro, horário)')
+    p_metd.add_argument('--dias', type=int, default=30)
+    def _cmd_metricas_detalhadas(args: argparse.Namespace) -> None:
+        inicializar_banco()
+        m = calcular_metricas_detalhadas(dias=args.dias)
+        print("\n📊 Métricas por Tendência")
+        for k, v in sorted(m['por_tendencia'].items()):
+            acc = f"{v['acuracia']*100:.1f}%" if v.get('acuracia') is not None else "n/a"
+            pf = f"{v['profit_factor']:.2f}" if v.get('profit_factor') is not None else "n/a"
+            print(f"- {k}: sinais={v['sinais']} | exec={v['executadas']} | acc={acc} | PF={pf} | PnL=R$ {v['pnl_total_reais']:.2f}")
+        print("\n📊 Métricas por Saldo Macro")
+        for k, v in sorted(m['por_saldo_macro'].items()):
+            acc = f"{v['acuracia']*100:.1f}%" if v.get('acuracia') is not None else "n/a"
+            pf = f"{v['profit_factor']:.2f}" if v.get('profit_factor') is not None else "n/a"
+            print(f"- {k}: sinais={v['sinais']} | exec={v['executadas']} | acc={acc} | PF={pf} | PnL=R$ {v['pnl_total_reais']:.2f}")
+        print("\n📊 Métricas por Horário")
+        for k, v in sorted(m['por_horario'].items()):
+            acc = f"{v['acuracia']*100:.1f}%" if v.get('acuracia') is not None else "n/a"
+            pf = f"{v['profit_factor']:.2f}" if v.get('profit_factor') is not None else "n/a"
+            print(f"- {k}: sinais={v['sinais']} | exec={v['executadas']} | acc={acc} | PF={pf} | PnL=R$ {v['pnl_total_reais']:.2f}")
+    p_metd.set_defaults(func=_cmd_metricas_detalhadas)
 
     p_auto = sub.add_parser('auto', help='Executar validação automática das pendentes')
     def _cmd_auto(args: argparse.Namespace) -> None:

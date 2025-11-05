@@ -1,4 +1,4 @@
-# Treinamento Contínuo do Agente
+    # Treinamento Contínuo do Agente
 
 Este documento descreve o ciclo de melhoria contínua do agente de mercado financeiro, baseado em registro de recomendações, validação de assertividade e acompanhamento de métricas.
 
@@ -164,4 +164,43 @@ Com o histórico, podemos:
 
 - O sistema atual é agnóstico de corretora; não executa ordens.
 - A validação pode ser manual no início e evoluir para automatizada.
-- O armazenamento local facilita início rápido; nada impede migrar para Postgres depois.
+- - O armazenamento local facilita início rápido; nada impede migrar para Postgres depois.
+
+## Métricas Detalhadas por Categoria
+
+Para entender o que realmente move o preço (e separar falsos movimentos), use o relatório detalhado:
+
+```powershell
+python backend/src/cli_avaliacao.py metricas-detalhadas --dias 90
+```
+
+O relatório apresenta, para cada categoria, as colunas:
+- sinais: quantidade total de recomendações naquela categoria
+- exec: quantas foram executadas (tocaram a entrada)
+- acc: acurácia entre as executadas (acertos / executadas)
+- PF: Profit Factor (soma dos ganhos / soma das perdas)
+- PnL (R$): resultado financeiro acumulado
+
+Categorias avaliadas:
+
+- Por Tendência (na emissão): ALTA, BAIXA, LATERAL
+- Por Saldo Macro (na emissão):
+  - ≤ -3 (fortemente desfavorável)
+  - -2 a -1 (desfavorável)
+  - 0 a +1 (neutro)
+  - +2 a +3 (favorável)
+  - ≥ +4 (fortemente favorável)
+- Por Horário (sessões BRT aproximadas):
+  - Abertura (10h)
+  - Manhã (11–12h)
+  - Meio (13–14h)
+  - Tarde (15–16h)
+  - Fechamento/After (≥17h)
+  - Pré-abertura (<10h)
+
+Interpretação prática:
+- Concentre ajustes onde PF e acurácia são maiores (o que tende a mover preço)
+- Revise regras onde há muitos “sinais” e baixa execução ou PF baixo (falsos movimentos)
+- Combine com o spread/ATR para calibrar stops e TPs por sessão e regime macro
+
+````
