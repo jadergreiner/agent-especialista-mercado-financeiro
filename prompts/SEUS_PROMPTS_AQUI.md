@@ -106,9 +106,9 @@ Para cada prompt que você tem, preencha as seções abaixo. Isso vai me ajudar 
 ### Fluxo de Trabalho Atual
 **Como você usa esses prompts no seu dia a dia?**
 ```
-1. 
-2. 
-3. 
+1.
+2.
+3.
 ```
 
 ### Dados que Você Fornece
@@ -154,7 +154,7 @@ Para cada prompt que você tem, preencha as seções abaixo. Isso vai me ajudar 
 
 #### Texto do Prompt
 ```
-Analise o Bitcoin (BTCUSD) agora. 
+Analise o Bitcoin (BTCUSD) agora.
 Preço atual: $67,500
 RSI: 58
 MACD: positivo

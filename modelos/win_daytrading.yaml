@@ -1,0 +1,261 @@
+# Modelo YAML - Análise Day Trade Mini Índice (WIN)
+
+mercado: futuros
+tipo_analise: daytrading
+instrumento: WIN
+versao: "1.0"
+
+# Metadados
+timestamp_analise: ""
+horario_analise: ""
+sessao_mercado: ""  # abertura, meio-dia, tarde, fechamento
+janela_validade: 120  # minutos
+
+# Configuração da Operação
+configuracao:
+  contratos_iniciais: 1
+  contratos_maximo: 10
+  meta_lucro_dia: 1000.00
+  perfil_risco: conservador
+  estilo: posicoes_alongadas
+  disponibilidade: gestao_passiva
+
+# Cotação Atual
+cotacao:
+  preco_atual: 0.0
+  variacao_dia_percent: 0.0
+  variacao_dia_pontos: 0
+  maxima_dia: 0.0
+  minima_dia: 0.0
+  volume_negociado: 0
+  ultimo_update: ""
+
+# Níveis Históricos
+niveis_historicos:
+  semana:
+    maxima: 0.0
+    minima: 0.0
+  mes:
+    maxima: 0.0
+    minima: 0.0
+  periodo_20_semanas:
+    maxima: 0.0
+    minima: 0.0
+  periodo_52_semanas:
+    maxima: 0.0
+    minima: 0.0
+
+# Análise Técnica
+analise_tecnica:
+  tendencia:
+    curto_prazo: ""  # alta, baixa, lateral
+    medio_prazo: ""
+    forca: 0  # 1-10
+  
+  suportes:
+    s1: 0.0
+    s1_justificativa: ""
+    s2: 0.0
+    s2_justificativa: ""
+    s3: 0.0
+    s3_justificativa: ""
+  
+  resistencias:
+    r1: 0.0
+    r1_justificativa: ""
+    r2: 0.0
+    r2_justificativa: ""
+    r3: 0.0
+    r3_justificativa: ""
+  
+  spread_analysis:
+    spread_compra_pontos: 0
+    spread_venda_pontos: 0
+    melhor_spread_direcao: ""  # compra, venda
+    melhor_spread_pontos: 0
+    relacao_risco_ganho: 0.0
+  
+  volume_profile:
+    poc_dia: 0.0
+    val: 0.0  # Value Area Low
+    vah: 0.0  # Value Area High
+    maior_volume_compra:
+      preco: 0.0
+      horario: ""
+      quantidade: 0
+    maior_volume_venda:
+      preco: 0.0
+      horario: ""
+      quantidade: 0
+  
+  indicadores:
+    rsi:
+      valor: 0.0
+      interpretacao: ""  # sobrecomprado, neutro, sobrevendido
+    macd:
+      linha: 0.0
+      sinal: 0.0
+      histograma: 0.0
+      interpretacao: ""  # alta, baixa, neutro
+    estocastico:
+      valor: 0.0
+      interpretacao: ""
+    atr:
+      valor: 0.0
+      classificacao: ""  # baixa, média, alta, extrema
+  
+  padroes_identificados:
+    armadilhas: []  # lista de stop hunting detectados
+    outros_padroes: []
+
+# Análise Macroeconômica
+analise_macro:
+  indicadores_globais:
+    dxy:
+      valor: 0.0
+      variacao: 0.0
+      impacto: ""
+      pontos: 0  # +1, 0, -1
+    vix:
+      valor: 0.0
+      nivel: ""  # baixo, médio, alto, extremo
+      impacto: ""
+      pontos: 0
+    ouro:
+      valor: 0.0
+      variacao: 0.0
+      impacto: ""
+      pontos: 0
+    juros_americanos:
+      tnote_10y: 0.0
+      tendencia: ""
+      impacto: ""
+      pontos: 0
+    mercados_emergentes:
+      eem_valor: 0.0
+      eem_variacao: 0.0
+      impacto: ""
+      pontos: 0
+  
+  indicadores_brasil:
+    selic:
+      valor: 0.0
+      ultima_decisao: ""
+      expectativa: ""
+      impacto: ""
+      pontos: 0
+    ipca:
+      valor: 0.0
+      tendencia: ""
+      meta: 0.0
+      impacto: ""
+      pontos: 0
+    cambio:
+      usdbrl: 0.0
+      variacao: 0.0
+      correlacao_win: 0.0
+      impacto: ""
+      pontos: 0
+
+# Notícias
+noticias:
+  brasil:
+    - titulo: ""
+      datetime: ""
+      resumo: ""
+      impacto_nivel: ""  # baixo, médio, alto, crítico
+      impacto_direcao: ""  # favorável, neutro, desfavorável
+      pontos: 0
+  
+  globais:
+    - titulo: ""
+      relevancia_brasil: ""
+      impacto_nivel: ""
+      impacto_direcao: ""
+      pontos: 0
+
+# Sistema de Pontuação
+pontuacao:
+  tecnico:
+    tendencia: 0
+    volume: 0
+    momentum: 0
+    spread: 0
+    total: 0
+  
+  macro_global:
+    dxy: 0
+    vix: 0
+    ouro: 0
+    juros_us: 0
+    emergentes: 0
+    total: 0
+  
+  macro_brasil:
+    selic: 0
+    inflacao: 0
+    cambio: 0
+    total: 0
+  
+  noticias_brasil: 0
+  noticias_globais: 0
+  
+  saldo_total: 0
+  interpretacao: ""  # FORTEMENTE FAVORÁVEL, FAVORÁVEL, NEUTRO, etc.
+  alinhamento_operacao: ""  # favorece, contraria, neutro
+
+# Relatório Executivo
+relatorio_executivo:
+  sintese_cenario: ""
+  pontos_positivos_count: 0
+  pontos_negativos_count: 0
+  recomendacao_direcao: ""  # compra, venda, aguardar
+  nivel_confianca: 0  # 1-10
+
+# Plano de Trading
+plano_trading:
+  valido_de: ""
+  valido_ate: ""
+  direcao_operacao: ""  # compra, venda
+  confianca: 0  # 1-10
+  
+  entrada_inicial:
+    direcao: ""
+    preco: 0.0
+    contratos: 1
+    justificativa: ""
+  
+  reforcos:
+    - preco: 0.0
+      contratos: 0
+      justificativa: ""
+  
+  gestao_saida:
+    stop_loss:
+      parcial:
+        preco: 0.0
+        contratos: 0
+      total:
+        preco: 0.0
+    
+    take_profit:
+      - objetivo: 1
+        preco: 0.0
+        contratos: 0
+        lucro_estimado: 0.0
+  
+  resumo_risco:
+    risco_maximo: 0.0
+    potencial_lucro: 0.0
+    relacao_risco_retorno: 0.0
+    percentual_meta: 0.0
+  
+  monitoramento:
+    pontos_atencao: []
+    condicao_invalidacao: ""
+
+# Observações
+observacoes: []
+
+# Status
+status: processando  # processando, concluido, erro, aguardando_input

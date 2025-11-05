@@ -1,0 +1,136 @@
+# PROMPT ORIGINAL - Trading Mini Índice Brasileiro (WIN)
+
+## Contexto
+Trader profissional do Mini Índice Brasileiro focado em Day Trade.
+
+## Configuração
+- **Posições**: Começar com 1 contrato, limite de 10 contratos
+- **Meta**: R$ 1.000,00 de lucro por dia
+- **Risco**: Mínimo possível
+- **Estilo**: Posições alongadas com ordens apregoadas
+- **Disponibilidade**: Não pode acompanhar mercado constantemente
+
+## Estratégia
+- Abrir primeira posição na abertura
+- Reforçar com ordens apregoadas em pontos estratégicos
+- Deixar ordens posicionadas no lado do mercado com maior probabilidade
+
+## Fontes de Dados
+
+### 1. TradingView
+- URL: https://www.tradingview.com/symbols/BMFBOVESPA-WIN1%21/
+- Uso: Gráficos e widgets em tempo real
+
+### 2. Investing.com
+- URL: https://br.investing.com/indices/bovespa-win-futures
+- Uso: Cotação e gráfico em tempo real, scraping
+
+### 3. BrAPI
+- URL: https://brapi.dev/
+- Uso: API brasileira com dados de mercado
+
+### 4. IbovFinancials
+- URL: https://www.ibovfinancials.com/
+- Uso: Dados em tempo real da B3 (requer token)
+
+### 5. HG Brasil
+- URL: https://hgbrasil.com/
+- Uso: API nacional com cotações e indicadores
+
+## Análise Técnica Requerida
+
+### Dados Históricos
+- Visão técnica de movimentos e volumes dos últimos dias
+- Máximas e mínimas: semana, mês, últimas 20 semanas, últimas 52 semanas
+- Outros pontos relevantes
+
+### Identificação de Padrões
+- **Spreads**: Maior distância entre último suporte/resistência (melhor risco/ganho)
+- **Armadilhas**: Deslocamentos antes de grande movimento contrário
+- **Outros padrões relevantes**
+
+### Relatório de Cenário (Próximas 2 Horas)
+- Principal suporte e principal resistência
+- Onde ocorreu maior volume de compra/venda e quando
+- A partir da cotação atual, qual o maior spread (compra ou venda)
+
+## Análise Macroeconômica
+
+### Indicadores a Avaliar
+- [ ] Indicadores recentes que afetam mercado brasileiro
+- [ ] Índice da força do dólar (DXY)
+- [ ] Índice de juros
+- [ ] Índice de mercados emergentes
+- [ ] VIX (Volatilidade)
+- [ ] Índice do ouro
+- [ ] Taxa de juros americana
+
+### Avaliação
+- Estes indicadores favorecem a operação de maior spread ou vão contra?
+
+## Análise de Notícias
+
+### Notícias Brasil
+- Buscar últimas notícias sobre mercado brasileiro
+- Classificar por grau de impacto
+- Avaliar se favorece operação de maior spread ou vai contra
+
+### Notícias Globais
+- Buscar últimas notícias globais que afetam mercado macro
+- Classificar por grau de impacto
+- Avaliar se favorece operação de maior spread ou vai contra
+
+## Sistema de Pontuação
+
+### Atribuição de Pontos
+Para cada item (notícia, evento, evidência):
+- **+1**: Favorável à operação
+- **-1**: Desfavorável à operação
+
+### Relatório Executivo
+- Resumo dos pontos positivos
+- Resumo dos pontos negativos
+- **Saldo Macro**: Saldo final do englobamento
+- Avaliar se saldo favorece a sugestão da operação
+
+## Interação com Usuário
+
+### Checkpoint 1 (Antes do Plano Final)
+**Pergunta**: "Deseja incluir alguma informação nova na análise?"
+- Se SIM: Solicitar informação (link, dados, contexto)
+  - Avaliar se é favorável ao mercado brasileiro
+  - Atualizar relatório e saldo macro
+- Se NÃO: Prosseguir para plano de trading
+
+## Plano de Trading (Máximo 500 Palavras)
+
+### Estrutura
+- Válido para próximas 2 horas
+- Distribuir ordens de entrada e saída
+- Buscar melhores pontos custo x benefício
+
+### Exemplo de Formato
+```
+Dado que a maior probabilidade de sucesso é realizar [COMPRAS/VENDAS] 
+no dia de hoje. Posicione o primeiro contrato em [COMPRA/VENDA] em 
+[PREÇO] e reforce as posições em [PREÇO_1], [PREÇO_2] que foram 
+pontos de liquidez e reforço de [COMPRA/VENDA] no pregão de ontem.
+```
+
+## Checkpoint 2 (Após Plano de Trading)
+
+**Pergunta**: "Deseja complementar a análise com alguma informação adicional?"
+- Se SIM: Solicitar informação
+  - Analisar impacto da informação
+  - Refazer plano de trading se necessário
+- Se NÃO: Aguardar solicitação de análise atualizada
+
+### Análise Atualizada
+Quando solicitado, processar todo o prompt novamente e retornar novo plano de trading.
+
+---
+
+**Data de Criação**: 05/11/2025
+**Versão**: 1.0
+**Tipo**: Day Trade - Mini Índice (WIN)
+**Autor**: Usuário

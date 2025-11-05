@@ -54,19 +54,19 @@ def formatar_analise(resultado: dict) -> str:
         String formatada para exibição
     """
     import json
-    
+
     linhas = []
     linhas.append("\n" + "=" * 70)
     linhas.append(f"📊 ANÁLISE: {resultado.get('ativo', resultado.get('par', 'N/A'))}")
     linhas.append("=" * 70)
-    
+
     # Identificar tipo de análise
     tipo = resultado.get('tipo_analise', resultado.get('tipo', 'N/A'))
     mercado = resultado.get('mercado', 'N/A')
-    
+
     linhas.append(f"Mercado: {mercado.upper()}")
     linhas.append(f"Tipo: {tipo.upper()}")
-    
+
     # Timestamp
     timestamp = resultado.get('timestamp_analise', resultado.get('timestamp', 'N/A'))
     linhas.append(f"Timestamp: {timestamp}")
@@ -78,7 +78,7 @@ def formatar_analise(resultado: dict) -> str:
         linhas.append("\n" + "-" * 70)
         linhas.append("� COTAÇÃO:")
         linhas.append(f"  Atual: {preco}")
-        
+
         # Variações
         var_dia = resultado.get('variacao_dia', resultado.get('variacao_24h', None))
         if var_dia:
@@ -89,7 +89,7 @@ def formatar_analise(resultado: dict) -> str:
         at = resultado['analise_tecnica']
         linhas.append("\n" + "-" * 70)
         linhas.append("📈 ANÁLISE TÉCNICA:")
-        
+
         if 'tendencia' in at:
             linhas.append(f"  Tendência: {at['tendencia'].upper()}")
         if 'forca' in at:
@@ -106,22 +106,22 @@ def formatar_analise(resultado: dict) -> str:
     if recomendacao:
         linhas.append("\n" + "-" * 70)
         linhas.append("💡 RECOMENDAÇÃO:")
-        
+
         if isinstance(recomendacao, dict):
             acao = recomendacao.get('acao', recomendacao.get('direcao', 'N/A'))
             linhas.append(f"  Ação: {acao.upper()}")
-            
+
             confianca = recomendacao.get('confianca', recomendacao.get('confianca_sinal', 0))
             if isinstance(confianca, (int, float)):
                 linhas.append(f"  Confiança: {confianca * 100:.1f}%")
-            
+
             if 'entrada_sugerida' in recomendacao:
                 linhas.append(f"  Entrada: {recomendacao['entrada_sugerida']}")
             if 'stop_loss' in recomendacao:
                 linhas.append(f"  Stop Loss: {recomendacao['stop_loss']}")
             if 'take_profit' in recomendacao:
                 linhas.append(f"  Take Profit: {recomendacao['take_profit']}")
-            
+
             if 'justificativa' in recomendacao:
                 linhas.append("\n  Justificativa:")
                 for just in recomendacao['justificativa']:

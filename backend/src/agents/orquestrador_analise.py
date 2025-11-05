@@ -29,16 +29,16 @@ class TipoAnalise(Enum):
 class OrquestradorAnalise:
     """
     Orquestrador central de análises de mercado
-    
+
     Recebe prompts simples e coordena múltiplos módulos de análise
     para fornecer insights completos e acionáveis.
-    
+
     Example:
         >>> orquestrador = OrquestradorAnalise()
         >>> resultado = orquestrador.analisar("BTCUSD")
         >>> print(resultado['resumo'])
     """
-    
+
     def __init__(self):
         self.nome = "Orquestrador de Análises"
         self.versao = "0.1.0"
@@ -47,7 +47,7 @@ class OrquestradorAnalise:
         # self.analisador_tecnico = AnalisadorTecnico()
         # self.analisador_correlacao = AnalisadorCorrelacao()
         # self.analisador_sentimento = AnalisadorSentimento()
-        
+
     def analisar(
         self,
         prompt: str,
@@ -57,36 +57,36 @@ class OrquestradorAnalise:
     ) -> Dict[str, Any]:
         """
         Processa prompt e executa análise completa
-        
+
         Args:
             prompt: Ativo a ser analisado (ex: 'BTCUSD', 'PETR4', 'AAPL')
             tipo_analise: Tipo de análise a ser executada
             periodo_dias: Período histórico para análise (padrão 90 dias)
             incluir_noticias: Se deve incluir análise de notícias
-            
+
         Returns:
             Dicionário completo com todas as análises e recomendações
-            
+
         Example:
             >>> orquestrador = OrquestradorAnalise()
             >>> resultado = orquestrador.analisar("BTCUSD")
             >>> print(resultado['recomendacao_geral'])
-            
+
             >>> # Análise rápida
             >>> resultado = orquestrador.analisar("PETR4", TipoAnalise.RAPIDA)
-            
+
             >>> # Apenas análise técnica
             >>> resultado = orquestrador.analisar("AAPL", TipoAnalise.TECNICA)
         """
         # Normalizar o prompt
         ativo = self._normalizar_prompt(prompt)
-        
+
         # Identificar mercado do ativo
         mercado = self._identificar_mercado(ativo)
-        
+
         # Obter modelo YAML apropriado
         modelo = self.gerenciador_modelos.obter_modelo(mercado, tipo_analise.value)
-        
+
         # Estrutura de resposta baseada no modelo ou padrão
         if modelo:
             analise = modelo.copy()
@@ -100,9 +100,9 @@ class OrquestradorAnalise:
                 "periodo_dias": periodo_dias,
                 "status": "processando"
             }
-        
+
         analise["status"] = "processando"
-        
+
         try:
             # Executar análises baseado no tipo
             if tipo_analise == TipoAnalise.RAPIDA:
@@ -123,84 +123,84 @@ class OrquestradorAnalise:
             elif tipo_analise == TipoAnalise.SENTIMENTO:
                 dados = self._analise_sentimento(ativo, incluir_noticias)
                 analise.update(dados)
-            
+
             analise["status"] = "concluido"
-            
+
         except Exception as e:
             analise["status"] = "erro"
             analise["erro"] = str(e)
-        
+
         return analise
-    
+
     def _normalizar_prompt(self, prompt: str) -> str:
         """
         Normaliza o prompt para formato padronizado
-        
+
         Args:
             prompt: Entrada do usuário
-            
+
         Returns:
             Ticker normalizado em uppercase
         """
         # Remove espaços e converte para uppercase
         ativo = prompt.strip().upper()
-        
+
         # TODO: Adicionar validação de ticker
         # TODO: Adicionar suporte para múltiplos formatos
-        
+
         return ativo
-    
+
     def _identificar_mercado(self, ativo: str) -> str:
         """
         Identifica o mercado do ativo baseado no ticker
-        
+
         Args:
             ativo: Ticker do ativo normalizado
-            
+
         Returns:
             Tipo de mercado (forex, cripto, acoes, futuros)
         """
         ativo_upper = ativo.upper()
-        
+
         # Forex: pares de moedas (6 caracteres, geralmente)
         pares_forex = ['EURUSD', 'GBPUSD', 'USDJPY', 'AUDUSD', 'USDCAD', 'USDCHF', 'NZDUSD']
         if ativo_upper in pares_forex or (len(ativo) == 6 and 'USD' in ativo):
             return 'forex'
-        
+
         # Cripto: termina com USD, USDT, BTC, etc
         sufixos_cripto = ['USD', 'USDT', 'BTC', 'ETH', 'BNB']
         for sufixo in sufixos_cripto:
             if ativo_upper.endswith(sufixo) and len(ativo) > len(sufixo):
                 return 'cripto'
-        
+
         # Ações brasileiras: termina com número
         if ativo[-1].isdigit():
             return 'acoes'
-        
+
         # Futuros: contém mês/ano ou sufixos específicos
         if any(x in ativo_upper for x in ['F', 'H', 'M', 'N', 'Q', 'U', 'V', 'X', 'Z']) and len(ativo) > 4:
             return 'futuros'
-        
+
         # Default: ações
         return 'acoes'
-    
+
     def _analise_rapida(self, ativo: str, periodo_dias: int) -> Dict:
         """
         Análise rápida com principais indicadores
-        
+
         Inclui:
         - Preço atual e variação
         - Principais indicadores técnicos (RSI, MACD)
         - Tendência de curto prazo
         - Recomendação simples
-        
+
         TODO: Integrar com dados reais (yfinance, APIs, etc)
         """
         import random
-        
+
         # Gerar dados mock realistas (substituir por dados reais futuramente)
         preco_base = random.uniform(50000, 70000) if 'BTC' in ativo else random.uniform(10, 500)
-        
+
         dados_mock = {
             "preco_atual": round(preco_base, 2),
             "variacao_dia": round(random.uniform(-5, 5), 2),
@@ -234,18 +234,18 @@ class OrquestradorAnalise:
                 "Próximo passo: Integrar com yfinance e TA-Lib"
             ]
         }
-        
+
         return dados_mock
-    
+
     def _analise_completa(
-        self, 
-        ativo: str, 
+        self,
+        ativo: str,
         periodo_dias: int,
         incluir_noticias: bool
     ) -> Dict:
         """
         Análise completa com todos os módulos
-        
+
         Inclui:
         - Análise técnica detalhada
         - Análise de correlações
@@ -274,15 +274,15 @@ class OrquestradorAnalise:
                 "probabilidade_sucesso": 0.0
             }
         }
-        
+
         if incluir_noticias:
             analise["analise_sentimento"] = self._analise_sentimento(ativo, incluir_noticias)
-        
+
         # Gerar recomendação consolidada
         analise["recomendacao_geral"] = self._gerar_recomendacao_consolidada(analise)
-        
+
         return analise
-    
+
     def _analise_tecnica(self, ativo: str, periodo_dias: int) -> Dict:
         """Executa análise técnica completa"""
         return {
@@ -318,7 +318,7 @@ class OrquestradorAnalise:
             "padroes_identificados": [],
             "sinais": []
         }
-    
+
     def _analise_correlacao(self, ativo: str, periodo_dias: int) -> Dict:
         """Executa análise de correlação com outros ativos"""
         return {
@@ -331,7 +331,7 @@ class OrquestradorAnalise:
             },
             "mudancas_regime": []  # Identificação de mudanças no regime de correlação
         }
-    
+
     def _analise_fundamental(self, ativo: str, periodo_dias: int) -> Dict:
         """Executa análise fundamentalista (quando aplicável)"""
         return {
@@ -340,7 +340,7 @@ class OrquestradorAnalise:
             "indicadores": {},
             "eventos_proximos": []
         }
-    
+
     def _analise_sentimento(self, ativo: str, incluir_noticias: bool) -> Dict:
         """Executa análise de sentimento"""
         return {
@@ -350,14 +350,14 @@ class OrquestradorAnalise:
             "impacto_estimado": "baixo",  # baixo, medio, alto
             "fonte_dados": []
         }
-    
+
     def _gerar_recomendacao_consolidada(self, analise: Dict) -> Dict:
         """
         Gera recomendação consolidada baseada em todas as análises
-        
+
         Args:
             analise: Dicionário com todas as análises realizadas
-            
+
         Returns:
             Recomendação final consolidada
         """
@@ -375,6 +375,6 @@ class OrquestradorAnalise:
                 "Aguardar confirmação de sinais"
             ]
         }
-    
+
     def __repr__(self) -> str:
         return f"<OrquestradorAnalise: {self.nome} v{self.versao}>"
