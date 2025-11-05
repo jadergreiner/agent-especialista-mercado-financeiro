@@ -114,11 +114,20 @@ PNL total (R$): 3,280.50
 
 ### Modo 3: Importar dados manuais por CSV (preços diários)
 
-Padronize seus arquivos CSV no diretório:
+Estrutura de diretórios padronizada para dados manuais:
 
 ```powershell
-# Diretório padrão (será criado se não existir)
-backend/data/manual
+# Base
+backend/data/manual/
+
+# Um diretório por ativo (exemplos)
+backend/data/manual/WIN/
+backend/data/manual/IBOV-FUT/
+backend/data/manual/VALE3/
+backend/data/manual/PETR4/
+
+# Salve os CSVs do ativo dentro da sua pasta
+backend/data/manual/WIN/Dados Historicos - Ibovespa Futuros.csv
 ```
 
 Formato esperado (colunas em PT-BR, como o exemplo anexado):
@@ -126,16 +135,22 @@ Formato esperado (colunas em PT-BR, como o exemplo anexado):
 - Data (dd.mm.yyyy), Último, Abertura, Máxima, Mínima, Vol., Var%
 - Exemplos de valores: "04.11.2025", "152.944", "44,99K", "0,03%"
 
-Importar um arquivo específico:
+Importar um arquivo específico (instrumento inferido pela pasta-mãe se não informado):
 
 ```powershell
-python backend/src/cli_importar_csv.py importar-diario --arquivo backend/data/manual/ibov.csv --instrumento WIN --fonte investing.com
+python backend/src/cli_importar_csv.py importar-diario --arquivo "backend/data/manual/WIN/Dados Históricos - Ibovespa Futuros (3).csv" --fonte investing.com
 ```
 
-Importar todos os CSVs do diretório padrão:
+Importar todos os CSVs do diretório do ativo (ex.: WIN):
 
 ```powershell
-python backend/src/cli_importar_csv.py importar-diario --dir backend/data/manual --instrumento WIN --fonte manual
+python backend/src/cli_importar_csv.py importar-diario --dir backend/data/manual/WIN --fonte manual
+```
+
+Importar todos os CSVs de todos os ativos (varre subpastas de data/manual):
+
+```powershell
+python backend/src/cli_importar_csv.py importar-diario --dir backend/data/manual --fonte manual
 ```
 
 Regras de parsing:
