@@ -1,1 +1,1 @@
-"""Source package initialization"""
+"""Pacote Source - Inicialização"""

@@ -1,4 +1,4 @@
-"""Agent module initialization"""
-from .market_expert import MarketExpertAgent
+"""Módulo de Agentes - Inicialização"""
+from .especialista_mercado import EspecialistaMercadoFinanceiro
 
-__all__ = ["MarketExpertAgent"]
+__all__ = ["EspecialistaMercadoFinanceiro"]
