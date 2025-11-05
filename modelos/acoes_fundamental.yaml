@@ -1,0 +1,13 @@
+ativo: PETR4
+mercado: acoes
+tipo_analise: fundamental
+preco_atual: 39.10
+dividend_yield: 8.2
+crescimento_receita: 12.5
+recomendacao: comprar para dividendos
+confianca: 0.80
+eventos_proximos:
+  - Pagamento de dividendos em 10/11/2025
+observacoes:
+  - Empresa sólida, payout elevado
+  - Crescimento moderado

@@ -1,0 +1,18 @@
+ativo: EURUSD
+mercado: forex
+tipo_analise: rapida
+preco_atual: 1.0850
+tendencia: baixa
+volatilidade: alta
+suportes:
+  - 1.0800
+  - 1.0750
+resistencias:
+  - 1.0900
+  - 1.0950
+sinal_operacao: vender
+timeframe_recomendado: intraday
+confianca: 0.68
+observacoes:
+  - Alta volatilidade devido a decisão do BCE
+  - Spread elevado no horário asiático

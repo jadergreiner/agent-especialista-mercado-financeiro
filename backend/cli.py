@@ -53,49 +53,88 @@ def formatar_analise(resultado: dict) -> str:
     Returns:
         String formatada para exibição
     """
+    import json
+    
     linhas = []
     linhas.append("\n" + "=" * 70)
-    linhas.append(f"📊 ANÁLISE: {resultado['ativo']}")
+    linhas.append(f"📊 ANÁLISE: {resultado.get('ativo', resultado.get('par', 'N/A'))}")
     linhas.append("=" * 70)
-    linhas.append(f"Tipo: {resultado['tipo_analise'].upper()}")
-    linhas.append(f"Período: {resultado['periodo_dias']} dias")
-    linhas.append(f"Status: {resultado['status'].upper()}")
-    linhas.append(f"Timestamp: {resultado['timestamp']}")
+    
+    # Identificar tipo de análise
+    tipo = resultado.get('tipo_analise', resultado.get('tipo', 'N/A'))
+    mercado = resultado.get('mercado', 'N/A')
+    
+    linhas.append(f"Mercado: {mercado.upper()}")
+    linhas.append(f"Tipo: {tipo.upper()}")
+    
+    # Timestamp
+    timestamp = resultado.get('timestamp_analise', resultado.get('timestamp', 'N/A'))
+    linhas.append(f"Timestamp: {timestamp}")
+    linhas.append(f"Status: {resultado.get('status', 'N/A').upper()}")
 
-    # Se for análise rápida
-    if 'recomendacao' in resultado:
+    # Preço/Cotação atual
+    preco = resultado.get('preco_atual', resultado.get('cotacao_atual', resultado.get('preco_spot', None)))
+    if preco is not None:
         linhas.append("\n" + "-" * 70)
-        linhas.append("📈 RESUMO RÁPIDO:")
-        linhas.append(f"  Preço Atual: {resultado.get('preco_atual', 'N/A')}")
-        linhas.append(f"  Variação (Dia): {resultado.get('variacao_dia', 'N/A')}")
-        linhas.append(f"  Tendência: {resultado.get('tendencia', 'N/A').upper()}")
-        linhas.append(f"  Recomendação: {resultado['recomendacao'].upper()}")
-        linhas.append(f"  Confiança: {resultado.get('confianca', 0) * 100:.1f}%")
+        linhas.append("� COTAÇÃO:")
+        linhas.append(f"  Atual: {preco}")
+        
+        # Variações
+        var_dia = resultado.get('variacao_dia', resultado.get('variacao_24h', None))
+        if var_dia:
+            linhas.append(f"  Variação 24h: {var_dia}")
 
-    # Se for análise completa
-    if 'recomendacao_geral' in resultado:
-        rec = resultado['recomendacao_geral']
+    # Análise Técnica
+    if 'analise_tecnica' in resultado:
+        at = resultado['analise_tecnica']
         linhas.append("\n" + "-" * 70)
-        linhas.append("💡 RECOMENDAÇÃO GERAL:")
-        linhas.append(f"  Ação: {rec['acao'].upper()}")
-        linhas.append(f"  Confiança: {rec['confianca'] * 100:.1f}%")
-        linhas.append(f"  Timeframe: {rec['timeframe_sugerido'].replace('_', ' ').title()}")
+        linhas.append("📈 ANÁLISE TÉCNICA:")
+        
+        if 'tendencia' in at:
+            linhas.append(f"  Tendência: {at['tendencia'].upper()}")
+        if 'forca' in at:
+            linhas.append(f"  Força: {at['forca']}/10")
+        if 'rsi' in at:
+            linhas.append(f"  RSI: {at['rsi']}")
+        if 'suporte_resistencia' in at:
+            sr = at['suporte_resistencia']
+            linhas.append(f"  Suporte: {sr.get('suporte', 'N/A')}")
+            linhas.append(f"  Resistência: {sr.get('resistencia', 'N/A')}")
 
-        if rec.get('justificativa'):
-            linhas.append("\n  Justificativa:")
-            for just in rec['justificativa']:
-                linhas.append(f"    • {just}")
+    # Recomendação
+    recomendacao = resultado.get('recomendacao', resultado.get('recomendacao_trading', None))
+    if recomendacao:
+        linhas.append("\n" + "-" * 70)
+        linhas.append("💡 RECOMENDAÇÃO:")
+        
+        if isinstance(recomendacao, dict):
+            acao = recomendacao.get('acao', recomendacao.get('direcao', 'N/A'))
+            linhas.append(f"  Ação: {acao.upper()}")
+            
+            confianca = recomendacao.get('confianca', recomendacao.get('confianca_sinal', 0))
+            if isinstance(confianca, (int, float)):
+                linhas.append(f"  Confiança: {confianca * 100:.1f}%")
+            
+            if 'entrada_sugerida' in recomendacao:
+                linhas.append(f"  Entrada: {recomendacao['entrada_sugerida']}")
+            if 'stop_loss' in recomendacao:
+                linhas.append(f"  Stop Loss: {recomendacao['stop_loss']}")
+            if 'take_profit' in recomendacao:
+                linhas.append(f"  Take Profit: {recomendacao['take_profit']}")
+            
+            if 'justificativa' in recomendacao:
+                linhas.append("\n  Justificativa:")
+                for just in recomendacao['justificativa']:
+                    linhas.append(f"    • {just}")
+        else:
+            linhas.append(f"  {recomendacao.upper()}")
 
-        if rec.get('proximos_passos'):
-            linhas.append("\n  Próximos Passos:")
-            for passo in rec['proximos_passos']:
-                linhas.append(f"    → {passo}")
-
-    # Observações
-    if 'observacoes' in resultado:
+    # Observações/Riscos
+    observacoes = resultado.get('observacoes', resultado.get('riscos', None))
+    if observacoes:
         linhas.append("\n" + "-" * 70)
         linhas.append("📝 OBSERVAÇÕES:")
-        for obs in resultado['observacoes']:
+        for obs in observacoes:
             linhas.append(f"  • {obs}")
 
     # Se houver erro

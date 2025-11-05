@@ -1,0 +1,14 @@
+ativo: ETHUSD
+mercado: cripto
+tipo_analise: completa
+preco_atual: 3800.00
+tendencia: alta
+volatilidade: média
+recomendacao: acumular
+percentual_portfolio_sugerido: 0.15
+confianca: 0.70
+justificativa:
+  - Fundamentos sólidos
+  - Adoção institucional crescente
+alertas:
+  - Monitorar atualizações da rede Ethereum

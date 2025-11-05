@@ -1,0 +1,15 @@
+ativo: BTCUSD-PERP
+mercado: cripto_futuros
+tipo_analise: tecnica
+preco_atual: 67500.00
+spread: 120.00
+tendencia: lateral
+sinal_operacao: scalping
+entrada_sugerida: 67480.00
+stop_loss: 67400.00
+take_profit: 67600.00
+risco_retorno: 1.5
+confianca: 0.55
+observacoes:
+  - Oportunidade de scalping em range
+  - Volume institucional acima da média

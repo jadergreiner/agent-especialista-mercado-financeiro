@@ -37,16 +37,30 @@ Este projeto implementa um especialista financeiro que combina:
 ├── backend/                 # Backend Python
 │   ├── src/
 │   │   ├── agents/         # Lógica do agente especialista
-│   │   ├── data/           # Coleta e gestão de dados
-│   │   ├── analysis/       # Módulos de análise
-│   │   ├── strategies/     # Estratégias de trading
-│   │   ├── risk/           # Gestão de risco
-│   │   └── api/            # REST API
-│   ├── tests/              # Testes unitários e integração
-│   ├── requirements.txt    # Dependências Python
-│   └── main.py            # Entry point
+│   │   │   ├── especialista_mercado.py
+│   │   │   └── orquestrador_analise.py
+│   │   ├── utils/          # Utilitários
+│   │   │   └── gerenciador_modelos.py  # Gerencia templates YAML
+│   │   ├── data/           # Coleta e gestão de dados (futuro)
+│   │   ├── analysis/       # Módulos de análise (futuro)
+│   │   ├── strategies/     # Estratégias de trading (futuro)
+│   │   └── risk/           # Gestão de risco (futuro)
+│   ├── cli.py              # Interface linha de comando
+│   ├── main.py             # API FastAPI
+│   └── requirements.txt    # Dependências Python
 │
-├── frontend/               # Frontend Angular
+├── modelos/                 # Templates YAML de saída
+│   ├── forex_rapida.yaml
+│   ├── cripto_futuros_tecnica.yaml
+│   ├── acoes_fundamental.yaml
+│   └── cripto_completa.yaml
+│
+├── docs/                   # Documentação
+│   ├── TEMPLATE_ANALISE.md           # Guia de uso do sistema
+│   ├── PADROES_DOCUMENTACAO.md       # Padrões de código
+│   └── INTEGRACAO_MODELOS_YAML.md    # Arquitetura de modelos
+│
+├── frontend/               # Frontend Angular (futuro)
 │   ├── src/
 │   │   ├── app/
 │   │   │   ├── components/ # Componentes UI
@@ -171,10 +185,22 @@ Ver documentação completa em: [`docs/TEMPLATE_ANALISE.md`](docs/TEMPLATE_ANALI
 4. **Timing de Posição**: Pontos ótimos de entrada/saída com gestão de risco
 5. **Sentimento de Mercado**: Impacto de notícias e sentimento geral
 
-## 📄 Licença
+## � Arquitetura de Modelos
+
+O sistema utiliza templates YAML para definir a estrutura de saída de cada tipo de análise:
+
+- **Flexibilidade**: Adicionar novos tipos sem modificar código
+- **Padronização**: Estruturas consistentes para todas as análises
+- **Escalabilidade**: Fácil expansão para novos mercados
+
+Ver documentação completa: [`docs/INTEGRACAO_MODELOS_YAML.md`](docs/INTEGRACAO_MODELOS_YAML.md)
+
+## �📄 Licença
 
 MIT License
 
 ---
 
 **Status**: 🚧 Em Desenvolvimento - Fase de Prototipagem
+
+**Última atualização**: Sistema integrado com modelos YAML flexíveis ✅

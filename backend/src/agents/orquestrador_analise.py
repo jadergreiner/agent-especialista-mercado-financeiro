@@ -8,6 +8,12 @@ coordenando múltiplos módulos de análise para fornecer insights completos.
 from typing import Dict, List, Optional, Any
 from datetime import datetime
 from enum import Enum
+import sys
+from pathlib import Path
+
+# Adicionar diretório pai ao path para importações
+sys.path.insert(0, str(Path(__file__).parent.parent))
+from utils.gerenciador_modelos import gerenciador_modelos
 
 
 class TipoAnalise(Enum):
@@ -36,6 +42,7 @@ class OrquestradorAnalise:
     def __init__(self):
         self.nome = "Orquestrador de Análises"
         self.versao = "0.1.0"
+        self.gerenciador_modelos = gerenciador_modelos
         # TODO: Inicializar módulos de análise quando implementados
         # self.analisador_tecnico = AnalisadorTecnico()
         # self.analisador_correlacao = AnalisadorCorrelacao()
@@ -74,29 +81,48 @@ class OrquestradorAnalise:
         # Normalizar o prompt
         ativo = self._normalizar_prompt(prompt)
         
-        # Estrutura de resposta padronizada
-        analise = {
-            "ativo": ativo,
-            "timestamp": datetime.now().isoformat(),
-            "tipo_analise": tipo_analise.value,
-            "periodo_dias": periodo_dias,
-            "status": "processando"
-        }
+        # Identificar mercado do ativo
+        mercado = self._identificar_mercado(ativo)
+        
+        # Obter modelo YAML apropriado
+        modelo = self.gerenciador_modelos.obter_modelo(mercado, tipo_analise.value)
+        
+        # Estrutura de resposta baseada no modelo ou padrão
+        if modelo:
+            analise = modelo.copy()
+            analise["ativo"] = ativo
+            analise["timestamp_analise"] = datetime.now().isoformat()
+        else:
+            analise = {
+                "ativo": ativo,
+                "timestamp": datetime.now().isoformat(),
+                "tipo_analise": tipo_analise.value,
+                "periodo_dias": periodo_dias,
+                "status": "processando"
+            }
+        
+        analise["status"] = "processando"
         
         try:
             # Executar análises baseado no tipo
             if tipo_analise == TipoAnalise.RAPIDA:
-                analise.update(self._analise_rapida(ativo, periodo_dias))
+                dados = self._analise_rapida(ativo, periodo_dias)
+                analise.update(dados)
             elif tipo_analise == TipoAnalise.COMPLETA:
-                analise.update(self._analise_completa(ativo, periodo_dias, incluir_noticias))
+                dados = self._analise_completa(ativo, periodo_dias, incluir_noticias)
+                analise.update(dados)
             elif tipo_analise == TipoAnalise.CORRELACAO:
-                analise.update(self._analise_correlacao(ativo, periodo_dias))
+                dados = self._analise_correlacao(ativo, periodo_dias)
+                analise.update(dados)
             elif tipo_analise == TipoAnalise.TECNICA:
-                analise.update(self._analise_tecnica(ativo, periodo_dias))
+                dados = self._analise_tecnica(ativo, periodo_dias)
+                analise.update(dados)
             elif tipo_analise == TipoAnalise.FUNDAMENTAL:
-                analise.update(self._analise_fundamental(ativo, periodo_dias))
+                dados = self._analise_fundamental(ativo, periodo_dias)
+                analise.update(dados)
             elif tipo_analise == TipoAnalise.SENTIMENTO:
-                analise.update(self._analise_sentimento(ativo, incluir_noticias))
+                dados = self._analise_sentimento(ativo, incluir_noticias)
+                analise.update(dados)
             
             analise["status"] = "concluido"
             
@@ -124,6 +150,40 @@ class OrquestradorAnalise:
         
         return ativo
     
+    def _identificar_mercado(self, ativo: str) -> str:
+        """
+        Identifica o mercado do ativo baseado no ticker
+        
+        Args:
+            ativo: Ticker do ativo normalizado
+            
+        Returns:
+            Tipo de mercado (forex, cripto, acoes, futuros)
+        """
+        ativo_upper = ativo.upper()
+        
+        # Forex: pares de moedas (6 caracteres, geralmente)
+        pares_forex = ['EURUSD', 'GBPUSD', 'USDJPY', 'AUDUSD', 'USDCAD', 'USDCHF', 'NZDUSD']
+        if ativo_upper in pares_forex or (len(ativo) == 6 and 'USD' in ativo):
+            return 'forex'
+        
+        # Cripto: termina com USD, USDT, BTC, etc
+        sufixos_cripto = ['USD', 'USDT', 'BTC', 'ETH', 'BNB']
+        for sufixo in sufixos_cripto:
+            if ativo_upper.endswith(sufixo) and len(ativo) > len(sufixo):
+                return 'cripto'
+        
+        # Ações brasileiras: termina com número
+        if ativo[-1].isdigit():
+            return 'acoes'
+        
+        # Futuros: contém mês/ano ou sufixos específicos
+        if any(x in ativo_upper for x in ['F', 'H', 'M', 'N', 'Q', 'U', 'V', 'X', 'Z']) and len(ativo) > 4:
+            return 'futuros'
+        
+        # Default: ações
+        return 'acoes'
+    
     def _analise_rapida(self, ativo: str, periodo_dias: int) -> Dict:
         """
         Análise rápida com principais indicadores
@@ -133,22 +193,49 @@ class OrquestradorAnalise:
         - Principais indicadores técnicos (RSI, MACD)
         - Tendência de curto prazo
         - Recomendação simples
+        
+        TODO: Integrar com dados reais (yfinance, APIs, etc)
         """
-        return {
-            "preco_atual": 0.0,
-            "variacao_dia": 0.0,
-            "variacao_periodo": 0.0,
-            "tendencia": "indefinida",
-            "forca_tendencia": 0.0,
-            "indicadores_chave": {
-                "rsi": 0.0,
-                "macd": {"linha": 0.0, "sinal": 0.0, "histograma": 0.0},
-                "volume_relativo": 0.0
+        import random
+        
+        # Gerar dados mock realistas (substituir por dados reais futuramente)
+        preco_base = random.uniform(50000, 70000) if 'BTC' in ativo else random.uniform(10, 500)
+        
+        dados_mock = {
+            "preco_atual": round(preco_base, 2),
+            "variacao_dia": round(random.uniform(-5, 5), 2),
+            "variacao_periodo": round(random.uniform(-15, 20), 2),
+            "tendencia": random.choice(["alta", "baixa", "lateral"]),
+            "forca_tendencia": round(random.uniform(5, 9), 1),
+            "analise_tecnica": {
+                "tendencia": random.choice(["alta", "baixa", "lateral"]),
+                "forca": random.randint(5, 9),
+                "rsi": round(random.uniform(30, 70), 1),
+                "suporte_resistencia": {
+                    "suporte": round(preco_base * 0.95, 2),
+                    "resistencia": round(preco_base * 1.05, 2)
+                }
             },
-            "recomendacao": "aguardar",  # comprar, vender, aguardar
-            "confianca": 0.0,
-            "observacoes": ["Análise rápida - dados pendentes de implementação"]
+            "recomendacao": {
+                "acao": random.choice(["comprar", "vender", "aguardar"]),
+                "confianca": round(random.uniform(0.6, 0.9), 2),
+                "entrada_sugerida": round(preco_base * random.uniform(0.98, 1.02), 2),
+                "stop_loss": round(preco_base * 0.95, 2),
+                "take_profit": round(preco_base * 1.08, 2),
+                "justificativa": [
+                    "Análise baseada em dados mock para demonstração",
+                    f"Tendência de {periodo_dias} dias identificada",
+                    "Aguardando integração com dados reais"
+                ]
+            },
+            "observacoes": [
+                "⚠️ Dados simulados para demonstração do sistema",
+                f"Período analisado: {periodo_dias} dias",
+                "Próximo passo: Integrar com yfinance e TA-Lib"
+            ]
         }
+        
+        return dados_mock
     
     def _analise_completa(
         self, 

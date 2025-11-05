@@ -1,3 +1,65 @@
+# 🚀 Guia Rápido de Uso
+
+## 1. Executando o sistema
+
+Abra o terminal na pasta `backend` e rode:
+```bash
+python cli.py
+```
+
+## 2. Como enviar o prompt
+
+Digite o ticker do ativo e, opcionalmente, o tipo de análise:
+- **Análise completa:**
+  ```
+  BTCUSD
+  PETR4
+  AAPL
+  ```
+- **Análise rápida:**
+  ```
+  BTCUSD rapida
+  PETR4 rapida
+  ```
+- **Análise técnica:**
+  ```
+  BTCUSD tecnica
+  PETR4 tecnica
+  ```
+- **Análise de correlação:**
+  ```
+  BTCUSD correlacao
+  PETR4 correlacao
+  ```
+- **Análise de sentimento:**
+  ```
+  BTCUSD sentimento
+  PETR4 sentimento
+  ```
+- **Análise fundamentalista:**
+  ```
+  BTCUSD fundamental
+  PETR4 fundamental
+  ```
+
+## 3. Comandos úteis
+- `ajuda` — Exibe todos os comandos disponíveis
+- `sair` — Encerra o sistema
+
+## 4. Exemplos práticos
+```bash
+BTCUSD rapida
+PETR4 tecnica
+AAPL correlacao
+TSLA sentimento
+VALE3 fundamental
+```
+
+## 5. Resultado
+O sistema retorna uma análise estruturada, com indicadores, recomendações e observações.
+
+---
+
 # Template de Análise - Guia de Uso
 
 ## 🎯 Visão Geral
