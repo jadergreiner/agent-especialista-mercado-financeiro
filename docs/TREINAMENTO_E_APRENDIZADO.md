@@ -30,6 +30,37 @@ Este documento descreve o ciclo de melhoria contínua do agente de mercado finan
 
 ## Como Usar
 
+### Modo 1: Inserção Manual (sem API)
+
+Para inserir recomendações manualmente (útil para dados históricos ou testes):
+
+```powershell
+# Criar nova recomendação via wizard interativo
+python backend/src/cli_inserir_manual.py nova
+
+# O wizard guiará você por todas as informações:
+# - Data/hora
+# - Direção (COMPRA/VENDA/AGUARDAR)
+# - Preços (entrada, stop, TPs)
+# - Contexto (tendência, spread, saldo macro)
+# - Volatilidade (ATR)
+# - Confiança e validade
+```
+
+**Registrar resultado de forma interativa:**
+
+```powershell
+# Wizard para registrar resultado
+python backend/src/cli_inserir_manual.py resultado
+
+# O wizard mostrará pendentes e guiará o registro:
+# - Status (executada/cancelada/expirada)
+# - Resultado financeiro (acerto/erro, PnL)
+# - Motivo da saída (tp1/tp2/tp3/stop/tempo/manual)
+```
+
+### Modo 2: CLI Direto (avançado)
+
 ### 1) Listar recomendações pendentes
 
 ```powershell
