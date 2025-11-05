@@ -51,7 +51,7 @@ analise_tecnica:
     curto_prazo: ""  # alta, baixa, lateral
     medio_prazo: ""
     forca: 0  # 1-10
-  
+
   suportes:
     s1: 0.0
     s1_justificativa: ""
@@ -59,7 +59,7 @@ analise_tecnica:
     s2_justificativa: ""
     s3: 0.0
     s3_justificativa: ""
-  
+
   resistencias:
     r1: 0.0
     r1_justificativa: ""
@@ -67,14 +67,14 @@ analise_tecnica:
     r2_justificativa: ""
     r3: 0.0
     r3_justificativa: ""
-  
+
   spread_analysis:
     spread_compra_pontos: 0
     spread_venda_pontos: 0
     melhor_spread_direcao: ""  # compra, venda
     melhor_spread_pontos: 0
     relacao_risco_ganho: 0.0
-  
+
   volume_profile:
     poc_dia: 0.0
     val: 0.0  # Value Area Low
@@ -87,7 +87,7 @@ analise_tecnica:
       preco: 0.0
       horario: ""
       quantidade: 0
-  
+
   indicadores:
     rsi:
       valor: 0.0
@@ -103,7 +103,7 @@ analise_tecnica:
     atr:
       valor: 0.0
       classificacao: ""  # baixa, média, alta, extrema
-  
+
   padroes_identificados:
     armadilhas: []  # lista de stop hunting detectados
     outros_padroes: []
@@ -136,7 +136,7 @@ analise_macro:
       eem_variacao: 0.0
       impacto: ""
       pontos: 0
-  
+
   indicadores_brasil:
     selic:
       valor: 0.0
@@ -166,7 +166,7 @@ noticias:
       impacto_nivel: ""  # baixo, médio, alto, crítico
       impacto_direcao: ""  # favorável, neutro, desfavorável
       pontos: 0
-  
+
   globais:
     - titulo: ""
       relevancia_brasil: ""
@@ -182,7 +182,7 @@ pontuacao:
     momentum: 0
     spread: 0
     total: 0
-  
+
   macro_global:
     dxy: 0
     vix: 0
@@ -190,16 +190,16 @@ pontuacao:
     juros_us: 0
     emergentes: 0
     total: 0
-  
+
   macro_brasil:
     selic: 0
     inflacao: 0
     cambio: 0
     total: 0
-  
+
   noticias_brasil: 0
   noticias_globais: 0
-  
+
   saldo_total: 0
   interpretacao: ""  # FORTEMENTE FAVORÁVEL, FAVORÁVEL, NEUTRO, etc.
   alinhamento_operacao: ""  # favorece, contraria, neutro
@@ -218,18 +218,18 @@ plano_trading:
   valido_ate: ""
   direcao_operacao: ""  # compra, venda
   confianca: 0  # 1-10
-  
+
   entrada_inicial:
     direcao: ""
     preco: 0.0
     contratos: 1
     justificativa: ""
-  
+
   reforcos:
     - preco: 0.0
       contratos: 0
       justificativa: ""
-  
+
   gestao_saida:
     stop_loss:
       parcial:
@@ -237,19 +237,19 @@ plano_trading:
         contratos: 0
       total:
         preco: 0.0
-    
+
     take_profit:
       - objetivo: 1
         preco: 0.0
         contratos: 0
         lucro_estimado: 0.0
-  
+
   resumo_risco:
     risco_maximo: 0.0
     potencial_lucro: 0.0
     relacao_risco_retorno: 0.0
     percentual_meta: 0.0
-  
+
   monitoramento:
     pontos_atencao: []
     condicao_invalidacao: ""

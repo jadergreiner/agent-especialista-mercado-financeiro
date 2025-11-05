@@ -96,7 +96,7 @@ Cálculo:
 - Relação Risco/Ganho para cada lado
 
 Resultado:
-"A partir de {preco_atual}, o maior spread é de {direcao} com {pontos} 
+"A partir de {preco_atual}, o maior spread é de {direcao} com {pontos}
 pontos de potencial vs {risco} pontos de risco (relação {relacao}:1)"
 ```
 
@@ -111,8 +111,8 @@ Buscar:
 - Volume anormal em pontas
 
 Interpretação:
-"Detectado movimento de armadilha em {horario} quando preço foi a 
-{preco_extremo} e reverteu para {preco_retorno}. Isto sugere liquidez 
+"Detectado movimento de armadilha em {horario} quando preço foi a
+{preco_extremo} e reverteu para {preco_retorno}. Isto sugere liquidez
 acumulada em {nivel} que pode ser testada novamente."
 ```
 

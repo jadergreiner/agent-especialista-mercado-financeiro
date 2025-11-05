@@ -95,26 +95,25 @@ def build_parser() -> argparse.ArgumentParser:
     p_met.add_argument('--dias', type=int, default=30)
     p_met.set_defaults(func=cmd_metricas)
 
-    p_metd = sub.add_parser('metricas-detalhadas', help='Métricas por categoria (tendência, saldo macro, horário)')
+    p_metd = sub.add_parser('metricas-detalhadas', help='Métricas por categoria (tendência, saldo macro, horário, spread, direção, volatilidade)')
     p_metd.add_argument('--dias', type=int, default=30)
     def _cmd_metricas_detalhadas(args: argparse.Namespace) -> None:
         inicializar_banco()
         m = calcular_metricas_detalhadas(dias=args.dias)
-        print("\n📊 Métricas por Tendência")
-        for k, v in sorted(m['por_tendencia'].items()):
-            acc = f"{v['acuracia']*100:.1f}%" if v.get('acuracia') is not None else "n/a"
-            pf = f"{v['profit_factor']:.2f}" if v.get('profit_factor') is not None else "n/a"
-            print(f"- {k}: sinais={v['sinais']} | exec={v['executadas']} | acc={acc} | PF={pf} | PnL=R$ {v['pnl_total_reais']:.2f}")
-        print("\n📊 Métricas por Saldo Macro")
-        for k, v in sorted(m['por_saldo_macro'].items()):
-            acc = f"{v['acuracia']*100:.1f}%" if v.get('acuracia') is not None else "n/a"
-            pf = f"{v['profit_factor']:.2f}" if v.get('profit_factor') is not None else "n/a"
-            print(f"- {k}: sinais={v['sinais']} | exec={v['executadas']} | acc={acc} | PF={pf} | PnL=R$ {v['pnl_total_reais']:.2f}")
-        print("\n📊 Métricas por Horário")
-        for k, v in sorted(m['por_horario'].items()):
-            acc = f"{v['acuracia']*100:.1f}%" if v.get('acuracia') is not None else "n/a"
-            pf = f"{v['profit_factor']:.2f}" if v.get('profit_factor') is not None else "n/a"
-            print(f"- {k}: sinais={v['sinais']} | exec={v['executadas']} | acc={acc} | PF={pf} | PnL=R$ {v['pnl_total_reais']:.2f}")
+        
+        def exibir_categoria(titulo: str, dados: dict):
+            print(f"\n📊 {titulo}")
+            for k, v in sorted(dados.items()):
+                acc = f"{v['acuracia']*100:.1f}%" if v.get('acuracia') is not None else "n/a"
+                pf = f"{v['profit_factor']:.2f}" if v.get('profit_factor') is not None else "n/a"
+                print(f"- {k}: sinais={v['sinais']} | exec={v['executadas']} | acc={acc} | PF={pf} | PnL=R$ {v['pnl_total_reais']:.2f}")
+        
+        exibir_categoria("Métricas por Tendência", m['por_tendencia'])
+        exibir_categoria("Métricas por Saldo Macro", m['por_saldo_macro'])
+        exibir_categoria("Métricas por Horário", m['por_horario'])
+        exibir_categoria("Métricas por Spread (Melhor Direção)", m['por_spread'])
+        exibir_categoria("Métricas por Direção do Trade", m['por_direcao'])
+        exibir_categoria("Métricas por Volatilidade (ATR)", m['por_volatilidade'])
     p_metd.set_defaults(func=_cmd_metricas_detalhadas)
 
     p_auto = sub.add_parser('auto', help='Executar validação automática das pendentes')

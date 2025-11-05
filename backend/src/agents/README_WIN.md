@@ -462,5 +462,5 @@ Para dúvidas ou sugestões:
 
 ---
 
-**Versão:** 1.0.0  
+**Versão:** 1.0.0
 **Última atualização:** 05/11/2025

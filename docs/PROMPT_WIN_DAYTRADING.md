@@ -259,27 +259,27 @@ class AnalisadorWinDayTrading:
         self.config = config
         self.fontes_dados = self._inicializar_fontes()
         self.pontuacao = PontuacaoMacro()
-        
+
     def analisar(self):
         # FASE 1: Coleta
         dados = self.coletar_dados()
-        
+
         # FASE 2: Técnica
         analise_tecnica = self.analisar_tecnica(dados)
-        
+
         # FASE 3: Macro
         analise_macro = self.analisar_macro()
-        
+
         # FASE 4: Notícias
         noticias = self.coletar_noticias()
-        
+
         # FASE 5: Pontuação
         saldo = self.calcular_pontuacao(
             analise_tecnica,
             analise_macro,
             noticias
         )
-        
+
         # FASE 6: Relatório
         relatorio = self.gerar_relatorio_executivo(
             analise_tecnica,
@@ -287,27 +287,27 @@ class AnalisadorWinDayTrading:
             noticias,
             saldo
         )
-        
+
         # Checkpoint 1
         info_adicional = self.solicitar_input_adicional()
         if info_adicional:
             relatorio = self.atualizar_com_input(
-                relatorio, 
+                relatorio,
                 info_adicional
             )
-        
+
         # FASE 7: Plano
         plano = self.gerar_plano_trading(
             relatorio,
             analise_tecnica,
             saldo
         )
-        
+
         # Checkpoint 2
         complemento = self.solicitar_complemento()
         if complemento:
             plano = self.reavaliar_plano(plano, complemento)
-        
+
         return {
             "relatorio": relatorio,
             "plano": plano,

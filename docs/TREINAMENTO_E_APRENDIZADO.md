@@ -183,24 +183,54 @@ O relatório apresenta, para cada categoria, as colunas:
 
 Categorias avaliadas:
 
-- Por Tendência (na emissão): ALTA, BAIXA, LATERAL
-- Por Saldo Macro (na emissão):
-  - ≤ -3 (fortemente desfavorável)
-  - -2 a -1 (desfavorável)
-  - 0 a +1 (neutro)
-  - +2 a +3 (favorável)
-  - ≥ +4 (fortemente favorável)
-- Por Horário (sessões BRT aproximadas):
-  - Abertura (10h)
-  - Manhã (11–12h)
-  - Meio (13–14h)
-  - Tarde (15–16h)
-  - Fechamento/After (≥17h)
-  - Pré-abertura (<10h)
+### 1. Por Tendência (na emissão)
+
+- ALTA, BAIXA, LATERAL
+- Identifica se o modelo performa melhor seguindo ou contra tendência
+
+### 2. Por Saldo Macro (na emissão)
+
+- ≤ -3 (fortemente desfavorável)
+- -2 a -1 (desfavorável)
+- 0 a +1 (neutro)
+- +2 a +3 (favorável)
+- ≥ +4 (fortemente favorável)
+- Revela se fundamentação macro agrega valor preditivo
+
+### 3. Por Horário (sessões BRT aproximadas)
+
+- Abertura (10h)
+- Manhã (11–12h)
+- Meio (13–14h)
+- Tarde (15–16h)
+- Fechamento/After (≥17h)
+- Pré-abertura (<10h)
+- Identifica sessões com melhor taxa de acerto
+
+### 4. Por Spread (melhor direção identificada)
+
+- COMPRA vs VENDA
+- Detecta viés direcional do modelo (se favorece longs ou shorts)
+
+### 5. Por Direção do Trade
+
+- COMPRA, VENDA, AGUARDAR
+- Valida efetividade das recomendações direcionais vs aguardar
+
+### 6. Por Volatilidade (ATR)
+
+- Baixa (<1000 pontos)
+- Média (1000-1200 pontos)
+- Alta (>1200 pontos)
+- Determina qual regime de volatilidade favorece o modelo
 
 Interpretação prática:
+
 - Concentre ajustes onde PF e acurácia são maiores (o que tende a mover preço)
-- Revise regras onde há muitos “sinais” e baixa execução ou PF baixo (falsos movimentos)
-- Combine com o spread/ATR para calibrar stops e TPs por sessão e regime macro
+- Revise regras onde há muitos "sinais" e baixa execução ou PF baixo (falsos movimentos)
+- **Análise multi-dimensional**: Combine categorias para identificar "zonas de ouro"
+  - Exemplo: "Tendência ALTA + Saldo ≥+4 + Volatilidade Baixa + Horário 10h" pode revelar setup com 85%+ acurácia
+- Use ATR para calibrar stops e TPs dinamicamente (em alta volatilidade, aumentar distâncias)
+- Identifique assimetrias: se COMPRA tem PF 2.5 e VENDA 0.8, privilegie setups de compra
 
 ````

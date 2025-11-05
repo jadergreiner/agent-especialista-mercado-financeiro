@@ -38,6 +38,7 @@ class Recomendacao:
     variacao_dia: str
     tendencia: str
     melhor_spread: str
+    atr_valor: float
     relatorio_json: str  # Snapshot completo (compactado)
 
 
@@ -65,7 +66,7 @@ def _conectar(caminho_bd: Optional[Path] = None) -> sqlite3.Connection:
 
 
 def inicializar_banco(caminho_bd: Optional[Path] = None) -> None:
-    """Cria tabelas e índices se não existirem"""
+    """Cria tabelas e índices se não existirem, e aplica migrações necessárias"""
     conn = _conectar(caminho_bd)
     try:
         conn.executescript(
@@ -88,6 +89,7 @@ def inicializar_banco(caminho_bd: Optional[Path] = None) -> None:
                 variacao_dia TEXT,
                 tendencia TEXT,
                 melhor_spread TEXT,
+                atr_valor REAL,
                 relatorio_json TEXT
             );
 
@@ -110,6 +112,15 @@ def inicializar_banco(caminho_bd: Optional[Path] = None) -> None:
             CREATE INDEX IF NOT EXISTS idx_res_recom ON resultados(id_recomendacao);
             """
         )
+        
+        # Migração: adicionar coluna atr_valor se não existir
+        cur = conn.cursor()
+        cur.execute("PRAGMA table_info(recomendacoes)")
+        colunas = [row[1] for row in cur.fetchall()]
+        if 'atr_valor' not in colunas:
+            conn.execute("ALTER TABLE recomendacoes ADD COLUMN atr_valor REAL DEFAULT 0.0")
+            conn.commit()
+        
         conn.commit()
     finally:
         conn.close()
@@ -129,8 +140,8 @@ def salvar_recomendacao(dados: Dict[str, Any], caminho_bd: Optional[Path] = None
             INSERT INTO recomendacoes (
                 timestamp, instrumento, direcao, preco_entrada, contratos_inicio,
                 stop_loss, tp1, tp2, tp3, reforcos_json, saldo_macro, confianca,
-                valido_ate, variacao_dia, tendencia, melhor_spread, relatorio_json
-            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                valido_ate, variacao_dia, tendencia, melhor_spread, atr_valor, relatorio_json
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             """,
             (
                 rec.timestamp,
@@ -149,6 +160,7 @@ def salvar_recomendacao(dados: Dict[str, Any], caminho_bd: Optional[Path] = None
                 rec.variacao_dia,
                 rec.tendencia,
                 rec.melhor_spread,
+                rec.atr_valor,
                 rec.relatorio_json,
             ),
         )
@@ -277,6 +289,7 @@ def calcular_metricas_detalhadas(
         cur.execute(
             """
             SELECT r.tendencia, r.saldo_macro, r.timestamp, r.instrumento, r.direcao,
+                   r.melhor_spread, r.atr_valor,
                    x.status, x.acertou, x.pnl_reais
             FROM recomendacoes r
             JOIN resultados x ON x.id_recomendacao = r.id
@@ -285,7 +298,8 @@ def calcular_metricas_detalhadas(
             (f'-{dias} days',),
         )
         linhas = cur.fetchall()
-        # Índices: 0=tendencia,1=saldo_macro,2=timestamp,3=instrumento,4=direcao,5=status,6=acertou,7=pnl_reais
+        # Índices: 0=tendencia,1=saldo_macro,2=timestamp,3=instrumento,4=direcao,
+        #          5=melhor_spread,6=atr_valor,7=status,8=acertou,9=pnl_reais
         def add_metric(bucket: Dict[str, Dict[str, Any]], chave: str, status: str, acertou: Optional[int], pnl: Optional[float]):
             m = bucket.setdefault(chave, {
                 'sinais': 0,
@@ -344,13 +358,29 @@ def calcular_metricas_detalhadas(
                 return 'Fechamento/After (≥17h)'
             return 'Pré-abertura (<10h)'
 
+        def cat_volatilidade(atr: float) -> str:
+            """Categoriza volatilidade baseado no ATR"""
+            if atr < 1000:
+                return 'Baixa (<1000)'
+            if atr <= 1200:
+                return 'Média (1000-1200)'
+            return 'Alta (>1200)'
+
         buckets_tend = {}
         buckets_saldo = {}
         buckets_hora = {}
-        for tnd, saldo, ts, _instr, _dir, st, ac, pnl in linhas:
+        buckets_spread = {}
+        buckets_direcao = {}
+        buckets_volatilidade = {}
+
+        for linha in linhas:
+            tnd, saldo, ts, _instr, dir_trade, spread, atr, st, ac, pnl = linha
             add_metric(buckets_tend, (tnd or 'Indefinido').upper(), st, ac, pnl)
             add_metric(buckets_saldo, cat_saldo(int(saldo or 0)), st, ac, pnl)
             add_metric(buckets_hora, cat_horario(ts or ''), st, ac, pnl)
+            add_metric(buckets_spread, (spread or 'Indefinido').upper(), st, ac, pnl)
+            add_metric(buckets_direcao, (dir_trade or 'Indefinido').upper(), st, ac, pnl)
+            add_metric(buckets_volatilidade, cat_volatilidade(float(atr or 0)), st, ac, pnl)
 
         def finalize(bucket: Dict[str, Dict[str, Any]]):
             for k, m in bucket.items():
@@ -369,12 +399,18 @@ def calcular_metricas_detalhadas(
         finalize(buckets_tend)
         finalize(buckets_saldo)
         finalize(buckets_hora)
+        finalize(buckets_spread)
+        finalize(buckets_direcao)
+        finalize(buckets_volatilidade)
 
         return {
             'periodo_dias': dias,
             'por_tendencia': buckets_tend,
             'por_saldo_macro': buckets_saldo,
             'por_horario': buckets_hora,
+            'por_spread': buckets_spread,
+            'por_direcao': buckets_direcao,
+            'por_volatilidade': buckets_volatilidade,
         }
     finally:
         conn.close()
@@ -407,6 +443,12 @@ def _converter_para_recomendacao(dados: Dict[str, Any]) -> Recomendacao:
     except Exception:
         saldo_macro_num = 0
 
+    # Extrair ATR da análise técnica
+    try:
+        atr_valor = float(dados['analise_tecnica']['indicadores']['atr']['valor'])
+    except (KeyError, TypeError, ValueError):
+        atr_valor = 0.0
+
     rec = Recomendacao(
         timestamp= dados.get('timestamp', datetime.utcnow().isoformat()),
         instrumento= 'WIN',
@@ -424,6 +466,7 @@ def _converter_para_recomendacao(dados: Dict[str, Any]) -> Recomendacao:
         variacao_dia= rel.get('variacao_dia', ''),
         tendencia= rel['sintese'].get('tendencia', ''),
         melhor_spread= rel['sintese'].get('melhor_spread', ''),
+        atr_valor= atr_valor,
         relatorio_json= json.dumps(dados, ensure_ascii=False),
     )
     return rec

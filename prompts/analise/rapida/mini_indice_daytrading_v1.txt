@@ -111,9 +111,9 @@ Para cada item (notícia, evento, evidência):
 
 ### Exemplo de Formato
 ```
-Dado que a maior probabilidade de sucesso é realizar [COMPRAS/VENDAS] 
-no dia de hoje. Posicione o primeiro contrato em [COMPRA/VENDA] em 
-[PREÇO] e reforce as posições em [PREÇO_1], [PREÇO_2] que foram 
+Dado que a maior probabilidade de sucesso é realizar [COMPRAS/VENDAS]
+no dia de hoje. Posicione o primeiro contrato em [COMPRA/VENDA] em
+[PREÇO] e reforce as posições em [PREÇO_1], [PREÇO_2] que foram
 pontos de liquidez e reforço de [COMPRA/VENDA] no pregão de ontem.
 ```
 
