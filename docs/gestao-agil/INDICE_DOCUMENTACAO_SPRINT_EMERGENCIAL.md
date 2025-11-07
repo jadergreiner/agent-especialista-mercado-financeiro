@@ -3,6 +3,9 @@
 **Data**: 2025-11-07  
 **Tema**: Descoberta Crítica em Gestão de Risco e Transparência Radical
 
+# Índice de Documentação — Sprint Emergencial de Risco
+> Atualização Estratégica: Veja também `docs/gestao-agil/estrategia/2025-11-07_PIVOT_PROMPT_INTERATIVO.md` para o pivot de foco em Prompt Interativo (MVP).
+
 ---
 
 ## 🎯 VISÃO GERAL
