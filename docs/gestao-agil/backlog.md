@@ -245,7 +245,71 @@ MoSCoW:
 
 ---
 
-### 📊 **MÉTRICAS DE SUCESSO DA SPRINT EMERGENCIAL**
+### � Subtarefas P0 — Detalhamento Técnico (Tech Lead)
+
+Obs.: Todas as subtarefas seguem padrão: testes unitários, logs em português, docstrings, e documentação em `docs/` quando aplicável.
+
+#### US-RISCO-001 — Avisos críticos no HTML (2h)
+
+- [ ] Extrair cálculo de métricas de risco para função dedicada `calcular_metricas_risco_portfolio()`
+  - Local inicial: `backend/gerador_relatorio_html.py` (ou utilitário em `backend/`)
+  - Métricas mínimas: quantidade sem stop, alavancagem estimada, P&L não realizado, concentração top moedas
+- [ ] Inserir seção fixa no topo: "🚨 ALERTAS CRÍTICOS" com estilização de alerta
+- [ ] Botão de ação "CONFIGURAR PROTEÇÕES URGENTE" (âncora para seção de posições sem stop)
+- [ ] Teste rápido: gerar HTML com `portfolio_atual.json` atual e validar presença dos blocos
+- [ ] Screenshot para anexar no CHANGELOG
+
+#### US-RISCO-002 — Qualidade de dados (3h)
+
+- [ ] Criar script `scripts/validador_portfolio.py`
+  - Regras: IDs únicos; `ticket` com regex `^#?\d{7,12}$`; timestamps de preço (campo novo `last_price_update` se aplicável)
+  - Verificar duplicidades: `position_id` e `ticket`
+  - Reportar JSON com erros encontrados em `backend/data/portfolio/relatorio_validacao.json`
+- [ ] Ajustar `backend/gestor_portfolio_atualizado.py` para recusar gravação inconsistente
+- [ ] Adicionar tarefa de validação ao pre-commit e documentar no README
+
+#### US-RISCO-003 — Documentar riscos (2h)
+
+- [ ] Consolidar doc em `docs/gestao-agil/risco/RISCOS_IDENTIFICADOS.md`
+- [ ] Seção "Antes vs Depois" (prints do HTML)
+- [ ] Princípios de "Transparência Radical" + lições aprendidas
+- [ ] Plano de remediação com checkpoints
+
+#### US-DATA-001 — Validação automatizada (5d)
+
+- [ ] Transformar `scripts/validador_portfolio.py` em pipeline (exit code ≠ 0 se falhar)
+- [ ] Integração CI (GitHub Actions) — job `validate-portfolio`
+- [ ] Relatório de validação publicado como artefato
+- [ ] Parâmetros via `config/sistema_trading.json` (limites, regex, freshness)
+- [ ] Documentação de operação e troubleshooting
+
+#### US-UX-001 — Radical Transparency (5d)
+
+- [ ] Revisar componentes visuais (CSS/HTML): tons de alerta (#ef4444) e hierarquia (Alertas → Status → Recomendações → Dados)
+- [ ] Remover mensagens otimistas e adicionar disclaimers legais (BETA / sem validação histórica)
+- [ ] Calibração de confiança: substituir estrelas por rótulo textual + faixa 20-30%
+- [ ] Seção "Proteções não configuradas" nas cards de posição quando `stop_loss` ausente
+- [ ] Documentar guia de estilo em `docs/UX/GUIA_TRANSPARENCIA_RADICAL.md`
+
+#### US-RISCO-006 — Stop loss automatizado (10d)
+
+- [ ] Implementar cálculo de ATR (n períodos configurável) e sugerir SL: 1x/2x/3x ATR
+- [ ] Guardrail: bloquear nova posição sem `stop_loss`
+- [ ] Trailing stop opcional baseado em lucro (parâmetros em `config/sistema_trading.json`)
+- [ ] Ajustar `backend/gestor_portfolio_atualizado.py` e validadores
+- [ ] Tests: cenários de baixa/alta volatilidade e verificação de rejeição
+
+#### US-RISCO-007 — Gestão de alavancagem (8d)
+
+- [ ] Cálculo de alavancagem em tempo real: notional / capital
+- [ ] Limite configurável (default 10x); rejeitar operações que excedam o limite
+- [ ] Alerta preventivo > 80% do limite (log + notificação)
+- [ ] Parâmetros em `config/sistema_trading.json`
+- [ ] Painel simples de alavancagem (linha do tempo) — CSV + plot inicial
+
+---
+
+### �📊 **MÉTRICAS DE SUCESSO DA SPRINT EMERGENCIAL**
 
 **KPIs Críticos** (acompanhamento semanal):
 - ✅ 0% posições sem stop loss (target: 0/32)
