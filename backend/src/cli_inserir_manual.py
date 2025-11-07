@@ -60,7 +60,7 @@ def cmd_nova_recomendacao(args: argparse.Namespace) -> None:
     print("\n" + "="*70)
     print("📝 NOVA RECOMENDAÇÃO MANUAL")
     print("="*70)
-    
+
     # Data/hora
     print("\n🕐 Data e Hora")
     usar_agora = input("Usar data/hora atual? (S/n): ").strip().lower()
@@ -71,11 +71,11 @@ def cmd_nova_recomendacao(args: argparse.Namespace) -> None:
         data = input("Data (AAAA-MM-DD): ").strip()
         hora = input("Hora (HH:MM): ").strip()
         timestamp = f"{data}T{hora}:00.000000"
-    
+
     # Direção
     print("\n📊 Direção do Trade")
     direcao = input_choice("Direção", ["COMPRA", "VENDA", "AGUARDAR"])
-    
+
     if direcao == "AGUARDAR":
         print("\n⚠️  Recomendação AGUARDAR - pulando preços de entrada/saída")
         preco_entrada = 0.0
@@ -88,42 +88,42 @@ def cmd_nova_recomendacao(args: argparse.Namespace) -> None:
         preco_entrada = input_float("Preço de entrada: ")
         contratos = input_int("Quantidade de contratos: ", default=1)
         stop_loss = input_float("Stop Loss: ")
-        
+
         print("\n🎯 Take Profits")
         tp1 = input_float("TP1: ")
         tem_tp2 = input("Tem TP2? (s/N): ").strip().lower()
         tp2 = input_float("TP2: ") if tem_tp2 in ['s', 'sim'] else 0.0
         tem_tp3 = input("Tem TP3? (s/N): ").strip().lower() if tp2 > 0 else 'n'
         tp3 = input_float("TP3: ") if tem_tp3 in ['s', 'sim'] else 0.0
-    
+
     # Contexto de mercado
     print("\n🌍 Contexto de Mercado")
     tendencia = input_choice("Tendência", ["ALTA", "BAIXA", "LATERAL"])
     melhor_spread = input_choice("Melhor Spread", ["COMPRA", "VENDA"])
-    
+
     print("\n📈 Saldo Macro")
     print("   -3 = Fortemente Desfavorável")
     print("    0 = Neutro")
     print("   +3 = Favorável")
     print("   +6 = Fortemente Favorável")
     saldo_macro = input_int("Saldo Macro (-6 a +6): ")
-    
+
     # Volatilidade
     print("\n📊 Volatilidade (ATR)")
     atr_valor = input_float("ATR em pontos: ", default=1000.0)
-    
+
     # Confiança
     print("\n✨ Confiança")
     confianca = input_int("Confiança (0-10): ", default=5)
-    
+
     # Validade
     print("\n⏰ Validade")
     valido_ate = input("Válido até (HH:MM ou deixe vazio): ").strip()
-    
+
     # Variação do dia
     print("\n📉 Variação do Dia")
     variacao_dia = input("Variação % (ex: +1.5% ou -0.8%): ").strip()
-    
+
     # Montar dados no formato esperado
     dados = {
         'timestamp': timestamp,
@@ -162,7 +162,7 @@ def cmd_nova_recomendacao(args: argparse.Namespace) -> None:
             }
         }
     }
-    
+
     # Confirmar antes de salvar
     print("\n" + "="*70)
     print("📋 RESUMO")
@@ -176,12 +176,12 @@ def cmd_nova_recomendacao(args: argparse.Namespace) -> None:
     print(f"Saldo Macro: {saldo_macro:+d} | ATR: {atr_valor:.2f}")
     print(f"Confiança: {confianca}/10")
     print("="*70)
-    
+
     confirma = input("\n💾 Salvar recomendação? (S/n): ").strip().lower()
     if confirma not in ['', 's', 'sim']:
         print("❌ Cancelado.")
         return
-    
+
     # Salvar
     inicializar_banco()
     id_rec = salvar_recomendacao(dados)
@@ -193,26 +193,26 @@ def cmd_registrar_resultado(args: argparse.Namespace) -> None:
     print("\n" + "="*70)
     print("📊 REGISTRAR RESULTADO")
     print("="*70)
-    
+
     # Listar pendentes
     inicializar_banco()
     pendentes = listar_pendentes()
-    
+
     if not pendentes:
         print("\n⚠️  Não há recomendações pendentes.")
         return
-    
+
     print("\n📋 Recomendações Pendentes:")
     for rec in pendentes[:10]:  # Mostrar apenas 10
         print(f"   ID {rec.id}: {rec.direcao} | Entrada: {rec.preco_entrada:,.2f} | {rec.timestamp}")
-    
+
     # Escolher ID
     id_rec = input_int("\n🔢 ID da recomendação: ")
-    
+
     # Status
     print("\n📊 Status da Execução")
     status = input_choice("Status", ["executada", "cancelada", "expirada"])
-    
+
     if status != "executada":
         # Apenas registrar sem resultado financeiro
         registrar_resultado(
@@ -227,21 +227,21 @@ def cmd_registrar_resultado(args: argparse.Namespace) -> None:
         )
         print(f"\n✅ Resultado registrado: {status.upper()}")
         return
-    
+
     # Se foi executada, coletar detalhes
     print("\n💰 Resultado Financeiro")
     acertou_str = input_choice("Acertou?", ["sim", "não", "S", "N"])
     acertou = acertou_str.upper() in ['SIM', 'S']
-    
+
     preco_saida = input_float("Preço de saída: ")
     pnl_pontos = input_float("PnL em pontos: ")
     pnl_reais = input_float("PnL em R$: ")
-    
+
     print("\n🎯 Motivo da Saída")
     motivo = input_choice("Motivo", ["tp1", "tp2", "tp3", "stop", "tempo", "manual"])
-    
+
     observacoes = input("Observações (opcional): ").strip() or None
-    
+
     # Confirmar
     print("\n" + "="*70)
     print("📋 RESUMO DO RESULTADO")
@@ -253,12 +253,12 @@ def cmd_registrar_resultado(args: argparse.Namespace) -> None:
     print(f"PnL: {pnl_pontos:+,.2f} pontos = R$ {pnl_reais:+,.2f}")
     print(f"Motivo: {motivo.upper()}")
     print("="*70)
-    
+
     confirma = input("\n💾 Confirmar registro? (S/n): ").strip().lower()
     if confirma not in ['', 's', 'sim']:
         print("❌ Cancelado.")
         return
-    
+
     registrar_resultado(
         id_recomendacao=id_rec,
         status='executada',
@@ -269,7 +269,7 @@ def cmd_registrar_resultado(args: argparse.Namespace) -> None:
         motivo_saida=motivo,
         observacoes=observacoes
     )
-    
+
     print(f"\n✅ Resultado registrado com sucesso!")
 
 
@@ -279,17 +279,17 @@ def build_parser() -> argparse.ArgumentParser:
         description='Inserção manual de recomendações e resultados',
         formatter_class=argparse.RawDescriptionHelpFormatter
     )
-    
+
     subparsers = parser.add_subparsers(dest='comando', help='Comando a executar')
-    
+
     # Comando: nova
     p_nova = subparsers.add_parser('nova', help='Criar nova recomendação')
     p_nova.set_defaults(func=cmd_nova_recomendacao)
-    
+
     # Comando: resultado
     p_res = subparsers.add_parser('resultado', help='Registrar resultado de recomendação existente')
     p_res.set_defaults(func=cmd_registrar_resultado)
-    
+
     return parser
 
 
@@ -297,11 +297,11 @@ def main(argv=None):
     """Ponto de entrada principal"""
     parser = build_parser()
     args = parser.parse_args(argv)
-    
+
     if not hasattr(args, 'func'):
         parser.print_help()
         return
-    
+
     try:
         args.func(args)
     except KeyboardInterrupt:

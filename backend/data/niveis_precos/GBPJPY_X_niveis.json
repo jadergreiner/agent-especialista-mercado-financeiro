@@ -1,0 +1,272 @@
+{
+  "ticker": "GBPJPY=X",
+  "timestamp_calculo": "2025-11-06T17:38:50.420168",
+  "preco_atual": 201.146,
+  "timeframes": {
+    "daily": {
+      "suporte_resistencia": {
+        "suportes": [
+          178.42799,
+          180.106,
+          183.784,
+          184.41701,
+          187.064,
+          188.101,
+          195.03999,
+          197.496
+        ],
+        "resistencias": [
+          193.47701,
+          195.88,
+          199.73,
+          200.95,
+          205.308,
+          208.10201
+        ]
+      },
+      "pivot_points": {
+        "pivot_point": 200.93967,
+        "resistencias": {
+          "R1": 201.58533,
+          "R2": 202.02466,
+          "R3": 202.67032
+        },
+        "suportes": {
+          "S1": 200.50034,
+          "S2": 199.85468,
+          "S3": 199.41534
+        }
+      },
+      "fibonacci": {
+        "swing_high": 205.308,
+        "swing_low": 197.496,
+        "retracements": {
+          "fib_000": 205.308,
+          "fib_023": 203.46437,
+          "fib_038": 202.32382,
+          "fib_050": 201.402,
+          "fib_061": 200.48018,
+          "fib_078": 199.16777,
+          "fib_100": 197.496
+        }
+      },
+      "vwap": {
+        "vwap_geral": NaN,
+        "vwap_semanal": 201.65843,
+        "vwap_mensal": 201.87183
+      },
+      "volume_liquidez": {
+        "volume_medio_30d": 0.0,
+        "volume_atual": 0,
+        "ratio_volume": 0,
+        "zonas_liquidez": [
+          {
+            "preco": 179.6625,
+            "volume_relativo": NaN,
+            "ranking": 1
+          },
+          {
+            "preco": 180.224,
+            "volume_relativo": NaN,
+            "ranking": 2
+          },
+          {
+            "preco": 180.772,
+            "volume_relativo": NaN,
+            "ranking": 3
+          },
+          {
+            "preco": 181.32,
+            "volume_relativo": NaN,
+            "ranking": 4
+          },
+          {
+            "preco": 181.868,
+            "volume_relativo": NaN,
+            "ranking": 5
+          }
+        ]
+      }
+    },
+    "4h": {
+      "suporte_resistencia": {
+        "suportes": [
+          197.481,
+          197.897,
+          199.14101,
+          200.617
+        ],
+        "resistencias": [
+          200.37466,
+          201.265,
+          204.23801,
+          205.323
+        ]
+      },
+      "pivot_points": {
+        "pivot_point": 201.132,
+        "resistencias": {
+          "R1": 201.193,
+          "R2": 201.24099,
+          "R3": 201.30199
+        },
+        "suportes": {
+          "S1": 201.084,
+          "S2": 201.02301,
+          "S3": 200.97501
+        }
+      },
+      "fibonacci": {
+        "swing_high": 204.162,
+        "swing_low": 199.05901,
+        "retracements": {
+          "fib_000": 204.162,
+          "fib_023": 202.9577,
+          "fib_038": 202.21266,
+          "fib_050": 201.6105,
+          "fib_061": 201.00835,
+          "fib_078": 200.15105,
+          "fib_100": 199.05901
+        }
+      },
+      "vwap": {
+        "vwap_geral": NaN,
+        "vwap_semanal": 200.99915,
+        "vwap_mensal": 201.45903
+      },
+      "volume_liquidez": {
+        "volume_medio_30d": 0.0,
+        "volume_atual": 0,
+        "ratio_volume": 0,
+        "zonas_liquidez": [
+          {
+            "preco": 197.888,
+            "volume_relativo": NaN,
+            "ranking": 1
+          },
+          {
+            "preco": 198.0305,
+            "volume_relativo": NaN,
+            "ranking": 2
+          },
+          {
+            "preco": 198.1695,
+            "volume_relativo": NaN,
+            "ranking": 3
+          },
+          {
+            "preco": 198.3085,
+            "volume_relativo": NaN,
+            "ranking": 4
+          },
+          {
+            "preco": 198.4475,
+            "volume_relativo": NaN,
+            "ranking": 5
+          }
+        ]
+      }
+    },
+    "hourly": {
+      "suporte_resistencia": {
+        "suportes": [
+          197.481,
+          197.908,
+          199.05901,
+          200.617,
+          201.325,
+          201.832,
+          203.078
+        ],
+        "resistencias": [
+          198.61301,
+          202.80299,
+          203.3682,
+          204.23801,
+          205.323
+        ]
+      },
+      "pivot_points": {
+        "pivot_point": 201.13233,
+        "resistencias": {
+          "R1": 201.19366,
+          "R2": 201.24132,
+          "R3": 201.30265
+        },
+        "suportes": {
+          "S1": 201.08467,
+          "S2": 201.02334,
+          "S3": 200.97567
+        }
+      },
+      "fibonacci": {
+        "swing_high": 201.379,
+        "swing_low": 199.05901,
+        "retracements": {
+          "fib_000": 201.379,
+          "fib_023": 200.83148,
+          "fib_038": 200.49276,
+          "fib_050": 200.219,
+          "fib_061": 199.94524,
+          "fib_078": 199.55548,
+          "fib_100": 199.05901
+        }
+      },
+      "vwap": {
+        "vwap_geral": NaN,
+        "vwap_semanal": 200.83272,
+        "vwap_mensal": 201.0051
+      },
+      "volume_liquidez": {
+        "volume_medio_30d": 0.0,
+        "volume_atual": 0,
+        "ratio_volume": 0,
+        "zonas_liquidez": [
+          {
+            "preco": 197.738,
+            "volume_relativo": NaN,
+            "ranking": 1
+          },
+          {
+            "preco": 197.888,
+            "volume_relativo": NaN,
+            "ranking": 2
+          },
+          {
+            "preco": 198.034,
+            "volume_relativo": NaN,
+            "ranking": 3
+          },
+          {
+            "preco": 198.18,
+            "volume_relativo": NaN,
+            "ranking": 4
+          },
+          {
+            "preco": 198.3265,
+            "volume_relativo": NaN,
+            "ranking": 5
+          }
+        ]
+      }
+    }
+  },
+  "niveis_consolidados": {
+    "suportes_chave": [
+      199.10001,
+      200.617,
+      201.325,
+      201.832,
+      203.078
+    ],
+    "resistencias_chave": [
+      202.80299,
+      203.3682,
+      204.23801,
+      205.3155,
+      208.10201
+    ],
+    "zona_atual": "NEUTRO",
+    "forca_niveis": "MEDIA"
+  }
+}

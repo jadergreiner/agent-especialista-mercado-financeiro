@@ -1,0 +1,38 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Signal Tech v1",
+  "type": "object",
+  "required": [
+    "contractVersion",
+    "classeAtivo",
+    "instrumento",
+    "timestamp",
+    "timeframe",
+    "sinal"
+  ],
+  "properties": {
+    "contractVersion": { "const": "signal.tech.v1" },
+    "classeAtivo": { "type": "string", "enum": ["forex", "cripto", "acoes", "indices", "commodities"] },
+    "instrumento": {
+      "type": "object",
+      "required": ["id"],
+      "properties": {
+        "id": { "type": "string" },
+        "par": { "type": "string" },
+        "tickerYahoo": { "type": "string" }
+      }
+    },
+    "timestamp": { "type": "string", "format": "date-time" },
+    "timeframe": { "type": "string", "enum": ["5m", "15m", "60m", "4h", "1d"] },
+    "sinal": {
+      "type": "object",
+      "required": ["tipo", "valor"],
+      "properties": {
+        "tipo": { "type": "string", "enum": ["tendencia", "vwap_distancia", "flow_heuristico", "vol_realizada", "sri_proximidade"] },
+        "valor": { "type": ["string", "number"] },
+        "confianca": { "type": ["number", "null"] },
+        "detalhes": { "type": ["object", "null"] }
+      }
+    }
+  }
+}

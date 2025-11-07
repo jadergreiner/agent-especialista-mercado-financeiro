@@ -100,14 +100,14 @@ def build_parser() -> argparse.ArgumentParser:
     def _cmd_metricas_detalhadas(args: argparse.Namespace) -> None:
         inicializar_banco()
         m = calcular_metricas_detalhadas(dias=args.dias)
-        
+
         def exibir_categoria(titulo: str, dados: dict):
             print(f"\n📊 {titulo}")
             for k, v in sorted(dados.items()):
                 acc = f"{v['acuracia']*100:.1f}%" if v.get('acuracia') is not None else "n/a"
                 pf = f"{v['profit_factor']:.2f}" if v.get('profit_factor') is not None else "n/a"
                 print(f"- {k}: sinais={v['sinais']} | exec={v['executadas']} | acc={acc} | PF={pf} | PnL=R$ {v['pnl_total_reais']:.2f}")
-        
+
         exibir_categoria("Métricas por Tendência", m['por_tendencia'])
         exibir_categoria("Métricas por Saldo Macro", m['por_saldo_macro'])
         exibir_categoria("Métricas por Horário", m['por_horario'])

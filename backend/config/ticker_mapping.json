@@ -1,0 +1,43 @@
+{
+  "ticker_mapping": {
+    "description": "Mapeamento de tickers para resolver feeds alternativos",
+    "version": "1.0",
+    "last_update": "2025-11-06T15:30:00Z",
+    "mappings": {
+      "XAUUSD": {
+        "primary_ticker": "GC=F",
+        "fallback_tickers": ["GOLD", "^GC"],
+        "asset_type": "gold",
+        "conversion_factor": 1.0,
+        "description": "Ouro - Gold Futures como fonte primária",
+        "lot_size": 100000,
+        "currency": "USD",
+        "exchange": "COMEX"
+      },
+      "XAU/USD": {
+        "primary_ticker": "GC=F",
+        "fallback_tickers": ["GOLD", "^GC"],
+        "asset_type": "gold",
+        "conversion_factor": 1.0,
+        "description": "Ouro - Formato alternativo",
+        "lot_size": 100000,
+        "currency": "USD",
+        "exchange": "COMEX"
+      }
+    }
+  },
+  "feed_config": {
+    "cache_duration_seconds": 30,
+    "retry_attempts": 3,
+    "timeout_seconds": 10,
+    "alert_threshold_percent": 1.0,
+    "critical_threshold_percent": 5.0
+  },
+  "validation": {
+    "gold_price_range": {
+      "min": 1500,
+      "max": 5000,
+      "expected_current": 3985
+    }
+  }
+}

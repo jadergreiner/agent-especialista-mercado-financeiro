@@ -40,6 +40,7 @@ class Recomendacao:
     melhor_spread: str
     atr_valor: float
     relatorio_json: str  # Snapshot completo (compactado)
+    estrategia_nome: Optional[str] = None  # Nome da estratégia utilizada
 
 
 @dataclass
@@ -90,7 +91,8 @@ def inicializar_banco(caminho_bd: Optional[Path] = None) -> None:
                 tendencia TEXT,
                 melhor_spread TEXT,
                 atr_valor REAL,
-                relatorio_json TEXT
+                relatorio_json TEXT,
+                estrategia_nome TEXT
             );
 
             CREATE TABLE IF NOT EXISTS resultados (
@@ -129,7 +131,7 @@ def inicializar_banco(caminho_bd: Optional[Path] = None) -> None:
             CREATE UNIQUE INDEX IF NOT EXISTS idx_precos_diarios_uniq ON precos_diarios(data, instrumento, ifnull(fonte, ''));
             """
         )
-        
+
         # Migração: adicionar coluna atr_valor se não existir
         cur = conn.cursor()
         cur.execute("PRAGMA table_info(recomendacoes)")
@@ -137,7 +139,7 @@ def inicializar_banco(caminho_bd: Optional[Path] = None) -> None:
         if 'atr_valor' not in colunas:
             conn.execute("ALTER TABLE recomendacoes ADD COLUMN atr_valor REAL DEFAULT 0.0")
             conn.commit()
-        
+
         conn.commit()
     finally:
         conn.close()
@@ -157,8 +159,9 @@ def salvar_recomendacao(dados: Dict[str, Any], caminho_bd: Optional[Path] = None
             INSERT INTO recomendacoes (
                 timestamp, instrumento, direcao, preco_entrada, contratos_inicio,
                 stop_loss, tp1, tp2, tp3, reforcos_json, saldo_macro, confianca,
-                valido_ate, variacao_dia, tendencia, melhor_spread, atr_valor, relatorio_json
-            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                valido_ate, variacao_dia, tendencia, melhor_spread, atr_valor, relatorio_json,
+                estrategia_nome
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             """,
             (
                 rec.timestamp,
@@ -179,6 +182,7 @@ def salvar_recomendacao(dados: Dict[str, Any], caminho_bd: Optional[Path] = None
                 rec.melhor_spread,
                 rec.atr_valor,
                 rec.relatorio_json,
+                rec.estrategia_nome,
             ),
         )
         conn.commit()
@@ -484,6 +488,7 @@ def _converter_para_recomendacao(dados: Dict[str, Any]) -> Recomendacao:
         tendencia= rel['sintese'].get('tendencia', ''),
         melhor_spread= rel['sintese'].get('melhor_spread', ''),
         atr_valor= atr_valor,
+        estrategia_nome= dados.get('estrategia_nome'),  # Nome da estratégia
         relatorio_json= json.dumps(dados, ensure_ascii=False),
     )
     return rec

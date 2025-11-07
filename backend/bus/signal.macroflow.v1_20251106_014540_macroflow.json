@@ -1,0 +1,22 @@
+{
+  "valid": true,
+  "errors": [],
+  "event": {
+    "contractVersion": "signal.macroflow.v1",
+    "classeAtivo": "forex",
+    "instrumento": {
+      "id": "USDJPY",
+      "par": "USDJPY",
+      "tickerYahoo": "USDJPY=X"
+    },
+    "timestamp": "2025-11-06T01:45:40",
+    "sinal": {
+      "viesSessao": "Dólar estável",
+      "dxyVariacao": -0.001276495622924978,
+      "eventosCriticos": [
+        "USD: Discurso do Presidente do Fed",
+        "JPY: BoJ Outlook"
+      ]
+    }
+  }
+}

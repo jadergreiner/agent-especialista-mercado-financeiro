@@ -1,0 +1,68 @@
+{
+  "contractVersion": "report.trading.cripto.v1",
+  "classeAtivo": "cripto",
+  "ativo": "BTCUSDT",
+  "nome": "Bitcoin",
+  "timestamp": "2025-11-06T01:01:39",
+  "precoAtual": 103681.921875,
+  "resumo": {
+    "operacao": "COMPRA",
+    "momentumConsolidado": "Neutro curto prazo, Altista médio prazo",
+    "viesSessao": "Neutro curto prazo, Altista médio prazo",
+    "rr": "1:2.8"
+  },
+  "analises": {
+    "fundamentalista": {
+      "momentum": "BAIXISTA",
+      "noticias": [
+        "ETF Bitcoin spot aprovado pela SEC (Janeiro 2024)",
+        "Halving Bitcoin concluído (Abril 2024)",
+        "MicroStrategy adiciona 10,000 BTC ao tesouro"
+      ],
+      "correlacaoBTC": 1.0,
+      "correlacaoETH": 0.8,
+      "sentimentoMacro": "RISK_OFF"
+    },
+    "tecnica": {
+      "momentum": "NEUTRO",
+      "max30d": 123354.8671875,
+      "min30d": 101590.5234375,
+      "ma100d": null,
+      "posicaoMA": "INDISPONIVEL",
+      "suportes": [
+        101590.5234375,
+        96510.997265625,
+        91431.47109375
+      ],
+      "resistencias": [
+        117187.123828125,
+        123354.8671875,
+        129522.610546875
+      ],
+      "pontoCriticoBaixa": 96510.997265625,
+      "pontoCriticoAlta": 125821.96453125
+    },
+    "onchain": {
+      "netflow": "OUTFLOW",
+      "whales": "ACUMULANDO",
+      "fundingRate": 0.01,
+      "supplyExchanges": "DIMINUINDO",
+      "conclusao": "Absorção de oferta por baleias, pressure buying crescente"
+    }
+  },
+  "plano": {
+    "entrada": 103622.33390625,
+    "alvo1": 117187.123828125,
+    "alvo2": 123354.8671875,
+    "alvo3": 129522.610546875,
+    "stop": 96510.997265625,
+    "justificativas": {
+      "entrada": "Zona de consolidação próxima ao suporte $101590.52. On-chain: Absorção de oferta por baleias, pressure buying cr...",
+      "alvos": "TP1: Resistência imediata. TP2: Máxima 30d (retração Fib 0.618). TP3: Extensão 1.272 Fib.",
+      "stop": "Perda do suporte $96511.00 invalida tese bullish."
+    }
+  },
+  "qualidade": {
+    "dadosMercado": "ok"
+  }
+}

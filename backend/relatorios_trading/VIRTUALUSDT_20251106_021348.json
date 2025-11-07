@@ -1,0 +1,66 @@
+{
+  "contractVersion": "report.trading.cripto.v1",
+  "classeAtivo": "cripto",
+  "ativo": "VIRTUALUSDT",
+  "nome": "VIRTUALUSDT",
+  "timestamp": "2025-11-06T02:13:48",
+  "precoAtual": 1.3429,
+  "resumo": {
+    "operacao": "COMPRA",
+    "momentumConsolidado": "Altista no curto e médio prazo",
+    "viesSessao": "Altista no curto e médio prazo",
+    "rr": "1:22.5"
+  },
+  "analises": {
+    "fundamentalista": {
+      "momentum": "ALTISTA",
+      "noticias": [
+        "Sem notícias recentes catalogadas"
+      ],
+      "correlacaoBTC": 0.5,
+      "correlacaoETH": 0.7,
+      "sentimentoMacro": "NEUTRO"
+    },
+    "tecnica": {
+      "momentum": "ALTISTA",
+      "max30d": 1.834,
+      "min30d": 0.7059,
+      "ma100d": 1.169467,
+      "posicaoMA": "ACIMA",
+      "suportes": [
+        0.7059,
+        0.670605,
+        0.63531
+      ],
+      "resistencias": [
+        1.7423,
+        1.834,
+        1.9257
+      ],
+      "pontoCriticoBaixa": 0.670605,
+      "pontoCriticoAlta": 1.87068
+    },
+    "onchain": {
+      "netflow": "NEUTRO",
+      "whales": "NEUTRO",
+      "fundingRate": 0.0,
+      "supplyExchanges": "ESTAVEL",
+      "conclusao": "Dados on-chain limitados, análise baseada em AT/AF"
+    }
+  },
+  "plano": {
+    "entrada": 0.720018,
+    "alvo1": 1.7423,
+    "alvo2": 1.834,
+    "alvo3": 1.9257,
+    "stop": 0.670605,
+    "justificativas": {
+      "entrada": "Zona de consolidação próxima ao suporte $0.71. On-chain: Dados on-chain limitados, análise baseada em AT/AF...",
+      "alvos": "TP1: Resistência imediata. TP2: Máxima 30d (retração Fib 0.618). TP3: Extensão 1.272 Fib.",
+      "stop": "Perda do suporte $0.67 invalida tese bullish."
+    }
+  },
+  "qualidade": {
+    "dadosMercado": "ok"
+  }
+}

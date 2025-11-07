@@ -1,0 +1,22 @@
+{
+  "valid": true,
+  "errors": [],
+  "event": {
+    "contractVersion": "signal.macroflow.v1",
+    "classeAtivo": "forex",
+    "instrumento": {
+      "id": "EURUSD",
+      "par": "EURUSD",
+      "tickerYahoo": "EURUSD=X"
+    },
+    "timestamp": "2025-11-06T01:05:26",
+    "sinal": {
+      "viesSessao": "Dólar estável",
+      "dxyVariacao": 0.0,
+      "eventosCriticos": [
+        "EUR: Discurso BCE",
+        "USD: Discurso do Presidente do Fed"
+      ]
+    }
+  }
+}

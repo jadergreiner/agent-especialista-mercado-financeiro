@@ -1,0 +1,62 @@
+{
+  "contractVersion": "report.intraday.v1",
+  "classeAtivo": "forex",
+  "par": "EURUSD",
+  "tickerYahoo": "EURUSD=X",
+  "timestamp": "2025-11-06T01:05:26",
+  "precoAtual": 1.151145339012146,
+  "resumo": {
+    "operacao": "ESPERAR",
+    "viesSessao": "Dólar estável",
+    "rr": "N/A"
+  },
+  "analises": {
+    "eventos": [
+      "EUR: Discurso BCE",
+      "USD: Discurso do Presidente do Fed"
+    ],
+    "dxyVariacao": 0.0,
+    "tecnica": {
+      "vwap": 1.1507607430827862,
+      "rangeDia": {
+        "max": 1.151145339012146,
+        "min": 1.1496896743774414,
+        "amplitudePct": 0.126613699952802
+      },
+      "sris": {
+        "suportes": [
+          1.147315263748169,
+          1.1477103233337402,
+          1.1478420495986938
+        ],
+        "resistencias": [
+          1.1667250394821167,
+          1.1668611764907837,
+          1.1671334505081177
+        ]
+      },
+      "tendencia15m": "ALTISTA",
+      "invalicacaoIntraday": 1.1507607430827862
+    },
+    "fluxoVol": {
+      "fluxoInstitucional": "NEUTRO",
+      "volRealizada": "BAIXA",
+      "cotCurtoPrazo": "NEUTRO"
+    }
+  },
+  "plano": {
+    "entrada": 1.1507607430827862,
+    "alvo1": 1.151145339012146,
+    "alvo2": 1.1496896743774414,
+    "stop": 1.1507607430827862,
+    "justificativas": {
+      "entrada": "Zona institucional (SRL) alinhada à VWAP da sessão",
+      "alvos": "Alvos em resistências/suportes imediatos (15m) e topo/fundo do range da sessão",
+      "stop": "Stop curto logo após a SRL/VWAP para preservar risco"
+    }
+  },
+  "qualidade": {
+    "dadosMercado": "ok",
+    "dxy": "indisponivel"
+  }
+}

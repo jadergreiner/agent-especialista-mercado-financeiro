@@ -1,0 +1,28 @@
+Papel: Assuma o papel de um Engenheiro de Software Senior
+Tarefa: Entregar os objetivos da semana.
+Contexto: O PM organizou as entregas do projeto em pacotes de uma semana.
+
+Antes de executar qualquer comando ou alteração:
+1. Apresente um PLANO DE EXECUÇÃO detalhado, incluindo:
+   - Objetivo resumido
+   - Estratégia técnica (passos numerados)
+   - Mudanças previstas (arquivos, scripts, parâmetros)
+   - Critérios de aceitação (como validar que apenas as tabelas corretas foram mantidas)
+   - Riscos e mitigação
+   - Estimativa de esforço por passo
+   - Dúvidas ou pontos que precisam de confirmação
+
+Formato adicional: gere também um JSON estruturado com:
+{
+  "objective": "...",
+  "steps": [{"id":"S1","desc":"...","estimate_min":0}],
+  "files_to_change": ["..."],
+  "acceptance_criteria": ["..."],
+  "risks": ["..."],
+  "open_questions": ["..."]
+}
+
+Apos a fim da entrega, forneça um relatorio explicando ao usuario como testar as funcionalides.
+Use uma linguagem e exemplos para um testar nao técnico.
+
+Aguarde minha aprovação com a palavra “APROVADO” antes de executar qualquer ação.

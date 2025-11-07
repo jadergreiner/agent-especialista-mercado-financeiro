@@ -1,0 +1,21 @@
+{
+  "valid": true,
+  "errors": [],
+  "event": {
+    "contractVersion": "signal.tech.v1",
+    "classeAtivo": "forex",
+    "instrumento": {
+      "id": "GBPUSD",
+      "par": "GBPUSD",
+      "tickerYahoo": "GBPUSD=X"
+    },
+    "timestamp": "2025-11-06T01:45:19",
+    "timeframe": "5m",
+    "sinal": {
+      "tipo": "flow_heuristico",
+      "valor": "NEUTRO",
+      "confianca": null,
+      "detalhes": null
+    }
+  }
+}

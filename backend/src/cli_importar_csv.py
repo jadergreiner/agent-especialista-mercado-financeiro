@@ -23,9 +23,9 @@ import argparse
 import csv
 import sys
 from dataclasses import dataclass
-from datetime import datetime
+from datetime import datetime, timezone
 from pathlib import Path
-from typing import Iterable, Optional, List, Dict, Any
+from typing import Iterable, Optional, List, Dict, Any, Tuple
 
 # Garantir que possamos importar o módulo de persistência
 sys.path.insert(0, str(Path(__file__).parent.parent))
@@ -83,33 +83,73 @@ def _parse_volume_ptbr(v: str) -> Optional[int]:
 
 
 def _parse_data_ptbr(d: str) -> str:
-    # Ex: "04.11.2025" -> "2025-11-04"
-    dt = datetime.strptime(d.strip(), '%d.%m.%Y')
-    return dt.date().isoformat()
+    """
+    Converte data PT-BR para formato ISO (YYYY-MM-DD).
+    Aceita múltiplos formatos: dd.mm.yyyy, dd/mm/yyyy, dd-mm-yyyy
+    """
+    d = d.strip()
+    # Tentar formatos comuns PT-BR
+    formatos = ['%d.%m.%Y', '%d/%m/%Y', '%d-%m-%Y']
+    for fmt in formatos:
+        try:
+            dt = datetime.strptime(d, fmt)
+            return dt.date().isoformat()
+        except ValueError:
+            continue
+    raise ValueError(f'Data não reconhecida: {d}. Formatos aceitos: dd.mm.yyyy, dd/mm/yyyy, dd-mm-yyyy')
+
+
+def _abrir_dict_reader(caminho: Path) -> Tuple[csv.DictReader, Any]:
+    """Tenta abrir um CSV detectando encoding e delimitador ("," ou ";")."""
+    encodings = ('utf-8', 'utf-8-sig', 'cp1252', 'latin-1')
+    last_err: Optional[Exception] = None
+    for enc in encodings:
+        try:
+            f = caminho.open('r', encoding=enc, newline='')
+            sample = f.read(4096)
+            f.seek(0)
+            try:
+                dialect = csv.Sniffer().sniff(sample, delimiters=',;')
+            except Exception:
+                dialect = csv.excel
+            reader = csv.DictReader(f, dialect=dialect)
+            return reader, f
+        except Exception as e:
+            last_err = e
+            try:
+                f.close()  # type: ignore
+            except Exception:
+                pass
+            continue
+    raise last_err or RuntimeError(f'Não foi possível abrir CSV: {caminho}')
 
 
 def _ler_csv_diario(caminho: Path, instrumento: str, fonte: Optional[str]) -> List[RegistroDiario]:
     registros: List[RegistroDiario] = []
-    with caminho.open('r', encoding='utf-8') as f:
-        reader = csv.DictReader(f)
+    reader, handle = _abrir_dict_reader(caminho)
+    try:
         # Normalizar nomes de colunas removendo acentos e pontos
         def norm(k: str) -> str:
+            k2 = (k or '').lstrip('\ufeff').strip()
+            # remover aspas envolventes eventuais do cabeçalho
+            if len(k2) >= 2 and k2[0] == '"' and k2[-1] == '"':
+                k2 = k2[1:-1]
             mt = {
-                'Data': 'data',
-                'Último': 'ultimo', 'Ultimo': 'ultimo',
-                'Abertura': 'abertura',
-                'Máxima': 'maxima', 'Maxima': 'maxima',
-                'Mínima': 'minima', 'Minima': 'minima',
-                'Vol.': 'vol', 'Vol': 'vol',
-                'Var%': 'varpct', 'Variação%': 'varpct',
+                'Data': 'data', 'DATA': 'data',
+                'Último': 'ultimo', 'Ultimo': 'ultimo', 'ULTIMO': 'ultimo', 'ÚLTIMO': 'ultimo',
+                'Abertura': 'abertura', 'ABERTURA': 'abertura',
+                'Máxima': 'maxima', 'Maxima': 'maxima', 'MÁXIMA': 'maxima', 'MAXIMA': 'maxima',
+                'Mínima': 'minima', 'Minima': 'minima', 'MÍNIMA': 'minima', 'MINIMA': 'minima',
+                'Vol.': 'vol', 'Vol': 'vol', 'VOL.': 'vol', 'VOLUME': 'vol',
+                'Var%': 'varpct', 'Variação%': 'varpct', 'Variacao%': 'varpct', 'VAR%': 'varpct',
             }
-            return mt.get(k.strip(), k.strip())
+            return mt.get(k2, k2)
         # Mapear cabeçalho
-        header_map = {norm(k): k for k in reader.fieldnames or []}
+        header_map = {norm(k): k for k in (reader.fieldnames or [])}
         required = ['data', 'ultimo', 'abertura', 'maxima', 'minima']
         for r in required:
             if r not in header_map:
-                raise ValueError(f'Coluna obrigatória ausente no CSV: {r} (arquivo: {caminho.name})')
+                raise ValueError(f'Coluna obrigatória ausente no CSV: {r} (arquivo: {caminho.name}) | headers={reader.fieldnames}')
         for row in reader:
             try:
                 data_iso = _parse_data_ptbr(row[header_map['data']])
@@ -137,35 +177,80 @@ def _ler_csv_diario(caminho: Path, instrumento: str, fonte: Optional[str]) -> Li
                 ))
             except Exception as e:
                 raise ValueError(f'Erro ao processar linha: {row} -> {e}')
+    finally:
+        try:
+            handle.close()
+        except Exception:
+            pass
     return registros
 
 
-def _inserir_precos_diarios(regs: Iterable[RegistroDiario], caminho_bd: Optional[Path] = None) -> int:
+@dataclass
+class EstatisticasImportacao:
+    """Resultado detalhado de uma importação de preços diários."""
+    novos: int = 0
+    atualizados: int = 0
+    erros: int = 0
+    total_processado: int = 0
+
+
+def _inserir_precos_diarios(regs: Iterable[RegistroDiario], caminho_bd: Optional[Path] = None) -> EstatisticasImportacao:
+    """
+    Insere ou atualiza registros de preços diários usando INSERT OR REPLACE (UPSERT).
+
+    Estratégia de unicidade:
+    - O índice idx_precos_diarios_uniq garante um registro único por (data, instrumento, fonte).
+    - Se houver conflito, o registro antigo é substituído (última importação vence).
+    - Detecta se foi inserção nova ou atualização comparando rowcount com last_insert_rowid.
+
+    Retorna:
+        EstatisticasImportacao com contadores de novos, atualizados, erros e total processado.
+    """
     inicializar_banco(caminho_bd)
     conn = _conectar(caminho_bd)
     try:
         cur = conn.cursor()
-        inseridos = 0
+        stats = EstatisticasImportacao()
+
         for r in regs:
+            stats.total_processado += 1
             try:
+                # Verifica se já existe registro para detectar atualização vs inserção
                 cur.execute(
                     """
-                    INSERT OR IGNORE INTO precos_diarios (
+                    SELECT id FROM precos_diarios
+                    WHERE data = ? AND instrumento = ? AND ifnull(fonte, '') = ifnull(?, '')
+                    """,
+                    (r.data, r.instrumento, r.fonte)
+                )
+                ja_existe = cur.fetchone()
+
+                # INSERT OR REPLACE: se existir, substitui; senão, insere
+                cur.execute(
+                    """
+                    INSERT OR REPLACE INTO precos_diarios (
                         data, instrumento, ultimo, abertura, maxima, minima, volume,
                         variacao_pct, fonte, arquivo, inserido_em
                     ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                     """,
                     (
                         r.data, r.instrumento, r.ultimo, r.abertura, r.maxima, r.minima,
-                        r.volume, r.variacao_pct, r.fonte, r.arquivo, datetime.utcnow().isoformat()
+                        r.volume, r.variacao_pct, r.fonte, r.arquivo, datetime.now(timezone.utc).isoformat()
                     )
                 )
-                if cur.rowcount:
-                    inseridos += 1
+
+                # Classifica operação: se já existia, foi atualização; senão, novo registro
+                if ja_existe:
+                    stats.atualizados += 1
+                else:
+                    stats.novos += 1
+
             except Exception as e:
-                raise
+                stats.erros += 1
+                print(f"      ❌ Erro ao processar registro {r.data}: {e}")
+
         conn.commit()
-        return inseridos
+        return stats
     finally:
         conn.close()
 
@@ -216,16 +301,38 @@ def cmd_importar_diario(args: argparse.Namespace) -> None:
         print("   Estrutura esperada: data/manual/<ATIVO>/*.csv (ex.: data/manual/WIN/*.csv)")
         return
 
-    total_regs = 0
+    stats_totais = EstatisticasImportacao()
     total_files = 0
+
     for arq, instrumento in fontes:
-        print(f"\n📥 Lendo: {arq} | Instrumento: {instrumento}")
+        print(f"\n📥 Lendo: {arq.name} | Instrumento: {instrumento}")
         regs = _ler_csv_diario(arq, instrumento, args.fonte)
-        qtd = _inserir_precos_diarios(regs)
-        print(f"   ✓ Registros importados: {qtd}")
-        total_regs += qtd
+        stats = _inserir_precos_diarios(regs)
+
+        # Exibir estatísticas detalhadas do arquivo
+        print(f"   📊 Processados: {stats.total_processado}")
+        print(f"   ✨ Novos: {stats.novos}")
+        print(f"   🔄 Atualizados: {stats.atualizados}")
+        if stats.erros > 0:
+            print(f"   ❌ Erros: {stats.erros}")
+
+        # Acumular totais
+        stats_totais.novos += stats.novos
+        stats_totais.atualizados += stats.atualizados
+        stats_totais.erros += stats.erros
+        stats_totais.total_processado += stats.total_processado
         total_files += 1
-    print(f"\n✅ Importação concluída. Arquivos: {total_files} | Registros inseridos: {total_regs}")
+
+    # Resumo final
+    print(f"\n{'='*60}")
+    print(f"✅ Importação concluída!")
+    print(f"   📁 Arquivos: {total_files}")
+    print(f"   📊 Total processado: {stats_totais.total_processado}")
+    print(f"   ✨ Novos registros: {stats_totais.novos}")
+    print(f"   🔄 Registros atualizados: {stats_totais.atualizados}")
+    if stats_totais.erros > 0:
+        print(f"   ❌ Erros: {stats_totais.erros}")
+    print(f"{'='*60}")
 
 
 def build_parser() -> argparse.ArgumentParser:

@@ -1,0 +1,46 @@
+[
+  {
+    "id_alerta": "ALT_20251106_192047_002",
+    "timestamp": "2025-11-06T19:20:47.874024",
+    "ativo": "NVDA",
+    "acao_recomendada": "VENDA",
+    "probabilidade_sucesso": 72,
+    "confianca": 65,
+    "preco_entrada": 145.8,
+    "preco_alvo": 135.2,
+    "stop_loss": 150.3,
+    "risk_reward": 2.35,
+    "timeframe": "CURTO_PRAZO (3-10 dias)",
+    "prioridade": "MEDIA",
+    "justificativa_tecnica": "Divergência bearish no RSI, resistência forte em $146",
+    "justificativa_macro": "Taxas elevadas pressionam growth, rotação para value",
+    "catalysts": [
+      "Pressão regulatória em AI",
+      "Taxas Treasury 10Y > 4%",
+      "Rotação setorial para value"
+    ],
+    "canal_origem": "AnalisePortfolioEspecialista"
+  },
+  {
+    "id_alerta": "ALT_20251106_192047_001",
+    "timestamp": "2025-11-06T19:20:47.873993",
+    "ativo": "AAPL",
+    "acao_recomendada": "COMPRA",
+    "probabilidade_sucesso": 85,
+    "confianca": 78,
+    "preco_entrada": 150.25,
+    "preco_alvo": 162.0,
+    "stop_loss": 145.5,
+    "risk_reward": 2.47,
+    "timeframe": "MÉDIO_PRAZO (2-4 semanas)",
+    "prioridade": "ALTA",
+    "justificativa_tecnica": "Rompimento resistência $150 com volume, RSI 65 confirma momentum positivo",
+    "justificativa_macro": "VIX baixo 19.5, ambiente favorável growth stocks, Fed dovish suporta múltiplos",
+    "catalysts": [
+      "Earnings season próximo com expectativas positivas",
+      "Lançamento produtos Q4",
+      "Ambiente macro favorável VIX baixo"
+    ],
+    "canal_origem": "AnaliseMacroEspecialista"
+  }
+]

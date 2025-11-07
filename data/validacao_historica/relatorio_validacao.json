@@ -1,0 +1,13 @@
+{
+  "timestamp_validacao": "2025-11-06T18:42:37.280851",
+  "total_ativos": 3,
+  "sucessos_validacao": 0,
+  "taxa_sucesso_portfolio": 0.0,
+  "qualidade_media": 0,
+  "estatisticas_portfolio": {
+    "total_niveis_testados": 0,
+    "niveis_validos_portfolio": 0,
+    "taxa_validacao_geral": 0
+  },
+  "resultados_individuais": {}
+}

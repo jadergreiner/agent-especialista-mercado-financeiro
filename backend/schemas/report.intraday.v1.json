@@ -1,0 +1,101 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Relatório Intraday v1",
+  "type": "object",
+  "required": [
+    "contractVersion",
+    "par",
+    "tickerYahoo",
+    "timestamp",
+    "precoAtual",
+    "resumo",
+    "analises",
+    "plano"
+  ],
+  "properties": {
+    "contractVersion": { "const": "report.intraday.v1" },
+    "classeAtivo": { "type": "string", "enum": ["forex", "cripto", "acoes", "indices", "commodities"] },
+    "par": { "type": "string" },
+    "tickerYahoo": { "type": "string" },
+    "timestamp": { "type": "string", "format": "date-time" },
+    "precoAtual": { "type": "number" },
+    "resumo": {
+      "type": "object",
+      "required": ["operacao", "viesSessao", "rr"],
+      "properties": {
+        "operacao": { "type": "string", "enum": ["COMPRA", "VENDA", "ESPERAR"] },
+        "viesSessao": { "type": "string" },
+        "rr": { "type": "string" }
+      }
+    },
+    "analises": {
+      "type": "object",
+      "required": ["eventos", "dxyVariacao", "tecnica", "fluxoVol"],
+      "properties": {
+        "eventos": { "type": "array", "items": { "type": "string" } },
+        "dxyVariacao": { "type": "number" },
+        "tecnica": {
+          "type": "object",
+          "required": ["vwap", "rangeDia", "sris", "tendencia15m", "invalicacaoIntraday"],
+          "properties": {
+            "vwap": { "type": ["number", "null"] },
+            "rangeDia": {
+              "type": "object",
+              "required": ["max", "min", "amplitudePct"],
+              "properties": {
+                "max": { "type": "number" },
+                "min": { "type": "number" },
+                "amplitudePct": { "type": "number" }
+              }
+            },
+            "sris": {
+              "type": "object",
+              "required": ["suportes", "resistencias"],
+              "properties": {
+                "suportes": { "type": "array", "items": { "type": "number" } },
+                "resistencias": { "type": "array", "items": { "type": "number" } }
+              }
+            },
+            "tendencia15m": { "type": "string", "enum": ["ALTISTA", "NEUTRO", "BAIXISTA"] },
+            "invalicacaoIntraday": { "type": "number" }
+          }
+        },
+        "fluxoVol": {
+          "type": "object",
+          "required": ["fluxoInstitucional", "volRealizada", "cotCurtoPrazo"],
+          "properties": {
+            "fluxoInstitucional": { "type": "string", "enum": ["COMPRA", "VENDA", "NEUTRO"] },
+            "volRealizada": { "type": "string", "enum": ["ALTA", "MEDIA", "BAIXA"] },
+            "cotCurtoPrazo": { "type": "string" }
+          }
+        }
+      }
+    },
+    "plano": {
+      "type": "object",
+      "required": ["entrada", "alvo1", "alvo2", "stop"],
+      "properties": {
+        "entrada": { "type": "number" },
+        "alvo1": { "type": "number" },
+        "alvo2": { "type": "number" },
+        "stop": { "type": "number" },
+        "justificativas": {
+          "type": "object",
+          "required": ["entrada", "alvos", "stop"],
+          "properties": {
+            "entrada": { "type": "string" },
+            "alvos": { "type": "string" },
+            "stop": { "type": "string" }
+          }
+        }
+      }
+    },
+    "qualidade": {
+      "type": "object",
+      "properties": {
+        "dadosMercado": { "type": "string", "enum": ["ok", "degradado", "indisponivel"] },
+        "dxy": { "type": "string", "enum": ["ok", "fallback", "indisponivel"] }
+      }
+    }
+  }
+}

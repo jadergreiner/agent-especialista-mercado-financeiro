@@ -1,0 +1,22 @@
+{
+  "valid": true,
+  "errors": [],
+  "event": {
+    "contractVersion": "signal.macroflow.v1",
+    "classeAtivo": "forex",
+    "instrumento": {
+      "id": "AUDUSD",
+      "par": "AUDUSD",
+      "tickerYahoo": "AUDUSD=X"
+    },
+    "timestamp": "2025-11-06T01:45:51",
+    "sinal": {
+      "viesSessao": "Dólar estável",
+      "dxyVariacao": -0.0012959349018469846,
+      "eventosCriticos": [
+        "AUD: RBA Statement",
+        "USD: Discurso do Presidente do Fed"
+      ]
+    }
+  }
+}

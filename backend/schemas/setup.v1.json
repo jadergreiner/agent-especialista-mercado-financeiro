@@ -1,0 +1,38 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Setup Operacional v1",
+  "type": "object",
+  "required": [
+    "contractVersion",
+    "classeAtivo",
+    "instrumento",
+    "timestamp",
+    "timeframe",
+    "setup"
+  ],
+  "properties": {
+    "contractVersion": { "const": "setup.v1" },
+    "classeAtivo": { "type": "string", "enum": ["forex", "cripto", "acoes", "indices", "commodities"] },
+    "instrumento": {
+      "type": "object",
+      "required": ["id"],
+      "properties": {
+        "id": { "type": "string" },
+        "par": { "type": "string" },
+        "tickerYahoo": { "type": "string" }
+      }
+    },
+    "timestamp": { "type": "string", "format": "date-time" },
+    "timeframe": { "type": "string", "enum": ["5m", "15m", "60m", "4h", "1d"] },
+    "setup": {
+      "type": "object",
+      "required": ["tipo", "direcao"],
+      "properties": {
+        "tipo": { "type": "string", "enum": ["vwap_pullback_reject", "breakout_sri", "reversao_vwap"] },
+        "direcao": { "type": "string", "enum": ["COMPRA", "VENDA"] },
+        "score": { "type": ["number", "null"] },
+        "criterios": { "type": ["object", "null"] }
+      }
+    }
+  }
+}

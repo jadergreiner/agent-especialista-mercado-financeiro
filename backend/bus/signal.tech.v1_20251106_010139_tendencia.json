@@ -1,0 +1,22 @@
+{
+  "valid": false,
+  "errors": [
+    "instrumento/tickerYahoo: None is not of type 'string'"
+  ],
+  "event": {
+    "contractVersion": "signal.tech.v1",
+    "classeAtivo": "cripto",
+    "instrumento": {
+      "id": "BTCUSDT",
+      "tickerYahoo": null
+    },
+    "timestamp": "2025-11-06T01:01:39",
+    "timeframe": "1d",
+    "sinal": {
+      "tipo": "tendencia",
+      "valor": "NEUTRO",
+      "confianca": null,
+      "detalhes": null
+    }
+  }
+}

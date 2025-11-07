@@ -1,0 +1,22 @@
+{
+  "valid": true,
+  "errors": [],
+  "event": {
+    "contractVersion": "signal.macroflow.v1",
+    "classeAtivo": "forex",
+    "instrumento": {
+      "id": "USDCHF",
+      "par": "USDCHF",
+      "tickerYahoo": "USDCHF=X"
+    },
+    "timestamp": "2025-11-06T01:46:13",
+    "sinal": {
+      "viesSessao": "Dólar estável",
+      "dxyVariacao": -0.0012684120849574265,
+      "eventosCriticos": [
+        "USD: Discurso do Presidente do Fed",
+        "CHF: SNB Statement"
+      ]
+    }
+  }
+}

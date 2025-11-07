@@ -1,0 +1,22 @@
+{
+  "valid": true,
+  "errors": [],
+  "event": {
+    "contractVersion": "signal.macroflow.v1",
+    "classeAtivo": "forex",
+    "instrumento": {
+      "id": "GBPUSD",
+      "par": "GBPUSD",
+      "tickerYahoo": "GBPUSD=X"
+    },
+    "timestamp": "2025-11-06T01:45:19",
+    "sinal": {
+      "viesSessao": "Dólar estável",
+      "dxyVariacao": -0.0012632723325410877,
+      "eventosCriticos": [
+        "GBP: BoE Minutes",
+        "USD: Discurso do Presidente do Fed"
+      ]
+    }
+  }
+}

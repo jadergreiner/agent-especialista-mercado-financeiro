@@ -1,0 +1,2814 @@
+{
+  "timestamp_processamento": "2025-11-06T18:39:51.767095",
+  "total_ativos": 4,
+  "sucessos_ml": 4,
+  "taxa_sucesso_ml": 1.0,
+  "resultados_ml": {
+    "EURUSD=X": {
+      "ticker": "EURUSD=X",
+      "timestamp_processamento": "2025-11-06T18:39:41.807432",
+      "qualidade_dados": 0.8423745379732124,
+      "timeframes_ml": {
+        "4h": {
+          "niveis_clustering": {
+            "suportes": [
+              {
+                "nivel": 1.15722,
+                "score": 1.0,
+                "toques": 7,
+                "volume_medio": 0.0,
+                "primeira_ocorrencia": "2025-07-16T12:00:00+01:00",
+                "ultima_ocorrencia": "2025-10-22T12:00:00+01:00",
+                "features": {
+                  "toques_proximos": "7",
+                  "toques_muito_proximos": "6",
+                  "ratio_volume": 1,
+                  "volatilidade": 0.0013339828110603988,
+                  "momentum_positivo": 0.54,
+                  "ratio_range": 0.3180524164025231,
+                  "persistencia_temporal": 32,
+                  "nivel_preco": 1.1572185925074987
+                }
+              },
+              {
+                "nivel": 1.16422,
+                "score": 1.0,
+                "toques": 4,
+                "volume_medio": 0.0,
+                "primeira_ocorrencia": "2025-08-14T16:00:00+01:00",
+                "ultima_ocorrencia": "2025-09-25T16:00:00+01:00",
+                "features": {
+                  "toques_proximos": "12",
+                  "toques_muito_proximos": "4",
+                  "ratio_volume": 1,
+                  "volatilidade": 0.0013339828110603988,
+                  "momentum_positivo": 0.54,
+                  "ratio_range": 0.3180524164025231,
+                  "persistencia_temporal": 15,
+                  "nivel_preco": 1.1642158925533295
+                }
+              },
+              {
+                "nivel": 1.02803,
+                "score": 0.0,
+                "toques": 3,
+                "volume_medio": 0.0,
+                "primeira_ocorrencia": "2025-01-08T08:00:00+00:00",
+                "ultima_ocorrencia": "2025-02-11T00:00:00+00:00",
+                "features": {
+                  "toques_proximos": "0",
+                  "toques_muito_proximos": "0",
+                  "ratio_volume": 0,
+                  "volatilidade": 0.0013339828110603988,
+                  "momentum_positivo": 0.54,
+                  "ratio_range": 0.3180524164025231,
+                  "persistencia_temporal": 0,
+                  "nivel_preco": 1.0280323425928752
+                }
+              },
+              {
+                "nivel": 1.03501,
+                "score": 0.0,
+                "toques": 4,
+                "volume_medio": 0.0,
+                "primeira_ocorrencia": "2024-11-22T08:00:00+00:00",
+                "ultima_ocorrencia": "2025-02-28T16:00:00+00:00",
+                "features": {
+                  "toques_proximos": "0",
+                  "toques_muito_proximos": "0",
+                  "ratio_volume": 0,
+                  "volatilidade": 0.0013339828110603988,
+                  "momentum_positivo": 0.54,
+                  "ratio_range": 0.3180524164025231,
+                  "persistencia_temporal": 0,
+                  "nivel_preco": 1.035009741783142
+                }
+              },
+              {
+                "nivel": 1.03912,
+                "score": 0.0,
+                "toques": 4,
+                "volume_medio": 0.0,
+                "primeira_ocorrencia": "2024-12-24T16:00:00+00:00",
+                "ultima_ocorrencia": "2025-02-19T16:00:00+00:00",
+                "features": {
+                  "toques_proximos": "0",
+                  "toques_muito_proximos": "0",
+                  "ratio_volume": 0,
+                  "volatilidade": 0.0013339828110603988,
+                  "momentum_positivo": 0.54,
+                  "ratio_range": 0.3180524164025231,
+                  "persistencia_temporal": 0,
+                  "nivel_preco": 1.0391234755516052
+                }
+              },
+              {
+                "nivel": 1.04661,
+                "score": 0.0,
+                "toques": 3,
+                "volume_medio": 0.0,
+                "primeira_ocorrencia": "2024-12-02T16:00:00+00:00",
+                "ultima_ocorrencia": "2024-12-13T04:00:00+00:00",
+                "features": {
+                  "toques_proximos": "0",
+                  "toques_muito_proximos": "0",
+                  "ratio_volume": 0,
+                  "volatilidade": 0.0013339828110603988,
+                  "momentum_positivo": 0.54,
+                  "ratio_range": 0.3180524164025231,
+                  "persistencia_temporal": 0,
+                  "nivel_preco": 1.04660960038503
+                }
+              },
+              {
+                "nivel": 1.12708,
+                "score": 0.0,
+                "toques": 4,
+                "volume_medio": 0.0,
+                "primeira_ocorrencia": "2025-04-15T16:00:00+01:00",
+                "ultima_ocorrencia": "2025-05-22T16:00:00+01:00",
+                "features": {
+                  "toques_proximos": "0",
+                  "toques_muito_proximos": "0",
+                  "ratio_volume": 0,
+                  "volatilidade": 0.0013339828110603988,
+                  "momentum_positivo": 0.54,
+                  "ratio_range": 0.3180524164025231,
+                  "persistencia_temporal": 0,
+                  "nivel_preco": 1.1270785927772522
+                }
+              },
+              {
+                "nivel": 1.13779,
+                "score": 0.0,
+                "toques": 4,
+                "volume_medio": 0.0,
+                "primeira_ocorrencia": "2025-06-04T04:00:00+01:00",
+                "ultima_ocorrencia": "2025-08-01T12:00:00+01:00",
+                "features": {
+                  "toques_proximos": "0",
+                  "toques_muito_proximos": "0",
+                  "ratio_volume": 0,
+                  "volatilidade": 0.0013339828110603988,
+                  "momentum_positivo": 0.54,
+                  "ratio_range": 0.3180524164025231,
+                  "persistencia_temporal": 0,
+                  "nivel_preco": 1.1377871334552765
+                }
+              },
+              {
+                "nivel": 1.17279,
+                "score": 0.0,
+                "toques": 3,
+                "volume_medio": 0.0,
+                "primeira_ocorrencia": "2025-07-03T12:00:00+01:00",
+                "ultima_ocorrencia": "2025-09-22T04:00:00+01:00",
+                "features": {
+                  "toques_proximos": "0",
+                  "toques_muito_proximos": "0",
+                  "ratio_volume": 0,
+                  "volatilidade": 0.0013339828110603988,
+                  "momentum_positivo": 0.54,
+                  "ratio_range": 0.3180524164025231,
+                  "persistencia_temporal": 0,
+                  "nivel_preco": 1.172791322072347
+                }
+              }
+            ],
+            "resistencias": [
+              {
+                "nivel": 1.16212,
+                "score": 1.0,
+                "toques": 4,
+                "volume_medio": 0.0,
+                "primeira_ocorrencia": "2025-06-12T12:00:00+01:00",
+                "ultima_ocorrencia": "2025-10-13T04:00:00+01:00",
+                "features": {
+                  "toques_proximos": "8",
+                  "toques_muito_proximos": "2",
+                  "ratio_volume": 1,
+                  "volatilidade": 0.0013339828110603988,
+                  "momentum_positivo": 0.54,
+                  "ratio_range": 0.3180524164025231,
+                  "persistencia_temporal": 8,
+                  "nivel_preco": 1.1621167957782745
+                }
+              },
+              {
+                "nivel": 1.04509,
+                "score": 0.0,
+                "toques": 7,
+                "volume_medio": 0.0,
+                "primeira_ocorrencia": "2024-12-20T16:00:00+00:00",
+                "ultima_ocorrencia": "2025-02-05T08:00:00+00:00",
+                "features": {
+                  "toques_proximos": "0",
+                  "toques_muito_proximos": "0",
+                  "ratio_volume": 0,
+                  "volatilidade": 0.0013339828110603988,
+                  "momentum_positivo": 0.54,
+                  "ratio_range": 0.3180524164025231,
+                  "persistencia_temporal": 0,
+                  "nivel_preco": 1.0450892789023263
+                }
+              },
+              {
+                "nivel": 1.05285,
+                "score": 0.0,
+                "toques": 6,
+                "volume_medio": 0.0,
+                "primeira_ocorrencia": "2024-12-17T00:00:00+00:00",
+                "ultima_ocorrencia": "2025-02-26T16:00:00+00:00",
+                "features": {
+                  "toques_proximos": "0",
+                  "toques_muito_proximos": "0",
+                  "ratio_volume": 0,
+                  "volatilidade": 0.0013339828110603988,
+                  "momentum_positivo": 0.54,
+                  "ratio_range": 0.3180524164025231,
+                  "persistencia_temporal": 0,
+                  "nivel_preco": 1.0528536240259807
+                }
+              },
+              {
+                "nivel": 1.06131,
+                "score": 0.0,
+                "toques": 3,
+                "volume_medio": 0.0,
+                "primeira_ocorrencia": "2024-11-20T00:00:00+00:00",
+                "ultima_ocorrencia": "2024-12-06T12:00:00+00:00",
+                "features": {
+                  "toques_proximos": "0",
+                  "toques_muito_proximos": "0",
+                  "ratio_volume": 0,
+                  "volatilidade": 0.0013339828110603988,
+                  "momentum_positivo": 0.54,
+                  "ratio_range": 0.3180524164025231,
+                  "persistencia_temporal": 0,
+                  "nivel_preco": 1.061309774716695
+                }
+              },
+              {
+                "nivel": 1.13733,
+                "score": 0.0,
+                "toques": 4,
+                "volume_medio": 0.0,
+                "primeira_ocorrencia": "2025-05-02T12:00:00+01:00",
+                "ultima_ocorrencia": "2025-05-21T16:00:00+01:00",
+                "features": {
+                  "toques_proximos": "0",
+                  "toques_muito_proximos": "0",
+                  "ratio_volume": 0,
+                  "volatilidade": 0.0013339828110603988,
+                  "momentum_positivo": 0.54,
+                  "ratio_range": 0.3180524164025231,
+                  "persistencia_temporal": 0,
+                  "nivel_preco": 1.1373338103294373
+                }
+              },
+              {
+                "nivel": 1.1422,
+                "score": 0.0,
+                "toques": 4,
+                "volume_medio": 0.0,
+                "primeira_ocorrencia": "2025-04-16T20:00:00+01:00",
+                "ultima_ocorrencia": "2025-05-26T04:00:00+01:00",
+                "features": {
+                  "toques_proximos": "0",
+                  "toques_muito_proximos": "0",
+                  "ratio_volume": 0,
+                  "volatilidade": 0.0013339828110603988,
+                  "momentum_positivo": 0.54,
+                  "ratio_range": 0.3180524164025231,
+                  "persistencia_temporal": 0,
+                  "nivel_preco": 1.1422046422958374
+                }
+              },
+              {
+                "nivel": 1.17249,
+                "score": 0.0,
+                "toques": 9,
+                "volume_medio": 0.0,
+                "primeira_ocorrencia": "2025-07-16T16:00:00+01:00",
+                "ultima_ocorrencia": "2025-10-17T04:00:00+01:00",
+                "features": {
+                  "toques_proximos": "0",
+                  "toques_muito_proximos": "0",
+                  "ratio_volume": 0,
+                  "volatilidade": 0.0013339828110603988,
+                  "momentum_positivo": 0.54,
+                  "ratio_range": 0.3180524164025231,
+                  "persistencia_temporal": 0,
+                  "nivel_preco": 1.17248711321089
+                }
+              },
+              {
+                "nivel": 1.17861,
+                "score": 0.0,
+                "toques": 5,
+                "volume_medio": 0.0,
+                "primeira_ocorrencia": "2025-07-03T08:00:00+01:00",
+                "ultima_ocorrencia": "2025-10-03T12:00:00+01:00",
+                "features": {
+                  "toques_proximos": "0",
+                  "toques_muito_proximos": "0",
+                  "ratio_volume": 0,
+                  "volatilidade": 0.0013339828110603988,
+                  "momentum_positivo": 0.54,
+                  "ratio_range": 0.3180524164025231,
+                  "persistencia_temporal": 0,
+                  "nivel_preco": 1.1786083221435546
+                }
+              }
+            ]
+          },
+          "periodo_dados": {
+            "inicio": "2024-11-06T20:00:00+00:00",
+            "fim": "2025-11-06T20:00:00+00:00",
+            "total_registros": 1562
+          }
+        },
+        "1h": {
+          "niveis_clustering": {
+            "suportes": [
+              {
+                "nivel": 1.14768,
+                "score": 1.0,
+                "toques": 4,
+                "volume_medio": 0.0,
+                "primeira_ocorrencia": "2025-11-04T14:00:00+00:00",
+                "ultima_ocorrencia": "2025-11-05T14:00:00+00:00",
+                "features": {
+                  "toques_proximos": "28",
+                  "toques_muito_proximos": "12",
+                  "ratio_volume": 1,
+                  "volatilidade": 0.0005488364941018573,
+                  "momentum_positivo": 0.56,
+                  "ratio_range": 0.14948421932901756,
+                  "persistencia_temporal": 27,
+                  "nivel_preco": 1.1476774215698242
+                }
+              },
+              {
+                "nivel": 1.15434,
+                "score": 1.0,
+                "toques": 10,
+                "volume_medio": 0.0,
+                "primeira_ocorrencia": "2025-10-09T19:00:00+01:00",
+                "ultima_ocorrencia": "2025-11-04T01:00:00+00:00",
+                "features": {
+                  "toques_proximos": "12",
+                  "toques_muito_proximos": "9",
+                  "ratio_volume": 1,
+                  "volatilidade": 0.0005488364941018573,
+                  "momentum_positivo": 0.56,
+                  "ratio_range": 0.14948421932901756,
+                  "persistencia_temporal": 13,
+                  "nivel_preco": 1.1543385863304139
+                }
+              },
+              {
+                "nivel": 1.16041,
+                "score": 0.0,
+                "toques": 29,
+                "volume_medio": 0.0,
+                "primeira_ocorrencia": "2025-08-20T03:00:00+01:00",
+                "ultima_ocorrencia": "2025-10-29T19:00:00+00:00",
+                "features": {
+                  "toques_proximos": "0",
+                  "toques_muito_proximos": "0",
+                  "ratio_volume": 0,
+                  "volatilidade": 0.0005488364941018573,
+                  "momentum_positivo": 0.56,
+                  "ratio_range": 0.14948421932901756,
+                  "persistencia_temporal": 0,
+                  "nivel_preco": 1.1604147327357326
+                }
+              },
+              {
+                "nivel": 1.16493,
+                "score": 0.0,
+                "toques": 23,
+                "volume_medio": 0.0,
+                "primeira_ocorrencia": "2025-08-19T02:00:00+01:00",
+                "ultima_ocorrencia": "2025-10-28T13:00:00+00:00",
+                "features": {
+                  "toques_proximos": "0",
+                  "toques_muito_proximos": "0",
+                  "ratio_volume": 0,
+                  "volatilidade": 0.0005488364941018573,
+                  "momentum_positivo": 0.56,
+                  "ratio_range": 0.14948421932901756,
+                  "persistencia_temporal": 0,
+                  "nivel_preco": 1.1649298719737842
+                }
+              },
+              {
+                "nivel": 1.17119,
+                "score": 0.0,
+                "toques": 29,
+                "volume_medio": 0.0,
+                "primeira_ocorrencia": "2025-08-18T02:00:00+01:00",
+                "ultima_ocorrencia": "2025-10-06T00:00:00+01:00",
+                "features": {
+                  "toques_proximos": "0",
+                  "toques_muito_proximos": "0",
+                  "ratio_volume": 0,
+                  "volatilidade": 0.0005488364941018573,
+                  "momentum_positivo": 0.56,
+                  "ratio_range": 0.14948421932901756,
+                  "persistencia_temporal": 0,
+                  "nivel_preco": 1.171188839550676
+                }
+              },
+              {
+                "nivel": 1.17802,
+                "score": 0.0,
+                "toques": 6,
+                "volume_medio": 0.0,
+                "primeira_ocorrencia": "2025-09-16T02:00:00+01:00",
+                "ultima_ocorrencia": "2025-09-23T14:00:00+01:00",
+                "features": {
+                  "toques_proximos": "0",
+                  "toques_muito_proximos": "0",
+                  "ratio_volume": 0,
+                  "volatilidade": 0.0005488364941018573,
+                  "momentum_positivo": 0.56,
+                  "ratio_range": 0.14948421932901756,
+                  "persistencia_temporal": 0,
+                  "nivel_preco": 1.1780205368995667
+                }
+              },
+              {
+                "nivel": 1.18406,
+                "score": 0.0,
+                "toques": 4,
+                "volume_medio": 0.0,
+                "primeira_ocorrencia": "2025-09-16T22:00:00+01:00",
+                "ultima_ocorrencia": "2025-09-17T13:00:00+01:00",
+                "features": {
+                  "toques_proximos": "0",
+                  "toques_muito_proximos": "0",
+                  "ratio_volume": 0,
+                  "volatilidade": 0.0005488364941018573,
+                  "momentum_positivo": 0.56,
+                  "ratio_range": 0.14948421932901756,
+                  "persistencia_temporal": 0,
+                  "nivel_preco": 1.1840626895427704
+                }
+              }
+            ],
+            "resistencias": [
+              {
+                "nivel": 1.15413,
+                "score": 1.0,
+                "toques": 4,
+                "volume_medio": 0.0,
+                "primeira_ocorrencia": "2025-11-03T06:00:00+00:00",
+                "ultima_ocorrencia": "2025-11-04T07:00:00+00:00",
+                "features": {
+                  "toques_proximos": "12",
+                  "toques_muito_proximos": "9",
+                  "ratio_volume": 1,
+                  "volatilidade": 0.0005488364941018573,
+                  "momentum_positivo": 0.56,
+                  "ratio_range": 0.14948421932901756,
+                  "persistencia_temporal": 13,
+                  "nivel_preco": 1.154134839773178
+                }
+              },
+              {
+                "nivel": 1.16113,
+                "score": 0.0,
+                "toques": 17,
+                "volume_medio": 0.0,
+                "primeira_ocorrencia": "2025-08-22T01:00:00+01:00",
+                "ultima_ocorrencia": "2025-10-31T09:00:00+00:00",
+                "features": {
+                  "toques_proximos": "0",
+                  "toques_muito_proximos": "0",
+                  "ratio_volume": 0,
+                  "volatilidade": 0.0005488364941018573,
+                  "momentum_positivo": 0.56,
+                  "ratio_range": 0.14948421932901756,
+                  "persistencia_temporal": 0,
+                  "nivel_preco": 1.1611343131345861
+                }
+              },
+              {
+                "nivel": 1.16699,
+                "score": 0.0,
+                "toques": 34,
+                "volume_medio": 0.0,
+                "primeira_ocorrencia": "2025-08-18T23:00:00+01:00",
+                "ultima_ocorrencia": "2025-10-29T16:00:00+00:00",
+                "features": {
+                  "toques_proximos": "0",
+                  "toques_muito_proximos": "0",
+                  "ratio_volume": 0,
+                  "volatilidade": 0.0005488364941018573,
+                  "momentum_positivo": 0.56,
+                  "ratio_range": 0.14948421932901756,
+                  "persistencia_temporal": 0,
+                  "nivel_preco": 1.166987170191372
+                }
+              },
+              {
+                "nivel": 1.17371,
+                "score": 0.0,
+                "toques": 37,
+                "volume_medio": 0.0,
+                "primeira_ocorrencia": "2025-08-15T15:00:00+01:00",
+                "ultima_ocorrencia": "2025-10-17T06:00:00+01:00",
+                "features": {
+                  "toques_proximos": "0",
+                  "toques_muito_proximos": "0",
+                  "ratio_volume": 0,
+                  "volatilidade": 0.0005488364941018573,
+                  "momentum_positivo": 0.56,
+                  "ratio_range": 0.14948421932901756,
+                  "persistencia_temporal": 0,
+                  "nivel_preco": 1.1737076495144818
+                }
+              },
+              {
+                "nivel": 1.1786,
+                "score": 0.0,
+                "toques": 6,
+                "volume_medio": 0.0,
+                "primeira_ocorrencia": "2025-09-09T06:00:00+01:00",
+                "ultima_ocorrencia": "2025-10-01T08:00:00+01:00",
+                "features": {
+                  "toques_proximos": "0",
+                  "toques_muito_proximos": "0",
+                  "ratio_volume": 0,
+                  "volatilidade": 0.0005488364941018573,
+                  "momentum_positivo": 0.56,
+                  "ratio_range": 0.14948421932901756,
+                  "persistencia_temporal": 0,
+                  "nivel_preco": 1.1785987615585327
+                }
+              },
+              {
+                "nivel": 1.18377,
+                "score": 0.0,
+                "toques": 5,
+                "volume_medio": 0.0,
+                "primeira_ocorrencia": "2025-09-17T15:00:00+01:00",
+                "ultima_ocorrencia": "2025-09-23T23:00:00+01:00",
+                "features": {
+                  "toques_proximos": "0",
+                  "toques_muito_proximos": "0",
+                  "ratio_volume": 0,
+                  "volatilidade": 0.0005488364941018573,
+                  "momentum_positivo": 0.56,
+                  "ratio_range": 0.14948421932901756,
+                  "persistencia_temporal": 0,
+                  "nivel_preco": 1.1837702512741088
+                }
+              }
+            ]
+          },
+          "periodo_dados": {
+            "inicio": "2025-08-15T00:00:00+01:00",
+            "fim": "2025-11-06T21:00:00+00:00",
+            "total_registros": 1422
+          }
+        }
+      },
+      "analise_consolidada": {
+        "suportes_criticos": [
+          {
+            "nivel": 1.14768,
+            "score_final": 0.6,
+            "confluencia": 1,
+            "timeframes": [
+              "1h"
+            ],
+            "total_toques": 4,
+            "features_consolidadas": {
+              "toques_proximos": 28.0,
+              "toques_muito_proximos": 12.0,
+              "ratio_volume": 1.0
+            }
+          },
+          {
+            "nivel": 1.15599,
+            "score_final": 0.4666666666666666,
+            "confluencia": 2,
+            "timeframes": [
+              "1h",
+              "4h"
+            ],
+            "total_toques": 46,
+            "features_consolidadas": {
+              "toques_proximos": 6.333333333333333,
+              "toques_muito_proximos": 5.0,
+              "ratio_volume": 0.6666666666666666
+            }
+          },
+          {
+            "nivel": 1.16422,
+            "score_final": 0.4,
+            "confluencia": 2,
+            "timeframes": [
+              "1h",
+              "4h"
+            ],
+            "total_toques": 27,
+            "features_consolidadas": {
+              "toques_proximos": 6.0,
+              "toques_muito_proximos": 2.0,
+              "ratio_volume": 0.5
+            }
+          },
+          {
+            "nivel": 1.02803,
+            "score_final": 0.0,
+            "confluencia": 1,
+            "timeframes": [
+              "4h"
+            ],
+            "total_toques": 3,
+            "features_consolidadas": {
+              "toques_proximos": 0.0,
+              "toques_muito_proximos": 0.0,
+              "ratio_volume": 0.0
+            }
+          },
+          {
+            "nivel": 1.03501,
+            "score_final": 0.0,
+            "confluencia": 1,
+            "timeframes": [
+              "4h"
+            ],
+            "total_toques": 4,
+            "features_consolidadas": {
+              "toques_proximos": 0.0,
+              "toques_muito_proximos": 0.0,
+              "ratio_volume": 0.0
+            }
+          }
+        ],
+        "resistencias_criticas": [
+          {
+            "nivel": 1.15413,
+            "score_final": 0.6,
+            "confluencia": 1,
+            "timeframes": [
+              "1h"
+            ],
+            "total_toques": 4,
+            "features_consolidadas": {
+              "toques_proximos": 12.0,
+              "toques_muito_proximos": 9.0,
+              "ratio_volume": 1.0
+            }
+          },
+          {
+            "nivel": 1.16212,
+            "score_final": 0.4,
+            "confluencia": 2,
+            "timeframes": [
+              "1h",
+              "4h"
+            ],
+            "total_toques": 21,
+            "features_consolidadas": {
+              "toques_proximos": 4.0,
+              "toques_muito_proximos": 1.0,
+              "ratio_volume": 0.5
+            }
+          },
+          {
+            "nivel": 1.04509,
+            "score_final": 0.0,
+            "confluencia": 1,
+            "timeframes": [
+              "4h"
+            ],
+            "total_toques": 7,
+            "features_consolidadas": {
+              "toques_proximos": 0.0,
+              "toques_muito_proximos": 0.0,
+              "ratio_volume": 0.0
+            }
+          },
+          {
+            "nivel": 1.05285,
+            "score_final": 0.0,
+            "confluencia": 1,
+            "timeframes": [
+              "4h"
+            ],
+            "total_toques": 6,
+            "features_consolidadas": {
+              "toques_proximos": 0.0,
+              "toques_muito_proximos": 0.0,
+              "ratio_volume": 0.0
+            }
+          },
+          {
+            "nivel": 1.06131,
+            "score_final": 0.0,
+            "confluencia": 1,
+            "timeframes": [
+              "4h"
+            ],
+            "total_toques": 3,
+            "features_consolidadas": {
+              "toques_proximos": 0.0,
+              "toques_muito_proximos": 0.0,
+              "ratio_volume": 0.0
+            }
+          }
+        ],
+        "total_niveis_analisados": 30,
+        "confluencias_detectadas": 6
+      }
+    },
+    "GBPUSD=X": {
+      "ticker": "GBPUSD=X",
+      "timestamp_processamento": "2025-11-06T18:39:47.521544",
+      "qualidade_dados": 0.8346432410730582,
+      "timeframes_ml": {
+        "4h": {
+          "niveis_clustering": {
+            "suportes": [
+              {
+                "nivel": 1.32543,
+                "score": 1.0,
+                "toques": 6,
+                "volume_medio": 0.0,
+                "primeira_ocorrencia": "2025-04-22T20:00:00+01:00",
+                "ultima_ocorrencia": "2025-10-14T12:00:00+01:00",
+                "features": {
+                  "toques_proximos": "6",
+                  "toques_muito_proximos": "2",
+                  "ratio_volume": 1,
+                  "volatilidade": 0.0013978053767786107,
+                  "momentum_positivo": 0.42,
+                  "ratio_range": 0.2563458240084729,
+                  "persistencia_temporal": 6,
+                  "nivel_preco": 1.3254316449165344
+                }
+              },
+              {
+                "nivel": 1.33145,
+                "score": 0.9000000000000001,
+                "toques": 4,
+                "volume_medio": 0.0,
+                "primeira_ocorrencia": "2025-09-03T08:00:00+01:00",
+                "ultima_ocorrencia": "2025-10-24T16:00:00+01:00",
+                "features": {
+                  "toques_proximos": "3",
+                  "toques_muito_proximos": "1",
+                  "ratio_volume": 1,
+                  "volatilidade": 0.0013978053767786107,
+                  "momentum_positivo": 0.42,
+                  "ratio_range": 0.2563458240084729,
+                  "persistencia_temporal": 4,
+                  "nivel_preco": 1.3314495980739594
+                }
+              },
+              {
+                "nivel": 1.23531,
+                "score": 0.0,
+                "toques": 3,
+                "volume_medio": 0.0,
+                "primeira_ocorrencia": "2025-01-02T16:00:00+00:00",
+                "ultima_ocorrencia": "2025-02-11T08:00:00+00:00",
+                "features": {
+                  "toques_proximos": "0",
+                  "toques_muito_proximos": "0",
+                  "ratio_volume": 0,
+                  "volatilidade": 0.0013978053767786107,
+                  "momentum_positivo": 0.42,
+                  "ratio_range": 0.2563458240084729,
+                  "persistencia_temporal": 0,
+                  "nivel_preco": 1.2353117068608601
+                }
+              },
+              {
+                "nivel": 1.24888,
+                "score": 0.0,
+                "toques": 3,
+                "volume_medio": 0.0,
+                "primeira_ocorrencia": "2024-11-22T08:00:00+00:00",
+                "ultima_ocorrencia": "2024-12-26T12:00:00+00:00",
+                "features": {
+                  "toques_proximos": "0",
+                  "toques_muito_proximos": "0",
+                  "ratio_volume": 0,
+                  "volatilidade": 0.0013978053767786107,
+                  "momentum_positivo": 0.42,
+                  "ratio_range": 0.2563458240084729,
+                  "persistencia_temporal": 0,
+                  "nivel_preco": 1.248876969019572
+                }
+              },
+              {
+                "nivel": 1.26107,
+                "score": 0.0,
+                "toques": 5,
+                "volume_medio": 0.0,
+                "primeira_ocorrencia": "2024-11-15T20:00:00+00:00",
+                "ultima_ocorrencia": "2025-02-25T08:00:00+00:00",
+                "features": {
+                  "toques_proximos": "0",
+                  "toques_muito_proximos": "0",
+                  "ratio_volume": 0,
+                  "volatilidade": 0.0013978053767786107,
+                  "momentum_positivo": 0.42,
+                  "ratio_range": 0.2563458240084729,
+                  "persistencia_temporal": 0,
+                  "nivel_preco": 1.2610726833343506
+                }
+              },
+              {
+                "nivel": 1.28837,
+                "score": 0.0,
+                "toques": 5,
+                "volume_medio": 0.0,
+                "primeira_ocorrencia": "2025-03-10T16:00:00+00:00",
+                "ultima_ocorrencia": "2025-04-01T12:00:00+01:00",
+                "features": {
+                  "toques_proximos": "0",
+                  "toques_muito_proximos": "0",
+                  "ratio_volume": 0,
+                  "volatilidade": 0.0013978053767786107,
+                  "momentum_positivo": 0.42,
+                  "ratio_range": 0.2563458240084729,
+                  "persistencia_temporal": 0,
+                  "nivel_preco": 1.2883733749389648
+                }
+              },
+              {
+                "nivel": 1.33945,
+                "score": 0.0,
+                "toques": 8,
+                "volume_medio": 0.0,
+                "primeira_ocorrencia": "2025-05-29T00:00:00+01:00",
+                "ultima_ocorrencia": "2025-10-02T16:00:00+01:00",
+                "features": {
+                  "toques_proximos": "0",
+                  "toques_muito_proximos": "0",
+                  "ratio_volume": 0,
+                  "volatilidade": 0.0013978053767786107,
+                  "momentum_positivo": 0.42,
+                  "ratio_range": 0.2563458240084729,
+                  "persistencia_temporal": 0,
+                  "nivel_preco": 1.3394504934549332
+                }
+              },
+              {
+                "nivel": 1.34534,
+                "score": 0.0,
+                "toques": 3,
+                "volume_medio": 0.0,
+                "primeira_ocorrencia": "2025-06-10T08:00:00+01:00",
+                "ultima_ocorrencia": "2025-09-22T04:00:00+01:00",
+                "features": {
+                  "toques_proximos": "0",
+                  "toques_muito_proximos": "0",
+                  "ratio_volume": 0,
+                  "volatilidade": 0.0013978053767786107,
+                  "momentum_positivo": 0.42,
+                  "ratio_range": 0.2563458240084729,
+                  "persistencia_temporal": 0,
+                  "nivel_preco": 1.3453398545583088
+                }
+              },
+              {
+                "nivel": 1.35149,
+                "score": 0.0,
+                "toques": 3,
+                "volume_medio": 0.0,
+                "primeira_ocorrencia": "2025-06-13T12:00:00+01:00",
+                "ultima_ocorrencia": "2025-09-11T08:00:00+01:00",
+                "features": {
+                  "toques_proximos": "0",
+                  "toques_muito_proximos": "0",
+                  "ratio_volume": 0,
+                  "volatilidade": 0.0013978053767786107,
+                  "momentum_positivo": 0.42,
+                  "ratio_range": 0.2563458240084729,
+                  "persistencia_temporal": 0,
+                  "nivel_preco": 1.3514925241470337
+                }
+              }
+            ],
+            "resistencias": [
+              {
+                "nivel": 1.29924,
+                "score": 0.2,
+                "toques": 4,
+                "volume_medio": 0.0,
+                "primeira_ocorrencia": "2025-03-12T12:00:00+00:00",
+                "ultima_ocorrencia": "2025-03-31T08:00:00+01:00",
+                "features": {
+                  "toques_proximos": "1",
+                  "toques_muito_proximos": "0",
+                  "ratio_volume": 1,
+                  "volatilidade": 0.0013978053767786107,
+                  "momentum_positivo": 0.42,
+                  "ratio_range": 0.2563458240084729,
+                  "persistencia_temporal": 0,
+                  "nivel_preco": 1.299243003129959
+                }
+              },
+              {
+                "nivel": 1.27184,
+                "score": 0.0,
+                "toques": 5,
+                "volume_medio": 0.0,
+                "primeira_ocorrencia": "2024-11-20T04:00:00+00:00",
+                "ultima_ocorrencia": "2025-02-26T16:00:00+00:00",
+                "features": {
+                  "toques_proximos": "0",
+                  "toques_muito_proximos": "0",
+                  "ratio_volume": 0,
+                  "volatilidade": 0.0013978053767786107,
+                  "momentum_positivo": 0.42,
+                  "ratio_range": 0.2563458240084729,
+                  "persistencia_temporal": 0,
+                  "nivel_preco": 1.2718372106552125
+                }
+              },
+              {
+                "nivel": 1.34542,
+                "score": 0.0,
+                "toques": 7,
+                "volume_medio": 0.0,
+                "primeira_ocorrencia": "2025-04-22T04:00:00+01:00",
+                "ultima_ocorrencia": "2025-10-17T04:00:00+01:00",
+                "features": {
+                  "toques_proximos": "0",
+                  "toques_muito_proximos": "0",
+                  "ratio_volume": 0,
+                  "volatilidade": 0.0013978053767786107,
+                  "momentum_positivo": 0.42,
+                  "ratio_range": 0.2563458240084729,
+                  "persistencia_temporal": 0,
+                  "nivel_preco": 1.345417857170105
+                }
+              },
+              {
+                "nivel": 1.35434,
+                "score": 0.0,
+                "toques": 5,
+                "volume_medio": 0.0,
+                "primeira_ocorrencia": "2025-06-02T12:00:00+01:00",
+                "ultima_ocorrencia": "2025-10-01T12:00:00+01:00",
+                "features": {
+                  "toques_proximos": "0",
+                  "toques_muito_proximos": "0",
+                  "ratio_volume": 0,
+                  "volatilidade": 0.0013978053767786107,
+                  "momentum_positivo": 0.42,
+                  "ratio_range": 0.2563458240084729,
+                  "persistencia_temporal": 0,
+                  "nivel_preco": 1.3543354511260985
+                }
+              },
+              {
+                "nivel": 1.36046,
+                "score": 0.0,
+                "toques": 7,
+                "volume_medio": 0.0,
+                "primeira_ocorrencia": "2025-05-26T04:00:00+01:00",
+                "ultima_ocorrencia": "2025-09-09T08:00:00+01:00",
+                "features": {
+                  "toques_proximos": "0",
+                  "toques_muito_proximos": "0",
+                  "ratio_volume": 0,
+                  "volatilidade": 0.0013978053767786107,
+                  "momentum_positivo": 0.42,
+                  "ratio_range": 0.2563458240084729,
+                  "persistencia_temporal": 0,
+                  "nivel_preco": 1.3604588168007987
+                }
+              }
+            ]
+          },
+          "periodo_dados": {
+            "inicio": "2024-11-06T20:00:00+00:00",
+            "fim": "2025-11-06T20:00:00+00:00",
+            "total_registros": 1561
+          }
+        },
+        "1h": {
+          "niveis_clustering": {
+            "suportes": [
+              {
+                "nivel": 1.3117,
+                "score": 1.0,
+                "toques": 5,
+                "volume_medio": 0.0,
+                "primeira_ocorrencia": "2025-10-30T13:00:00+00:00",
+                "ultima_ocorrencia": "2025-11-04T06:00:00+00:00",
+                "features": {
+                  "toques_proximos": "50",
+                  "toques_muito_proximos": "46",
+                  "ratio_volume": 1,
+                  "volatilidade": 0.00021443913579348474,
+                  "momentum_positivo": 0.96,
+                  "ratio_range": 1.3859884505331996,
+                  "persistencia_temporal": 49,
+                  "nivel_preco": 1.3116956949234009
+                }
+              },
+              {
+                "nivel": 1.32777,
+                "score": 0.0,
+                "toques": 7,
+                "volume_medio": 0.0,
+                "primeira_ocorrencia": "2025-10-09T19:00:00+01:00",
+                "ultima_ocorrencia": "2025-10-28T13:00:00+00:00",
+                "features": {
+                  "toques_proximos": "0",
+                  "toques_muito_proximos": "0",
+                  "ratio_volume": 0,
+                  "volatilidade": 0.00021443913579348474,
+                  "momentum_positivo": 0.96,
+                  "ratio_range": 1.3859884505331996,
+                  "persistencia_temporal": 0,
+                  "nivel_preco": 1.3277653455734253
+                }
+              },
+              {
+                "nivel": 1.33332,
+                "score": 0.0,
+                "toques": 18,
+                "volume_medio": 0.0,
+                "primeira_ocorrencia": "2025-09-02T13:00:00+01:00",
+                "ultima_ocorrencia": "2025-10-27T15:00:00+00:00",
+                "features": {
+                  "toques_proximos": "0",
+                  "toques_muito_proximos": "0",
+                  "ratio_volume": 0,
+                  "volatilidade": 0.00021443913579348474,
+                  "momentum_positivo": 0.96,
+                  "ratio_range": 1.3859884505331996,
+                  "persistencia_temporal": 0,
+                  "nivel_preco": 1.3333158757951524
+                }
+              },
+              {
+                "nivel": 1.34086,
+                "score": 0.0,
+                "toques": 21,
+                "volume_medio": 0.0,
+                "primeira_ocorrencia": "2025-08-21T17:00:00+01:00",
+                "ultima_ocorrencia": "2025-10-20T19:00:00+01:00",
+                "features": {
+                  "toques_proximos": "0",
+                  "toques_muito_proximos": "0",
+                  "ratio_volume": 0,
+                  "volatilidade": 0.00021443913579348474,
+                  "momentum_positivo": 0.96,
+                  "ratio_range": 1.3859884505331996,
+                  "persistencia_temporal": 0,
+                  "nivel_preco": 1.3408557573954265
+                }
+              },
+              {
+                "nivel": 1.34682,
+                "score": 0.0,
+                "toques": 21,
+                "volume_medio": 0.0,
+                "primeira_ocorrencia": "2025-08-19T02:00:00+01:00",
+                "ultima_ocorrencia": "2025-10-02T02:00:00+01:00",
+                "features": {
+                  "toques_proximos": "0",
+                  "toques_muito_proximos": "0",
+                  "ratio_volume": 0,
+                  "volatilidade": 0.00021443913579348474,
+                  "momentum_positivo": 0.96,
+                  "ratio_range": 1.3859884505331996,
+                  "persistencia_temporal": 0,
+                  "nivel_preco": 1.3468191112790788
+                }
+              },
+              {
+                "nivel": 1.35312,
+                "score": 0.0,
+                "toques": 9,
+                "volume_medio": 0.0,
+                "primeira_ocorrencia": "2025-08-15T20:00:00+01:00",
+                "ultima_ocorrencia": "2025-09-18T14:00:00+01:00",
+                "features": {
+                  "toques_proximos": "0",
+                  "toques_muito_proximos": "0",
+                  "ratio_volume": 0,
+                  "volatilidade": 0.00021443913579348474,
+                  "momentum_positivo": 0.96,
+                  "ratio_range": 1.3859884505331996,
+                  "persistencia_temporal": 0,
+                  "nivel_preco": 1.3531159030066595
+                }
+              }
+            ],
+            "resistencias": [
+              {
+                "nivel": 1.31539,
+                "score": 0.8,
+                "toques": 5,
+                "volume_medio": 0.0,
+                "primeira_ocorrencia": "2025-10-31T01:00:00+00:00",
+                "ultima_ocorrencia": "2025-11-04T07:00:00+00:00",
+                "features": {
+                  "toques_proximos": "4",
+                  "toques_muito_proximos": "0",
+                  "ratio_volume": 1,
+                  "volatilidade": 0.00021443913579348474,
+                  "momentum_positivo": 0.96,
+                  "ratio_range": 1.3859884505331996,
+                  "persistencia_temporal": 3,
+                  "nivel_preco": 1.3153886079788208
+                }
+              },
+              {
+                "nivel": 1.33504,
+                "score": 0.0,
+                "toques": 15,
+                "volume_medio": 0.0,
+                "primeira_ocorrencia": "2025-10-10T06:00:00+01:00",
+                "ultima_ocorrencia": "2025-10-28T05:00:00+00:00",
+                "features": {
+                  "toques_proximos": "0",
+                  "toques_muito_proximos": "0",
+                  "ratio_volume": 0,
+                  "volatilidade": 0.00021443913579348474,
+                  "momentum_positivo": 0.96,
+                  "ratio_range": 1.3859884505331996,
+                  "persistencia_temporal": 0,
+                  "nivel_preco": 1.3350444396336874
+                }
+              },
+              {
+                "nivel": 1.34204,
+                "score": 0.0,
+                "toques": 15,
+                "volume_medio": 0.0,
+                "primeira_ocorrencia": "2025-08-22T02:00:00+01:00",
+                "ultima_ocorrencia": "2025-10-22T06:00:00+01:00",
+                "features": {
+                  "toques_proximos": "0",
+                  "toques_muito_proximos": "0",
+                  "ratio_volume": 0,
+                  "volatilidade": 0.00021443913579348474,
+                  "momentum_positivo": 0.96,
+                  "ratio_range": 1.3859884505331996,
+                  "persistencia_temporal": 0,
+                  "nivel_preco": 1.3420405387878418
+                }
+              },
+              {
+                "nivel": 1.34737,
+                "score": 0.0,
+                "toques": 21,
+                "volume_medio": 0.0,
+                "primeira_ocorrencia": "2025-08-19T22:00:00+01:00",
+                "ultima_ocorrencia": "2025-10-17T07:00:00+01:00",
+                "features": {
+                  "toques_proximos": "0",
+                  "toques_muito_proximos": "0",
+                  "ratio_volume": 0,
+                  "volatilidade": 0.00021443913579348474,
+                  "momentum_positivo": 0.96,
+                  "ratio_range": 1.3859884505331996,
+                  "persistencia_temporal": 0,
+                  "nivel_preco": 1.3473699263163976
+                }
+              },
+              {
+                "nivel": 1.35383,
+                "score": 0.0,
+                "toques": 21,
+                "volume_medio": 0.0,
+                "primeira_ocorrencia": "2025-08-18T05:00:00+01:00",
+                "ultima_ocorrencia": "2025-10-02T09:00:00+01:00",
+                "features": {
+                  "toques_proximos": "0",
+                  "toques_muito_proximos": "0",
+                  "ratio_volume": 0,
+                  "volatilidade": 0.00021443913579348474,
+                  "momentum_positivo": 0.96,
+                  "ratio_range": 1.3859884505331996,
+                  "persistencia_temporal": 0,
+                  "nivel_preco": 1.3538345836457752
+                }
+              },
+              {
+                "nivel": 1.35803,
+                "score": 0.0,
+                "toques": 4,
+                "volume_medio": 0.0,
+                "primeira_ocorrencia": "2025-08-15T14:00:00+01:00",
+                "ultima_ocorrencia": "2025-09-12T08:00:00+01:00",
+                "features": {
+                  "toques_proximos": "0",
+                  "toques_muito_proximos": "0",
+                  "ratio_volume": 0,
+                  "volatilidade": 0.00021443913579348474,
+                  "momentum_positivo": 0.96,
+                  "ratio_range": 1.3859884505331996,
+                  "persistencia_temporal": 0,
+                  "nivel_preco": 1.3580271005630493
+                }
+              },
+              {
+                "nivel": 1.36665,
+                "score": 0.0,
+                "toques": 3,
+                "volume_medio": 0.0,
+                "primeira_ocorrencia": "2025-09-16T15:00:00+01:00",
+                "ultima_ocorrencia": "2025-09-18T10:00:00+01:00",
+                "features": {
+                  "toques_proximos": "0",
+                  "toques_muito_proximos": "0",
+                  "ratio_volume": 0,
+                  "volatilidade": 0.00021443913579348474,
+                  "momentum_positivo": 0.96,
+                  "ratio_range": 1.3859884505331996,
+                  "persistencia_temporal": 0,
+                  "nivel_preco": 1.3666497071584065
+                }
+              }
+            ]
+          },
+          "periodo_dados": {
+            "inicio": "2025-08-15T00:00:00+01:00",
+            "fim": "2025-11-06T21:00:00+00:00",
+            "total_registros": 1423
+          }
+        }
+      },
+      "analise_consolidada": {
+        "suportes_criticos": [
+          {
+            "nivel": 1.3117,
+            "score_final": 0.6,
+            "confluencia": 1,
+            "timeframes": [
+              "1h"
+            ],
+            "total_toques": 5,
+            "features_consolidadas": {
+              "toques_proximos": 50.0,
+              "toques_muito_proximos": 46.0,
+              "ratio_volume": 1.0
+            }
+          },
+          {
+            "nivel": 1.32828,
+            "score_final": 0.38000000000000006,
+            "confluencia": 2,
+            "timeframes": [
+              "1h",
+              "4h"
+            ],
+            "total_toques": 35,
+            "features_consolidadas": {
+              "toques_proximos": 2.25,
+              "toques_muito_proximos": 0.75,
+              "ratio_volume": 0.5
+            }
+          },
+          {
+            "nivel": 1.23531,
+            "score_final": 0.0,
+            "confluencia": 1,
+            "timeframes": [
+              "4h"
+            ],
+            "total_toques": 3,
+            "features_consolidadas": {
+              "toques_proximos": 0.0,
+              "toques_muito_proximos": 0.0,
+              "ratio_volume": 0.0
+            }
+          },
+          {
+            "nivel": 1.24888,
+            "score_final": 0.0,
+            "confluencia": 1,
+            "timeframes": [
+              "4h"
+            ],
+            "total_toques": 3,
+            "features_consolidadas": {
+              "toques_proximos": 0.0,
+              "toques_muito_proximos": 0.0,
+              "ratio_volume": 0.0
+            }
+          },
+          {
+            "nivel": 1.26107,
+            "score_final": 0.0,
+            "confluencia": 1,
+            "timeframes": [
+              "4h"
+            ],
+            "total_toques": 5,
+            "features_consolidadas": {
+              "toques_proximos": 0.0,
+              "toques_muito_proximos": 0.0,
+              "ratio_volume": 0.0
+            }
+          }
+        ],
+        "resistencias_criticas": [
+          {
+            "nivel": 1.31539,
+            "score_final": 0.48,
+            "confluencia": 1,
+            "timeframes": [
+              "1h"
+            ],
+            "total_toques": 5,
+            "features_consolidadas": {
+              "toques_proximos": 4.0,
+              "toques_muito_proximos": 0.0,
+              "ratio_volume": 1.0
+            }
+          },
+          {
+            "nivel": 1.29924,
+            "score_final": 0.16000000000000003,
+            "confluencia": 1,
+            "timeframes": [
+              "4h"
+            ],
+            "total_toques": 4,
+            "features_consolidadas": {
+              "toques_proximos": 1.0,
+              "toques_muito_proximos": 0.0,
+              "ratio_volume": 1.0
+            }
+          },
+          {
+            "nivel": 1.27184,
+            "score_final": 0.0,
+            "confluencia": 1,
+            "timeframes": [
+              "4h"
+            ],
+            "total_toques": 5,
+            "features_consolidadas": {
+              "toques_proximos": 0.0,
+              "toques_muito_proximos": 0.0,
+              "ratio_volume": 0.0
+            }
+          },
+          {
+            "nivel": 1.33504,
+            "score_final": 0.0,
+            "confluencia": 1,
+            "timeframes": [
+              "1h"
+            ],
+            "total_toques": 15,
+            "features_consolidadas": {
+              "toques_proximos": 0.0,
+              "toques_muito_proximos": 0.0,
+              "ratio_volume": 0.0
+            }
+          },
+          {
+            "nivel": 1.34494,
+            "score_final": 0.0,
+            "confluencia": 2,
+            "timeframes": [
+              "1h",
+              "4h"
+            ],
+            "total_toques": 43,
+            "features_consolidadas": {
+              "toques_proximos": 0.0,
+              "toques_muito_proximos": 0.0,
+              "ratio_volume": 0.0
+            }
+          }
+        ],
+        "total_niveis_analisados": 27,
+        "confluencias_detectadas": 6
+      }
+    },
+    "USDJPY=X": {
+      "ticker": "USDJPY=X",
+      "timestamp_processamento": "2025-11-06T18:39:47.331534",
+      "qualidade_dados": 0.8360900773140616,
+      "timeframes_ml": {
+        "4h": {
+          "niveis_clustering": {
+            "suportes": [
+              {
+                "nivel": 142.22717,
+                "score": 0.0,
+                "toques": 6,
+                "volume_medio": 0.0,
+                "primeira_ocorrencia": "2025-04-11T08:00:00+01:00",
+                "ultima_ocorrencia": "2025-06-05T00:00:00+01:00",
+                "features": {
+                  "toques_proximos": "0",
+                  "toques_muito_proximos": "0",
+                  "ratio_volume": 0,
+                  "volatilidade": 0.0018148595245908803,
+                  "momentum_positivo": 0.44,
+                  "ratio_range": 0.35071547929472424,
+                  "persistencia_temporal": 0,
+                  "nivel_preco": 142.22716522216797
+                }
+              },
+              {
+                "nivel": 145.692,
+                "score": 0.0,
+                "toques": 3,
+                "volume_medio": 0.0,
+                "primeira_ocorrencia": "2025-07-10T00:00:00+01:00",
+                "ultima_ocorrencia": "2025-09-17T16:00:00+01:00",
+                "features": {
+                  "toques_proximos": "0",
+                  "toques_muito_proximos": "0",
+                  "ratio_volume": 0,
+                  "volatilidade": 0.0018148595245908803,
+                  "momentum_positivo": 0.44,
+                  "ratio_range": 0.35071547929472424,
+                  "persistencia_temporal": 0,
+                  "nivel_preco": 145.69200134277344
+                }
+              },
+              {
+                "nivel": 146.5928,
+                "score": 0.0,
+                "toques": 10,
+                "volume_medio": 0.0,
+                "primeira_ocorrencia": "2025-03-11T00:00:00+00:00",
+                "ultima_ocorrencia": "2025-10-01T12:00:00+01:00",
+                "features": {
+                  "toques_proximos": "0",
+                  "toques_muito_proximos": "0",
+                  "ratio_volume": 0,
+                  "volatilidade": 0.0018148595245908803,
+                  "momentum_positivo": 0.44,
+                  "ratio_range": 0.35071547929472424,
+                  "persistencia_temporal": 0,
+                  "nivel_preco": 146.59280090332032
+                }
+              },
+              {
+                "nivel": 148.022,
+                "score": 0.0,
+                "toques": 3,
+                "volume_medio": 0.0,
+                "primeira_ocorrencia": "2025-03-04T12:00:00+00:00",
+                "ultima_ocorrencia": "2025-07-30T08:00:00+01:00",
+                "features": {
+                  "toques_proximos": "0",
+                  "toques_muito_proximos": "0",
+                  "ratio_volume": 0,
+                  "volatilidade": 0.0018148595245908803,
+                  "momentum_positivo": 0.44,
+                  "ratio_range": 0.35071547929472424,
+                  "persistencia_temporal": 0,
+                  "nivel_preco": 148.02200317382812
+                }
+              },
+              {
+                "nivel": 148.63334,
+                "score": 0.0,
+                "toques": 3,
+                "volume_medio": 0.0,
+                "primeira_ocorrencia": "2024-12-03T12:00:00+00:00",
+                "ultima_ocorrencia": "2025-03-31T08:00:00+01:00",
+                "features": {
+                  "toques_proximos": "0",
+                  "toques_muito_proximos": "0",
+                  "ratio_volume": 0,
+                  "volatilidade": 0.0018148595245908803,
+                  "momentum_positivo": 0.44,
+                  "ratio_range": 0.35071547929472424,
+                  "persistencia_temporal": 0,
+                  "nivel_preco": 148.63333638509116
+                }
+              },
+              {
+                "nivel": 151.08967,
+                "score": 0.0,
+                "toques": 3,
+                "volume_medio": 0.0,
+                "primeira_ocorrencia": "2025-02-07T16:00:00+00:00",
+                "ultima_ocorrencia": "2025-10-10T20:00:00+01:00",
+                "features": {
+                  "toques_proximos": "0",
+                  "toques_muito_proximos": "0",
+                  "ratio_volume": 0,
+                  "volatilidade": 0.0018148595245908803,
+                  "momentum_positivo": 0.44,
+                  "ratio_range": 0.35071547929472424,
+                  "persistencia_temporal": 0,
+                  "nivel_preco": 151.08966573079428
+                }
+              }
+            ],
+            "resistencias": [
+              {
+                "nivel": 154.468,
+                "score": 1.0,
+                "toques": 3,
+                "volume_medio": 0.0,
+                "primeira_ocorrencia": "2024-12-16T12:00:00+00:00",
+                "ultima_ocorrencia": "2025-11-04T00:00:00+00:00",
+                "features": {
+                  "toques_proximos": "5",
+                  "toques_muito_proximos": "0",
+                  "ratio_volume": 1,
+                  "volatilidade": 0.0018148595245908803,
+                  "momentum_positivo": 0.44,
+                  "ratio_range": 0.35071547929472424,
+                  "persistencia_temporal": 24,
+                  "nivel_preco": 154.4679972330729
+                }
+              },
+              {
+                "nivel": 148.19067,
+                "score": 0.0,
+                "toques": 9,
+                "volume_medio": 0.0,
+                "primeira_ocorrencia": "2025-04-07T16:00:00+01:00",
+                "ultima_ocorrencia": "2025-09-22T04:00:00+01:00",
+                "features": {
+                  "toques_proximos": "0",
+                  "toques_muito_proximos": "0",
+                  "ratio_volume": 0,
+                  "volatilidade": 0.0018148595245908803,
+                  "momentum_positivo": 0.44,
+                  "ratio_range": 0.35071547929472424,
+                  "persistencia_temporal": 0,
+                  "nivel_preco": 148.19066874186197
+                }
+              },
+              {
+                "nivel": 149.174,
+                "score": 0.0,
+                "toques": 3,
+                "volume_medio": 0.0,
+                "primeira_ocorrencia": "2025-03-12T12:00:00+00:00",
+                "ultima_ocorrencia": "2025-09-03T08:00:00+01:00",
+                "features": {
+                  "toques_proximos": "0",
+                  "toques_muito_proximos": "0",
+                  "ratio_volume": 0,
+                  "volatilidade": 0.0018148595245908803,
+                  "momentum_positivo": 0.44,
+                  "ratio_range": 0.35071547929472424,
+                  "persistencia_temporal": 0,
+                  "nivel_preco": 149.17400105794272
+                }
+              },
+              {
+                "nivel": 151.1208,
+                "score": 0.0,
+                "toques": 5,
+                "volume_medio": 0.0,
+                "primeira_ocorrencia": "2024-12-04T12:00:00+00:00",
+                "ultima_ocorrencia": "2025-08-01T00:00:00+01:00",
+                "features": {
+                  "toques_proximos": "0",
+                  "toques_muito_proximos": "0",
+                  "ratio_volume": 0,
+                  "volatilidade": 0.0018148595245908803,
+                  "momentum_positivo": 0.44,
+                  "ratio_range": 0.35071547929472424,
+                  "persistencia_temporal": 0,
+                  "nivel_preco": 151.12079772949218
+                }
+              },
+              {
+                "nivel": 156.656,
+                "score": 0.0,
+                "toques": 3,
+                "volume_medio": 0.0,
+                "primeira_ocorrencia": "2024-11-15T00:00:00+00:00",
+                "ultima_ocorrencia": "2025-01-23T04:00:00+00:00",
+                "features": {
+                  "toques_proximos": "0",
+                  "toques_muito_proximos": "0",
+                  "ratio_volume": 0,
+                  "volatilidade": 0.0018148595245908803,
+                  "momentum_positivo": 0.44,
+                  "ratio_range": 0.35071547929472424,
+                  "persistencia_temporal": 0,
+                  "nivel_preco": 156.65600077311197
+                }
+              },
+              {
+                "nivel": 158.069,
+                "score": 0.0,
+                "toques": 3,
+                "volume_medio": 0.0,
+                "primeira_ocorrencia": "2024-12-20T00:00:00+00:00",
+                "ultima_ocorrencia": "2025-01-14T16:00:00+00:00",
+                "features": {
+                  "toques_proximos": "0",
+                  "toques_muito_proximos": "0",
+                  "ratio_volume": 0,
+                  "volatilidade": 0.0018148595245908803,
+                  "momentum_positivo": 0.44,
+                  "ratio_range": 0.35071547929472424,
+                  "persistencia_temporal": 0,
+                  "nivel_preco": 158.06900024414062
+                }
+              }
+            ]
+          },
+          "periodo_dados": {
+            "inicio": "2024-11-06T20:00:00+00:00",
+            "fim": "2025-11-06T20:00:00+00:00",
+            "total_registros": 1561
+          }
+        },
+        "1h": {
+          "niveis_clustering": {
+            "suportes": [
+              {
+                "nivel": 153.834,
+                "score": 1.0,
+                "toques": 4,
+                "volume_medio": 0.0,
+                "primeira_ocorrencia": "2025-10-31T01:00:00+00:00",
+                "ultima_ocorrencia": "2025-11-03T15:00:00+00:00",
+                "features": {
+                  "toques_proximos": "33",
+                  "toques_muito_proximos": "14",
+                  "ratio_volume": 1,
+                  "volatilidade": 0.0008974708337946874,
+                  "momentum_positivo": 0.4,
+                  "ratio_range": 0.4395295879215148,
+                  "persistencia_temporal": 40,
+                  "nivel_preco": 153.83399963378906
+                }
+              },
+              {
+                "nivel": 146.57314,
+                "score": 0.0,
+                "toques": 14,
+                "volume_medio": 0.0,
+                "primeira_ocorrencia": "2025-08-15T13:00:00+01:00",
+                "ultima_ocorrencia": "2025-10-02T10:00:00+01:00",
+                "features": {
+                  "toques_proximos": "0",
+                  "toques_muito_proximos": "0",
+                  "ratio_volume": 0,
+                  "volatilidade": 0.0008974708337946874,
+                  "momentum_positivo": 0.4,
+                  "ratio_range": 0.4395295879215148,
+                  "persistencia_temporal": 0,
+                  "nivel_preco": 146.5731419154576
+                }
+              },
+              {
+                "nivel": 147.20271,
+                "score": 0.0,
+                "toques": 24,
+                "volume_medio": 0.0,
+                "primeira_ocorrencia": "2025-08-18T08:00:00+01:00",
+                "ultima_ocorrencia": "2025-10-03T15:00:00+01:00",
+                "features": {
+                  "toques_proximos": "0",
+                  "toques_muito_proximos": "0",
+                  "ratio_volume": 0,
+                  "volatilidade": 0.0008974708337946874,
+                  "momentum_positivo": 0.4,
+                  "ratio_range": 0.4395295879215148,
+                  "persistencia_temporal": 0,
+                  "nivel_preco": 147.20270792643228
+                }
+              },
+              {
+                "nivel": 147.844,
+                "score": 0.0,
+                "toques": 7,
+                "volume_medio": 0.0,
+                "primeira_ocorrencia": "2025-09-02T15:00:00+01:00",
+                "ultima_ocorrencia": "2025-09-30T18:00:00+01:00",
+                "features": {
+                  "toques_proximos": "0",
+                  "toques_muito_proximos": "0",
+                  "ratio_volume": 0,
+                  "volatilidade": 0.0008974708337946874,
+                  "momentum_positivo": 0.4,
+                  "ratio_range": 0.4395295879215148,
+                  "persistencia_temporal": 0,
+                  "nivel_preco": 147.843998500279
+                }
+              },
+              {
+                "nivel": 148.4735,
+                "score": 0.0,
+                "toques": 4,
+                "volume_medio": 0.0,
+                "primeira_ocorrencia": "2025-08-22T08:00:00+01:00",
+                "ultima_ocorrencia": "2025-09-29T10:00:00+01:00",
+                "features": {
+                  "toques_proximos": "0",
+                  "toques_muito_proximos": "0",
+                  "ratio_volume": 0,
+                  "volatilidade": 0.0008974708337946874,
+                  "momentum_positivo": 0.4,
+                  "ratio_range": 0.4395295879215148,
+                  "persistencia_temporal": 0,
+                  "nivel_preco": 148.4734992980957
+                }
+              },
+              {
+                "nivel": 149.57566,
+                "score": 0.0,
+                "toques": 3,
+                "volume_medio": 0.0,
+                "primeira_ocorrencia": "2025-09-26T06:00:00+01:00",
+                "ultima_ocorrencia": "2025-10-17T08:00:00+01:00",
+                "features": {
+                  "toques_proximos": "0",
+                  "toques_muito_proximos": "0",
+                  "ratio_volume": 0,
+                  "volatilidade": 0.0008974708337946874,
+                  "momentum_positivo": 0.4,
+                  "ratio_range": 0.4395295879215148,
+                  "persistencia_temporal": 0,
+                  "nivel_preco": 149.5756632486979
+                }
+              },
+              {
+                "nivel": 150.36975,
+                "score": 0.0,
+                "toques": 4,
+                "volume_medio": 0.0,
+                "primeira_ocorrencia": "2025-10-07T05:00:00+01:00",
+                "ultima_ocorrencia": "2025-10-21T01:00:00+01:00",
+                "features": {
+                  "toques_proximos": "0",
+                  "toques_muito_proximos": "0",
+                  "ratio_volume": 0,
+                  "volatilidade": 0.0008974708337946874,
+                  "momentum_positivo": 0.4,
+                  "ratio_range": 0.4395295879215148,
+                  "persistencia_temporal": 0,
+                  "nivel_preco": 150.3697509765625
+                }
+              },
+              {
+                "nivel": 151.6125,
+                "score": 0.0,
+                "toques": 8,
+                "volume_medio": 0.0,
+                "primeira_ocorrencia": "2025-10-13T07:00:00+01:00",
+                "ultima_ocorrencia": "2025-10-29T13:00:00+00:00",
+                "features": {
+                  "toques_proximos": "0",
+                  "toques_muito_proximos": "0",
+                  "ratio_volume": 0,
+                  "volatilidade": 0.0008974708337946874,
+                  "momentum_positivo": 0.4,
+                  "ratio_range": 0.4395295879215148,
+                  "persistencia_temporal": 0,
+                  "nivel_preco": 151.61249923706055
+                }
+              },
+              {
+                "nivel": 152.33491,
+                "score": 0.0,
+                "toques": 11,
+                "volume_medio": 0.0,
+                "primeira_ocorrencia": "2025-10-08T07:00:00+01:00",
+                "ultima_ocorrencia": "2025-10-30T03:00:00+00:00",
+                "features": {
+                  "toques_proximos": "0",
+                  "toques_muito_proximos": "0",
+                  "ratio_volume": 0,
+                  "volatilidade": 0.0008974708337946874,
+                  "momentum_positivo": 0.4,
+                  "ratio_range": 0.4395295879215148,
+                  "persistencia_temporal": 0,
+                  "nivel_preco": 152.3349082253196
+                }
+              }
+            ],
+            "resistencias": [
+              {
+                "nivel": 152.98993,
+                "score": 1.0,
+                "toques": 14,
+                "volume_medio": 0.0,
+                "primeira_ocorrencia": "2025-10-08T03:00:00+01:00",
+                "ultima_ocorrencia": "2025-10-29T19:00:00+00:00",
+                "features": {
+                  "toques_proximos": "9",
+                  "toques_muito_proximos": "6",
+                  "ratio_volume": 1,
+                  "volatilidade": 0.0008974708337946874,
+                  "momentum_positivo": 0.4,
+                  "ratio_range": 0.4395295879215148,
+                  "persistencia_temporal": 45,
+                  "nivel_preco": 152.98992810930525
+                }
+              },
+              {
+                "nivel": 154.33187,
+                "score": 1.0,
+                "toques": 8,
+                "volume_medio": 0.0,
+                "primeira_ocorrencia": "2025-10-30T13:00:00+00:00",
+                "ultima_ocorrencia": "2025-11-05T16:00:00+00:00",
+                "features": {
+                  "toques_proximos": "9",
+                  "toques_muito_proximos": "1",
+                  "ratio_volume": 1,
+                  "volatilidade": 0.0008974708337946874,
+                  "momentum_positivo": 0.4,
+                  "ratio_range": 0.4395295879215148,
+                  "persistencia_temporal": 8,
+                  "nivel_preco": 154.3318748474121
+                }
+              },
+              {
+                "nivel": 147.5249,
+                "score": 0.0,
+                "toques": 21,
+                "volume_medio": 0.0,
+                "primeira_ocorrencia": "2025-08-18T02:00:00+01:00",
+                "ultima_ocorrencia": "2025-10-03T06:00:00+01:00",
+                "features": {
+                  "toques_proximos": "0",
+                  "toques_muito_proximos": "0",
+                  "ratio_volume": 0,
+                  "volatilidade": 0.0008974708337946874,
+                  "momentum_positivo": 0.4,
+                  "ratio_range": 0.4395295879215148,
+                  "persistencia_temporal": 0,
+                  "nivel_preco": 147.52490452357702
+                }
+              },
+              {
+                "nivel": 148.09477,
+                "score": 0.0,
+                "toques": 17,
+                "volume_medio": 0.0,
+                "primeira_ocorrencia": "2025-08-18T16:00:00+01:00",
+                "ultima_ocorrencia": "2025-10-01T01:00:00+01:00",
+                "features": {
+                  "toques_proximos": "0",
+                  "toques_muito_proximos": "0",
+                  "ratio_volume": 0,
+                  "volatilidade": 0.0008974708337946874,
+                  "momentum_positivo": 0.4,
+                  "ratio_range": 0.4395295879215148,
+                  "persistencia_temporal": 0,
+                  "nivel_preco": 148.0947660558364
+                }
+              },
+              {
+                "nivel": 148.83937,
+                "score": 0.0,
+                "toques": 8,
+                "volume_medio": 0.0,
+                "primeira_ocorrencia": "2025-08-22T06:00:00+01:00",
+                "ultima_ocorrencia": "2025-09-30T01:00:00+01:00",
+                "features": {
+                  "toques_proximos": "0",
+                  "toques_muito_proximos": "0",
+                  "ratio_volume": 0,
+                  "volatilidade": 0.0008974708337946874,
+                  "momentum_positivo": 0.4,
+                  "ratio_range": 0.4395295879215148,
+                  "persistencia_temporal": 0,
+                  "nivel_preco": 148.83937454223633
+                }
+              },
+              {
+                "nivel": 150.6355,
+                "score": 0.0,
+                "toques": 4,
+                "volume_medio": 0.0,
+                "primeira_ocorrencia": "2025-10-06T10:00:00+01:00",
+                "ultima_ocorrencia": "2025-10-20T12:00:00+01:00",
+                "features": {
+                  "toques_proximos": "0",
+                  "toques_muito_proximos": "0",
+                  "ratio_volume": 0,
+                  "volatilidade": 0.0008974708337946874,
+                  "momentum_positivo": 0.4,
+                  "ratio_range": 0.4395295879215148,
+                  "persistencia_temporal": 0,
+                  "nivel_preco": 150.635498046875
+                }
+              },
+              {
+                "nivel": 152.13389,
+                "score": 0.0,
+                "toques": 9,
+                "volume_medio": 0.0,
+                "primeira_ocorrencia": "2025-10-13T09:00:00+01:00",
+                "ultima_ocorrencia": "2025-10-28T13:00:00+00:00",
+                "features": {
+                  "toques_proximos": "0",
+                  "toques_muito_proximos": "0",
+                  "ratio_volume": 0,
+                  "volatilidade": 0.0008974708337946874,
+                  "momentum_positivo": 0.4,
+                  "ratio_range": 0.4395295879215148,
+                  "persistencia_temporal": 0,
+                  "nivel_preco": 152.13388909233942
+                }
+              }
+            ]
+          },
+          "periodo_dados": {
+            "inicio": "2025-08-15T00:00:00+01:00",
+            "fim": "2025-11-06T21:00:00+00:00",
+            "total_registros": 1411
+          }
+        }
+      },
+      "analise_consolidada": {
+        "suportes_criticos": [
+          {
+            "nivel": 153.834,
+            "score_final": 0.6,
+            "confluencia": 1,
+            "timeframes": [
+              "1h"
+            ],
+            "total_toques": 4,
+            "features_consolidadas": {
+              "toques_proximos": 33.0,
+              "toques_muito_proximos": 14.0,
+              "ratio_volume": 1.0
+            }
+          },
+          {
+            "nivel": 142.22717,
+            "score_final": 0.0,
+            "confluencia": 1,
+            "timeframes": [
+              "4h"
+            ],
+            "total_toques": 6,
+            "features_consolidadas": {
+              "toques_proximos": 0.0,
+              "toques_muito_proximos": 0.0,
+              "ratio_volume": 0.0
+            }
+          },
+          {
+            "nivel": 145.692,
+            "score_final": 0.0,
+            "confluencia": 1,
+            "timeframes": [
+              "4h"
+            ],
+            "total_toques": 3,
+            "features_consolidadas": {
+              "toques_proximos": 0.0,
+              "toques_muito_proximos": 0.0,
+              "ratio_volume": 0.0
+            }
+          },
+          {
+            "nivel": 146.58297,
+            "score_final": 0.0,
+            "confluencia": 2,
+            "timeframes": [
+              "1h",
+              "4h"
+            ],
+            "total_toques": 24,
+            "features_consolidadas": {
+              "toques_proximos": 0.0,
+              "toques_muito_proximos": 0.0,
+              "ratio_volume": 0.0
+            }
+          },
+          {
+            "nivel": 147.20271,
+            "score_final": 0.0,
+            "confluencia": 1,
+            "timeframes": [
+              "1h"
+            ],
+            "total_toques": 24,
+            "features_consolidadas": {
+              "toques_proximos": 0.0,
+              "toques_muito_proximos": 0.0,
+              "ratio_volume": 0.0
+            }
+          }
+        ],
+        "resistencias_criticas": [
+          {
+            "nivel": 154.40966,
+            "score_final": 0.7,
+            "confluencia": 2,
+            "timeframes": [
+              "1h",
+              "4h"
+            ],
+            "total_toques": 11,
+            "features_consolidadas": {
+              "toques_proximos": 7.0,
+              "toques_muito_proximos": 0.5,
+              "ratio_volume": 1.0
+            }
+          },
+          {
+            "nivel": 152.98993,
+            "score_final": 0.6,
+            "confluencia": 1,
+            "timeframes": [
+              "1h"
+            ],
+            "total_toques": 14,
+            "features_consolidadas": {
+              "toques_proximos": 9.0,
+              "toques_muito_proximos": 6.0,
+              "ratio_volume": 1.0
+            }
+          },
+          {
+            "nivel": 147.5249,
+            "score_final": 0.0,
+            "confluencia": 1,
+            "timeframes": [
+              "1h"
+            ],
+            "total_toques": 21,
+            "features_consolidadas": {
+              "toques_proximos": 0.0,
+              "toques_muito_proximos": 0.0,
+              "ratio_volume": 0.0
+            }
+          },
+          {
+            "nivel": 148.14272,
+            "score_final": 0.0,
+            "confluencia": 2,
+            "timeframes": [
+              "1h",
+              "4h"
+            ],
+            "total_toques": 26,
+            "features_consolidadas": {
+              "toques_proximos": 0.0,
+              "toques_muito_proximos": 0.0,
+              "ratio_volume": 0.0
+            }
+          },
+          {
+            "nivel": 149.00668,
+            "score_final": 0.0,
+            "confluencia": 2,
+            "timeframes": [
+              "1h",
+              "4h"
+            ],
+            "total_toques": 11,
+            "features_consolidadas": {
+              "toques_proximos": 0.0,
+              "toques_muito_proximos": 0.0,
+              "ratio_volume": 0.0
+            }
+          }
+        ],
+        "total_niveis_analisados": 28,
+        "confluencias_detectadas": 6
+      }
+    },
+    "GBPJPY=X": {
+      "ticker": "GBPJPY=X",
+      "timestamp_processamento": "2025-11-06T18:39:51.084974",
+      "qualidade_dados": 0.8288382245064835,
+      "timeframes_ml": {
+        "4h": {
+          "niveis_clustering": {
+            "suportes": [
+              {
+                "nivel": 187.52134,
+                "score": 0.0,
+                "toques": 3,
+                "volume_medio": 0.0,
+                "primeira_ocorrencia": "2025-02-28T00:00:00+00:00",
+                "ultima_ocorrencia": "2025-04-22T08:00:00+01:00",
+                "features": {
+                  "toques_proximos": "0",
+                  "toques_muito_proximos": "0",
+                  "ratio_volume": 0,
+                  "volatilidade": 0.0018060238855642137,
+                  "momentum_positivo": 0.38,
+                  "ratio_range": 0.40419298607826176,
+                  "persistencia_temporal": 0,
+                  "nivel_preco": 187.5213368733724
+                }
+              },
+              {
+                "nivel": 188.15175,
+                "score": 0.0,
+                "toques": 4,
+                "volume_medio": 0.0,
+                "primeira_ocorrencia": "2024-12-03T12:00:00+00:00",
+                "ultima_ocorrencia": "2025-03-04T12:00:00+00:00",
+                "features": {
+                  "toques_proximos": "0",
+                  "toques_muito_proximos": "0",
+                  "ratio_volume": 0,
+                  "volatilidade": 0.0018060238855642137,
+                  "momentum_positivo": 0.38,
+                  "ratio_range": 0.40419298607826176,
+                  "persistencia_temporal": 0,
+                  "nivel_preco": 188.15175247192383
+                }
+              },
+              {
+                "nivel": 190.32943,
+                "score": 0.0,
+                "toques": 7,
+                "volume_medio": 0.0,
+                "primeira_ocorrencia": "2024-12-09T04:00:00+00:00",
+                "ultima_ocorrencia": "2025-05-06T20:00:00+01:00",
+                "features": {
+                  "toques_proximos": "0",
+                  "toques_muito_proximos": "0",
+                  "ratio_volume": 0,
+                  "volatilidade": 0.0018060238855642137,
+                  "momentum_positivo": 0.38,
+                  "ratio_range": 0.40419298607826176,
+                  "persistencia_temporal": 0,
+                  "nivel_preco": 190.32942853655135
+                }
+              },
+              {
+                "nivel": 192.04075,
+                "score": 0.0,
+                "toques": 4,
+                "volume_medio": 0.0,
+                "primeira_ocorrencia": "2025-01-24T04:00:00+00:00",
+                "ultima_ocorrencia": "2025-05-22T08:00:00+01:00",
+                "features": {
+                  "toques_proximos": "0",
+                  "toques_muito_proximos": "0",
+                  "ratio_volume": 0,
+                  "volatilidade": 0.0018060238855642137,
+                  "momentum_positivo": 0.38,
+                  "ratio_range": 0.40419298607826176,
+                  "persistencia_temporal": 0,
+                  "nivel_preco": 192.0407485961914
+                }
+              },
+              {
+                "nivel": 192.77733,
+                "score": 0.0,
+                "toques": 3,
+                "volume_medio": 0.0,
+                "primeira_ocorrencia": "2024-12-13T04:00:00+00:00",
+                "ultima_ocorrencia": "2025-06-03T08:00:00+01:00",
+                "features": {
+                  "toques_proximos": "0",
+                  "toques_muito_proximos": "0",
+                  "ratio_volume": 0,
+                  "volatilidade": 0.0018060238855642137,
+                  "momentum_positivo": 0.38,
+                  "ratio_range": 0.40419298607826176,
+                  "persistencia_temporal": 0,
+                  "nivel_preco": 192.77733357747397
+                }
+              },
+              {
+                "nivel": 193.837,
+                "score": 0.0,
+                "toques": 6,
+                "volume_medio": 0.0,
+                "primeira_ocorrencia": "2024-11-19T08:00:00+00:00",
+                "ultima_ocorrencia": "2025-06-19T00:00:00+01:00",
+                "features": {
+                  "toques_proximos": "0",
+                  "toques_muito_proximos": "0",
+                  "ratio_volume": 0,
+                  "volatilidade": 0.0018060238855642137,
+                  "momentum_positivo": 0.38,
+                  "ratio_range": 0.40419298607826176,
+                  "persistencia_temporal": 0,
+                  "nivel_preco": 193.83700052897134
+                }
+              },
+              {
+                "nivel": 195.05,
+                "score": 0.0,
+                "toques": 3,
+                "volume_medio": 0.0,
+                "primeira_ocorrencia": "2025-06-10T08:00:00+01:00",
+                "ultima_ocorrencia": "2025-08-04T16:00:00+01:00",
+                "features": {
+                  "toques_proximos": "0",
+                  "toques_muito_proximos": "0",
+                  "ratio_volume": 0,
+                  "volatilidade": 0.0018060238855642137,
+                  "momentum_positivo": 0.38,
+                  "ratio_range": 0.40419298607826176,
+                  "persistencia_temporal": 0,
+                  "nivel_preco": 195.04999796549478
+                }
+              },
+              {
+                "nivel": 197.9105,
+                "score": 0.0,
+                "toques": 8,
+                "volume_medio": 0.0,
+                "primeira_ocorrencia": "2025-07-14T04:00:00+01:00",
+                "ultima_ocorrencia": "2025-10-02T12:00:00+01:00",
+                "features": {
+                  "toques_proximos": "0",
+                  "toques_muito_proximos": "0",
+                  "ratio_volume": 0,
+                  "volatilidade": 0.0018060238855642137,
+                  "momentum_positivo": 0.38,
+                  "ratio_range": 0.40419298607826176,
+                  "persistencia_temporal": 0,
+                  "nivel_preco": 197.91050148010254
+                }
+              },
+              {
+                "nivel": 198.86325,
+                "score": 0.0,
+                "toques": 4,
+                "volume_medio": 0.0,
+                "primeira_ocorrencia": "2025-08-14T04:00:00+01:00",
+                "ultima_ocorrencia": "2025-11-05T00:00:00+00:00",
+                "features": {
+                  "toques_proximos": "0",
+                  "toques_muito_proximos": "0",
+                  "ratio_volume": 0,
+                  "volatilidade": 0.0018060238855642137,
+                  "momentum_positivo": 0.38,
+                  "ratio_range": 0.40419298607826176,
+                  "persistencia_temporal": 0,
+                  "nivel_preco": 198.86325454711914
+                }
+              }
+            ],
+            "resistencias": [
+              {
+                "nivel": 200.341,
+                "score": 1.0,
+                "toques": 7,
+                "volume_medio": 0.0,
+                "primeira_ocorrencia": "2025-07-18T08:00:00+01:00",
+                "ultima_ocorrencia": "2025-09-26T12:00:00+01:00",
+                "features": {
+                  "toques_proximos": "7",
+                  "toques_muito_proximos": "3",
+                  "ratio_volume": 1,
+                  "volatilidade": 0.0018060238855642137,
+                  "momentum_positivo": 0.38,
+                  "ratio_range": 0.40419298607826176,
+                  "persistencia_temporal": 13,
+                  "nivel_preco": 200.34099905831474
+                }
+              },
+              {
+                "nivel": 203.40233,
+                "score": 1.0,
+                "toques": 3,
+                "volume_medio": 0.0,
+                "primeira_ocorrencia": "2025-10-14T00:00:00+01:00",
+                "ultima_ocorrencia": "2025-10-30T12:00:00+00:00",
+                "features": {
+                  "toques_proximos": "3",
+                  "toques_muito_proximos": "1",
+                  "ratio_volume": 1,
+                  "volatilidade": 0.0018060238855642137,
+                  "momentum_positivo": 0.38,
+                  "ratio_range": 0.40419298607826176,
+                  "persistencia_temporal": 15,
+                  "nivel_preco": 203.40233357747397
+                }
+              },
+              {
+                "nivel": 193.0865,
+                "score": 0.0,
+                "toques": 4,
+                "volume_medio": 0.0,
+                "primeira_ocorrencia": "2025-01-14T20:00:00+00:00",
+                "ultima_ocorrencia": "2025-03-12T12:00:00+00:00",
+                "features": {
+                  "toques_proximos": "0",
+                  "toques_muito_proximos": "0",
+                  "ratio_volume": 0,
+                  "volatilidade": 0.0018060238855642137,
+                  "momentum_positivo": 0.38,
+                  "ratio_range": 0.40419298607826176,
+                  "persistencia_temporal": 0,
+                  "nivel_preco": 193.08649826049805
+                }
+              },
+              {
+                "nivel": 194.91225,
+                "score": 0.0,
+                "toques": 4,
+                "volume_medio": 0.0,
+                "primeira_ocorrencia": "2024-12-12T04:00:00+00:00",
+                "ultima_ocorrencia": "2025-03-25T00:00:00+00:00",
+                "features": {
+                  "toques_proximos": "0",
+                  "toques_muito_proximos": "0",
+                  "ratio_volume": 0,
+                  "volatilidade": 0.0018060238855642137,
+                  "momentum_positivo": 0.38,
+                  "ratio_range": 0.40419298607826176,
+                  "persistencia_temporal": 0,
+                  "nivel_preco": 194.91224670410156
+                }
+              },
+              {
+                "nivel": 196.13033,
+                "score": 0.0,
+                "toques": 6,
+                "volume_medio": 0.0,
+                "primeira_ocorrencia": "2024-12-17T00:00:00+00:00",
+                "ultima_ocorrencia": "2025-06-10T00:00:00+01:00",
+                "features": {
+                  "toques_proximos": "0",
+                  "toques_muito_proximos": "0",
+                  "ratio_volume": 0,
+                  "volatilidade": 0.0018060238855642137,
+                  "momentum_positivo": 0.38,
+                  "ratio_range": 0.40419298607826176,
+                  "persistencia_temporal": 0,
+                  "nivel_preco": 196.13033040364584
+                }
+              },
+              {
+                "nivel": 198.185,
+                "score": 0.0,
+                "toques": 7,
+                "volume_medio": 0.0,
+                "primeira_ocorrencia": "2024-11-15T00:00:00+00:00",
+                "ultima_ocorrencia": "2025-07-03T16:00:00+01:00",
+                "features": {
+                  "toques_proximos": "0",
+                  "toques_muito_proximos": "0",
+                  "ratio_volume": 0,
+                  "volatilidade": 0.0018060238855642137,
+                  "momentum_positivo": 0.38,
+                  "ratio_range": 0.40419298607826176,
+                  "persistencia_temporal": 0,
+                  "nivel_preco": 198.18499973842077
+                }
+              },
+              {
+                "nivel": 199.3645,
+                "score": 0.0,
+                "toques": 8,
+                "volume_medio": 0.0,
+                "primeira_ocorrencia": "2024-12-19T08:00:00+00:00",
+                "ultima_ocorrencia": "2025-08-27T12:00:00+01:00",
+                "features": {
+                  "toques_proximos": "0",
+                  "toques_muito_proximos": "0",
+                  "ratio_volume": 0,
+                  "volatilidade": 0.0018060238855642137,
+                  "momentum_positivo": 0.38,
+                  "ratio_range": 0.40419298607826176,
+                  "persistencia_temporal": 0,
+                  "nivel_preco": 199.36450004577637
+                }
+              }
+            ]
+          },
+          "periodo_dados": {
+            "inicio": "2024-11-06T20:00:00+00:00",
+            "fim": "2025-11-06T20:00:00+00:00",
+            "total_registros": 1562
+          }
+        },
+        "1h": {
+          "niveis_clustering": {
+            "suportes": [
+              {
+                "nivel": 199.539,
+                "score": 1.0,
+                "toques": 19,
+                "volume_medio": 0.0,
+                "primeira_ocorrencia": "2025-08-18T08:00:00+01:00",
+                "ultima_ocorrencia": "2025-09-29T22:00:00+01:00",
+                "features": {
+                  "toques_proximos": "6",
+                  "toques_muito_proximos": "3",
+                  "ratio_volume": 1,
+                  "volatilidade": 0.0009624208807900601,
+                  "momentum_positivo": 0.56,
+                  "ratio_range": 0.34332275390625,
+                  "persistencia_temporal": 5,
+                  "nivel_preco": 199.53899985865542
+                }
+              },
+              {
+                "nivel": 200.95728,
+                "score": 1.0,
+                "toques": 7,
+                "volume_medio": 0.0,
+                "primeira_ocorrencia": "2025-10-06T13:00:00+01:00",
+                "ultima_ocorrencia": "2025-11-06T00:00:00+00:00",
+                "features": {
+                  "toques_proximos": "31",
+                  "toques_muito_proximos": "25",
+                  "ratio_volume": 1,
+                  "volatilidade": 0.0009624208807900601,
+                  "momentum_positivo": 0.56,
+                  "ratio_range": 0.34332275390625,
+                  "persistencia_temporal": 32,
+                  "nivel_preco": 200.95728193010603
+                }
+              },
+              {
+                "nivel": 197.99,
+                "score": 0.0,
+                "toques": 11,
+                "volume_medio": 0.0,
+                "primeira_ocorrencia": "2025-08-20T15:00:00+01:00",
+                "ultima_ocorrencia": "2025-10-03T12:00:00+01:00",
+                "features": {
+                  "toques_proximos": "0",
+                  "toques_muito_proximos": "0",
+                  "ratio_volume": 0,
+                  "volatilidade": 0.0009624208807900601,
+                  "momentum_positivo": 0.56,
+                  "ratio_range": 0.34332275390625,
+                  "persistencia_temporal": 0,
+                  "nivel_preco": 197.9899999445135
+                }
+              },
+              {
+                "nivel": 198.8325,
+                "score": 0.0,
+                "toques": 24,
+                "volume_medio": 0.0,
+                "primeira_ocorrencia": "2025-08-15T10:00:00+01:00",
+                "ultima_ocorrencia": "2025-11-05T01:00:00+00:00",
+                "features": {
+                  "toques_proximos": "0",
+                  "toques_muito_proximos": "0",
+                  "ratio_volume": 0,
+                  "volatilidade": 0.0009624208807900601,
+                  "momentum_positivo": 0.56,
+                  "ratio_range": 0.34332275390625,
+                  "persistencia_temporal": 0,
+                  "nivel_preco": 198.83250045776367
+                }
+              },
+              {
+                "nivel": 201.87223,
+                "score": 0.0,
+                "toques": 13,
+                "volume_medio": 0.0,
+                "primeira_ocorrencia": "2025-10-07T12:00:00+01:00",
+                "ultima_ocorrencia": "2025-11-03T15:00:00+00:00",
+                "features": {
+                  "toques_proximos": "0",
+                  "toques_muito_proximos": "0",
+                  "ratio_volume": 0,
+                  "volatilidade": 0.0009624208807900601,
+                  "momentum_positivo": 0.56,
+                  "ratio_range": 0.34332275390625,
+                  "persistencia_temporal": 0,
+                  "nivel_preco": 201.87222994290866
+                }
+              },
+              {
+                "nivel": 202.88643,
+                "score": 0.0,
+                "toques": 7,
+                "volume_medio": 0.0,
+                "primeira_ocorrencia": "2025-10-09T18:00:00+01:00",
+                "ultima_ocorrencia": "2025-10-24T15:00:00+01:00",
+                "features": {
+                  "toques_proximos": "0",
+                  "toques_muito_proximos": "0",
+                  "ratio_volume": 0,
+                  "volatilidade": 0.0009624208807900601,
+                  "momentum_positivo": 0.56,
+                  "ratio_range": 0.34332275390625,
+                  "persistencia_temporal": 0,
+                  "nivel_preco": 202.8864288330078
+                }
+              },
+              {
+                "nivel": 203.91167,
+                "score": 0.0,
+                "toques": 3,
+                "volume_medio": 0.0,
+                "primeira_ocorrencia": "2025-10-08T06:00:00+01:00",
+                "ultima_ocorrencia": "2025-10-27T08:00:00+00:00",
+                "features": {
+                  "toques_proximos": "0",
+                  "toques_muito_proximos": "0",
+                  "ratio_volume": 0,
+                  "volatilidade": 0.0009624208807900601,
+                  "momentum_positivo": 0.56,
+                  "ratio_range": 0.34332275390625,
+                  "persistencia_temporal": 0,
+                  "nivel_preco": 203.9116668701172
+                }
+              }
+            ],
+            "resistencias": [
+              {
+                "nivel": 199.96996,
+                "score": 1.0,
+                "toques": 23,
+                "volume_medio": 0.0,
+                "primeira_ocorrencia": "2025-08-18T02:00:00+01:00",
+                "ultima_ocorrencia": "2025-09-30T01:00:00+01:00",
+                "features": {
+                  "toques_proximos": "12",
+                  "toques_muito_proximos": "9",
+                  "ratio_volume": 1,
+                  "volatilidade": 0.0009624208807900601,
+                  "momentum_positivo": 0.56,
+                  "ratio_range": 0.34332275390625,
+                  "persistencia_temporal": 15,
+                  "nivel_preco": 199.96995677118716
+                }
+              },
+              {
+                "nivel": 200.58757,
+                "score": 1.0,
+                "toques": 7,
+                "volume_medio": 0.0,
+                "primeira_ocorrencia": "2025-09-12T11:00:00+01:00",
+                "ultima_ocorrencia": "2025-09-26T15:00:00+01:00",
+                "features": {
+                  "toques_proximos": "15",
+                  "toques_muito_proximos": "8",
+                  "ratio_volume": 1,
+                  "volatilidade": 0.0009624208807900601,
+                  "momentum_positivo": 0.56,
+                  "ratio_range": 0.34332275390625,
+                  "persistencia_temporal": 35,
+                  "nivel_preco": 200.5875701904297
+                }
+              },
+              {
+                "nivel": 201.29433,
+                "score": 1.0,
+                "toques": 3,
+                "volume_medio": 0.0,
+                "primeira_ocorrencia": "2025-09-18T09:00:00+01:00",
+                "ultima_ocorrencia": "2025-11-06T13:00:00+00:00",
+                "features": {
+                  "toques_proximos": "26",
+                  "toques_muito_proximos": "10",
+                  "ratio_volume": 1,
+                  "volatilidade": 0.0009624208807900601,
+                  "momentum_positivo": 0.56,
+                  "ratio_range": 0.34332275390625,
+                  "persistencia_temporal": 30,
+                  "nivel_preco": 201.2943318684896
+                }
+              },
+              {
+                "nivel": 199.03123,
+                "score": 0.2,
+                "toques": 22,
+                "volume_medio": 0.0,
+                "primeira_ocorrencia": "2025-08-20T00:00:00+01:00",
+                "ultima_ocorrencia": "2025-10-03T04:00:00+01:00",
+                "features": {
+                  "toques_proximos": "1",
+                  "toques_muito_proximos": "0",
+                  "ratio_volume": 1,
+                  "volatilidade": 0.0009624208807900601,
+                  "momentum_positivo": 0.56,
+                  "ratio_range": 0.34332275390625,
+                  "persistencia_temporal": 0,
+                  "nivel_preco": 199.0312264182351
+                }
+              },
+              {
+                "nivel": 202.63933,
+                "score": 0.0,
+                "toques": 15,
+                "volume_medio": 0.0,
+                "primeira_ocorrencia": "2025-10-06T06:00:00+01:00",
+                "ultima_ocorrencia": "2025-11-03T17:00:00+00:00",
+                "features": {
+                  "toques_proximos": "0",
+                  "toques_muito_proximos": "0",
+                  "ratio_volume": 0,
+                  "volatilidade": 0.0009624208807900601,
+                  "momentum_positivo": 0.56,
+                  "ratio_range": 0.34332275390625,
+                  "persistencia_temporal": 0,
+                  "nivel_preco": 202.63933207194012
+                }
+              },
+              {
+                "nivel": 203.577,
+                "score": 0.0,
+                "toques": 12,
+                "volume_medio": 0.0,
+                "primeira_ocorrencia": "2025-10-10T00:00:00+01:00",
+                "ultima_ocorrencia": "2025-10-30T12:00:00+00:00",
+                "features": {
+                  "toques_proximos": "0",
+                  "toques_muito_proximos": "0",
+                  "ratio_volume": 0,
+                  "volatilidade": 0.0009624208807900601,
+                  "momentum_positivo": 0.56,
+                  "ratio_range": 0.34332275390625,
+                  "persistencia_temporal": 0,
+                  "nivel_preco": 203.5770009358724
+                }
+              },
+              {
+                "nivel": 204.5395,
+                "score": 0.0,
+                "toques": 4,
+                "volume_medio": 0.0,
+                "primeira_ocorrencia": "2025-10-08T02:00:00+01:00",
+                "ultima_ocorrencia": "2025-10-27T13:00:00+00:00",
+                "features": {
+                  "toques_proximos": "0",
+                  "toques_muito_proximos": "0",
+                  "ratio_volume": 0,
+                  "volatilidade": 0.0009624208807900601,
+                  "momentum_positivo": 0.56,
+                  "ratio_range": 0.34332275390625,
+                  "persistencia_temporal": 0,
+                  "nivel_preco": 204.53950119018555
+                }
+              }
+            ]
+          },
+          "periodo_dados": {
+            "inicio": "2025-08-15T00:00:00+01:00",
+            "fim": "2025-11-06T21:00:00+00:00",
+            "total_registros": 1423
+          }
+        }
+      },
+      "analise_consolidada": {
+        "suportes_criticos": [
+          {
+            "nivel": 199.539,
+            "score_final": 0.6,
+            "confluencia": 1,
+            "timeframes": [
+              "1h"
+            ],
+            "total_toques": 19,
+            "features_consolidadas": {
+              "toques_proximos": 6.0,
+              "toques_muito_proximos": 3.0,
+              "ratio_volume": 1.0
+            }
+          },
+          {
+            "nivel": 200.95728,
+            "score_final": 0.6,
+            "confluencia": 1,
+            "timeframes": [
+              "1h"
+            ],
+            "total_toques": 7,
+            "features_consolidadas": {
+              "toques_proximos": 31.0,
+              "toques_muito_proximos": 25.0,
+              "ratio_volume": 1.0
+            }
+          },
+          {
+            "nivel": 187.52134,
+            "score_final": 0.0,
+            "confluencia": 1,
+            "timeframes": [
+              "4h"
+            ],
+            "total_toques": 3,
+            "features_consolidadas": {
+              "toques_proximos": 0.0,
+              "toques_muito_proximos": 0.0,
+              "ratio_volume": 0.0
+            }
+          },
+          {
+            "nivel": 188.15175,
+            "score_final": 0.0,
+            "confluencia": 1,
+            "timeframes": [
+              "4h"
+            ],
+            "total_toques": 4,
+            "features_consolidadas": {
+              "toques_proximos": 0.0,
+              "toques_muito_proximos": 0.0,
+              "ratio_volume": 0.0
+            }
+          },
+          {
+            "nivel": 190.32943,
+            "score_final": 0.0,
+            "confluencia": 1,
+            "timeframes": [
+              "4h"
+            ],
+            "total_toques": 7,
+            "features_consolidadas": {
+              "toques_proximos": 0.0,
+              "toques_muito_proximos": 0.0,
+              "ratio_volume": 0.0
+            }
+          }
+        ],
+        "resistencias_criticas": [
+          {
+            "nivel": 200.30366,
+            "score_final": 0.6666666666666666,
+            "confluencia": 2,
+            "timeframes": [
+              "1h",
+              "4h"
+            ],
+            "total_toques": 37,
+            "features_consolidadas": {
+              "toques_proximos": 11.333333333333334,
+              "toques_muito_proximos": 6.666666666666667,
+              "ratio_volume": 1.0
+            }
+          },
+          {
+            "nivel": 201.29433,
+            "score_final": 0.6,
+            "confluencia": 1,
+            "timeframes": [
+              "1h"
+            ],
+            "total_toques": 3,
+            "features_consolidadas": {
+              "toques_proximos": 26.0,
+              "toques_muito_proximos": 10.0,
+              "ratio_volume": 1.0
+            }
+          },
+          {
+            "nivel": 203.40233,
+            "score_final": 0.4,
+            "confluencia": 2,
+            "timeframes": [
+              "1h",
+              "4h"
+            ],
+            "total_toques": 15,
+            "features_consolidadas": {
+              "toques_proximos": 1.5,
+              "toques_muito_proximos": 0.5,
+              "ratio_volume": 0.5
+            }
+          },
+          {
+            "nivel": 199.03123,
+            "score_final": 0.06,
+            "confluencia": 2,
+            "timeframes": [
+              "1h",
+              "4h"
+            ],
+            "total_toques": 30,
+            "features_consolidadas": {
+              "toques_proximos": 0.5,
+              "toques_muito_proximos": 0.0,
+              "ratio_volume": 0.5
+            }
+          },
+          {
+            "nivel": 193.0865,
+            "score_final": 0.0,
+            "confluencia": 1,
+            "timeframes": [
+              "4h"
+            ],
+            "total_toques": 4,
+            "features_consolidadas": {
+              "toques_proximos": 0.0,
+              "toques_muito_proximos": 0.0,
+              "ratio_volume": 0.0
+            }
+          }
+        ],
+        "total_niveis_analisados": 30,
+        "confluencias_detectadas": 5
+      }
+    }
+  }
+}

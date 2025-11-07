@@ -1,0 +1,22 @@
+{
+  "valid": true,
+  "errors": [],
+  "event": {
+    "contractVersion": "signal.macroflow.v1",
+    "classeAtivo": "forex",
+    "instrumento": {
+      "id": "USDCAD",
+      "par": "USDCAD",
+      "tickerYahoo": "USDCAD=X"
+    },
+    "timestamp": "2025-11-06T01:46:02",
+    "sinal": {
+      "viesSessao": "Dólar estável",
+      "dxyVariacao": -0.001281585146517883,
+      "eventosCriticos": [
+        "USD: Discurso do Presidente do Fed",
+        "CAD: Dados de Emprego Canadá"
+      ]
+    }
+  }
+}

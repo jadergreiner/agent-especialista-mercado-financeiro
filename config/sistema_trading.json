@@ -1,0 +1,42 @@
+{
+  "sistema": {
+    "nome": "Agent Especialista - Sistema Integrado de Trading",
+    "versao": "1.0.0",
+    "modo_debug": false,
+    "intervalo_principal": 30
+  },
+  "componentes": {
+    "corretoras": {
+      "ativo": true,
+      "reconectar_automaticamente": true,
+      "timeout_conexao": 30
+    },
+    "trading_automatizado": {
+      "ativo": true,
+      "intervalo_analise": 60,
+      "execucao_automatica": true
+    },
+    "monitor_portfolio": {
+      "ativo": true,
+      "intervalo_atualizacao": 30,
+      "alertas_habilitados": true
+    },
+    "webapp": {
+      "ativo": true,
+      "host": "localhost",
+      "porta": 5001,
+      "debug": false
+    }
+  },
+  "limites_risco": {
+    "perda_maxima_diaria": 0.05,
+    "drawdown_maximo": 0.15,
+    "concentracao_maxima": 0.2,
+    "volatilidade_maxima": 0.25
+  },
+  "notificacoes": {
+    "email_habilitado": false,
+    "webhook_habilitado": false,
+    "console_habilitado": true
+  }
+}

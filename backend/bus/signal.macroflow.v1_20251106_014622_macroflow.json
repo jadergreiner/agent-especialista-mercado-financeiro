@@ -1,0 +1,22 @@
+{
+  "valid": true,
+  "errors": [],
+  "event": {
+    "contractVersion": "signal.macroflow.v1",
+    "classeAtivo": "forex",
+    "instrumento": {
+      "id": "NZDUSD",
+      "par": "NZDUSD",
+      "tickerYahoo": "NZDUSD=X"
+    },
+    "timestamp": "2025-11-06T01:46:22",
+    "sinal": {
+      "viesSessao": "Dólar estável",
+      "dxyVariacao": -0.0012741874780544116,
+      "eventosCriticos": [
+        "NZD: RBNZ Rate Statement",
+        "USD: Discurso do Presidente do Fed"
+      ]
+    }
+  }
+}

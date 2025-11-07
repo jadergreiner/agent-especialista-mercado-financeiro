@@ -1,0 +1,102 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Relatório Trading Cripto v1",
+  "type": "object",
+  "required": [
+    "contractVersion",
+    "classeAtivo",
+    "ativo",
+    "timestamp",
+    "precoAtual",
+    "resumo",
+    "analises",
+    "plano"
+  ],
+  "properties": {
+    "contractVersion": { "const": "report.trading.cripto.v1" },
+    "classeAtivo": { "type": "string", "const": "cripto" },
+    "ativo": { "type": "string" },
+    "nome": { "type": "string" },
+    "timestamp": { "type": "string", "format": "date-time" },
+    "precoAtual": { "type": "number" },
+    "resumo": {
+      "type": "object",
+      "required": ["operacao", "momentumConsolidado", "rr"],
+      "properties": {
+        "operacao": { "type": "string", "enum": ["COMPRA", "VENDA", "AGUARDAR"] },
+        "momentumConsolidado": { "type": "string" },
+        "viesSessao": { "type": "string" },
+        "rr": { "type": "string" }
+      }
+    },
+    "analises": {
+      "type": "object",
+      "required": ["fundamentalista", "tecnica", "onchain"],
+      "properties": {
+        "fundamentalista": {
+          "type": "object",
+          "required": ["momentum", "noticias", "correlacaoBTC", "correlacaoETH", "sentimentoMacro"],
+          "properties": {
+            "momentum": { "type": "string", "enum": ["BAIXISTA", "NEUTRO", "ALTISTA"] },
+            "noticias": { "type": "array", "items": { "type": "string" } },
+            "correlacaoBTC": { "type": "number" },
+            "correlacaoETH": { "type": "number" },
+            "sentimentoMacro": { "type": "string", "enum": ["RISK_ON", "RISK_OFF", "NEUTRO"] }
+          }
+        },
+        "tecnica": {
+          "type": "object",
+          "required": ["momentum", "max30d", "min30d", "posicaoMA", "suportes", "resistencias", "pontoCriticoBaixa", "pontoCriticoAlta"],
+          "properties": {
+            "momentum": { "type": "string", "enum": ["BAIXISTA", "NEUTRO", "ALTISTA"] },
+            "max30d": { "type": "number" },
+            "min30d": { "type": "number" },
+            "ma100d": { "type": ["number", "null"] },
+            "posicaoMA": { "type": "string" },
+            "suportes": { "type": "array", "items": { "type": "number" } },
+            "resistencias": { "type": "array", "items": { "type": "number" } },
+            "pontoCriticoBaixa": { "type": "number" },
+            "pontoCriticoAlta": { "type": "number" }
+          }
+        },
+        "onchain": {
+          "type": "object",
+          "required": ["netflow", "whales", "fundingRate", "supplyExchanges", "conclusao"],
+          "properties": {
+            "netflow": { "type": "string", "enum": ["INFLOW", "OUTFLOW", "NEUTRO"] },
+            "whales": { "type": "string", "enum": ["ACUMULANDO", "DISTRIBUINDO", "NEUTRO"] },
+            "fundingRate": { "type": "number" },
+            "supplyExchanges": { "type": "string" },
+            "conclusao": { "type": "string" }
+          }
+        }
+      }
+    },
+    "plano": {
+      "type": "object",
+      "required": ["entrada", "alvo1", "alvo2", "alvo3", "stop"],
+      "properties": {
+        "entrada": { "type": "number" },
+        "alvo1": { "type": "number" },
+        "alvo2": { "type": "number" },
+        "alvo3": { "type": "number" },
+        "stop": { "type": "number" },
+        "justificativas": {
+          "type": "object",
+          "required": ["entrada", "alvos", "stop"],
+          "properties": {
+            "entrada": { "type": "string" },
+            "alvos": { "type": "string" },
+            "stop": { "type": "string" }
+          }
+        }
+      }
+    },
+    "qualidade": {
+      "type": "object",
+      "properties": {
+        "dadosMercado": { "type": "string", "enum": ["ok", "degradado", "indisponivel"] }
+      }
+    }
+  }
+}

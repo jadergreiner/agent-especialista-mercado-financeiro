@@ -1,0 +1,89 @@
+{
+  "timestamp_analise": "2025-11-06T18:56:00.958028",
+  "estatisticas_gerais": {
+    "total_niveis": 40,
+    "niveis_validos": 1,
+    "taxa_sucesso_geral": 0.025,
+    "forca_media": 0.19200250000000002,
+    "f1_score_medio": 0.014624999999999999
+  },
+  "patterns_ml": {
+    "modelo_performance": {
+      "r2_score": 0.7168,
+      "mae_medio": 0.0712,
+      "total_samples": 40
+    },
+    "top_features": [
+      [
+        "breakouts_detectados",
+        0.4390555530997163
+      ],
+      [
+        "nivel_preco_log",
+        0.19044600876657358
+      ],
+      [
+        "score_recall",
+        0.09165657300902094
+      ],
+      [
+        "toques_validados",
+        0.09165241903629368
+      ],
+      [
+        "tipo_nivel_suporte",
+        0.07199042723815376
+      ]
+    ],
+    "insights_patterns": [
+      "Suportes são 26.8% mais efetivos que resistências",
+      "'breakouts_detectados' é o fator mais determinante da efetividade (43.9% importância)",
+      "57.5% dos níveis sofreram breakout durante validação"
+    ],
+    "configuracoes_otimas": {
+      "niveis_validos": {
+        "toques_medio": 3.0,
+        "f1_score_medio": 0.2222,
+        "forca_media": 0.44,
+        "breakouts_medio": 21.0
+      },
+      "thresholds_recomendados": {
+        "min_toques": 3,
+        "min_f1_score": 0.2222,
+        "min_forca": 0.44
+      },
+      "performance_por_ativo": {
+        "melhor_ativo": "MSFT",
+        "melhor_taxa": 0.1,
+        "ranking_ativos": [
+          {
+            "ticker": "MSFT",
+            "count": 10,
+            "sum": 1,
+            "taxa_sucesso": 0.1
+          },
+          {
+            "ticker": "AAPL",
+            "count": 10,
+            "sum": 0,
+            "taxa_sucesso": 0.0
+          },
+          {
+            "ticker": "GOOGL",
+            "count": 10,
+            "sum": 0,
+            "taxa_sucesso": 0.0
+          },
+          {
+            "ticker": "TSLA",
+            "count": 10,
+            "sum": 0,
+            "taxa_sucesso": 0.0
+          }
+        ]
+      }
+    }
+  },
+  "relatorio_insights": "🧠 RELATÓRIO DE INSIGHTS - ANÁLISE ML DE NÍVEIS\n=================================================================\n\n📊 ESTATÍSTICAS GERAIS:\n   Total de níveis analisados: 40\n   Níveis válidos: 1 (2.5%)\n   Força média dos níveis: 0.192\n   F1-Score médio: 0.015\n\n🤖 MODELO ML DE PREDIÇÃO:\n   R² Score: 0.717\n   Erro médio absoluto: 0.0712\n   Amostras de treinamento: 40\n\n🎯 FATORES MAIS IMPORTANTES:\n   1. breakouts_detectados: 43.9%\n   2. nivel_preco_log: 19.0%\n   3. score_recall: 9.2%\n\n💡 INSIGHTS DESCOBERTOS:\n   • Suportes são 26.8% mais efetivos que resistências\n   • 'breakouts_detectados' é o fator mais determinante da efetividade (43.9% importância)\n   • 57.5% dos níveis sofreram breakout durante validação\n\n⚙️ CONFIGURAÇÕES RECOMENDADAS:\n   Mínimo de toques: 3\n   Mínimo F1-Score: 0.222\n   Mínima força: 0.440\n\n🏆 PERFORMANCE POR ATIVO:\n   Melhor ativo: MSFT (10.0% sucesso)\n\n📈 DISTRIBUIÇÃO POR TIPO:\n   Suportes: 20 (50.0%)\n   Resistências: 20 (50.0%)\n\n✅ SISTEMA DE INSIGHTS OPERACIONAL\n🧠 Análise ML de patterns implementada\n🎯 Modelo preditivo de qualidade treinado\n⚙️ Configurações otimizadas identificadas",
+  "modelo_treinado": true
+}

@@ -1,0 +1,28 @@
+{
+  "valid": true,
+  "errors": [],
+  "event": {
+    "contractVersion": "setup.v1",
+    "classeAtivo": "forex",
+    "instrumento": {
+      "id": "EURUSD",
+      "par": "EURUSD",
+      "tickerYahoo": "EURUSD=X"
+    },
+    "timestamp": "2025-11-06T01:33:01",
+    "timeframe": "15m",
+    "setup": {
+      "tipo": "vwap_pullback_reject",
+      "direcao": "COMPRA",
+      "score": 1.0,
+      "criterios": {
+        "distanciaVWAP": 8.081448399390774e-05,
+        "distanciaSRI": 0.0,
+        "sri": 1.1508804559707642,
+        "tendencia15m": "ALTISTA",
+        "fluxo": "NEUTRO",
+        "rrEsperado": null
+      }
+    }
+  }
+}

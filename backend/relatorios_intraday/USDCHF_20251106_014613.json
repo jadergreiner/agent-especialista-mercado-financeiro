@@ -1,0 +1,104 @@
+{
+  "contractVersion": "report.intraday.v1",
+  "classeAtivo": "forex",
+  "par": "USDCHF",
+  "tickerYahoo": "USDCHF=X",
+  "timestamp": "2025-11-06T01:46:13",
+  "precoAtual": 0.8093299865722656,
+  "resumo": {
+    "operacao": "ESPERAR",
+    "viesSessao": "Dólar estável",
+    "rr": "N/A"
+  },
+  "analises": {
+    "eventos": [
+      "USD: Discurso do Presidente do Fed",
+      "CHF: SNB Statement"
+    ],
+    "dxyVariacao": -0.0012684120849574265,
+    "tecnica": {
+      "vwap": 0.8092066118086894,
+      "rangeDia": {
+        "max": 0.8101000189781189,
+        "min": 0.808650016784668,
+        "amplitudePct": 0.17931146520176416
+      },
+      "sris": {
+        "suportes": [
+          0.7926300168037415,
+          0.7975199818611145,
+          0.8008599877357483
+        ],
+        "resistencias": [
+          0.8091800212860107,
+          0.8098999857902527,
+          0.8108299970626831,
+          0.8116499781608582,
+          0.8124200105667114
+        ]
+      },
+      "tendencia15m": "BAIXISTA",
+      "invalicacaoIntraday": 0.8092066118086894,
+      "srisDetalhado": {
+        "H1": {
+          "suportes": [
+            0.7924699783325195,
+            0.7925099730491638,
+            0.7925800085067749
+          ],
+          "resistencias": [
+            0.8108299970626831,
+            0.8116499781608582,
+            0.8124200105667114
+          ]
+        },
+        "H4": {
+          "suportes": [
+            0.7924699783325195,
+            0.7926300168037415,
+            0.7975199818611145,
+            0.8008599877357483
+          ],
+          "resistencias": [
+            0.8091800212860107,
+            0.8098999857902527,
+            0.8108299970626831,
+            0.8124200105667114
+          ]
+        },
+        "D1": {
+          "suportes": [
+            0.7924699783325195
+          ],
+          "resistencias": []
+        }
+      },
+      "vwapSessoes": {
+        "tokyo": 0.8092066118086892,
+        "londres": null,
+        "ny": null
+      }
+    },
+    "fluxoVol": {
+      "fluxoInstitucional": "NEUTRO",
+      "volRealizada": "MEDIA",
+      "cotCurtoPrazo": "LONG"
+    }
+  },
+  "plano": {
+    "entrada": 0.8092066118086894,
+    "alvo1": 0.8101000189781189,
+    "alvo2": 0.808650016784668,
+    "stop": 0.8092066118086894,
+    "justificativas": {
+      "entrada": "Zona institucional (SRL) alinhada à VWAP da sessão",
+      "alvos": "Alvos em resistências/suportes imediatos (15m) e topo/fundo do range da sessão",
+      "stop": "Stop curto logo após a SRL/VWAP para preservar risco"
+    }
+  },
+  "qualidade": {
+    "dadosMercado": "ok",
+    "dxy": "fallback",
+    "calendario": "mock"
+  }
+}

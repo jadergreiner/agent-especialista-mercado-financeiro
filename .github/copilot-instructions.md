@@ -137,6 +137,45 @@ src/
 - **Falhas de Ordem**: Implementar lógica de retry com backoff exponencial
 - **Proteção de Portfólio**: Mecanismos de stop-loss emergenciais
 
+## Gestão de Backlog e Priorização
+
+### 🎯 Comportamento Padrão: Atividades Pendentes
+
+**REGRA FUNDAMENTAL: Toda atividade pendente deve ser registrada no backlog.**
+
+#### Fluxo de Trabalho
+
+1. **Durante Desenvolvimento/Análise**
+   - Identificou limitação? → Registrar no backlog
+   - Descobriu melhoria v2/v3? → Registrar no backlog
+   - Bug ou débito técnico? → Registrar no backlog
+   - Nova funcionalidade proposta? → Registrar no backlog
+
+2. **Registro no Backlog**
+   - Arquivo: `docs/gestao-agil/backlog.md`
+   - Seção: "A Fazer (To Do)"
+   - Incluir: descrição clara, contexto, critérios de aceitação
+   - **NÃO priorizar** - isso é responsabilidade do PO
+
+3. **Priorização**
+   - Apenas o **Product Owner (PO)** define prioridades
+   - PO decide "quando" executar no momento estratégico adequado
+   - Avalia: valor de negócio, urgência, dependências, ROI
+
+#### Responsabilidades Claras
+
+- **Time de Desenvolvimento/Copilot**: Registrar TODAS as pendências
+- **Product Owner**: Priorizar e definir roadmap
+- **Scrum Master**: Garantir que nada fique sem registro
+
+#### Benefícios
+
+- ✅ Nenhuma pendência perdida
+- ✅ Backlog centralizado e organizado
+- ✅ PO tem visão completa para decisões
+- ✅ Time foca em execução, não em priorização prematura
+- ✅ WIP limit natural
+
 ## Notas de Desenvolvimento
 Este é um template fundacional. Atualize estas instruções conforme o código evolui com:
 - Integrações de API específicas implementadas

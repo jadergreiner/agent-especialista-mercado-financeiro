@@ -1,0 +1,21 @@
+{
+  "valid": true,
+  "errors": [],
+  "event": {
+    "contractVersion": "signal.tech.v1",
+    "classeAtivo": "forex",
+    "instrumento": {
+      "id": "AUDUSD",
+      "par": "AUDUSD",
+      "tickerYahoo": "AUDUSD=X"
+    },
+    "timestamp": "2025-11-06T01:45:51",
+    "timeframe": "15m",
+    "sinal": {
+      "tipo": "vol_realizada",
+      "valor": "MEDIA",
+      "confianca": null,
+      "detalhes": null
+    }
+  }
+}

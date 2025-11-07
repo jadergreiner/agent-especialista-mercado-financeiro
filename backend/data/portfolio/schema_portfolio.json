@@ -1,0 +1,200 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Portfolio Forex Schema",
+  "description": "Schema para estrutura de dados da carteira forex",
+  "type": "object",
+  "properties": {
+    "portfolio_metadata": {
+      "type": "object",
+      "properties": {
+        "portfolio_id": {
+          "type": "string",
+          "description": "Identificador único do portfolio"
+        },
+        "name": {
+          "type": "string",
+          "description": "Nome do portfolio/fundo"
+        },
+        "creation_date": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Data de criação do portfolio"
+        },
+        "last_update": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Última atualização"
+        },
+        "base_currency": {
+          "type": "string",
+          "enum": ["USD", "EUR", "BRL", "GBP", "JPY", "CHF"],
+          "description": "Moeda base para cálculos"
+        },
+        "total_capital": {
+          "type": "number",
+          "description": "Capital total alocado"
+        },
+        "risk_tolerance": {
+          "type": "string",
+          "enum": ["conservative", "moderate", "aggressive"],
+          "description": "Perfil de risco"
+        }
+      },
+      "required": ["portfolio_id", "name", "creation_date", "base_currency", "total_capital"]
+    },
+    "positions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "position_id": {
+            "type": "string",
+            "description": "ID único da posição"
+          },
+          "currency_pair": {
+            "type": "string",
+            "pattern": "^[A-Z]{3}/[A-Z]{3}$|^[A-Z]{2}=F$",
+            "description": "Par de moedas (ex: EUR/USD, GC=F)"
+          },
+          "direction": {
+            "type": "string",
+            "enum": ["LONG", "SHORT"],
+            "description": "Direção da posição"
+          },
+          "entry_price": {
+            "type": "number",
+            "description": "Preço de entrada"
+          },
+          "current_price": {
+            "type": "number",
+            "description": "Preço atual"
+          },
+          "lots": {
+            "type": "number",
+            "description": "Quantidade de lotes"
+          },
+          "lot_size": {
+            "type": "number",
+            "description": "Tamanho do lote (ex: 100000 para forex)"
+          },
+          "entry_date": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Data/hora de entrada"
+          },
+          "stop_loss": {
+            "type": "number",
+            "description": "Nível de stop loss"
+          },
+          "take_profit": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "level": {"type": "number"},
+                "percentage": {"type": "number"}
+              }
+            },
+            "description": "Níveis de take profit"
+          },
+          "pnl_unrealized": {
+            "type": "number",
+            "description": "P&L não realizado"
+          },
+          "pnl_realized": {
+            "type": "number",
+            "description": "P&L realizado (parciais)"
+          },
+          "strategy": {
+            "type": "string",
+            "description": "Estratégia utilizada"
+          },
+          "risk_percentage": {
+            "type": "number",
+            "description": "% do capital em risco"
+          },
+          "notes": {
+            "type": "string",
+            "description": "Observações da posição"
+          },
+          "status": {
+            "type": "string",
+            "enum": ["OPEN", "PARTIAL", "CLOSED"],
+            "description": "Status da posição"
+          }
+        },
+        "required": ["position_id", "currency_pair", "direction", "entry_price", "lots", "entry_date", "status"]
+      }
+    },
+    "performance": {
+      "type": "object",
+      "properties": {
+        "total_pnl": {
+          "type": "number",
+          "description": "P&L total do portfolio"
+        },
+        "total_pnl_percentage": {
+          "type": "number",
+          "description": "P&L percentual"
+        },
+        "open_positions_count": {
+          "type": "integer",
+          "description": "Número de posições abertas"
+        },
+        "daily_pnl": {
+          "type": "number",
+          "description": "P&L do dia"
+        },
+        "max_drawdown": {
+          "type": "number",
+          "description": "Drawdown máximo"
+        },
+        "sharpe_ratio": {
+          "type": "number",
+          "description": "Índice Sharpe"
+        },
+        "total_risk_exposure": {
+          "type": "number",
+          "description": "Exposição total de risco"
+        }
+      }
+    },
+    "allocation": {
+      "type": "object",
+      "properties": {
+        "by_currency": {
+          "type": "object",
+          "description": "Alocação por moeda"
+        },
+        "by_strategy": {
+          "type": "object",
+          "description": "Alocação por estratégia"
+        },
+        "correlation_matrix": {
+          "type": "object",
+          "description": "Matriz de correlação entre posições"
+        }
+      }
+    },
+    "historical_data": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "string",
+            "format": "date"
+          },
+          "portfolio_value": {
+            "type": "number"
+          },
+          "daily_return": {
+            "type": "number"
+          }
+        }
+      },
+      "description": "Histórico de performance diária"
+    }
+  },
+  "required": ["portfolio_metadata", "positions", "performance"]
+}

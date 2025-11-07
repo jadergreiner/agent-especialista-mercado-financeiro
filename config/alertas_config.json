@@ -1,0 +1,96 @@
+{
+  "email": {
+    "ativo": true,
+    "smtp_server": "smtp.gmail.com",
+    "smtp_port": 587,
+    "usuario": "",
+    "senha": "",
+    "destinatarios": [
+      "seu-email@gmail.com"
+    ],
+    "filtros": {
+      "probabilidade_min": 70,
+      "confianca_min": 65,
+      "risco_reward_min": 1.5,
+      "ativos_permitidos": [],
+      "acoes_permitidas": [
+        "COMPRA",
+        "VENDA"
+      ],
+      "prioridades_permitidas": [
+        "MEDIA",
+        "ALTA",
+        "CRITICA"
+      ]
+    }
+  },
+  "telegram": {
+    "ativo": true,
+    "bot_token": "",
+    "chat_ids": [],
+    "filtros": {
+      "probabilidade_min": 75,
+      "confianca_min": 70,
+      "risco_reward_min": 2.0,
+      "ativos_permitidos": [],
+      "acoes_permitidas": [
+        "COMPRA",
+        "VENDA"
+      ],
+      "prioridades_permitidas": [
+        "ALTA",
+        "CRITICA"
+      ]
+    }
+  },
+  "webhook": {
+    "ativo": true,
+    "urls": [
+      "https://hooks.zapier.com/hooks/catch/seu-webhook/",
+      "https://discord.com/api/webhooks/seu-discord-webhook"
+    ],
+    "headers": {
+      "Content-Type": "application/json",
+      "Authorization": "Bearer seu-token-opcional"
+    },
+    "timeout": 10,
+    "filtros": {
+      "probabilidade_min": 60,
+      "confianca_min": 55,
+      "risco_reward_min": 1.0,
+      "ativos_permitidos": [],
+      "acoes_permitidas": [
+        "COMPRA",
+        "VENDA",
+        "OBSERVAR"
+      ],
+      "prioridades_permitidas": [
+        "BAIXA",
+        "MEDIA",
+        "ALTA",
+        "CRITICA"
+      ]
+    }
+  },
+  "console": {
+    "ativo": true,
+    "nivel_log": "INFO",
+    "filtros": {
+      "probabilidade_min": 50,
+      "confianca_min": 45,
+      "risco_reward_min": 0.5,
+      "ativos_permitidos": [],
+      "acoes_permitidas": [
+        "COMPRA",
+        "VENDA",
+        "OBSERVAR"
+      ],
+      "prioridades_permitidas": [
+        "BAIXA",
+        "MEDIA",
+        "ALTA",
+        "CRITICA"
+      ]
+    }
+  }
+}

@@ -1,0 +1,106 @@
+{
+  "contractVersion": "report.intraday.v1",
+  "classeAtivo": "forex",
+  "par": "USDJPY",
+  "tickerYahoo": "USDJPY=X",
+  "timestamp": "2025-11-06T01:45:40",
+  "precoAtual": 154.01800537109375,
+  "resumo": {
+    "operacao": "ESPERAR",
+    "viesSessao": "Dólar estável",
+    "rr": "N/A"
+  },
+  "analises": {
+    "eventos": [
+      "USD: Discurso do Presidente do Fed",
+      "JPY: BoJ Outlook"
+    ],
+    "dxyVariacao": -0.001276495622924978,
+    "tecnica": {
+      "vwap": 153.91213200010105,
+      "rangeDia": {
+        "max": 154.13999938964844,
+        "min": 153.7899932861328,
+        "amplitudePct": 0.22758704648906436
+      },
+      "sris": {
+        "suportes": [
+          151.52999877929688,
+          151.85899353027344,
+          152.2169952392578
+        ],
+        "resistencias": [
+          153.2550048828125,
+          154.3560028076172,
+          154.44400024414062
+        ]
+      },
+      "tendencia15m": "BAIXISTA",
+      "invalicacaoIntraday": 153.91213200010105,
+      "srisDetalhado": {
+        "H1": {
+          "suportes": [
+            151.52999877929688,
+            151.7530059814453,
+            151.82000732421875
+          ],
+          "resistencias": [
+            154.41299438476562,
+            154.44400024414062,
+            154.48199462890625
+          ]
+        },
+        "H4": {
+          "suportes": [
+            151.52999877929688,
+            151.7530059814453,
+            151.85899353027344,
+            152.2169952392578
+          ],
+          "resistencias": [
+            154.3560028076172,
+            154.41299438476562,
+            154.44400024414062,
+            154.48199462890625
+          ]
+        },
+        "D1": {
+          "suportes": [
+            151.52999877929688
+          ],
+          "resistencias": [
+            153.2550048828125,
+            154.44400024414062,
+            154.48199462890625
+          ]
+        }
+      },
+      "vwapSessoes": {
+        "tokyo": 153.912132000101,
+        "londres": null,
+        "ny": null
+      }
+    },
+    "fluxoVol": {
+      "fluxoInstitucional": "COMPRA",
+      "volRealizada": "MEDIA",
+      "cotCurtoPrazo": "LONG"
+    }
+  },
+  "plano": {
+    "entrada": 153.91213200010105,
+    "alvo1": 154.13999938964844,
+    "alvo2": 153.7899932861328,
+    "stop": 153.91213200010105,
+    "justificativas": {
+      "entrada": "Zona institucional (SRL) alinhada à VWAP da sessão",
+      "alvos": "Alvos em resistências/suportes imediatos (15m) e topo/fundo do range da sessão",
+      "stop": "Stop curto logo após a SRL/VWAP para preservar risco"
+    }
+  },
+  "qualidade": {
+    "dadosMercado": "ok",
+    "dxy": "fallback",
+    "calendario": "mock"
+  }
+}
