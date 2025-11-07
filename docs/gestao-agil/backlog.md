@@ -296,22 +296,24 @@ Contexto: Pivot estratégico para foco em uso interativo do prompt para análise
 **Contexto**: Autoavaliação crítica pós-implementação identificou 10 débitos técnicos que reduzem confiança de 90% → 65%. Ver análise completa na conversa.
 
 #### **P0 — Bloqueantes para Fase 2 (CRÍTICO)**
-
-- [ ] **DEBT-001: Instalar Dependências Python**
+- [x] **DEBT-001: Instalar Dependências Python** ✅ RESOLVIDO
   - **Problema**: `pandas-ta` e `openai` adicionados ao `requirements.txt` mas NÃO instalados no ambiente
   - **Impacto**: Código não executável; Fase 2 falhará ao importar módulos
   - **Resolução**: `pip install -r requirements.txt` ou `pip install pandas-ta openai`
   - **Estimativa**: 5min
   - **Prioridade**: � CRÍTICA (bloqueante)
+  - **Status**: ✅ Concluído em 2025-11-07 (Checkpoint Fase 1.5)
 
-- [ ] **DEBT-002: Criar Arquivo `.env` com Credenciais**
+- [x] **DEBT-002: Criar Arquivo `.env` com Credenciais** ✅ RESOLVIDO
   - **Problema**: `.env.example` atualizado, mas `.env` real não existe; `OPENAI_API_KEY` não configurada
   - **Impacto**: Fase 2-3 falharão ao chamar LLM (KeyError ou AuthenticationError)
   - **Resolução**: `cp config/.env.example config/.env` e preencher `OPENAI_API_KEY=sk-...`
   - **Estimativa**: 5min
   - **Prioridade**: 🔴 CRÍTICA (bloqueante)
+  - **Status**: ✅ Arquivo `.env` já existia; verificado em 2025-11-07
+  - **Ação Manual Necessária**: ⚠️ Usuário deve adicionar `OPENAI_API_KEY` válida no arquivo `.env`
 
-- [ ] **DEBT-003: Configurar Logging Operacional**
+- [x] **DEBT-003: Configurar Logging Operacional** ✅ RESOLVIDO
   - **Problema**: Código usa `logging.getLogger(__name__)` mas sem handlers configurados; logs não salvos
   - **Impacto**: Debugging impossível; métricas de latência (US-PROMPT-007) não rastreáveis
   - **Resolução**: 
@@ -320,13 +322,19 @@ Contexto: Pivot estratégico para foco em uso interativo do prompt para análise
     - Formato: `%(asctime)s - %(name)s - %(levelname)s - %(message)s`
   - **Estimativa**: 30min
   - **Prioridade**: 🔴 CRÍTICA (bloqueante Fase 2)
+  - **Status**: ✅ Concluído em 2025-11-07
+    - Criado `backend/utils/logger_analise.py` com rotação diária (30 dias backup)
+    - Logs salvos em `backend/logs/analise_YYYY-MM-DD.log`
+    - Módulos atualizados para usar `obter_logger(__name__)`
+    - Testado: log funcional em `backend/logs/analise_2025-11-07.log`
 
-- [ ] **DEBT-004: Completar `formatadores/__init__.py`**
+- [x] **DEBT-004: Completar `formatadores/__init__.py`** ✅ RESOLVIDO
   - **Problema**: Diretório `backend/formatadores/` criado mas sem `__init__.py`; não é pacote Python válido
   - **Impacto**: Imports falharão na Fase 2-3 (`from formatadores import json_estruturado`)
   - **Resolução**: Criar `backend/formatadores/__init__.py` com estrutura básica
   - **Estimativa**: 10min
   - **Prioridade**: 🔴 CRÍTICA (bloqueante Fase 2)
+  - **Status**: ✅ Concluído em 2025-11-07 (Checkpoint Fase 1.5)
 
 #### **P1 — Críticos Pós-MVP (ALTA)**
 

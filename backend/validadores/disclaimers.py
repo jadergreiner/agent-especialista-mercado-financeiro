@@ -8,7 +8,9 @@ import logging
 import re
 from typing import Dict, List, Tuple
 
-logger = logging.getLogger(__name__)
+from utils.logger_analise import obter_logger
+
+logger = obter_logger(__name__)
 
 
 DISCLAIMER_PADRAO = """

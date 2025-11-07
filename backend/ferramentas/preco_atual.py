@@ -6,12 +6,14 @@ usando Yahoo Finance como fonte primária.
 """
 
 import logging
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import Dict, Optional
 
 import yfinance as yf
 
-logger = logging.getLogger(__name__)
+from utils.logger_analise import obter_logger
+
+logger = obter_logger(__name__)
 
 
 # Mapeamento de tickers internos para símbolos Yahoo Finance
@@ -81,7 +83,7 @@ def obter_preco_atual(ativo: str, incluir_historico: bool = False) -> Dict:
             "ativo": ticker_normalizado,
             "preco": round(float(preco_atual), 4),
             "variacao_pct": round(float(variacao_pct), 2),
-            "timestamp": datetime.utcnow().isoformat() + "Z",
+            "timestamp": datetime.now(timezone.utc).isoformat(),
             "fonte": "Yahoo Finance",
         }
 

@@ -21,14 +21,10 @@ from validadores.disclaimers import (
     validar_linguagem_prescritiva,
     sanitizar_texto,
 )
+from utils.logger_analise import configurar_logger
 
 # Configurar logging
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s"
-)
-
-logger = logging.getLogger(__name__)
+logger = configurar_logger("teste_fase1", nivel="INFO")
 
 
 def testar_preco_atual():
