@@ -1,5 +1,21 @@
 # Instruções Copilot - Agent Especialista Mercado Financeiro
 
+<!--
+INSTRUÇÃO DE PADRÃO (KNOWLEDGE BASE):
+Todo novo backlog, épico, história ou documento deste projeto deve:
+- Seguir as regras de lint Markdown (linhas em branco ao redor de headings e listas, headings sem ênfase, sem pontuação em headings, indentação correta)
+- Garantir uma linha em branco após títulos e antes de headings de nível 2 ou superior
+- Validar o arquivo com lint antes de finalizar
+- Manter este bloco de instrução no topo dos arquivos como referência
+-->
+
+## KNOWLEDGEBASE
+
+### Padrão de Linguagem e Dados
+- Chats e dados devem estar SEMPRE em Português.
+- Este padrão é obrigatório e se aplica a todas as interações e saídas do sistema.
+- Escopo: prompts, respostas de chat, código, comentários, documentação, logs, mensagens de erro, relatórios e quaisquer datasets textuais gerados.
+
 ## ⚠️ REGRA FUNDAMENTAL
 **TODO O CÓDIGO, DOCUMENTAÇÃO, COMENTÁRIOS, COMMITS E INTERAÇÕES DEVEM SER EM PORTUGUÊS.**
 - Nomes de variáveis, funções, classes: Português
