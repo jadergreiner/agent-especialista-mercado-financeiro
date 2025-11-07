@@ -204,6 +204,47 @@
 
 ---
 
+### 🧭 Mapa de Priorização (Tech Lead + PO) — WSJF + Dependências
+
+Critério principal: WSJF = (Valor de Negócio + Urgência (TC) + Redução de Risco) / Esforço. Ajustes pontuais feitos por dependências e mitigação imediata de risco sistêmico.
+
+Tabela de referência (dias aproximados): 2h=0,25d; 3h=0,375d.
+
+| Rank | ID            | Título curto                                | BV | TC | RR | Esforço (d) | WSJF  | Dependências            | Decisão |
+|------|---------------|----------------------------------------------|----|----|----|-------------|-------|-------------------------|---------|
+| 1    | US-RISCO-001  | Avisos críticos no HTML                      | 10 | 10 | 10 | 0,25        | 120,0 | —                       | P0      |
+| 2    | US-RISCO-002  | Qualidade de dados (IDs, tickets, preços)    | 9  | 9  | 10 | 0,375       | 74,7  | —                       | P0 (antes de 003) |
+| 3    | US-RISCO-003  | Documentar riscos e princípios               | 7  | 7  | 6  | 0,25        | 80,0  | 001 (contexto)          | P0 (paralelo após 001) |
+| 4    | US-DATA-001   | Validação automatizada (pipeline)            | 9  | 8  | 9  | 5           | 5,2   | 002                     | P0      |
+| 5    | US-UX-001     | Interface Radical Transparency               | 9  | 8  | 8  | 5           | 5,0   | 001, 002                | P0      |
+| 6    | US-RISCO-006  | Stop loss automatizado (obrigatório)         | 10 | 8  | 10 | 10          | 2,8   | 002, DATA-001           | P0 (guardrail) |
+| 7    | US-RISCO-007  | Gestão de alavancagem (limites)              | 10 | 9  | 10 | 8           | 3,625 | 002, DATA-001           | P0 (guardrail) |
+| 8    | US-RISCO-004  | Alertas críticos em tempo real               | 10 | 9  | 9  | 8           | 3,5   | 002, DATA-001           | P1      |
+| 9    | US-RISCO-008  | Realização parcial de ganhos                 | 8  | 7  | 9  | 8           | 3,0   | 002                     | P1      |
+| 10   | US-RISCO-005  | Dashboard de risco consolidado               | 8  | 7  | 6  | 8           | 2,625 | 002                     | P1      |
+| 11   | US-RISCO-010  | Concentração e diversificação                | 8  | 7  | 8  | 10          | 2,3   | 005                     | P2      |
+| 12   | US-RISCO-009  | Backtesting de recomendações                 | 8  | 6  | 7  | 10          | 2,1   | —                       | P2      |
+| 13   | US-RISCO-011  | Stress testing                               | 7  | 6  | 8  | 12          | 1,75  | —                       | P3      |
+
+Observações de priorização:
+- Itens 6 e 7 (guardrails) foram promovidos à frente de alertas por reduzir risco sistêmico imediatamente (stop obrigatório e limite de alavancagem).
+- 002 precede 003 apesar do WSJF, pois dados limpos são pré-condição para qualquer decisão e comunicação.
+- 004 (alertas) vem após guardrails para evitar “sinais sem freios”.
+- 009 (backtesting) permanece P2 para não bloquear mitigação de risco imediato.
+
+Plano de Sprint revisado (Tech Lead + PO):
+- Sprint 0 (hoje): 001, 002, 003
+- Sprint 1 (2 semanas): DATA-001, UX-001, RISCO-006, RISCO-007
+- Sprint 2 (2 semanas): RISCO-004, RISCO-008, RISCO-005
+- Médio Prazo: RISCO-010, RISCO-009, RISCO-011
+
+MoSCoW:
+- Must have (P0): 001, 002, 003, DATA-001, UX-001, 006, 007
+- Should have (P1): 004, 008, 005
+- Could have (P2/P3): 010, 009, 011
+
+---
+
 ### 📊 **MÉTRICAS DE SUCESSO DA SPRINT EMERGENCIAL**
 
 **KPIs Críticos** (acompanhamento semanal):
