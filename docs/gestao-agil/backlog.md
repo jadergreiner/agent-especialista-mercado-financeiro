@@ -287,7 +287,133 @@ Contexto: Pivot estratégico para foco em uso interativo do prompt para análise
     - Sugestão de ajustes para reduzir risco de cauda
     - Relatório de stress test exportável (PDF)
   - **Estimativa**: 12 dias
-  - **Prioridade**: 🟢 MÉDIA
+  - Prioridade: 🟢 MÉDIA
+
+---
+
+### 🛠️ DÉBITOS TÉCNICOS — Sprint 0 Fase 1 (Autoavaliação 2025-11-07)
+
+**Contexto**: Autoavaliação crítica pós-implementação identificou 10 débitos técnicos que reduzem confiança de 90% → 65%. Ver análise completa na conversa.
+
+#### **P0 — Bloqueantes para Fase 2 (CRÍTICO)**
+
+- [ ] **DEBT-001: Instalar Dependências Python**
+  - **Problema**: `pandas-ta` e `openai` adicionados ao `requirements.txt` mas NÃO instalados no ambiente
+  - **Impacto**: Código não executável; Fase 2 falhará ao importar módulos
+  - **Resolução**: `pip install -r requirements.txt` ou `pip install pandas-ta openai`
+  - **Estimativa**: 5min
+  - **Prioridade**: � CRÍTICA (bloqueante)
+
+- [ ] **DEBT-002: Criar Arquivo `.env` com Credenciais**
+  - **Problema**: `.env.example` atualizado, mas `.env` real não existe; `OPENAI_API_KEY` não configurada
+  - **Impacto**: Fase 2-3 falharão ao chamar LLM (KeyError ou AuthenticationError)
+  - **Resolução**: `cp config/.env.example config/.env` e preencher `OPENAI_API_KEY=sk-...`
+  - **Estimativa**: 5min
+  - **Prioridade**: 🔴 CRÍTICA (bloqueante)
+
+- [ ] **DEBT-003: Configurar Logging Operacional**
+  - **Problema**: Código usa `logging.getLogger(__name__)` mas sem handlers configurados; logs não salvos
+  - **Impacto**: Debugging impossível; métricas de latência (US-PROMPT-007) não rastreáveis
+  - **Resolução**: 
+    - Adicionar `logging.basicConfig()` no entry point
+    - Configurar `FileHandler` para `logs/analise_AAAA-MM-DD.log` com rotação diária
+    - Formato: `%(asctime)s - %(name)s - %(levelname)s - %(message)s`
+  - **Estimativa**: 30min
+  - **Prioridade**: 🔴 CRÍTICA (bloqueante Fase 2)
+
+- [ ] **DEBT-004: Completar `formatadores/__init__.py`**
+  - **Problema**: Diretório `backend/formatadores/` criado mas sem `__init__.py`; não é pacote Python válido
+  - **Impacto**: Imports falharão na Fase 2-3 (`from formatadores import json_estruturado`)
+  - **Resolução**: Criar `backend/formatadores/__init__.py` com estrutura básica
+  - **Estimativa**: 10min
+  - **Prioridade**: 🔴 CRÍTICA (bloqueante Fase 2)
+
+#### **P1 — Críticos Pós-MVP (ALTA)**
+
+- [ ] **DEBT-005: Implementar Retry + Exponential Backoff (yfinance)**
+  - **Problema**: Zero tratamento de falhas de API; sem retry lógico
+  - **Impacto**: Análises falham aleatoriamente; Yahoo Finance scraping pode bloquear IP
+  - **Resolução**: 
+    - Biblioteca `tenacity` ou `backoff`
+    - Retry 3x com delays 1s, 2s, 4s
+    - Logar tentativas e falhas
+  - **Estimativa**: 1h
+  - **Prioridade**: 🟡 ALTA (produção-ready)
+
+- [ ] **DEBT-006: Validar Frescor de Dados (Timestamp)**
+  - **Problema**: Não valida se preço é recente; pode usar dados de 15-20min atrás
+  - **Impacto**: Análise "tempo real" na verdade desatualizada; crítico para timeframes curtos (5M, 15M)
+  - **Resolução**: 
+    - Em `obter_preco_atual()`: calcular `idade = now - timestamp_preco`
+    - Se `idade > 15min` e mercado aberto: retornar warning em resultado
+    - Adicionar campo `frescor: "tempo_real" | "atrasado" | "mercado_fechado"`
+  - **Estimativa**: 1h
+  - **Prioridade**: 🟡 ALTA (confiabilidade)
+
+- [ ] **DEBT-007: Adicionar Alerta de "Mercado Fechado"**
+  - **Problema**: Não verifica se mercado está aberto; retorna último preço sem contexto temporal
+  - **Impacto**: Durante fins de semana, análise parece atual mas tem 48h de atraso
+  - **Resolução**: 
+    - Biblioteca `pandas_market_calendars` ou lógica custom (forex 24/5, ouro horários específicos)
+    - Adicionar campo `mercado_status: "aberto" | "fechado" | "pre_mercado"`
+    - Alerta visual: "⚠️ Mercado fechado — último preço de [data]"
+  - **Estimativa**: 2h
+  - **Prioridade**: 🟡 ALTA (transparência)
+
+#### **P2 — Médio Prazo (MÉDIA)**
+
+- [ ] **DEBT-008: Converter Testes para `pytest` com Assertions**
+  - **Problema**: `teste_fase1_fundacao.py` é script manual com `print`; sem assertions programáticas
+  - **Impacto**: Regressões não detectadas; CI/CD impossível; coverage desconhecido
+  - **Resolução**: 
+    - Refatorar para `tests/test_fase1_fundacao.py`
+    - Usar `assert` + fixtures pytest
+    - Executar `pytest --cov=backend/ferramentas --cov=backend/validadores`
+  - **Estimativa**: 2h
+  - **Prioridade**: 🟢 MÉDIA (qualidade)
+
+- [ ] **DEBT-009: Adicionar Fonte Secundária (Fallback)**
+  - **Problema**: Dependência única de yfinance; sem fallback se Yahoo cair
+  - **Impacto**: Sistema inteiro para se Yahoo Finance offline
+  - **Resolução**: 
+    - Integrar Alpha Vantage ou Twelve Data como fonte secundária
+    - Lógica: tentar yfinance → se falhar, tentar fonte 2 → se falhar, erro claro
+    - Parametrizar prioridade em `config/.env` (`FONTE_PRECO_PRIMARIA`, `FONTE_PRECO_SECUNDARIA`)
+  - **Estimativa**: 3h
+  - **Prioridade**: 🟢 MÉDIA (resiliência)
+
+- [ ] **DEBT-010: Revisão Jurídica de Disclaimers (CVM/Brasil)**
+  - **Problema**: Disclaimer genérico pode não ser suficiente legalmente no Brasil (CVM regulamenta análise)
+  - **Impacto**: Exposição regulatória; potencial responsabilização legal
+  - **Resolução**: 
+    - Consultar advogado especializado em mercado financeiro
+    - Adicionar disclaimers específicos por jurisdição
+    - Incluir: "Não somos analistas certificados CVM" + número de registro (se aplicável)
+  - **Estimativa**: Externo (consultoria jurídica) + 1h implementação
+  - **Prioridade**: �🟢 MÉDIA (compliance)
+
+#### **Oportunidades de Melhoria Identificadas**
+
+- [ ] **OPP-001: Mapeamento de Tickers Extensível**
+  - **Atual**: `MAPA_TICKERS` hardcoded em `preco_atual.py` com 5 ativos
+  - **Melhoria**: Mover para `config/ativos.json` com validação de schema
+  - **Benefício**: Adicionar novos ativos sem alterar código; suporte a mais mercados (ações, cripto, índices)
+  - **Estimativa**: 1h
+  - **Prioridade**: 🟢 BAIXA (extensibilidade)
+
+- [ ] **OPP-002: Cache Inteligente de Preços**
+  - **Atual**: Sem cache; toda chamada é nova requisição à API
+  - **Melhoria**: Cache TTL=5min para preços (conforme `ANALISE_CACHE_TTL_SEGUNDOS`)
+  - **Benefício**: Reduz latência (< 5s com cache) e economiza rate limits
+  - **Estimativa**: 2h (usar `cachetools` ou Redis)
+  - **Prioridade**: 🟢 BAIXA (performance; será implementado em US-PROMPT-005)
+
+- [ ] **OPP-003: Sanitização com Aprovação de Usuário**
+  - **Atual**: `sanitizar_texto()` modifica texto automaticamente sem avisar
+  - **Melhoria**: Validar → mostrar diff → pedir confirmação → sanitizar
+  - **Benefício**: Transparência total; usuário vê o que foi alterado
+  - **Estimativa**: 1h
+  - **Prioridade**: 🟢 BAIXA (UX)
 
 ---
 
