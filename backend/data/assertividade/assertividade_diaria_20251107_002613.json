@@ -1,0 +1,40 @@
+{
+  "timestamp": "2025-11-07T00:26:13.888097",
+  "periodo_analisado": "30_dias",
+  "metricas": {
+    "total_oportunidades": 3,
+    "pares_unicos": 3,
+    "probabilidade_media": 0.6833333333333332,
+    "distribuicao_direcao": {
+      "LONG": 3
+    },
+    "pares_mais_oportunidades": {
+      "GBP/JPY": 1,
+      "USD/JPY": 1,
+      "CHF/JPY": 1
+    },
+    "probabilidade_por_par": {
+      "CHF/JPY": 0.65,
+      "GBP/JPY": 0.72,
+      "USD/JPY": 0.68
+    },
+    "tendencia_probabilidade": {
+      "erro": "Dados insuficientes para tendência"
+    }
+  },
+  "padroes": {
+    "pares_de_alto_desempenho": [
+      "GBP/JPY"
+    ],
+    "pares_de_baixo_desempenho": [],
+    "probabilidades_otimas": {},
+    "recomendacoes_direcao": {
+      "LONG": 100.0
+    }
+  },
+  "sugestoes": [
+    "🎯 Focar mais em pares de alto desempenho: GBP/JPY",
+    "📈 Estratégia predominantemente LONG (100.0%) - considerar diversificação",
+    "📊 Coletar mais dados históricos para melhorar análise estatística"
+  ]
+}

@@ -1,7 +1,7 @@
 # Conversa: PO ↔ Gerente de Portfólio - Melhorias UX e Gestão de Risco
 
-**Data**: 2025-11-07  
-**Participantes**: Product Owner (PO) + Gerente de Portfólio (GP)  
+**Data**: 2025-11-07
+**Participantes**: Product Owner (PO) + Gerente de Portfólio (GP)
 **Tema**: Descobertas Críticas em Análise UX e Gestão de Risco do Portfolio
 
 ---
@@ -58,7 +58,7 @@
 ### 4. Concentração Excessiva
 **GP**: Quais são os números?
 
-**PO**: 
+**PO**:
 - 8 posições em AUD
 - 5 posições em JPY
 - Correlação não gerenciada
@@ -72,7 +72,7 @@
 ### 5. Qualidade de Dados Comprometida
 **GP**: O que mais?
 
-**PO**: 
+**PO**:
 - IDs duplicados (pos_032 e pos_036 aparecem 2x cada)
 - Formatos inconsistentes de tickets
 - Preços desatualizados em algumas posições
@@ -229,6 +229,6 @@ Risco Atual: ILIMITADO (sem stop loss)
 
 ---
 
-**Princípio aprendido**: 
+**Princípio aprendido**:
 > "Interface bonita que esconde risco crítico não é UX excelente, é negligência profissional. Transparência radical sempre vence estética perigosa."
 

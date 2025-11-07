@@ -1,19 +1,32 @@
 {
-  "alpaca_paper": {
-    "tipo": "alpaca",
-    "api_key": "SEU_ALPACA_API_KEY",
-    "api_secret": "SEU_ALPACA_SECRET_KEY",
-    "base_url": "https://paper-api.alpaca.markets",
-    "paper_trading": true,
-    "timeout": 30,
-    "rate_limit": 200
-  },
   "simulado": {
     "tipo": "simulado",
     "api_key": "simulado",
     "api_secret": "simulado",
     "paper_trading": true,
     "timeout": 1,
-    "rate_limit": 1000
+    "rate_limit": 1000,
+    "ambiente": "demo"
+  },
+  "alpaca_paper": {
+    "tipo": "alpaca",
+    "api_key": "SEU_ALPACA_PAPER_KEY",
+    "api_secret": "SEU_ALPACA_PAPER_SECRET",
+    "base_url": "https://paper-api.alpaca.markets",
+    "paper_trading": true,
+    "timeout": 30,
+    "rate_limit": 200,
+    "ambiente": "homologacao"
+  },
+  "alpaca_live": {
+    "tipo": "alpaca",
+    "api_key": "SEU_ALPACA_LIVE_KEY",
+    "api_secret": "SEU_ALPACA_LIVE_SECRET",
+    "base_url": "https://api.alpaca.markets",
+    "paper_trading": false,
+    "timeout": 30,
+    "rate_limit": 200,
+    "ambiente": "producao",
+    "aviso": "EXECUTA ORDENS REAIS - USE COM EXTREMO CUIDADO!"
   }
 }

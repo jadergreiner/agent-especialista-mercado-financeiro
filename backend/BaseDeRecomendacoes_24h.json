@@ -1,0 +1,37 @@
+{
+  "recomendacoes": [
+    {
+      "ticket_id": "TEST_HEDGE_EUR",
+      "tipo_recomendacao": "HEDGE",
+      "ativo": "EUR",
+      "recomendacao": {
+        "tipo": "HEDGE_AGRESSIVO",
+        "performance_esperada": 0.02
+      },
+      "data_criacao": "2025-11-06T03:14:07.270798+00:00",
+      "score_assertividade": 96.68135247846293,
+      "performance_real": -0.013186475215370797,
+      "data_avaliacao": "2025-11-07T04:14:07.273622+00:00",
+      "parametros_modelo": {
+        "threshold_correlacao": 0.7
+      }
+    },
+    {
+      "ticket_id": "TEST_TAKE_GBPJPY",
+      "tipo_recomendacao": "TAKE",
+      "ativo": "GBP/JPY",
+      "recomendacao": {
+        "tipo": "TAKE_PROFIT",
+        "performance_esperada": 0.015
+      },
+      "data_criacao": "2025-11-06T03:14:07.270798+00:00",
+      "score_assertividade": 97.65195264250728,
+      "performance_real": 0.038480473574927156,
+      "data_avaliacao": "2025-11-07T04:14:07.274643+00:00",
+      "parametros_modelo": {
+        "threshold_suporte_resistencia": 0.02
+      }
+    }
+  ],
+  "ultima_atualizacao": "2025-11-07T04:23:50.163628+00:00"
+}

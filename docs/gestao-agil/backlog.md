@@ -316,7 +316,7 @@ Contexto: Pivot estratégico para foco em uso interativo do prompt para análise
 - [x] **DEBT-003: Configurar Logging Operacional** ✅ RESOLVIDO
   - **Problema**: Código usa `logging.getLogger(__name__)` mas sem handlers configurados; logs não salvos
   - **Impacto**: Debugging impossível; métricas de latência (US-PROMPT-007) não rastreáveis
-  - **Resolução**: 
+  - **Resolução**:
     - Adicionar `logging.basicConfig()` no entry point
     - Configurar `FileHandler` para `logs/analise_AAAA-MM-DD.log` com rotação diária
     - Formato: `%(asctime)s - %(name)s - %(levelname)s - %(message)s`
@@ -338,42 +338,57 @@ Contexto: Pivot estratégico para foco em uso interativo do prompt para análise
 
 #### **P1 — Críticos Pós-MVP (ALTA)**
 
-- [ ] **DEBT-005: Implementar Retry + Exponential Backoff (yfinance)**
+- [x] **DEBT-005: Implementar Retry + Exponential Backoff (yfinance)** ✅ RESOLVIDO
   - **Problema**: Zero tratamento de falhas de API; sem retry lógico
   - **Impacto**: Análises falham aleatoriamente; Yahoo Finance scraping pode bloquear IP
-  - **Resolução**: 
+  - **Resolução**:
     - Biblioteca `tenacity` ou `backoff`
     - Retry 3x com delays 1s, 2s, 4s
     - Logar tentativas e falhas
   - **Estimativa**: 1h
   - **Prioridade**: 🟡 ALTA (produção-ready)
+  - **Status**: ✅ Concluído em 2025-11-07
+    - Implementado decorator `@retry` com `tenacity`
+    - 3 tentativas com backoff exponencial (1s, 2s, 4s)
+    - Logging de tentativas falhadas
+    - Função `_obter_preco_atual_com_retry()` isolada para retry
 
-- [ ] **DEBT-006: Validar Frescor de Dados (Timestamp)**
+- [x] **DEBT-006: Validar Frescor de Dados (Timestamp)** ✅ RESOLVIDO
   - **Problema**: Não valida se preço é recente; pode usar dados de 15-20min atrás
   - **Impacto**: Análise "tempo real" na verdade desatualizada; crítico para timeframes curtos (5M, 15M)
-  - **Resolução**: 
+  - **Resolução**:
     - Em `obter_preco_atual()`: calcular `idade = now - timestamp_preco`
     - Se `idade > 15min` e mercado aberto: retornar warning em resultado
     - Adicionar campo `frescor: "tempo_real" | "atrasado" | "mercado_fechado"`
   - **Estimativa**: 1h
   - **Prioridade**: 🟡 ALTA (confiabilidade)
+  - **Status**: ✅ Concluído em 2025-11-07
+    - Campo `frescor` adicionado ("tempo_real" se < 15min)
+    - Campo `idade_dados_minutos` para transparência
+    - Usa `regularMarketTime` do Yahoo Finance quando disponível
+    - Fallback para `datetime.now()` se timestamp indisponível
 
-- [ ] **DEBT-007: Adicionar Alerta de "Mercado Fechado"**
+- [x] **DEBT-007: Adicionar Alerta de "Mercado Fechado"** ✅ RESOLVIDO
   - **Problema**: Não verifica se mercado está aberto; retorna último preço sem contexto temporal
   - **Impacto**: Durante fins de semana, análise parece atual mas tem 48h de atraso
-  - **Resolução**: 
+  - **Resolução**:
     - Biblioteca `pandas_market_calendars` ou lógica custom (forex 24/5, ouro horários específicos)
     - Adicionar campo `mercado_status: "aberto" | "fechado" | "pre_mercado"`
     - Alerta visual: "⚠️ Mercado fechado — último preço de [data]"
   - **Estimativa**: 2h
   - **Prioridade**: 🟡 ALTA (transparência)
+  - **Status**: ✅ Concluído em 2025-11-07
+    - Função `_verificar_mercado_aberto()` implementada
+    - Suporte a diferentes horários: Forex (24/5), Ouro (22:00-21:00 UTC), Ibovespa (13:00-20:55 UTC)
+    - Campo `mercado_status` adicionado ao resultado
+    - Log WARNING quando mercado fechado com timestamp do último preço
 
 #### **P2 — Médio Prazo (MÉDIA)**
 
 - [ ] **DEBT-008: Converter Testes para `pytest` com Assertions**
   - **Problema**: `teste_fase1_fundacao.py` é script manual com `print`; sem assertions programáticas
   - **Impacto**: Regressões não detectadas; CI/CD impossível; coverage desconhecido
-  - **Resolução**: 
+  - **Resolução**:
     - Refatorar para `tests/test_fase1_fundacao.py`
     - Usar `assert` + fixtures pytest
     - Executar `pytest --cov=backend/ferramentas --cov=backend/validadores`
@@ -383,7 +398,7 @@ Contexto: Pivot estratégico para foco em uso interativo do prompt para análise
 - [ ] **DEBT-009: Adicionar Fonte Secundária (Fallback)**
   - **Problema**: Dependência única de yfinance; sem fallback se Yahoo cair
   - **Impacto**: Sistema inteiro para se Yahoo Finance offline
-  - **Resolução**: 
+  - **Resolução**:
     - Integrar Alpha Vantage ou Twelve Data como fonte secundária
     - Lógica: tentar yfinance → se falhar, tentar fonte 2 → se falhar, erro claro
     - Parametrizar prioridade em `config/.env` (`FONTE_PRECO_PRIMARIA`, `FONTE_PRECO_SECUNDARIA`)
@@ -393,7 +408,7 @@ Contexto: Pivot estratégico para foco em uso interativo do prompt para análise
 - [ ] **DEBT-010: Revisão Jurídica de Disclaimers (CVM/Brasil)**
   - **Problema**: Disclaimer genérico pode não ser suficiente legalmente no Brasil (CVM regulamenta análise)
   - **Impacto**: Exposição regulatória; potencial responsabilização legal
-  - **Resolução**: 
+  - **Resolução**:
     - Consultar advogado especializado em mercado financeiro
     - Adicionar disclaimers específicos por jurisdição
     - Incluir: "Não somos analistas certificados CVM" + número de registro (se aplicável)

@@ -1,0 +1,39 @@
+{
+  "media_movel_tech": {
+    "tipo": "media_movel",
+    "simbolos": [
+      "AAPL",
+      "MSFT",
+      "GOOGL"
+    ],
+    "ativo": true,
+    "capital_alocado": 25000,
+    "risco_por_operacao": 0.02,
+    "stop_loss": 0.05,
+    "take_profit": 0.1,
+    "timeframe": "1h",
+    "parametros": {
+      "periodo_rapida": 10,
+      "periodo_lenta": 30
+    }
+  },
+  "rsi_oversold": {
+    "tipo": "rsi_oversold",
+    "simbolos": [
+      "SPY",
+      "QQQ",
+      "IWM"
+    ],
+    "ativo": true,
+    "capital_alocado": 20000,
+    "risco_por_operacao": 0.015,
+    "stop_loss": 0.04,
+    "take_profit": 0.08,
+    "timeframe": "1d",
+    "parametros": {
+      "periodo_rsi": 14,
+      "nivel_sobrevendido": 30,
+      "nivel_sobrecomprado": 70
+    }
+  }
+}

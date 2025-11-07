@@ -1,0 +1,122 @@
+[
+  {
+    "timestamp": "2025-11-07T11:53:10.297156",
+    "tipo": "rebalanceamento_estrategico",
+    "ordem": {
+      "ativo": "nasdaq",
+      "acao": "vender",
+      "valor": 10000.0,
+      "tipo": "rebalanceamento_estrategico",
+      "timestamp": "2025-11-07T11:53:10.296997",
+      "justificativa": "Rebalanceamento estratégico gestor fundo global - -10%"
+    }
+  },
+  {
+    "timestamp": "2025-11-07T11:53:10.298790",
+    "tipo": "rebalanceamento_estrategico",
+    "ordem": {
+      "ativo": "euro_stoxx",
+      "acao": "vender",
+      "valor": 5000.0,
+      "tipo": "rebalanceamento_estrategico",
+      "timestamp": "2025-11-07T11:53:10.297014",
+      "justificativa": "Rebalanceamento estratégico gestor fundo global - -5%"
+    }
+  },
+  {
+    "timestamp": "2025-11-07T11:53:10.316983",
+    "tipo": "rebalanceamento_estrategico",
+    "ordem": {
+      "ativo": "bitcoin",
+      "acao": "comprar",
+      "valor": 5000.0,
+      "tipo": "rebalanceamento_estrategico",
+      "timestamp": "2025-11-07T11:53:10.297018",
+      "justificativa": "Rebalanceamento estratégico gestor fundo global - +5%"
+    }
+  },
+  {
+    "timestamp": "2025-11-07T11:53:10.329862",
+    "tipo": "rebalanceamento_estrategico",
+    "ordem": {
+      "ativo": "ouro",
+      "acao": "comprar",
+      "valor": 18000.0,
+      "tipo": "rebalanceamento_estrategico",
+      "timestamp": "2025-11-07T11:53:10.297020",
+      "justificativa": "Rebalanceamento estratégico gestor fundo global - +18%"
+    }
+  },
+  {
+    "timestamp": "2025-11-07T11:53:10.348731",
+    "tipo": "rebalanceamento_estrategico",
+    "ordem": {
+      "ativo": "petroleo",
+      "acao": "vender",
+      "valor": 15000.0,
+      "tipo": "rebalanceamento_estrategico",
+      "timestamp": "2025-11-07T11:53:10.297024",
+      "justificativa": "Rebalanceamento estratégico gestor fundo global - -15%"
+    }
+  },
+  {
+    "timestamp": "2025-11-07T11:53:26.572337",
+    "tipo": "rebalanceamento_estrategico",
+    "ordem": {
+      "ativo": "nasdaq",
+      "acao": "vender",
+      "valor": 10000.0,
+      "tipo": "rebalanceamento_estrategico",
+      "timestamp": "2025-11-07T11:53:26.572104",
+      "justificativa": "Rebalanceamento estratégico gestor fundo global - -10%"
+    }
+  },
+  {
+    "timestamp": "2025-11-07T11:53:26.587443",
+    "tipo": "rebalanceamento_estrategico",
+    "ordem": {
+      "ativo": "euro_stoxx",
+      "acao": "vender",
+      "valor": 5000.0,
+      "tipo": "rebalanceamento_estrategico",
+      "timestamp": "2025-11-07T11:53:26.572129",
+      "justificativa": "Rebalanceamento estratégico gestor fundo global - -5%"
+    }
+  },
+  {
+    "timestamp": "2025-11-07T11:53:26.604205",
+    "tipo": "rebalanceamento_estrategico",
+    "ordem": {
+      "ativo": "bitcoin",
+      "acao": "comprar",
+      "valor": 5000.0,
+      "tipo": "rebalanceamento_estrategico",
+      "timestamp": "2025-11-07T11:53:26.572135",
+      "justificativa": "Rebalanceamento estratégico gestor fundo global - +5%"
+    }
+  },
+  {
+    "timestamp": "2025-11-07T11:53:26.621367",
+    "tipo": "rebalanceamento_estrategico",
+    "ordem": {
+      "ativo": "ouro",
+      "acao": "comprar",
+      "valor": 18000.0,
+      "tipo": "rebalanceamento_estrategico",
+      "timestamp": "2025-11-07T11:53:26.572139",
+      "justificativa": "Rebalanceamento estratégico gestor fundo global - +18%"
+    }
+  },
+  {
+    "timestamp": "2025-11-07T11:53:26.636818",
+    "tipo": "rebalanceamento_estrategico",
+    "ordem": {
+      "ativo": "petroleo",
+      "acao": "vender",
+      "valor": 15000.0,
+      "tipo": "rebalanceamento_estrategico",
+      "timestamp": "2025-11-07T11:53:26.572146",
+      "justificativa": "Rebalanceamento estratégico gestor fundo global - -15%"
+    }
+  }
+]

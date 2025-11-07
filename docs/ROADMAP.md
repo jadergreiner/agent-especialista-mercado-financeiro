@@ -1,35 +1,67 @@
 # Roadmap (Top-Level)
 
-Atualizado: 2025-11-06
+Atualizado: 2025-11-07 (pós-Sistema de Aprendizado Contínuo)
 
-## 🔜 Próximas entregas (1–2 semanas) — Estratégia Prompt-First
+## 🔜 Próximas entregas (1–2 semanas) — Sistema de Aprendizado Contínuo
 
-- Prompt Interativo v1 (CLI conversacional) com ajuda, histórico curto e cancelamento
-- Templates de prompt e contratos mínimos de saída (Forex/Cripto) com validação leve
-- Resolução de símbolo/aliases e fallback CSV manual com mensagens claras
-- Fontes de dados de baixa fricção (yfinance/CSV) com cache simples
-- Observabilidade: log de sessões (auditoria) e tempos de resposta
+- **Sistema de Aprendizado Contínuo v1.0**: Prompt estruturado para análise de performance
+- **Framework de Ajuste Dinâmico**: Auto-tuning de pesos baseado em feedback real
+- **Banco de Dados de Aprendizado**: Persistência de análises e métricas de evolução
+- **CLI de Gestão de Aprendizado**: Interface para análise interativa e ajustes manuais
+- **Integração com Avaliação Assertividade**: Fusão quantitativo + qualitativo
 
-## 🔁 Curto/médio prazo (1–2 meses)
+## 🔁 Curto/médio prazo (1–2 meses) — Expansão e Validação
 
-- Revalidação T+24h e métricas de assertividade automatizadas
-- Dashboard inicial com visão das últimas análises e filtros básicos
-- Integração com exchanges (ex.: Binance/Bybit) para preços intraday cripto e funding real
-- Enriquecimento on-chain (Glassnode/CryptoQuant) com cache e limites de taxa
+- **Dashboard de Aprendizado**: Visualização da evolução do sistema e performance
+- **Validação Walk-Forward com Aprendizado**: Teste de robustez incluindo capacidade adaptativa
+- **Expansão Multi-Mercado**: Sistema de aprendizado específico por ativo/mercado
+- **API de Aprendizado**: Interface programática para integração com sistemas externos
+- **Sistema de Alertas de Performance**: Notificações automáticas de degradação/melhoria
 
-## 🌉 Médio prazo (3–6 meses)
+## 🌉 Médio prazo (3–6 meses) — Produtos e Monetização
 
-- Orquestração de estratégias (Strategy Pattern) com backtesting integrado
-- Feature store para sinais/indicadores normalizados (versionado)
-- Pipelines de ML (scikit-learn/LightGBM) para recomendação probabilística
-- Paper trading para setups priorizados (vwap_pullback_reject, breakout_sri)
+- **Produto: Consultoria de Aprendizado Financeiro**: Análise de performance para gestores
+- **Produto: Plataforma de Trading Autônoma**: Sistema que aprende com cada trade
+- **Produto: Analytics Institucional**: Métricas avançadas para fundos quantitativos
+- **Framework de Estratégias Adaptativas**: Auto-otimização de setups por mercado
+- **Integração com Corretoras**: Execução automatizada com aprendizado ativo
 
-## 🧭 Longo prazo (6–12 meses)
+## 🧭 Longo prazo (6–12 meses) — Empresa e Escalabilidade
 
-- Execução automatizada (conectores com corretoras) com gestão de risco centralizada
-- Explainability dos sinais (SHAP/feature importance) na UI
-- Simulador multi-ativo e rebalanceamento dinâmico de portfólio
+- **Empresa de Analytics Financeiro**: Plataforma SaaS de aprendizado contínuo
+- **API Enterprise**: Solução white-label para instituições financeiras
+- **Research & Development**: Inovação em aprendizado de máquina financeiro
+- **Parcerias Estratégicas**: Integração com bancos e gestoras de fundo
+- **Expansão Internacional**: Adaptação para mercados globais
 
 ---
 
-Obs.: o ROADMAP é vivo — manter enxuto e atualizá-lo por entrega.
+## 💡 Insights de Negócio - Sistema de Aprendizado Contínuo
+
+### Oportunidades Identificadas
+
+1. **Diferencial Competitivo**: Sistema que aprende e se adapta automaticamente
+2. **Valor para Clientes**: Melhoria contínua da performance sem intervenção manual
+3. **Escalabilidade**: Capacidade de expansão para múltiplos mercados simultaneamente
+4. **Monetização**: Novos produtos baseados em analytics de aprendizado
+5. **Inovação**: Primeiro sistema de trading verdadeiramente adaptativo do mercado
+
+### Modelo de Receita Evoluído
+
+- **SaaS Core**: Plataforma de análise com aprendizado contínuo (R$ 5k-15k/mês)
+- **Consultoria**: Otimização de estratégias existentes (R$ 10k-50k/projeto)
+- **Enterprise API**: Integração white-label (R$ 25k-100k/setup + royalties)
+- **Analytics Premium**: Relatórios avançados de performance (R$ 2k-8k/mês)
+
+### Proposta de Valor Refinada
+
+**Antes**: Sistema de detecção de oportunidades assimétricas
+**Agora**: Plataforma de trading que aprende e evolui automaticamente, maximizando performance ao longo do tempo
+
+### Roadmap de Produto
+
+**Q4 2025**: Sistema de Aprendizado Contínuo operacional
+**Q1 2026**: Validação e refinamento em produção
+**Q2 2026**: Lançamento produtos SaaS e consultoria
+**Q3 2026**: Expansão enterprise e internacional
+**Q4 2026**: Empresa estabelecida no mercado de analytics financeiro

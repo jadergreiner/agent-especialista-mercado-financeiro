@@ -1,4 +1,4 @@
-    # Treinamento Contínuo do Agente
+# Treinamento Contínuo do Agente
 
 Este documento descreve o ciclo de melhoria contínua do agente de mercado financeiro, baseado em registro de recomendações, validação de assertividade e acompanhamento de métricas.
 
@@ -314,4 +314,123 @@ Interpretação prática:
 - Use ATR para calibrar stops e TPs dinamicamente (em alta volatilidade, aumentar distâncias)
 - Identifique assimetrias: se COMPRA tem PF 2.5 e VENDA 0.8, privilegie setups de compra
 
-````
+## Sistema de Aprendizado Contínuo (Prompt Estruturado)
+
+### Visão Geral
+
+Complementando o sistema quantitativo de avaliação, implementamos um **Sistema de Aprendizado Contínuo** baseado em análise qualitativa de performance individual. Este sistema utiliza um prompt estruturado para extrair aprendizados específicos de cada recomendação validada.
+
+### Arquitetura do Sistema
+
+- **Módulo Principal**: `backend/sistema_aprendizado_continuo.py`
+- **Interface CLI**: `backend/cli_aprendizado_continuo.py`
+- **Banco de Dados**: Tabela `analises_performance` no SQLite
+- **Prompt Base**: `prompts/prompt_aprendizado_continuo.md`
+
+### Fluxo de Aprendizado
+
+1. **Coleta de Dados**: Após validação de recomendação, coletar dados de feedback
+2. **Análise Estruturada**: Executar prompt para comparar previsto vs real
+3. **Extração de Aprendizados**: Identificar pontos positivos e de melhoria
+4. **Ajuste de Pesos**: Aplicar modificações dinâmicas aos fatores de decisão
+5. **Registro Histórico**: Salvar análise para auditoria e métricas futuras
+
+### Como Usar
+
+#### Análise Individual
+
+```bash
+# Executar análise de uma recomendação específica
+python backend/cli_aprendizado_continuo.py analisar \
+  --id 42 \
+  --resultado "ACERTOU - TP1 atingido em +380 pontos" \
+  --movimento "WIN subiu 420 pontos em 3.5h" \
+  --eventos "Dados de emprego EUA melhores que esperado, Fed hints dovish"
+```
+
+#### Ver Métricas do Sistema
+
+```bash
+# Consultar métricas consolidadas do aprendizado
+python backend/cli_aprendizado_continuo.py metricas
+```
+
+#### Ajustes Manuais de Pesos
+
+```bash
+# Aplicar ajustes específicos aos pesos
+python backend/cli_aprendizado_continuo.py ajustar-pesos \
+  --score-macro 0.05 \
+  --score-tecnico -0.02 \
+  --volatilidade 0.03
+```
+
+### Estrutura do Prompt
+
+O sistema utiliza o seguinte prompt estruturado para análise:
+
+```
+ANÁLISE DE PERFORMANCE DA RECOMENDAÇÃO ANTERIOR:
+
+DADOS DE FEEDBACK:
+{resultado_real_oportunidade}
+{movimento_preco_observado}
+{eventos_que_ocorreram}
+
+COMPARE:
+- Probabilidade prevista vs resultado real
+- Timeframe estimado vs tempo real de movimento
+- Catalisadores previstos vs eventos reais que moveram mercado
+- Nível de invalidação vs maior excursão adversa
+
+APRENDIZADOS:
+1. O que funcionou bem na análise?
+2. Que sinais foram subestimados/superestimados?
+3. Como melhorar a calibração de probabilidades?
+4. Que novos inputs poderiam ter melhorado a previsão?
+
+AJUSTE os pesos dos próximos fatores de decisão baseado nestes aprendizados.
+```
+
+### Saída Estruturada
+
+Cada análise gera um relatório com:
+
+- **Comparação Previsto vs Real**: Métricas quantitativas de performance
+- **Pontos Positivos**: O que funcionou bem na análise
+- **Pontos de Melhoria**: Áreas que precisam de ajustes
+- **Sinais Sub/Superestimados**: Calibração de indicadores
+- **Novos Inputs Sugeridos**: Possíveis melhorias no modelo
+- **Ajustes Recomendados**: Modificações específicas nos pesos
+
+### Integração com Sistema Existente
+
+O sistema de aprendizado contínuo complementa o `avaliador_assertividade.py`:
+
+- **Avaliador Assertividade**: Foco em métricas quantitativas agregadas
+- **Aprendizado Contínuo**: Foco em análise qualitativa individual e ajustes dinâmicos
+
+### Benefícios
+
+1. **Adaptação Contínua**: Sistema aprende com cada trade executado
+2. **Calibração Dinâmica**: Pesos ajustados automaticamente baseado em performance
+3. **Transparência Total**: Histórico completo de aprendizados e ajustes
+4. **Melhoria Iterativa**: Performance melhora gradualmente ao longo do tempo
+5. **Auditoria Completa**: Todo aprendizado é registrado e mensurável
+
+### Monitoramento de Eficácia
+
+O sistema gera métricas para acompanhar sua própria eficácia:
+
+- **Taxa de Acerto das Análises**: Performance do sistema de aprendizado
+- **Evolução dos Pesos**: Como os fatores evoluem ao longo do tempo
+- **Histórico de Ajustes**: Registro completo de modificações aplicadas
+- **Impacto na Performance**: Correlação entre ajustes e resultados futuros
+
+### Extensões Futuras
+
+- **Integração com LLM**: Usar IA para gerar análises mais sofisticadas
+- **Ajustes Automáticos**: Sistema aplica ajustes sem intervenção manual
+- **Análises Comparativas**: Comparar aprendizados entre diferentes tipos de setup
+- **Dashboard Visual**: Interface web para acompanhar evolução do aprendizado
+- **Alertas de Performance**: Notificações quando ajustes impactam negativamente

@@ -50,7 +50,7 @@ def configurar_logger(
     # Formato padrão
     if formato is None:
         formato = "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
-    
+
     formatter = logging.Formatter(formato)
 
     # Handler para Console (stdout)
@@ -94,6 +94,6 @@ def obter_logger(nome: str) -> logging.Logger:
     logger_existente = logging.getLogger(nome)
     if logger_existente.handlers:
         return logger_existente
-    
+
     # Caso contrário, configurar novo
     return configurar_logger(nome)

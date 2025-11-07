@@ -1,0 +1,1113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💼 Relatório de Portfólio - 07/11/2025 15:13</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .header .timestamp {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .section-title {
+            font-size: 1.8em;
+            color: #667eea;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #667eea;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        }
+
+        .stat-label {
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .stat-value {
+            font-size: 2em;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .stat-value.positive {
+            color: #10b981;
+        }
+
+        .stat-value.negative {
+            color: #ef4444;
+        }
+
+        .stat-value.neutral {
+            color: #f59e0b;
+        }
+
+        .alert-badge {
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.9em;
+            margin-left: 10px;
+        }
+
+        .alert-alto {
+            background: #fee2e2;
+            color: #dc2626;
+        }
+
+        .alert-medio {
+            background: #fef3c7;
+            color: #d97706;
+        }
+
+        .alert-baixo {
+            background: #d1fae5;
+            color: #059669;
+        }
+
+        .recomendacoes-list {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .recomendacao-item {
+            background: white;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+
+        .recomendacao-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .recomendacao-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .recomendacao-titulo {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .recomendacao-badge {
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.85em;
+            font-weight: bold;
+        }
+
+        .badge-gestao {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+
+        .badge-oportunidade {
+            background: #d1fae5;
+            color: #065f46;
+        }
+
+        .badge-risco {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+
+        .badge-balanceamento {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .recomendacao-descricao {
+            color: #666;
+            line-height: 1.6;
+            margin-top: 10px;
+        }
+
+        .confianca-indicator {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 10px;
+        }
+
+        .exposicao-moeda {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .moeda-card {
+            flex: 1;
+            min-width: 150px;
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .moeda-symbol {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .moeda-value {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #e5e7eb;
+            border-radius: 4px;
+            margin-top: 10px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            transition: width 0.3s;
+        }
+
+        .footer {
+            background: #f8f9fa;
+            padding: 30px;
+            text-align: center;
+            color: #666;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        .disclaimer {
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 20px 0;
+            color: #856404;
+        }
+
+        .tab-container {
+            margin-top: 20px;
+        }
+
+        .tab-buttons {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .tab-button {
+            padding: 12px 24px;
+            background: white;
+            border: 2px solid #667eea;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            color: #667eea;
+            transition: all 0.3s;
+        }
+
+        .tab-button:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        .tab-button.active {
+            background: #667eea;
+            color: white;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+            .container {
+                box-shadow: none;
+            }
+            .recomendacao-item {
+                page-break-inside: avoid;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            .header h1 {
+                font-size: 1.8em;
+            }
+            .content {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>💼 Relatório de Avaliação de Portfólio</h1>
+            <div class="timestamp">📅 07/11/2025 às 15:13:55</div>
+        </div>
+
+        <div class="content">
+            
+        <div class="section">
+            <div class="section-title">
+                📊 Resumo do Portfólio
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-label">💰 Capital Total</div>
+                    <div class="stat-value">$100,000.00</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-label">📊 Posições Ativas</div>
+                    <div class="stat-value">0</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-label">📈 P&L Total</div>
+                    <div class="stat-value positive">
+                        $45,077.16
+                        <div style="font-size: 0.6em; margin-top: 5px;">(+45.08%)</div>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-label">💎 Exposição Total</div>
+                    <div class="stat-value">$5,795,016.92</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-label">⚖️ Alavancagem</div>
+                    <div class="stat-value neutral">57.95x</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-label">💵 P&L Não Realizado</div>
+                    <div class="stat-value positive">$0.00</div>
+                </div>
+            </div>
+
+            <div style="margin-top: 30px;">
+                <h3 style="color: #667eea; margin-bottom: 15px;">💱 Exposição por Moeda</h3>
+                <div class="exposicao-moeda">
+                    
+                </div>
+            </div>
+        </div>
+        
+            
+        <div class="section">
+            <div class="section-title">
+                🛡️ Análise de Risco
+                <span class="alert-badge alert-medio">DESCONHECIDO</span>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-label">📊 Concentração Máxima</div>
+                    <div class="stat-value neutral">0.0%</div>
+                    <div style="font-size: 0.8em; color: #666; margin-top: 5px;">em N/A</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 0%"></div>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-label">🔗 Correlação Máxima</div>
+                    <div class="stat-value">0.00</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-label">📉 VaR (95%)</div>
+                    <div class="stat-value negative">$0.00</div>
+                </div>
+            </div>
+
+            
+        </div>
+        
+            
+        <div class="section">
+            <div class="section-title">
+                🌐 Coerência Macroeconômica
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-label">📊 VIX (Volatilidade)</div>
+                    <div class="stat-value">0.0</div>
+                    <div style="font-size: 0.8em; color: #666; margin-top: 5px;">
+                        Volatilidade BAIXA
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-label">💵 DXY (Índice Dólar)</div>
+                    <div class="stat-value">0.0</div>
+                    <div style="font-size: 0.8em; color: #666; margin-top: 5px;">
+                        USD FRACO
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-label">🎯 Cenário de Mercado</div>
+                    <div class="stat-value" style="font-size: 1.5em;">NEUTRO</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-label">✅ Alinhamento do Portfólio</div>
+                    <div class="stat-value positive" style="font-size: 1.5em;">
+                        COERENTE
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+            
+        <div class="section">
+            <div class="section-title">
+                🔗 Análise de Correlação
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-label">📊 Pares Únicos</div>
+                    <div class="stat-value">0</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-label">⚠️ Exposições Redundantes</div>
+                    <div class="stat-value neutral">7</div>
+                </div>
+            </div>
+
+            
+            <div style="margin-top: 20px;">
+                <p style="color: #666;"><strong>Moedas com exposição redundante:</strong></p>
+                <p style="background: #fef3c7; padding: 15px; border-radius: 8px; margin-top: 10px; color: #92400e;">
+                    AUD, CAD, CHF, JPY, NZD, USD, EUR
+                </p>
+            </div>
+        
+        </div>
+        
+            
+        <div class="section">
+            <div class="section-title">
+                💡 Recomendações Inteligentes
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-label">📋 Gestão de Posições</div>
+                    <div class="stat-value">32</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-label">🆕 Novas Oportunidades</div>
+                    <div class="stat-value positive">1</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-label">🛡️ Alertas de Risco</div>
+                    <div class="stat-value negative">1</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-label">⚖️ Balanceamento</div>
+                    <div class="stat-value neutral">1</div>
+                </div>
+            </div>
+
+            
+        <div class="tab-container">
+            <div class="tab-buttons">
+                <button class="tab-button" data-tab="tab-posicoes">
+                    📋 Gestão de Posições (32)
+                </button>
+                <button class="tab-button" data-tab="tab-oportunidades">
+                    🆕 Novas Oportunidades (1)
+                </button>
+                <button class="tab-button" data-tab="tab-riscos">
+                    🛡️ Alertas de Risco (1)
+                </button>
+                <button class="tab-button" data-tab="tab-balanceamento">
+                    ⚖️ Balanceamento (1)
+                </button>
+            </div>
+
+            <div id="tab-posicoes" class="tab-content">
+                
+            <ul class="recomendacoes-list">
+                
+                    <div class="recomendacao-item">
+                        <div class="recomendacao-header">
+                            <div class="recomendacao-titulo">#1 - AUD/CAD | 🎫 Ticket: #5307183178</div>
+                            <span class="recomendacao-badge badge-gestao">GESTAO</span>
+                        </div>
+                        <div class="recomendacao-descricao">Posição dentro da faixa válida. Stop Loss: 0.8992, Take Profit: 0.9542</div>
+                        <div style='margin-top: 15px; padding: 15px; background: #f0f9ff; border-radius: 8px; border-left: 4px solid #667eea;'><div style='color: #10b981; font-weight: bold; margin-bottom: 8px;'>📈 Direção: LONG</div><div style='color: #666; margin-bottom: 5px;'>📅 Data de Abertura: <strong>2025-10-30T00:00:00Z</strong></div><div style='color: #666; margin-bottom: 5px;'>🔵 Preço de Entrada: <strong>$0.91754</strong></div><div style='color: #ef4444; font-weight: bold; font-size: 1.1em; margin-top: 8px;'>❌ P&L: $-6.45</div></div>
+                        <div class="confianca-indicator">
+                            🎯 Confiança: <strong>NivelConfianca.MEDIA</strong>
+                        </div>
+                        
+                        <div style='margin-top: 10px; color: #ef4444; font-weight: bold;'>🚨 Risco: 0.0%</div>
+                    </div>
+                
+                    <div class="recomendacao-item">
+                        <div class="recomendacao-header">
+                            <div class="recomendacao-titulo">#2 - AUD/CHF</div>
+                            <span class="recomendacao-badge badge-gestao">GESTAO</span>
+                        </div>
+                        <div class="recomendacao-descricao">Posição dentro da faixa válida. Stop Loss: 0.5161, Take Profit: 0.5477</div>
+                        <div style='margin-top: 15px; padding: 15px; background: #f0f9ff; border-radius: 8px; border-left: 4px solid #667eea;'><div style='color: #10b981; font-weight: bold; margin-bottom: 8px;'>📈 Direção: LONG</div><div style='color: #666; margin-bottom: 5px;'>📅 Data de Abertura: <strong>2025-11-06T00:00:00Z</strong></div><div style='color: #666; margin-bottom: 5px;'>🔵 Preço de Entrada: <strong>$0.52665</strong></div><div style='color: #10b981; font-weight: bold; font-size: 1.1em; margin-top: 8px;'>✅ P&L: $+0.00</div></div>
+                        <div class="confianca-indicator">
+                            🎯 Confiança: <strong>NivelConfianca.MEDIA</strong>
+                        </div>
+                        
+                        <div style='margin-top: 10px; color: #ef4444; font-weight: bold;'>🚨 Risco: 0.0%</div>
+                    </div>
+                
+                    <div class="recomendacao-item">
+                        <div class="recomendacao-header">
+                            <div class="recomendacao-titulo">#3 - AUD/JPY</div>
+                            <span class="recomendacao-badge badge-gestao">GESTAO</span>
+                        </div>
+                        <div class="recomendacao-descricao">Posição dentro da faixa válida. Stop Loss: 98.4547, Take Profit: 104.4826</div>
+                        <div style='margin-top: 15px; padding: 15px; background: #f0f9ff; border-radius: 8px; border-left: 4px solid #667eea;'><div style='color: #10b981; font-weight: bold; margin-bottom: 8px;'>📈 Direção: LONG</div><div style='color: #666; margin-bottom: 5px;'>📅 Data de Abertura: <strong>2025-10-30T00:00:00Z</strong></div><div style='color: #666; margin-bottom: 5px;'>🔵 Preço de Entrada: <strong>$100.46400</strong></div><div style='color: #ef4444; font-weight: bold; font-size: 1.1em; margin-top: 8px;'>❌ P&L: $-117.00</div></div>
+                        <div class="confianca-indicator">
+                            🎯 Confiança: <strong>NivelConfianca.MEDIA</strong>
+                        </div>
+                        
+                        <div style='margin-top: 10px; color: #ef4444; font-weight: bold;'>🚨 Risco: 0.0%</div>
+                    </div>
+                
+                    <div class="recomendacao-item">
+                        <div class="recomendacao-header">
+                            <div class="recomendacao-titulo">#4 - AUD/JPY</div>
+                            <span class="recomendacao-badge badge-gestao">GESTAO</span>
+                        </div>
+                        <div class="recomendacao-descricao">Posição dentro da faixa válida. Stop Loss: 98.3401, Take Profit: 104.3609</div>
+                        <div style='margin-top: 15px; padding: 15px; background: #f0f9ff; border-radius: 8px; border-left: 4px solid #667eea;'><div style='color: #10b981; font-weight: bold; margin-bottom: 8px;'>📈 Direção: LONG</div><div style='color: #666; margin-bottom: 5px;'>📅 Data de Abertura: <strong>2025-10-30T00:00:00Z</strong></div><div style='color: #666; margin-bottom: 5px;'>🔵 Preço de Entrada: <strong>$100.34700</strong></div><div style='color: #10b981; font-weight: bold; font-size: 1.1em; margin-top: 8px;'>✅ P&L: $+0.00</div></div>
+                        <div class="confianca-indicator">
+                            🎯 Confiança: <strong>NivelConfianca.MEDIA</strong>
+                        </div>
+                        
+                        <div style='margin-top: 10px; color: #ef4444; font-weight: bold;'>🚨 Risco: 0.0%</div>
+                    </div>
+                
+                    <div class="recomendacao-item">
+                        <div class="recomendacao-header">
+                            <div class="recomendacao-titulo">#5 - AUD/NZD</div>
+                            <span class="recomendacao-badge badge-gestao">GESTAO</span>
+                        </div>
+                        <div class="recomendacao-descricao">Posição dentro da faixa válida. Stop Loss: 1.1657, Take Profit: 1.0971</div>
+                        <div style='margin-top: 15px; padding: 15px; background: #f0f9ff; border-radius: 8px; border-left: 4px solid #667eea;'><div style='color: #ef4444; font-weight: bold; margin-bottom: 8px;'>📉 Direção: SHORT</div><div style='color: #666; margin-bottom: 5px;'>📅 Data de Abertura: <strong>2025-10-31T00:00:00Z</strong></div><div style='color: #666; margin-bottom: 5px;'>🔵 Preço de Entrada: <strong>$1.14280</strong></div><div style='color: #ef4444; font-weight: bold; font-size: 1.1em; margin-top: 8px;'>❌ P&L: $-7.04</div></div>
+                        <div class="confianca-indicator">
+                            🎯 Confiança: <strong>NivelConfianca.MEDIA</strong>
+                        </div>
+                        
+                        <div style='margin-top: 10px; color: #ef4444; font-weight: bold;'>🚨 Risco: 0.0%</div>
+                    </div>
+                
+                    <div class="recomendacao-item">
+                        <div class="recomendacao-header">
+                            <div class="recomendacao-titulo">#6 - AUD/NZD</div>
+                            <span class="recomendacao-badge badge-gestao">GESTAO</span>
+                        </div>
+                        <div class="recomendacao-descricao">Posição dentro da faixa válida. Stop Loss: 1.1245, Take Profit: 1.1933</div>
+                        <div style='margin-top: 15px; padding: 15px; background: #f0f9ff; border-radius: 8px; border-left: 4px solid #667eea;'><div style='color: #10b981; font-weight: bold; margin-bottom: 8px;'>📈 Direção: LONG</div><div style='color: #666; margin-bottom: 5px;'>📅 Data de Abertura: <strong>2025-10-31T00:00:00Z</strong></div><div style='color: #666; margin-bottom: 5px;'>🔵 Preço de Entrada: <strong>$1.14745</strong></div><div style='color: #10b981; font-weight: bold; font-size: 1.1em; margin-top: 8px;'>✅ P&L: $+2.39</div></div>
+                        <div class="confianca-indicator">
+                            🎯 Confiança: <strong>NivelConfianca.MEDIA</strong>
+                        </div>
+                        
+                        <div style='margin-top: 10px; color: #ef4444; font-weight: bold;'>🚨 Risco: 0.0%</div>
+                    </div>
+                
+                    <div class="recomendacao-item">
+                        <div class="recomendacao-header">
+                            <div class="recomendacao-titulo">#7 - AUD/NZD | 🎫 Ticket: #5312759272</div>
+                            <span class="recomendacao-badge badge-gestao">GESTAO</span>
+                        </div>
+                        <div class="recomendacao-descricao">Posição dentro da faixa válida. Stop Loss: 1.1710, Take Profit: 1.1021</div>
+                        <div style='margin-top: 15px; padding: 15px; background: #f0f9ff; border-radius: 8px; border-left: 4px solid #667eea;'><div style='color: #ef4444; font-weight: bold; margin-bottom: 8px;'>📉 Direção: SHORT</div><div style='color: #666; margin-bottom: 5px;'>📅 Data de Abertura: <strong>2025-11-06T15:00:52.830035</strong></div><div style='color: #666; margin-bottom: 5px;'>🔵 Preço de Entrada: <strong>$1.14807</strong></div><div style='color: #ef4444; font-weight: bold; font-size: 1.1em; margin-top: 8px;'>❌ P&L: $-1.77</div></div>
+                        <div class="confianca-indicator">
+                            🎯 Confiança: <strong>NivelConfianca.MEDIA</strong>
+                        </div>
+                        
+                        <div style='margin-top: 10px; color: #ef4444; font-weight: bold;'>🚨 Risco: 0.0%</div>
+                    </div>
+                
+                    <div class="recomendacao-item">
+                        <div class="recomendacao-header">
+                            <div class="recomendacao-titulo">#8 - AUD/NZD | 🎫 Ticket: #5313530479</div>
+                            <span class="recomendacao-badge badge-gestao">GESTAO</span>
+                        </div>
+                        <div class="recomendacao-descricao">Posição dentro da faixa válida. Stop Loss: 1.1728, Take Profit: 1.1038</div>
+                        <div style='margin-top: 15px; padding: 15px; background: #f0f9ff; border-radius: 8px; border-left: 4px solid #667eea;'><div style='color: #ef4444; font-weight: bold; margin-bottom: 8px;'>📉 Direção: SHORT</div><div style='color: #666; margin-bottom: 5px;'>📅 Data de Abertura: <strong>2025-11-06T15:03:51.645113</strong></div><div style='color: #666; margin-bottom: 5px;'>🔵 Preço de Entrada: <strong>$1.14984</strong></div><div style='color: #10b981; font-weight: bold; font-size: 1.1em; margin-top: 8px;'>✅ P&L: $-0.00</div></div>
+                        <div class="confianca-indicator">
+                            🎯 Confiança: <strong>NivelConfianca.MEDIA</strong>
+                        </div>
+                        
+                        <div style='margin-top: 10px; color: #ef4444; font-weight: bold;'>🚨 Risco: 0.0%</div>
+                    </div>
+                
+                    <div class="recomendacao-item">
+                        <div class="recomendacao-header">
+                            <div class="recomendacao-titulo">#9 - AUD/USD | 🎫 Ticket: #5313531127</div>
+                            <span class="recomendacao-badge badge-gestao">GESTAO</span>
+                        </div>
+                        <div class="recomendacao-descricao">Posição dentro da faixa válida. Stop Loss: 0.6377, Take Profit: 0.6767</div>
+                        <div style='margin-top: 15px; padding: 15px; background: #f0f9ff; border-radius: 8px; border-left: 4px solid #667eea;'><div style='color: #10b981; font-weight: bold; margin-bottom: 8px;'>📈 Direção: LONG</div><div style='color: #666; margin-bottom: 5px;'>📅 Data de Abertura: <strong>2025-11-06T15:03:51.647956</strong></div><div style='color: #666; margin-bottom: 5px;'>🔵 Preço de Entrada: <strong>$0.65069</strong></div><div style='color: #ef4444; font-weight: bold; font-size: 1.1em; margin-top: 8px;'>❌ P&L: $-1.84</div></div>
+                        <div class="confianca-indicator">
+                            🎯 Confiança: <strong>NivelConfianca.MEDIA</strong>
+                        </div>
+                        
+                        <div style='margin-top: 10px; color: #ef4444; font-weight: bold;'>🚨 Risco: 0.0%</div>
+                    </div>
+                
+                    <div class="recomendacao-item">
+                        <div class="recomendacao-header">
+                            <div class="recomendacao-titulo">#10 - CAD/CHF | 🎫 Ticket: #5312272336</div>
+                            <span class="recomendacao-badge badge-gestao">GESTAO</span>
+                        </div>
+                        <div class="recomendacao-descricao">Posição dentro da faixa válida. Stop Loss: 0.5635, Take Profit: 0.5980</div>
+                        <div style='margin-top: 15px; padding: 15px; background: #f0f9ff; border-radius: 8px; border-left: 4px solid #667eea;'><div style='color: #10b981; font-weight: bold; margin-bottom: 8px;'>📈 Direção: LONG</div><div style='color: #666; margin-bottom: 5px;'>📅 Data de Abertura: <strong>2025-11-06T15:03:51.651256</strong></div><div style='color: #666; margin-bottom: 5px;'>🔵 Preço de Entrada: <strong>$0.57500</strong></div><div style='color: #10b981; font-weight: bold; font-size: 1.1em; margin-top: 8px;'>✅ P&L: $+0.00</div></div>
+                        <div class="confianca-indicator">
+                            🎯 Confiança: <strong>NivelConfianca.MEDIA</strong>
+                        </div>
+                        
+                        <div style='margin-top: 10px; color: #ef4444; font-weight: bold;'>🚨 Risco: 0.0%</div>
+                    </div>
+                
+                    <div class="recomendacao-item">
+                        <div class="recomendacao-header">
+                            <div class="recomendacao-titulo">#11 - CAD/JPY | 🎫 Ticket: #5307180777</div>
+                            <span class="recomendacao-badge badge-gestao">GESTAO</span>
+                        </div>
+                        <div class="recomendacao-descricao">Posição dentro da faixa válida. Stop Loss: 107.2688, Take Profit: 113.8363</div>
+                        <div style='margin-top: 15px; padding: 15px; background: #f0f9ff; border-radius: 8px; border-left: 4px solid #667eea;'><div style='color: #10b981; font-weight: bold; margin-bottom: 8px;'>📈 Direção: LONG</div><div style='color: #666; margin-bottom: 5px;'>📅 Data de Abertura: <strong>2025-11-06T15:03:51.653883</strong></div><div style='color: #666; margin-bottom: 5px;'>🔵 Preço de Entrada: <strong>$109.45800</strong></div><div style='color: #10b981; font-weight: bold; font-size: 1.1em; margin-top: 8px;'>✅ P&L: $+0.00</div></div>
+                        <div class="confianca-indicator">
+                            🎯 Confiança: <strong>NivelConfianca.MEDIA</strong>
+                        </div>
+                        
+                        <div style='margin-top: 10px; color: #ef4444; font-weight: bold;'>🚨 Risco: 0.0%</div>
+                    </div>
+                
+                    <div class="recomendacao-item">
+                        <div class="recomendacao-header">
+                            <div class="recomendacao-titulo">#12 - CHF/JPY | 🎫 Ticket: 5313534825</div>
+                            <span class="recomendacao-badge badge-gestao">GESTAO</span>
+                        </div>
+                        <div class="recomendacao-descricao">Posição dentro da faixa válida. Stop Loss: 186.3744, Take Profit: 197.7851</div>
+                        <div style='margin-top: 15px; padding: 15px; background: #f0f9ff; border-radius: 8px; border-left: 4px solid #667eea;'><div style='color: #10b981; font-weight: bold; margin-bottom: 8px;'>📈 Direção: LONG</div><div style='color: #666; margin-bottom: 5px;'>📅 Data de Abertura: <strong>2025-11-06T15:15:38.829250Z</strong></div><div style='color: #666; margin-bottom: 5px;'>🔵 Preço de Entrada: <strong>$190.17800</strong></div><div style='color: #10b981; font-weight: bold; font-size: 1.1em; margin-top: 8px;'>✅ P&L: $+210.00</div></div>
+                        <div class="confianca-indicator">
+                            🎯 Confiança: <strong>NivelConfianca.MEDIA</strong>
+                        </div>
+                        
+                        <div style='margin-top: 10px; color: #ef4444; font-weight: bold;'>🚨 Risco: 0.0%</div>
+                    </div>
+                
+                    <div class="recomendacao-item">
+                        <div class="recomendacao-header">
+                            <div class="recomendacao-titulo">#13 - EUR/AUD | 🎫 Ticket: 5307171093</div>
+                            <span class="recomendacao-badge badge-gestao">GESTAO</span>
+                        </div>
+                        <div class="recomendacao-descricao">Posição dentro da faixa válida. Stop Loss: 1.7990, Take Profit: 1.6932</div>
+                        <div style='margin-top: 15px; padding: 15px; background: #f0f9ff; border-radius: 8px; border-left: 4px solid #667eea;'><div style='color: #ef4444; font-weight: bold; margin-bottom: 8px;'>📉 Direção: SHORT</div><div style='color: #666; margin-bottom: 5px;'>📅 Data de Abertura: <strong>2025-11-06T15:15:38.829435Z</strong></div><div style='color: #666; margin-bottom: 5px;'>🔵 Preço de Entrada: <strong>$1.76374</strong></div><div style='color: #10b981; font-weight: bold; font-size: 1.1em; margin-top: 8px;'>✅ P&L: $-0.00</div></div>
+                        <div class="confianca-indicator">
+                            🎯 Confiança: <strong>NivelConfianca.MEDIA</strong>
+                        </div>
+                        
+                        <div style='margin-top: 10px; color: #ef4444; font-weight: bold;'>🚨 Risco: 0.0%</div>
+                    </div>
+                
+                    <div class="recomendacao-item">
+                        <div class="recomendacao-header">
+                            <div class="recomendacao-titulo">#14 - EUR/CAD | 🎫 Ticket: 5312229393</div>
+                            <span class="recomendacao-badge badge-gestao">GESTAO</span>
+                        </div>
+                        <div class="recomendacao-descricao">Posição dentro da faixa válida. Stop Loss: 1.6496, Take Profit: 1.5526</div>
+                        <div style='margin-top: 15px; padding: 15px; background: #f0f9ff; border-radius: 8px; border-left: 4px solid #667eea;'><div style='color: #ef4444; font-weight: bold; margin-bottom: 8px;'>📉 Direção: SHORT</div><div style='color: #666; margin-bottom: 5px;'>📅 Data de Abertura: <strong>2025-11-06T15:15:38.829635Z</strong></div><div style='color: #666; margin-bottom: 5px;'>🔵 Preço de Entrada: <strong>$1.61727</strong></div><div style='color: #10b981; font-weight: bold; font-size: 1.1em; margin-top: 8px;'>✅ P&L: $-0.00</div></div>
+                        <div class="confianca-indicator">
+                            🎯 Confiança: <strong>NivelConfianca.MEDIA</strong>
+                        </div>
+                        
+                        <div style='margin-top: 10px; color: #ef4444; font-weight: bold;'>🚨 Risco: 0.0%</div>
+                    </div>
+                
+                    <div class="recomendacao-item">
+                        <div class="recomendacao-header">
+                            <div class="recomendacao-titulo">#15 - EUR/CHF | 🎫 Ticket: 5312253606</div>
+                            <span class="recomendacao-badge badge-gestao">GESTAO</span>
+                        </div>
+                        <div class="recomendacao-descricao">Posição dentro da faixa válida. Stop Loss: 0.9116, Take Profit: 0.9674</div>
+                        <div style='margin-top: 15px; padding: 15px; background: #f0f9ff; border-radius: 8px; border-left: 4px solid #667eea;'><div style='color: #10b981; font-weight: bold; margin-bottom: 8px;'>📈 Direção: LONG</div><div style='color: #666; margin-bottom: 5px;'>📅 Data de Abertura: <strong>2025-11-06T15:15:38.829817Z</strong></div><div style='color: #666; margin-bottom: 5px;'>🔵 Preço de Entrada: <strong>$0.93018</strong></div><div style='color: #10b981; font-weight: bold; font-size: 1.1em; margin-top: 8px;'>✅ P&L: $+0.78</div></div>
+                        <div class="confianca-indicator">
+                            🎯 Confiança: <strong>NivelConfianca.MEDIA</strong>
+                        </div>
+                        
+                        <div style='margin-top: 10px; color: #ef4444; font-weight: bold;'>🚨 Risco: 0.0%</div>
+                    </div>
+                
+                    <div class="recomendacao-item">
+                        <div class="recomendacao-header">
+                            <div class="recomendacao-titulo">#16 - EUR/GBP | 🎫 Ticket: 5308478433</div>
+                            <span class="recomendacao-badge badge-gestao">GESTAO</span>
+                        </div>
+                        <div class="recomendacao-descricao">Posição dentro da faixa válida. Stop Loss: 0.8973, Take Profit: 0.8445</div>
+                        <div style='margin-top: 15px; padding: 15px; background: #f0f9ff; border-radius: 8px; border-left: 4px solid #667eea;'><div style='color: #ef4444; font-weight: bold; margin-bottom: 8px;'>📉 Direção: SHORT</div><div style='color: #666; margin-bottom: 5px;'>📅 Data de Abertura: <strong>2025-11-06T15:15:38.829990Z</strong></div><div style='color: #666; margin-bottom: 5px;'>🔵 Preço de Entrada: <strong>$0.87972</strong></div><div style='color: #10b981; font-weight: bold; font-size: 1.1em; margin-top: 8px;'>✅ P&L: $-0.00</div></div>
+                        <div class="confianca-indicator">
+                            🎯 Confiança: <strong>NivelConfianca.MEDIA</strong>
+                        </div>
+                        
+                        <div style='margin-top: 10px; color: #ef4444; font-weight: bold;'>🚨 Risco: 0.0%</div>
+                    </div>
+                
+                    <div class="recomendacao-item">
+                        <div class="recomendacao-header">
+                            <div class="recomendacao-titulo">#17 - EUR/JPY | 🎫 Ticket: 5313548511</div>
+                            <span class="recomendacao-badge badge-gestao">GESTAO</span>
+                        </div>
+                        <div class="recomendacao-descricao">Posição dentro da faixa válida. Stop Loss: 173.4835, Take Profit: 184.1050</div>
+                        <div style='margin-top: 15px; padding: 15px; background: #f0f9ff; border-radius: 8px; border-left: 4px solid #667eea;'><div style='color: #10b981; font-weight: bold; margin-bottom: 8px;'>📈 Direção: LONG</div><div style='color: #666; margin-bottom: 5px;'>📅 Data de Abertura: <strong>2025-11-06T15:15:38.830137Z</strong></div><div style='color: #666; margin-bottom: 5px;'>🔵 Preço de Entrada: <strong>$177.02400</strong></div><div style='color: #10b981; font-weight: bold; font-size: 1.1em; margin-top: 8px;'>✅ P&L: $+207.00</div></div>
+                        <div class="confianca-indicator">
+                            🎯 Confiança: <strong>NivelConfianca.MEDIA</strong>
+                        </div>
+                        
+                        <div style='margin-top: 10px; color: #ef4444; font-weight: bold;'>🚨 Risco: 0.0%</div>
+                    </div>
+                
+                    <div class="recomendacao-item">
+                        <div class="recomendacao-header">
+                            <div class="recomendacao-titulo">#18 - EUR/NZD | 🎫 Ticket: 5312231336</div>
+                            <span class="recomendacao-badge badge-gestao">GESTAO</span>
+                        </div>
+                        <div class="recomendacao-descricao">Posição dentro da faixa válida. Stop Loss: 2.0683, Take Profit: 1.9466</div>
+                        <div style='margin-top: 15px; padding: 15px; background: #f0f9ff; border-radius: 8px; border-left: 4px solid #667eea;'><div style='color: #ef4444; font-weight: bold; margin-bottom: 8px;'>📉 Direção: SHORT</div><div style='color: #666; margin-bottom: 5px;'>📅 Data de Abertura: <strong>2025-11-06T15:23:28.960235Z</strong></div><div style='color: #666; margin-bottom: 5px;'>🔵 Preço de Entrada: <strong>$2.02770</strong></div><div style='color: #10b981; font-weight: bold; font-size: 1.1em; margin-top: 8px;'>✅ P&L: $-0.00</div></div>
+                        <div class="confianca-indicator">
+                            🎯 Confiança: <strong>NivelConfianca.MEDIA</strong>
+                        </div>
+                        
+                        <div style='margin-top: 10px; color: #ef4444; font-weight: bold;'>🚨 Risco: 0.0%</div>
+                    </div>
+                
+                    <div class="recomendacao-item">
+                        <div class="recomendacao-header">
+                            <div class="recomendacao-titulo">#19 - EUR/USD | 🎫 Ticket: 5314589754</div>
+                            <span class="recomendacao-badge badge-gestao">GESTAO</span>
+                        </div>
+                        <div class="recomendacao-descricao">Posição dentro da faixa válida. Stop Loss: 1.1770, Take Profit: 1.1077</div>
+                        <div style='margin-top: 15px; padding: 15px; background: #f0f9ff; border-radius: 8px; border-left: 4px solid #667eea;'><div style='color: #ef4444; font-weight: bold; margin-bottom: 8px;'>📉 Direção: SHORT</div><div style='color: #666; margin-bottom: 5px;'>📅 Data de Abertura: <strong>2025-11-06T15:23:28.960389Z</strong></div><div style='color: #666; margin-bottom: 5px;'>🔵 Preço de Entrada: <strong>$1.15388</strong></div><div style='color: #ef4444; font-weight: bold; font-size: 1.1em; margin-top: 8px;'>❌ P&L: $-4.47</div></div>
+                        <div class="confianca-indicator">
+                            🎯 Confiança: <strong>NivelConfianca.MEDIA</strong>
+                        </div>
+                        
+                        <div style='margin-top: 10px; color: #ef4444; font-weight: bold;'>🚨 Risco: 0.0%</div>
+                    </div>
+                
+                    <div class="recomendacao-item">
+                        <div class="recomendacao-header">
+                            <div class="recomendacao-titulo">#20 - GBP/JPY | 🎫 Ticket: 5307192783</div>
+                            <span class="recomendacao-badge badge-gestao">GESTAO</span>
+                        </div>
+                        <div class="recomendacao-descricao">Posição dentro da faixa válida. Stop Loss: 197.3005, Take Profit: 209.3801</div>
+                        <div style='margin-top: 15px; padding: 15px; background: #f0f9ff; border-radius: 8px; border-left: 4px solid #667eea;'><div style='color: #10b981; font-weight: bold; margin-bottom: 8px;'>📈 Direção: LONG</div><div style='color: #666; margin-bottom: 5px;'>📅 Data de Abertura: <strong>2025-11-06T15:23:28.960507Z</strong></div><div style='color: #666; margin-bottom: 5px;'>🔵 Preço de Entrada: <strong>$201.32700</strong></div><div style='color: #10b981; font-weight: bold; font-size: 1.1em; margin-top: 8px;'>✅ P&L: $+324.99</div></div>
+                        <div class="confianca-indicator">
+                            🎯 Confiança: <strong>NivelConfianca.MEDIA</strong>
+                        </div>
+                        
+                        <div style='margin-top: 10px; color: #ef4444; font-weight: bold;'>🚨 Risco: 0.0%</div>
+                    </div>
+                
+                    <div class="recomendacao-item">
+                        <div class="recomendacao-header">
+                            <div class="recomendacao-titulo">#21 - GBP/NZD | 🎫 Ticket: 5313579295</div>
+                            <span class="recomendacao-badge badge-gestao">GESTAO</span>
+                        </div>
+                        <div class="recomendacao-descricao">Posição dentro da faixa válida. Stop Loss: 2.3495, Take Profit: 2.2113</div>
+                        <div style='margin-top: 15px; padding: 15px; background: #f0f9ff; border-radius: 8px; border-left: 4px solid #667eea;'><div style='color: #ef4444; font-weight: bold; margin-bottom: 8px;'>📉 Direção: SHORT</div><div style='color: #666; margin-bottom: 5px;'>📅 Data de Abertura: <strong>2025-11-06T15:23:28.960588Z</strong></div><div style='color: #666; margin-bottom: 5px;'>🔵 Preço de Entrada: <strong>$2.30341</strong></div><div style='color: #10b981; font-weight: bold; font-size: 1.1em; margin-top: 8px;'>✅ P&L: $-0.00</div></div>
+                        <div class="confianca-indicator">
+                            🎯 Confiança: <strong>NivelConfianca.MEDIA</strong>
+                        </div>
+                        
+                        <div style='margin-top: 10px; color: #ef4444; font-weight: bold;'>🚨 Risco: 0.0%</div>
+                    </div>
+                
+                    <div class="recomendacao-item">
+                        <div class="recomendacao-header">
+                            <div class="recomendacao-titulo">#22 - NZD/CAD | 🎫 Ticket: 5308486753</div>
+                            <span class="recomendacao-badge badge-gestao">GESTAO</span>
+                        </div>
+                        <div class="recomendacao-descricao">Posição dentro da faixa válida. Stop Loss: 0.7857, Take Profit: 0.8338</div>
+                        <div style='margin-top: 15px; padding: 15px; background: #f0f9ff; border-radius: 8px; border-left: 4px solid #667eea;'><div style='color: #10b981; font-weight: bold; margin-bottom: 8px;'>📈 Direção: LONG</div><div style='color: #666; margin-bottom: 5px;'>📅 Data de Abertura: <strong>2025-11-06T15:23:28.960692Z</strong></div><div style='color: #666; margin-bottom: 5px;'>🔵 Preço de Entrada: <strong>$0.80171</strong></div><div style='color: #ef4444; font-weight: bold; font-size: 1.1em; margin-top: 8px;'>❌ P&L: $-2.76</div></div>
+                        <div class="confianca-indicator">
+                            🎯 Confiança: <strong>NivelConfianca.MEDIA</strong>
+                        </div>
+                        
+                        <div style='margin-top: 10px; color: #ef4444; font-weight: bold;'>🚨 Risco: 0.0%</div>
+                    </div>
+                
+                    <div class="recomendacao-item">
+                        <div class="recomendacao-header">
+                            <div class="recomendacao-titulo">#23 - NZD/CAD | 🎫 Ticket: 5313792116</div>
+                            <span class="recomendacao-badge badge-gestao">GESTAO</span>
+                        </div>
+                        <div class="recomendacao-descricao">Posição dentro da faixa válida. Stop Loss: 0.7830, Take Profit: 0.8309</div>
+                        <div style='margin-top: 15px; padding: 15px; background: #f0f9ff; border-radius: 8px; border-left: 4px solid #667eea;'><div style='color: #10b981; font-weight: bold; margin-bottom: 8px;'>📈 Direção: LONG</div><div style='color: #666; margin-bottom: 5px;'>📅 Data de Abertura: <strong>2025-11-06T15:23:28.960776Z</strong></div><div style='color: #666; margin-bottom: 5px;'>🔵 Preço de Entrada: <strong>$0.79895</strong></div><div style='color: #10b981; font-weight: bold; font-size: 1.1em; margin-top: 8px;'>✅ P&L: $+0.00</div></div>
+                        <div class="confianca-indicator">
+                            🎯 Confiança: <strong>NivelConfianca.MEDIA</strong>
+                        </div>
+                        
+                        <div style='margin-top: 10px; color: #ef4444; font-weight: bold;'>🚨 Risco: 0.0%</div>
+                    </div>
+                
+                    <div class="recomendacao-item">
+                        <div class="recomendacao-header">
+                            <div class="recomendacao-titulo">#24 - NZD/CHF | 🎫 Ticket: 5308487664</div>
+                            <span class="recomendacao-badge badge-gestao">GESTAO</span>
+                        </div>
+                        <div class="recomendacao-descricao">Posição dentro da faixa válida. Stop Loss: 0.4504, Take Profit: 0.4780</div>
+                        <div style='margin-top: 15px; padding: 15px; background: #f0f9ff; border-radius: 8px; border-left: 4px solid #667eea;'><div style='color: #10b981; font-weight: bold; margin-bottom: 8px;'>📈 Direção: LONG</div><div style='color: #666; margin-bottom: 5px;'>📅 Data de Abertura: <strong>2025-11-06T15:23:28.960868Z</strong></div><div style='color: #666; margin-bottom: 5px;'>🔵 Preço de Entrada: <strong>$0.45961</strong></div><div style='color: #10b981; font-weight: bold; font-size: 1.1em; margin-top: 8px;'>✅ P&L: $+0.00</div></div>
+                        <div class="confianca-indicator">
+                            🎯 Confiança: <strong>NivelConfianca.MEDIA</strong>
+                        </div>
+                        
+                        <div style='margin-top: 10px; color: #ef4444; font-weight: bold;'>🚨 Risco: 0.0%</div>
+                    </div>
+                
+                    <div class="recomendacao-item">
+                        <div class="recomendacao-header">
+                            <div class="recomendacao-titulo">#25 - USD/CHF | 🎫 Ticket: 5312258069</div>
+                            <span class="recomendacao-badge badge-gestao">GESTAO</span>
+                        </div>
+                        <div class="recomendacao-descricao">Posição dentro da faixa válida. Stop Loss: 0.7940, Take Profit: 0.8426</div>
+                        <div style='margin-top: 15px; padding: 15px; background: #f0f9ff; border-radius: 8px; border-left: 4px solid #667eea;'><div style='color: #10b981; font-weight: bold; margin-bottom: 8px;'>📈 Direção: LONG</div><div style='color: #666; margin-bottom: 5px;'>📅 Data de Abertura: <strong>2025-11-06T15:23:28.960984Z</strong></div><div style='color: #666; margin-bottom: 5px;'>🔵 Preço de Entrada: <strong>$0.81021</strong></div><div style='color: #ef4444; font-weight: bold; font-size: 1.1em; margin-top: 8px;'>❌ P&L: $-6.28</div></div>
+                        <div class="confianca-indicator">
+                            🎯 Confiança: <strong>NivelConfianca.MEDIA</strong>
+                        </div>
+                        
+                        <div style='margin-top: 10px; color: #ef4444; font-weight: bold;'>🚨 Risco: 0.0%</div>
+                    </div>
+                
+                    <div class="recomendacao-item">
+                        <div class="recomendacao-header">
+                            <div class="recomendacao-titulo">#26 - XAU/USD | 🎫 Ticket: 5314594312</div>
+                            <span class="recomendacao-badge badge-gestao">GESTAO</span>
+                        </div>
+                        <div class="recomendacao-descricao">Posição dentro da faixa válida. Stop Loss: 3903.5850, Take Profit: 4142.5800</div>
+                        <div style='margin-top: 15px; padding: 15px; background: #f0f9ff; border-radius: 8px; border-left: 4px solid #667eea;'><div style='color: #10b981; font-weight: bold; margin-bottom: 8px;'>📈 Direção: LONG</div><div style='color: #666; margin-bottom: 5px;'>📅 Data de Abertura: <strong>2025-11-06T15:23:28.961068Z</strong></div><div style='color: #666; margin-bottom: 5px;'>🔵 Preço de Entrada: <strong>$3983.25000</strong></div><div style='color: #10b981; font-weight: bold; font-size: 1.1em; margin-top: 8px;'>✅ P&L: $+31,250.00</div></div>
+                        <div class="confianca-indicator">
+                            🎯 Confiança: <strong>NivelConfianca.MEDIA</strong>
+                        </div>
+                        
+                        <div style='margin-top: 10px; color: #ef4444; font-weight: bold;'>🚨 Risco: 0.0%</div>
+                    </div>
+                
+                    <div class="recomendacao-item">
+                        <div class="recomendacao-header">
+                            <div class="recomendacao-titulo">#27 - USDJPY | 🎫 Ticket: 5314799208</div>
+                            <span class="recomendacao-badge badge-gestao">GESTAO</span>
+                        </div>
+                        <div class="recomendacao-descricao">Posição dentro da faixa válida. Stop Loss: 150.0576, Take Profit: 159.2448</div>
+                        <div style='margin-top: 15px; padding: 15px; background: #f0f9ff; border-radius: 8px; border-left: 4px solid #667eea;'><div style='color: #10b981; font-weight: bold; margin-bottom: 8px;'>📈 Direção: LONG</div><div style='color: #666; margin-bottom: 5px;'>📅 Data de Abertura: <strong>2025-11-06T20:15:10.515403+00:00</strong></div><div style='color: #666; margin-bottom: 5px;'>🔵 Preço de Entrada: <strong>$153.12000</strong></div><div style='color: #ef4444; font-weight: bold; font-size: 1.1em; margin-top: 8px;'>❌ P&L: $-45.99</div></div>
+                        <div class="confianca-indicator">
+                            🎯 Confiança: <strong>NivelConfianca.MEDIA</strong>
+                        </div>
+                        
+                        <div style='margin-top: 10px; color: #ef4444; font-weight: bold;'>🚨 Risco: 0.0%</div>
+                    </div>
+                
+                    <div class="recomendacao-item">
+                        <div class="recomendacao-header">
+                            <div class="recomendacao-titulo">#28 - USD/JPY | 🎫 Ticket: #9876543210</div>
+                            <span class="recomendacao-badge badge-gestao">GESTAO</span>
+                        </div>
+                        <div class="recomendacao-descricao">Posição dentro da faixa válida. Stop Loss: 146.8530, Take Profit: 155.8440</div>
+                        <div style='margin-top: 15px; padding: 15px; background: #f0f9ff; border-radius: 8px; border-left: 4px solid #667eea;'><div style='color: #10b981; font-weight: bold; margin-bottom: 8px;'>📈 Direção: LONG</div><div style='color: #666; margin-bottom: 5px;'>📅 Data de Abertura: <strong>2025-11-07T02:55:28.988888+00:00</strong></div><div style='color: #666; margin-bottom: 5px;'>🔵 Preço de Entrada: <strong>$149.85000</strong></div><div style='color: #10b981; font-weight: bold; font-size: 1.1em; margin-top: 8px;'>✅ P&L: $+6,448.01</div></div>
+                        <div class="confianca-indicator">
+                            🎯 Confiança: <strong>NivelConfianca.MEDIA</strong>
+                        </div>
+                        
+                        <div style='margin-top: 10px; color: #ef4444; font-weight: bold;'>🚨 Risco: 0.0%</div>
+                    </div>
+                
+                    <div class="recomendacao-item">
+                        <div class="recomendacao-header">
+                            <div class="recomendacao-titulo">#29 - USD/JPY | 🎫 Ticket: #1234567890</div>
+                            <span class="recomendacao-badge badge-gestao">GESTAO</span>
+                        </div>
+                        <div class="recomendacao-descricao">Posição dentro da faixa válida. Stop Loss: 146.8530, Take Profit: 155.8440</div>
+                        <div style='margin-top: 15px; padding: 15px; background: #f0f9ff; border-radius: 8px; border-left: 4px solid #667eea;'><div style='color: #10b981; font-weight: bold; margin-bottom: 8px;'>📈 Direção: LONG</div><div style='color: #666; margin-bottom: 5px;'>📅 Data de Abertura: <strong>2025-11-07T02:56:19.372411+00:00</strong></div><div style='color: #666; margin-bottom: 5px;'>🔵 Preço de Entrada: <strong>$149.85000</strong></div><div style='color: #10b981; font-weight: bold; font-size: 1.1em; margin-top: 8px;'>✅ P&L: $+6,448.01</div></div>
+                        <div class="confianca-indicator">
+                            🎯 Confiança: <strong>NivelConfianca.MEDIA</strong>
+                        </div>
+                        
+                        <div style='margin-top: 10px; color: #ef4444; font-weight: bold;'>🚨 Risco: 0.0%</div>
+                    </div>
+                
+                    <div class="recomendacao-item">
+                        <div class="recomendacao-header">
+                            <div class="recomendacao-titulo">#30 - USD/JPY | 🎫 Ticket: #5314990776</div>
+                            <span class="recomendacao-badge badge-gestao">GESTAO</span>
+                        </div>
+                        <div class="recomendacao-descricao">Posição dentro da faixa válida. Stop Loss: 150.0694, Take Profit: 159.2573</div>
+                        <div style='margin-top: 15px; padding: 15px; background: #f0f9ff; border-radius: 8px; border-left: 4px solid #667eea;'><div style='color: #10b981; font-weight: bold; margin-bottom: 8px;'>📈 Direção: LONG</div><div style='color: #666; margin-bottom: 5px;'>📅 Data de Abertura: <strong>2025-11-07T00:20:00.000000+00:00</strong></div><div style='color: #666; margin-bottom: 5px;'>🔵 Preço de Entrada: <strong>$153.13200</strong></div><div style='color: #ef4444; font-weight: bold; font-size: 1.1em; margin-top: 8px;'>❌ P&L: $-57.99</div></div>
+                        <div class="confianca-indicator">
+                            🎯 Confiança: <strong>NivelConfianca.MEDIA</strong>
+                        </div>
+                        
+                        <div style='margin-top: 10px; color: #ef4444; font-weight: bold;'>🚨 Risco: 0.0%</div>
+                    </div>
+                
+                    <div class="recomendacao-item">
+                        <div class="recomendacao-header">
+                            <div class="recomendacao-titulo">#31 - EURUSD | 🎫 Ticket: 5314594313</div>
+                            <span class="recomendacao-badge badge-gestao">GESTAO</span>
+                        </div>
+                        <div class="recomendacao-descricao">Preço atingiu take profit em 1.1289</div>
+                        <div style='margin-top: 15px; padding: 15px; background: #f0f9ff; border-radius: 8px; border-left: 4px solid #667eea;'><div style='color: #10b981; font-weight: bold; margin-bottom: 8px;'>📈 Direção: LONG</div><div style='color: #666; margin-bottom: 5px;'>📅 Data de Abertura: <strong>2025-11-07T14:41:55.627625+00:00</strong></div><div style='color: #666; margin-bottom: 5px;'>🔵 Preço de Entrada: <strong>$1.08550</strong></div><div style='color: #666; margin-bottom: 5px;'>🔴 Preço Atual: <strong>$1.12890</strong></div><div style='color: #10b981; font-weight: bold; margin-bottom: 5px;'>📈 Variação: +4.00%</div><div style='color: #10b981; font-weight: bold; font-size: 1.1em; margin-top: 8px;'>✅ P&L: $+364.23</div></div>
+                        <div class="confianca-indicator">
+                            🎯 Confiança: <strong>NivelConfianca.ALTA</strong>
+                        </div>
+                        
+                        <div style='margin-top: 10px; color: #ef4444; font-weight: bold;'>🚨 Risco: 0.0%</div>
+                    </div>
+                
+                    <div class="recomendacao-item">
+                        <div class="recomendacao-header">
+                            <div class="recomendacao-titulo">#32 - EUR/USD | 🎫 Ticket: #TEST123456</div>
+                            <span class="recomendacao-badge badge-gestao">GESTAO</span>
+                        </div>
+                        <div class="recomendacao-descricao">Preço atingiu take profit em 1.1284</div>
+                        <div style='margin-top: 15px; padding: 15px; background: #f0f9ff; border-radius: 8px; border-left: 4px solid #667eea;'><div style='color: #10b981; font-weight: bold; margin-bottom: 8px;'>📈 Direção: LONG</div><div style='color: #666; margin-bottom: 5px;'>📅 Data de Abertura: <strong>2025-11-07T17:25:36.621687+00:00</strong></div><div style='color: #666; margin-bottom: 5px;'>🔵 Preço de Entrada: <strong>$1.08500</strong></div><div style='color: #666; margin-bottom: 5px;'>🔴 Preço Atual: <strong>$1.12840</strong></div><div style='color: #10b981; font-weight: bold; margin-bottom: 5px;'>📈 Variação: +4.00%</div><div style='color: #10b981; font-weight: bold; font-size: 1.1em; margin-top: 8px;'>✅ P&L: $+73.35</div></div>
+                        <div class="confianca-indicator">
+                            🎯 Confiança: <strong>NivelConfianca.ALTA</strong>
+                        </div>
+                        
+                        <div style='margin-top: 10px; color: #ef4444; font-weight: bold;'>🚨 Risco: 0.0%</div>
+                    </div>
+                
+            </ul>
+        
+            </div>
+
+            <div id="tab-oportunidades" class="tab-content">
+                
+            <ul class="recomendacoes-list">
+                
+                    <div class="recomendacao-item">
+                        <div class="recomendacao-header">
+                            <div class="recomendacao-titulo">#1 - XAUUSD</div>
+                            <span class="recomendacao-badge badge-oportunidade">OPORTUNIDADE</span>
+                        </div>
+                        <div class="recomendacao-descricao">Ouro como hedge contra volatilidade elevada do mercado.</div>
+                        
+                        <div class="confianca-indicator">
+                            🎯 Confiança: <strong>NivelConfianca.MEDIA</strong>
+                        </div>
+                        <div style='margin-top: 10px; color: #10b981; font-weight: bold;'>💰 Preço Sugerido: $1950.00</div>
+                        <div style='margin-top: 10px; color: #ef4444; font-weight: bold;'>🚨 Risco: 0.0%</div>
+                    </div>
+                
+            </ul>
+        
+            </div>
+
+            <div id="tab-riscos" class="tab-content">
+                
+            <ul class="recomendacoes-list">
+                
+                    <div class="recomendacao-item">
+                        <div class="recomendacao-header">
+                            <div class="recomendacao-titulo">#1 - PORTFOLIO</div>
+                            <span class="recomendacao-badge badge-risco">RISCO</span>
+                        </div>
+                        <div class="recomendacao-descricao">RISCO ALTO: Implementar hedges adicionais (opções ou posições contrárias)</div>
+                        
+                        <div class="confianca-indicator">
+                            🎯 Confiança: <strong>NivelConfianca.ALTA</strong>
+                        </div>
+                        
+                        
+                    </div>
+                
+            </ul>
+        
+            </div>
+
+            <div id="tab-balanceamento" class="tab-content">
+                
+            <ul class="recomendacoes-list">
+                
+                    <div class="recomendacao-item">
+                        <div class="recomendacao-header">
+                            <div class="recomendacao-titulo">#1 - EXPOSICAO_XAU</div>
+                            <span class="recomendacao-badge badge-balanceamento">BALANCEAMENTO</span>
+                        </div>
+                        <div class="recomendacao-descricao">CONCENTRAÇÃO EXCESSIVA: 68.7% em XAU. Reduzir exposição.</div>
+                        
+                        <div class="confianca-indicator">
+                            🎯 Confiança: <strong>NivelConfianca.ALTA</strong>
+                        </div>
+                        
+                        
+                    </div>
+                
+            </ul>
+        
+            </div>
+        </div>
+        
+        </div>
+        
+        </div>
+
+        <div class="footer">
+            <div class="disclaimer">
+                ⚠️ <strong>DISCLAIMER:</strong> Este relatório é gerado automaticamente para fins educacionais e informativos.
+                Sempre considere seu perfil de risco e consulte um profissional antes de tomar decisões de investimento.
+            </div>
+            <p>Gerado por: <strong>Sistema de Gestão de Fundos</strong> | Versão 1.0</p>
+            <p>© 2025 - Todos os direitos reservados</p>
+        </div>
+    </div>
+
+    <script>
+        // Animação de entrada
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.stat-card, .recomendacao-item');
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                setTimeout(() => {
+                    card.style.transition = 'all 0.5s ease';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 50);
+            });
+
+            // Sistema de tabs
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const targetTab = button.dataset.tab;
+
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    tabContents.forEach(content => content.classList.remove('active'));
+
+                    button.classList.add('active');
+                    document.getElementById(targetTab).classList.add('active');
+                });
+            });
+
+            // Ativar primeira tab
+            if (tabButtons.length > 0) {
+                tabButtons[0].click();
+            }
+        });
+    </script>
+</body>
+</html>

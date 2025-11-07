@@ -1,7 +1,7 @@
 # PIVOT ESTRATÉGICO — Foco em Prompt Interativo para Análise de Ativos
 
-Data: 2025-11-07  
-Responsável: Product Owner (PO)  
+Data: 2025-11-07
+Responsável: Product Owner (PO)
 Stakeholders: Tech Lead, Gerente de Portfólio, UX, Dados
 
 ---
@@ -18,8 +18,8 @@ Decidimos priorizar a entrega de valor via **uso interativo do prompt para solic
 
 ## Mudança de Estratégia
 
-Antes: foco em gestão de portfólio automatizada, dashboards e execução/guardrails avançados.  
-Depois: foco em **MVP de Prompt Interativo** com respostas estruturadas, fontes e explicabilidade.  
+Antes: foco em gestão de portfólio automatizada, dashboards e execução/guardrails avançados.
+Depois: foco em **MVP de Prompt Interativo** com respostas estruturadas, fontes e explicabilidade.
 
 Regras de ouro:
 - Sem promessas de performance; **sem execução automática** nesta fase
@@ -31,7 +31,7 @@ Regras de ouro:
 
 ## Objetivos do MVP
 
-1. Usuário realizar perguntas do tipo: "Analise EUR/USD no diário e me diga drivers, riscos e próximos passos"  
+1. Usuário realizar perguntas do tipo: "Analise EUR/USD no diário e me diga drivers, riscos e próximos passos"
 2. Sistema responder com:
    - Preço atual, variação e contexto temporal
    - 2-3 drivers/fundamentais relevantes + 2-3 sinais técnicos simples (SMA/RSI)

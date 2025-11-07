@@ -1,0 +1,21 @@
+{
+  "modo_operacao": "PRODUCAO",
+  "intervalo_execucao_minutos": 15,
+  "max_oportunidades_por_execucao": 20,
+  "ativar_alertas_automaticos": true,
+  "ativar_aprendizado_continuo": true,
+  "threshold_retreino_automatico": 0.7,
+  "backup_automatico": true,
+  "monitoramento_performance": true,
+  "debug_detalhado": false,
+  "portfolio_principal": [
+    "AAPL", "MSFT", "GOOGL", "TSLA", "NVDA", "META", "AMZN",
+    "EURUSD=X", "GBPUSD=X", "USDJPY=X", "USDCAD=X", "USDCHF=X"
+  ],
+  "alertas_config": {
+    "email_notificacao": true,
+    "sms_notificacao": false,
+    "webhook_notificacao": true,
+    "threshold_alerta_minimo": 0.75
+  }
+}

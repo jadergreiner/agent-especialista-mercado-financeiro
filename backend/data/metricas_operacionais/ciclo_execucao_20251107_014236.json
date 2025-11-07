@@ -1,0 +1,77 @@
+{
+  "timestamp_inicio": "2025-11-07T01:42:36.386992",
+  "status": "CONCLUIDO",
+  "etapas": {
+    "analise_macro": {
+      "status": "SUCESSO",
+      "dados_coletados": 3
+    },
+    "deteccao_ml": {
+      "status": "SUCESSO",
+      "oportunidades_encontradas": 2
+    },
+    "geracao_alertas": {
+      "status": "SUCESSO",
+      "alertas_criados": 2
+    },
+    "tracking_aprendizado": {
+      "status": "SUCESSO"
+    }
+  },
+  "oportunidades_detectadas": [
+    {
+      "par": "EUR/USD",
+      "probabilidade_sucesso": 0.85,
+      "score_confianca": "MUITO_ALTA",
+      "recomendacao": {
+        "acao": "MANTER_POSICAO",
+        "justificativa": "Confluência macro-técnica favorável"
+      },
+      "dados_posicao": {
+        "current_price": 1.095,
+        "direction": "LONG"
+      }
+    },
+    {
+      "par": "GBP/JPY",
+      "probabilidade_sucesso": 0.72,
+      "score_confianca": "ALTA",
+      "recomendacao": {
+        "acao": "CONSIDERAR_TAKE_PROFIT",
+        "justificativa": "Resistência técnica próxima"
+      },
+      "dados_posicao": {
+        "current_price": 195.5,
+        "direction": "LONG"
+      }
+    }
+  ],
+  "alertas_gerados": [
+    {
+      "id_alerta": "EUR/USD_20251107_014236_1",
+      "tipo": "OPORTUNIDADE_ALTA",
+      "par": "EUR/USD",
+      "prioridade": 1,
+      "probabilidade_sucesso": 0.85,
+      "timestamp_criacao": "2025-11-07T01:42:36.387718",
+      "status": "ATIVO"
+    },
+    {
+      "id_alerta": "GBP/JPY_20251107_014236_2",
+      "tipo": "OPORTUNIDADE_MEDIA",
+      "par": "GBP/JPY",
+      "prioridade": 2,
+      "probabilidade_sucesso": 0.72,
+      "timestamp_criacao": "2025-11-07T01:42:36.387744",
+      "status": "ATIVO"
+    }
+  ],
+  "metricas_ciclo": {
+    "tempo_total": 0.001005,
+    "oportunidades_detectadas": 2,
+    "alertas_gerados": 2,
+    "etapas_bem_sucedidas": 4
+  },
+  "timestamp_fim": "2025-11-07T01:42:36.387997",
+  "duracao_segundos": 0.001005
+}

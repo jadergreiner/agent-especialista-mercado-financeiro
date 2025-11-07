@@ -1,0 +1,40 @@
+{
+  "strategy": {
+    "total_return_pct": -19.582727499999994,
+    "annual_return_pct": -3.448530628930816,
+    "volatility_pct": 7.313995210090766,
+    "sharpe_ratio": -0.48635201038730586,
+    "max_drawdown_pct": 20.780243999999993,
+    "calmar_ratio": -0.16595236460798138,
+    "total_trades": 8,
+    "win_rate_pct": 12.5,
+    "total_pnl": -19542.727499999994,
+    "avg_win": -19542.727499999994,
+    "avg_loss": -6514.242499999998,
+    "profit_factor": 3.0,
+    "final_value": 80417.2725,
+    "initial_capital": 100000.0
+  },
+  "benchmark": {
+    "total_return_pct": -100.0,
+    "annual_return_pct": -17.59776536312849,
+    "volatility_pct": 24.582485128751127,
+    "sharpe_ratio": 0.34588373096023783,
+    "max_drawdown_pct": 100.0,
+    "calmar_ratio": -0.17597765363128492,
+    "final_value": 0.0,
+    "initial_capital": 100000.0
+  },
+  "comparison": {
+    "excess_return_pct": 80.41727250000001,
+    "sharpe_superior": "False",
+    "drawdown_superior": "True"
+  },
+  "config": {
+    "initial_capital": 100000.0,
+    "commission_per_trade": 5.0,
+    "slippage_bps": 5.0,
+    "max_position_size": 3,
+    "signal_threshold": 0.005
+  }
+}

@@ -1,0 +1,272 @@
+{
+  "ticker": "EURJPY=X",
+  "timestamp_calculo": "2025-11-07T00:17:46.518397",
+  "preco_atual": 176.634,
+  "timeframes": {
+    "daily": {
+      "suporte_resistencia": {
+        "suportes": [
+          147.79059,
+          154.435,
+          154.813,
+          155.192,
+          156.192,
+          160.21899,
+          161.114,
+          167.554
+        ],
+        "resistencias": [
+          164.144,
+          164.873,
+          165.30701,
+          166.666,
+          171.35201,
+          173.873,
+          175.41299
+        ]
+      },
+      "pivot_points": {
+        "pivot_point": 176.676,
+        "resistencias": {
+          "R1": 176.848,
+          "R2": 177.062,
+          "R3": 177.234
+        },
+        "suportes": {
+          "S1": 176.462,
+          "S2": 176.29,
+          "S3": 176.076
+        }
+      },
+      "fibonacci": {
+        "swing_high": 178.798,
+        "swing_low": 171.95,
+        "retracements": {
+          "fib_000": 178.798,
+          "fib_023": 177.18187,
+          "fib_038": 176.18207,
+          "fib_050": 175.374,
+          "fib_061": 174.56594,
+          "fib_078": 173.41547,
+          "fib_100": 171.95
+        }
+      },
+      "vwap": {
+        "vwap_geral": NaN,
+        "vwap_semanal": 177.25486,
+        "vwap_mensal": 176.2016
+      },
+      "volume_liquidez": {
+        "volume_medio_30d": 0.0,
+        "volume_atual": 0,
+        "ratio_volume": 0,
+        "zonas_liquidez": [
+          {
+            "preco": 154.31,
+            "volume_relativo": NaN,
+            "ranking": 1
+          },
+          {
+            "preco": 154.8005,
+            "volume_relativo": NaN,
+            "ranking": 2
+          },
+          {
+            "preco": 155.2795,
+            "volume_relativo": NaN,
+            "ranking": 3
+          },
+          {
+            "preco": 155.7585,
+            "volume_relativo": NaN,
+            "ranking": 4
+          },
+          {
+            "preco": 156.2375,
+            "volume_relativo": NaN,
+            "ranking": 5
+          }
+        ]
+      }
+    },
+    "4h": {
+      "suporte_resistencia": {
+        "suportes": [
+          171.112,
+          172.193,
+          174.81,
+          176.62801
+        ],
+        "resistencias": [
+          173.414,
+          173.911,
+          175.052,
+          177.93401,
+          178.821
+        ]
+      },
+      "pivot_points": {
+        "pivot_point": 176.677,
+        "resistencias": {
+          "R1": 176.847,
+          "R2": 177.06,
+          "R3": 177.23
+        },
+        "suportes": {
+          "S1": 176.464,
+          "S2": 176.29401,
+          "S3": 176.08101
+        }
+      },
+      "fibonacci": {
+        "swing_high": 178.821,
+        "swing_low": 175.69501,
+        "retracements": {
+          "fib_000": 178.821,
+          "fib_023": 178.08327,
+          "fib_038": 177.62687,
+          "fib_050": 177.258,
+          "fib_061": 176.88914,
+          "fib_078": 176.36397,
+          "fib_100": 175.69501
+        }
+      },
+      "vwap": {
+        "vwap_geral": NaN,
+        "vwap_semanal": 176.83271,
+        "vwap_mensal": 177.12843
+      },
+      "volume_liquidez": {
+        "volume_medio_30d": 0.0,
+        "volume_atual": 0,
+        "ratio_volume": 0,
+        "zonas_liquidez": [
+          {
+            "preco": 171.465,
+            "volume_relativo": NaN,
+            "ranking": 1
+          },
+          {
+            "preco": 171.613,
+            "volume_relativo": NaN,
+            "ranking": 2
+          },
+          {
+            "preco": 171.757,
+            "volume_relativo": NaN,
+            "ranking": 3
+          },
+          {
+            "preco": 171.901,
+            "volume_relativo": NaN,
+            "ranking": 4
+          },
+          {
+            "preco": 172.045,
+            "volume_relativo": NaN,
+            "ranking": 5
+          }
+        ]
+      }
+    },
+    "hourly": {
+      "suporte_resistencia": {
+        "suportes": [
+          172.27551,
+          174.81,
+          175.38799,
+          175.691,
+          176.62801
+        ],
+        "resistencias": [
+          176.47933,
+          176.91,
+          177.93401,
+          178.23199,
+          178.821
+        ]
+      },
+      "pivot_points": {
+        "pivot_point": 176.67167,
+        "resistencias": {
+          "R1": 176.70933,
+          "R2": 176.78466,
+          "R3": 176.82232
+        },
+        "suportes": {
+          "S1": 176.59634,
+          "S2": 176.55868,
+          "S3": 176.48335
+        }
+      },
+      "fibonacci": {
+        "swing_high": 177.214,
+        "swing_low": 175.69501,
+        "retracements": {
+          "fib_000": 177.214,
+          "fib_023": 176.85552,
+          "fib_038": 176.63375,
+          "fib_050": 176.45451,
+          "fib_061": 176.27526,
+          "fib_078": 176.02007,
+          "fib_100": 175.69501
+        }
+      },
+      "vwap": {
+        "vwap_geral": NaN,
+        "vwap_semanal": 176.70157,
+        "vwap_mensal": 176.8974
+      },
+      "volume_liquidez": {
+        "volume_medio_30d": 0.0,
+        "volume_atual": 0,
+        "ratio_volume": 0,
+        "zonas_liquidez": [
+          {
+            "preco": 172.404,
+            "volume_relativo": NaN,
+            "ranking": 1
+          },
+          {
+            "preco": 172.5345,
+            "volume_relativo": NaN,
+            "ranking": 2
+          },
+          {
+            "preco": 172.662,
+            "volume_relativo": NaN,
+            "ranking": 3
+          },
+          {
+            "preco": 172.79,
+            "volume_relativo": NaN,
+            "ranking": 4
+          },
+          {
+            "preco": 172.9175,
+            "volume_relativo": NaN,
+            "ranking": 5
+          }
+        ]
+      }
+    }
+  },
+  "niveis_consolidados": {
+    "suportes_chave": [
+      172.23426,
+      174.81,
+      175.38799,
+      175.691,
+      176.62801
+    ],
+    "resistencias_chave": [
+      176.47933,
+      176.91,
+      177.93401,
+      178.23199,
+      178.821
+    ],
+    "zona_atual": "NEUTRO",
+    "forca_niveis": "MEDIA"
+  }
+}

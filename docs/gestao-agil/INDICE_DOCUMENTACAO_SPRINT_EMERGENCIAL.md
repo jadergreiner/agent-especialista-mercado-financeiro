@@ -1,6 +1,6 @@
 # 📚 Índice de Documentação - Sprint Emergencial de Risco
 
-**Data**: 2025-11-07  
+**Data**: 2025-11-07
 **Tema**: Descoberta Crítica em Gestão de Risco e Transparência Radical
 
 # Índice de Documentação — Sprint Emergencial de Risco
@@ -227,7 +227,7 @@ agent-especialista-mercado-financeiro/
 ### Radical Transparency
 **O que é**: Priorizar honestidade brutal sobre estética agradável.
 
-**Antes**: "✅ POSIÇÃO SAUDÁVEL | Risco: 0.0%"  
+**Antes**: "✅ POSIÇÃO SAUDÁVEL | Risco: 0.0%"
 **Depois**: "⚠️ PROTEÇÕES NÃO CONFIGURADAS | Risco: ILIMITADO"
 
 ### Os 5 Riscos Críticos Identificados
@@ -244,9 +244,9 @@ agent-especialista-mercado-financeiro/
 
 ## 📞 CONTATOS E RESPONSÁVEIS
 
-**Product Owner**: Responsável por backlog e priorização  
-**Gerente de Portfólio**: Responsável por configuração manual de stops (Sprint 0)  
-**Time de Desenvolvimento**: Responsável por implementação das 11 histórias  
+**Product Owner**: Responsável por backlog e priorização
+**Gerente de Portfólio**: Responsável por configuração manual de stops (Sprint 0)
+**Time de Desenvolvimento**: Responsável por implementação das 11 histórias
 **UX Designer**: Responsável por implementar "Radical Transparency"
 
 ---
@@ -269,8 +269,8 @@ Este índice será atualizado conforme:
 
 ---
 
-**Última Atualização**: 2025-11-07  
-**Versão**: 1.0  
+**Última Atualização**: 2025-11-07
+**Versão**: 1.0
 **Mantenedor**: Product Owner + Time de Documentação
 
 ---

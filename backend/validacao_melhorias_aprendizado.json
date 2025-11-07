@@ -1,0 +1,13 @@
+{
+  "timestamp": "2025-11-07T11:30:41.968399",
+  "resultados_validacao": {
+    "probabilidade_antiga": 0.6629999999999999,
+    "probabilidade_nova": 0.3956155,
+    "impacto_novos_fatores": 0.021900000000000003,
+    "calibracao_aplicada": 1.680672268907563,
+    "fatores_risco_ativos": [
+      "payrolls_dia",
+      "quant_selling"
+    ]
+  }
+}

@@ -101,7 +101,7 @@ Histórico de melhorias e evoluções do sistema.
 - ⚡ Dashboard risco consolidado
 - ⚡ Backtesting calibração
 
-**Justificativa**: 
+**Justificativa**:
 > *"Sistema com gestão de risco sólida que faz menos é melhor que sistema cheio de features que quebra contas."*
 
 ---
@@ -179,6 +179,6 @@ Este projeto segue princípios de versionamento semântico adaptado:
 
 ---
 
-**Última Atualização**: 2025-11-07  
+**Última Atualização**: 2025-11-07
 **Responsável**: Product Owner + Time de Desenvolvimento
 

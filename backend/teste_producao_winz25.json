@@ -1,0 +1,25 @@
+{
+  "timestamp": "2025-11-07T11:34:41.970463",
+  "recomendacao_id": 1001,
+  "ativo": "WINZ25",
+  "direcao": "SHORT",
+  "probabilidade_antiga": 0.488,
+  "probabilidade_nova": 0.40384000000000003,
+  "decisao_sistema": "❌ EVITAR - Baixa probabilidade",
+  "confianca": "BAIXA",
+  "fatores_risco_ativos": [
+    "ewz_high_vol"
+  ],
+  "scores_utilizados": {
+    "score_macro": 0.6,
+    "score_tecnico": 0.3,
+    "volatilidade": 0.7,
+    "juros": 0.5,
+    "moeda": 0.4,
+    "commodities": 0.3,
+    "equity": 0.2,
+    "ewz_correlation": 0.8,
+    "quant_flow": 0.2,
+    "central_bank_news": 0.6
+  }
+}

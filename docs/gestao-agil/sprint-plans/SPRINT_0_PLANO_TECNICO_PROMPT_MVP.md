@@ -1,7 +1,7 @@
 # SPRINT 0 — Plano Técnico: Prompt Interativo MVP
 
-Data de Início: 2025-11-07  
-Duração: 1 sprint (1-2 semanas)  
+Data de Início: 2025-11-07
+Duração: 1 sprint (1-2 semanas)
 Objetivo: Entregar MVP funcional de análise interativa via prompt com fontes, transparência e estrutura
 
 ---
@@ -62,7 +62,7 @@ Comando único `python cli_prompt_mvp.py analise <ativo> [--timeframe] [--modo]`
    ativo: str         # Ex: "EURUSD", "XAUUSD"
    timeframe: str     # Ex: "5M", "1H", "1D"
    modo: str          # Ex: "analista", "trader_rapido"
-   
+
    # Saída esperada
    {
      "ativo": str,
@@ -105,7 +105,7 @@ Módulo central que coordena chamadas a ferramentas e orquestra o LLM para anál
    def orquestrar_analise(ativo: str, timeframe: str, modo: str) -> dict:
        """
        Coordena execução de ferramentas e análise.
-       
+
        Fluxo:
        1. obter_preco_atual(ativo)
        2. calcular_sma_rsi(ativo, timeframe)
@@ -126,7 +126,7 @@ Módulo central que coordena chamadas a ferramentas e orquestra o LLM para anál
          "timestamp": str,
          "fonte": str
        }
-       
+
        Fonte inicial: Alpha Vantage ou Yahoo Finance
        Tratamento de erro: raise ValueError se ativo desconhecido
        """
@@ -141,7 +141,7 @@ Módulo central que coordena chamadas a ferramentas e orquestra o LLM para anál
          "rsi_14": float,
          "preco_vs_sma": str  # "acima", "abaixo", "neutro"
        }
-       
+
        Usa pandas + TA-Lib ou pandas-ta
        """
    ```
@@ -157,7 +157,7 @@ Módulo central que coordena chamadas a ferramentas e orquestra o LLM para anál
          "data": str,
          "fonte": str
        }]
-       
+
        Fonte inicial: NewsAPI ou agregador interno
        """
    ```
@@ -241,10 +241,10 @@ Proteger contra interpretações prescritivas e garantir conformidade.
    Mercados financeiros envolvem risco de perda.
    Consulte um profissional qualificado antes de operar.
    """
-   
+
    def aplicar_disclaimer(analise: dict) -> dict:
        """Injeta disclaimer na estrutura."""
-   
+
    def validar_linguagem_prescritiva(texto: str) -> bool:
        """Detecta palavras proibidas: "compre", "venda", "garantido"."""
    ```
@@ -282,7 +282,7 @@ Validar dados de portfólio e APIs antes de análise.
        - Tickets consistentes
        - Preços > 0
        - Datas válidas
-       
+
        Retorna lista de erros encontrados.
        """
    ```
@@ -394,6 +394,6 @@ Este plano técnico fornece um roadmap incremental e testável para o Sprint 0.
 Cada fase entrega valor parcial e permite validação antecipada.
 A abordagem modular facilita extensões futuras sem reescritas.
 
-**Status**: Pronto para implementação  
-**Aprovação PO**: Pendente  
+**Status**: Pronto para implementação
+**Aprovação PO**: Pendente
 **Tech Lead**: Confirmar disponibilidade de APIs e credenciais
