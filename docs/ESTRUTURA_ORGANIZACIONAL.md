@@ -1,16 +1,30 @@
 # Estrutura Organizacional - Agent Especialista Mercado Financeiro
 
-**Última Atualização:** 2025-11-07 23:15 UTC  
-**Versão:** 1.0  
+**Última Atualização:** 2025-11-07 23:30 UTC  
+**Versão:** 1.1  
 **Status:** Documento Oficial
 
 ---
 
-## 🏢 Organograma
+## 🔗 Relação com Hub Financeiro Inteligente
+
+Este projeto (**Agent Especialista Mercado Financeiro**) é um **módulo independente** do ecossistema Hub Financeiro Inteligente, com autonomia operacional e estrutura organizacional própria.
+
+**Governança:**
+
+- **Hub Financeiro Inteligente:** Presidência + 6 Diretorias (estrutura formal - vide ATA_DIRETORIA_EXECUTIVA.md)
+- **Agent Especialista:** Product Owner + estrutura ágil (autonomia tática)
+- **Relação:** PO do Agent reporta à Diretoria de Produto e Inovação do Hub
+- **Decisões Estratégicas:** Presidente do Hub tem autoridade final sobre roadmap e investimentos
+
+---
+
+## 🏢 Organograma (Agent Especialista)
 
 ```text
 ┌─────────────────────────────────────────────┐
 │          NÍVEL ESTRATÉGICO                  │
+│    (Presidente Hub - Supervisão)            │
 └─────────────────────────────────────────────┘
               │
               ├── Product Owner (PO)
@@ -195,23 +209,62 @@
 
 ---
 
+### Risco 3: Falta de Alinhamento de Governança 🟡
+
+**Descrição:**
+
+- Hub tem governança formal (Presidente + 6 Diretorias)
+- Agent tem estrutura tribal
+- Dificulta sinergia e decisões estratégicas conjuntas
+
+**Mitigação:**
+
+- Reportes do PO Agent → Diretoria Produto (Hub)
+- Documentar relação hierárquica claramente
+- Reuniões de alinhamento estratégico (mensal)
+
+**Prioridade:** Média (documento atualizado)
+
+---
+
+### Risco 4: Ausência de Presidente Documentado 🟢
+
+**Descrição:**
+
+- Não estava claro se Presidente do Hub supervisiona Agent
+- Confusão hierárquica em decisões estratégicas
+
+**Mitigação:**
+
+- ✅ Seção "Relação com Hub" adicionada
+- ✅ Autoridade do Presidente formalizada
+- Definir autonomia do PO (limites de decisão)
+
+**Prioridade:** Baixa (mitigado nesta versão 1.1)
+
+---
+
 ## 📚 Referências
 
 - **Backlog:** `docs/gestao-agil/backlog.md`
 - **Conversas:** `docs/gestao-agil/conversas/`
 - **Processo:** `docs/processos/PROCESSO_DESENVOLVIMENTO.md`
 - **Lições:** `docs/LICOES_APRENDIDAS.md`
+- **Governança Hub:** `c:\repo\projetos\hub-financeiro-inteligente\ATA_DIRETORIA_EXECUTIVA.md`
 
 ---
+
 
 ## 🔄 Histórico de Revisões
 
 | Versão | Data       | Mudanças                    | Responsável |
 |--------|------------|-----------------------------|-------------|
 | 1.0    | 2025-11-07 | Criação inicial do documento | Eng. Senior |
+| 1.1    | 2025-11-07 | Adicionada relação com Hub, Presidente, Riscos 3-4 | Eng. Senior |
 
 ---
 
-**Status:** ✅ Documento Oficial  
-**Confiança:** 90% (baseado em evidências documentais)  
+**Status:** ✅ Documento Oficial (Atualizado)  
+**Confiança:** 85% (baseado em evidências documentais + ATA Hub)  
 **Próxima Revisão:** Trimestral ou quando houver mudanças organizacionais
+
