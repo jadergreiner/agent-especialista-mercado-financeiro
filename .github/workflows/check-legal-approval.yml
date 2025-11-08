@@ -1,0 +1,25 @@
+# Origin: DECISAO-002 - Workflow para checagem de aprovacao juridica em PRs
+name: Check Legal Approval for Data-sensitive PRs
+
+on:
+  pull_request:
+    types: [opened, edited, synchronize]
+
+jobs:
+  require-legal-approval:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Verify PR body contains legal approval or reference
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const body = context.payload.pull_request && context.payload.pull_request.body ? context.payload.pull_request.body.toLowerCase() : '';
+            const title = context.payload.pull_request && context.payload.pull_request.title ? context.payload.pull_request.title.toLowerCase() : '';
+            const sensitiveKeywords = ['presidente', 'dados reais', 'pii', 'dados sensiveis', 'exposição'];
+            const mentionsSensitive = sensitiveKeywords.some(k => body.includes(k) || title.includes(k));
+            const approved = body.includes('juridico-aprovado') || body.includes('juridico aprovado') || body.includes('ata:') || body.includes('juridico:');
+            if (mentionsSensitive && !approved) {
+              core.setFailed('PR menciona dados sensíveis/Presidente mas não contém aprovação jurídica (procure `JURIDICO-APROVADO` ou anexar ata).');
+            } else {
+              core.info('PR ok or not sensitive');
+            }
