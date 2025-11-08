@@ -108,6 +108,31 @@
 - **Prioridade:** 🟡 ALTA
 - **Dependências:** US-RISCO-004
 
+### 🧭 **US-GOV-001: Substituir Audit Demo por Logging Centralizado** - PENDENTE
+
+**Contexto curto:** PR #2 incluiu um middleware de auditoria demonstrativo (`backend/middleware/audit.py`) e um utilitário de masking para demonstração local. Esses artefatos são apenas um protótipo e não atendem aos requisitos de governança e segurança para produção.
+
+**O que precisa ser feito:**
+
+- Implementar um pipeline de logging/auditoria centralizado (ELK/Fluentd/Datadog/S3+KMS) com encriptação em trânsito e em repouso
+- Garantir masking no pipeline antes de persistir (utilizar `backend/utils/masking.py` como referência, mas fortalecer cobertura)
+- Introduzir feature-flag para habilitar/desabilitar o middleware de demo em ambientes não-prod
+- Criar políticas de retenção e rota de acesso (RBAC) para logs de auditoria
+- Documentar o plano de rollout, rollback, e testes de integração
+
+**Critérios de aceitação:**
+
+- Middleware demo removido ou desativado por padrão em produção
+- Logs persistidos em destino central com criptografia e retenção configurável
+- Testes unitários e de integração validando masking antes da persistência
+- Documento de arquitetura e plano de rollout anexado ao PR
+
+**Estimativa:** 2 sprints (ou 1 sprint com recurso adicional)
+
+**Prioridade:** 🔴 CRÍTICA (conforme DECISAO-002 - mudanças em áreas sensíveis requerem revisão e controle)
+
+**Referências:** PR #2, `docs/gestao-agil/PLANO_GATE_CI.md`, `.github/workflows/pr_gates.yml`
+
 ---
 
 ## 🎯 SPRINT PROMPT INTERATIVO MVP (PRIORIDADE ALTA)

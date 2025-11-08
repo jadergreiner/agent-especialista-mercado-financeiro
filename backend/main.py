@@ -3,6 +3,16 @@ Agent Especialista Mercado Financeiro - Ponto de Entrada do Backend
 """
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+import os
+
+# Origin: feature/AG-rbac-audit-masking
+try:
+    # Conditional import to avoid breaking environments without starlette/fastapi extras
+    from backend.middleware.audit import AuditMiddleware  # type: ignore
+    from backend.utils.masking import mask_dict  # type: ignore
+except Exception:
+    AuditMiddleware = None
+    mask_dict = None
 
 app = FastAPI(
     title="API Agent Especialista de Mercado Financeiro",
@@ -39,6 +49,14 @@ async def verificacao_saude():
             "motor_analise": "pendente"
         }
     }
+
+
+# Register audit middleware only in development/demo
+if os.environ.get("ENABLE_DEMO_AUDIT", "true").lower() in ("1", "true", "yes") and AuditMiddleware is not None:
+    # use a relative path log inside the repo for demo purposes
+    audit_log = os.environ.get("DEMO_AUDIT_LOG", ".logs/audit.log")
+    app.add_middleware(AuditMiddleware, logfile=audit_log)
+
 
 if __name__ == "__main__":
     import uvicorn

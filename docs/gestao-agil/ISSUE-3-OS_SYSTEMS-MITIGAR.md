@@ -17,7 +17,7 @@ Uso de `os.system('cls' if os.name == 'nt' else 'clear')` e variações executam
 
 ## Proposta de remediação
 
-1. Evitar `os.system` quando possível; usar `subprocess.run(['cls'])` com `shell=False` ou bibliotecas de terminal (e.g., `curses`, `rich.console` para clearing de tela).  
+1. Evitar `os.system` quando possível; usar `subprocess.run(['cls'])` com `shell=False` ou bibliotecas de terminal (e.g., `curses`, `rich.console` para clearing de tela).
 2. Se a chamada for puramente cosmetic e não processa entradas externas, documentar o risco e marcar como aceita com justificativa.
 
 ## Tarefas

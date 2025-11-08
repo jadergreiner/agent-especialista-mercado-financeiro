@@ -4,6 +4,18 @@ Histórico de melhorias e evoluções do sistema.
 
 ---
 
+## [Hotfix / Gate CI] - 2025-11-08
+
+### ✅ PR #2 - Gate CI e Mitigações Rápidas (Minimal Safe-to-Demonstrate)
+
+- Adicionado workflow de PR gate para exigir referência a `DECISAO-002` quando áreas sensíveis mudarem
+- Banda de segurança: Execução de Bandit (falha em MEDIUM/HIGH) e execução de testes rápidos de masking/audit
+- Quickfixes aplicados: timeouts em requests (`timeout=10`) e bind do servidor para `127.0.0.1` para reduzir exposição
+- Artefatos entregues: `backend/utils/masking.py`, `backend/middleware/audit.py` (demo), testes unitários focados e scripts de triagem Bandit
+- Issue(s) criadas: #6, #7, #8, #9, #10 (Medium findings prioritizados)
+
+**Motivação:** reduzir custo da falha e fornecer mecanismo de revisão segura para mudanças em áreas sensíveis, conforme DECISAO-002.
+
 ## [Sprint Emergencial] - 2025-11-07
 
 ### 🚨 DESCOBERTA CRÍTICA - Gestão de Risco e Transparência Radical

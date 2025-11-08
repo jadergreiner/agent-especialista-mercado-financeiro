@@ -37,12 +37,12 @@ def criar_diretorios():
     """Cria diretórios necessários"""
     diretorios = [
         "config",
-        "data", 
+        "data",
         "logs",
         "reports",
         "reports/trading"
     ]
-    
+
     for diretorio in diretorios:
         path = Path(diretorio)
         path.mkdir(exist_ok=True)
@@ -52,7 +52,7 @@ def instalar_dependencias():
     """Instala dependências Python necessárias"""
     print("🚀 Instalando Dependências para Integração com Corretoras")
     print("=" * 60)
-    
+
     # Dependências principais
     dependencias_principais = [
         "yfinance>=0.2.0",
@@ -61,27 +61,27 @@ def instalar_dependencias():
         "requests>=2.28.0",
         "python-dateutil>=2.8.0"
     ]
-    
+
     # Dependências para corretoras
     dependencias_corretoras = [
         "alpaca-trade-api>=3.0.0",  # Alpaca Markets
         "ib-insync>=0.9.0",         # Interactive Brokers
     ]
-    
+
     # Dependências para análise técnica
     dependencias_analise = [
         "TA-Lib>=0.4.0",           # Indicadores técnicos
         "pandas-ta>=0.3.0",        # Pandas technical analysis
         "scikit-learn>=1.1.0",     # Machine learning
     ]
-    
+
     # Dependências para web app
     dependencias_web = [
         "Flask>=2.2.0",
         "plotly>=5.0.0",
         "dash>=2.0.0"
     ]
-    
+
     # Instalar por grupos
     grupos = [
         (dependencias_principais, "Dependências Principais"),
@@ -89,7 +89,7 @@ def instalar_dependencias():
         (dependencias_analise, "Análise Técnica"),
         (dependencias_web, "Interface Web")
     ]
-    
+
     for dependencias, nome_grupo in grupos:
         print(f"\n📦 Instalando {nome_grupo}...")
         for dep in dependencias:
@@ -101,7 +101,7 @@ def instalar_dependencias():
 def configurar_talib():
     """Configuração especial para TA-Lib"""
     print("\n🔧 Configurando TA-Lib...")
-    
+
     # Verificar se TA-Lib está disponível
     try:
         import talib
@@ -109,7 +109,7 @@ def configurar_talib():
         return True
     except ImportError:
         print("⚠️  TA-Lib não encontrado")
-        
+
     # Tentar instalar TA-Lib
     if os.name == 'nt':  # Windows
         print("💡 No Windows, TA-Lib requer instalação manual:")
@@ -118,13 +118,13 @@ def configurar_talib():
         print("   3. Ou use conda: conda install -c conda-forge ta-lib")
     else:  # Linux/Mac
         executar_comando("pip install TA-Lib", "Instalando TA-Lib")
-        
+
     return False
 
 def criar_arquivos_configuracao():
     """Cria arquivos de configuração de exemplo"""
     print("\n📝 Criando arquivos de configuração...")
-    
+
     # Configuração de corretoras
     config_corretoras = {
         "alpaca_paper": {
@@ -137,7 +137,7 @@ def criar_arquivos_configuracao():
             "rate_limit": 200
         },
         "simulado": {
-            "tipo": "simulado", 
+            "tipo": "simulado",
             "api_key": "simulado",
             "api_secret": "simulado",
             "paper_trading": True,
@@ -145,7 +145,7 @@ def criar_arquivos_configuracao():
             "rate_limit": 1000
         }
     }
-    
+
     # Configuração de estratégias
     config_estrategias = {
         "media_movel_tech": {
@@ -178,7 +178,7 @@ def criar_arquivos_configuracao():
             }
         }
     }
-    
+
     # Configuração do sistema
     config_sistema = {
         "sistema": {
@@ -205,22 +205,22 @@ def criar_arquivos_configuracao():
             },
             "webapp": {
                 "ativo": True,
-                "host": "localhost", 
+                "host": "localhost",
                 "porta": 5001,
                 "debug": False
             }
         }
     }
-    
+
     # Salvar arquivos
     import json
-    
+
     arquivos_config = [
         ("config/corretoras.json", config_corretoras),
         ("config/estrategias.json", config_estrategias),
         ("config/sistema_trading.json", config_sistema)
     ]
-    
+
     for arquivo, config in arquivos_config:
         if not os.path.exists(arquivo):
             with open(arquivo, 'w', encoding='utf-8') as f:
@@ -232,14 +232,14 @@ def criar_arquivos_configuracao():
 def verificar_instalacao():
     """Verifica se a instalação foi bem-sucedida"""
     print("\n🔍 Verificando Instalação...")
-    
+
     modulos_principais = [
         "yfinance",
-        "pandas", 
+        "pandas",
         "numpy",
         "requests"
     ]
-    
+
     modulos_opcionais = [
         "alpaca_trade_api",
         "ib_insync",
@@ -247,7 +247,7 @@ def verificar_instalacao():
         "flask",
         "plotly"
     ]
-    
+
     print("\n📦 Módulos Principais:")
     todos_principais_ok = True
     for modulo in modulos_principais:
@@ -257,7 +257,7 @@ def verificar_instalacao():
         except ImportError:
             print(f"❌ {modulo} - NECESSÁRIO")
             todos_principais_ok = False
-            
+
     print("\n📦 Módulos Opcionais:")
     for modulo in modulos_opcionais:
         try:
@@ -265,7 +265,7 @@ def verificar_instalacao():
             print(f"✅ {modulo}")
         except ImportError:
             print(f"⚠️  {modulo} - opcional")
-            
+
     return todos_principais_ok
 
 def main():
@@ -273,55 +273,55 @@ def main():
     print("🏦 AGENT ESPECIALISTA - INTEGRAÇÃO COM CORRETORAS")
     print("🔧 Script de Instalação e Configuração")
     print("=" * 80)
-    
+
     try:
         # 1. Criar diretórios
         print("\n1️⃣  Criando estrutura de diretórios...")
         criar_diretorios()
-        
+
         # 2. Instalar dependências
         print("\n2️⃣  Instalando dependências Python...")
         instalar_dependencias()
-        
+
         # 3. Configurar TA-Lib
         print("\n3️⃣  Configurando TA-Lib...")
         configurar_talib()
-        
+
         # 4. Criar arquivos de configuração
         print("\n4️⃣  Criando arquivos de configuração...")
         criar_arquivos_configuracao()
-        
+
         # 5. Verificar instalação
         print("\n5️⃣  Verificando instalação...")
         instalacao_ok = verificar_instalacao()
-        
+
         # 6. Instruções finais
         print("\n🎉 INSTALAÇÃO CONCLUÍDA!")
         print("=" * 80)
-        
+
         if instalacao_ok:
             print("✅ Todos os módulos principais foram instalados com sucesso!")
         else:
             print("⚠️  Alguns módulos principais falharam - verifique os erros acima")
-            
+
         print("\n📝 PRÓXIMOS PASSOS:")
         print("1. Configure suas credenciais de API em config/corretoras.json")
-        print("2. Ajuste as estratégias em config/estrategias.json") 
+        print("2. Ajuste as estratégias em config/estrategias.json")
         print("3. Execute o sistema:")
         print("   python backend/sistema_integrado_trading.py --demo  (demonstração)")
         print("   python backend/sistema_integrado_trading.py        (sistema completo)")
-        
+
         print("\n💡 DOCUMENTAÇÃO:")
         print("- Alpaca API: https://alpaca.markets/docs/")
         print("- Interactive Brokers: https://github.com/erdewit/ib_insync")
         print("- TA-Lib: https://ta-lib.github.io/ta-lib-python/")
-        
+
     except Exception as e:
         print(f"❌ Erro durante a instalação: {e}")
         import traceback
         traceback.print_exc()
         return False
-        
+
     return True
 
 if __name__ == "__main__":
