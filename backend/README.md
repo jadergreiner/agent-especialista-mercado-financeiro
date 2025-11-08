@@ -4,6 +4,49 @@ Backend Python para análise de mercado financeiro global.
 
 ## 🚀 Módulos Implementados
 
+### 0️⃣ **NOVO** - Sprint Prompt Interativo MVP
+
+Sistema de análise interativa via linguagem natural com integração de ferramentas.
+
+📄 **Arquivos Principais:**
+- `orquestrador_analise.py` - Orquestrador principal LLM
+- `ferramentas/preco_atual.py` - Dados de preço em tempo real
+- `ferramentas/indicadores_tecnicos.py` - Indicadores SMA/RSI
+- `ferramentas/noticias_resumidas.py` - Notícias e sentimento
+
+**Funcionalidades:**
+- ✅ Análise interativa: `python orquestrador_analise.py AAPL trader`
+- ✅ Modos: `analista` (explicativo) vs `trader` (objetivo)
+- ✅ Saídas: Markdown (humano) + JSON (máquina)
+- ✅ Integração: Preço + Indicadores + Notícias
+- ✅ Resiliência: Retry automático, alertas mercado fechado
+
+**Exemplo de Uso:**
+```bash
+# Análise trader (técnica focada)
+python orquestrador_analise.py AAPL trader
+
+# Análise analista (fundamental completa)
+python orquestrador_analise.py AAPL analista --json
+
+# Com histórico de preços
+python orquestrador_analise.py AAPL trader --historico
+```
+
+**Estrutura de Dados:**
+```json
+{
+  "ativo": "AAPL",
+  "dados_mercado": {...},
+  "indicadores_tecnicos": {...},
+  "noticias": {...},
+  "analise": {...},
+  "metadados": {...}
+}
+```
+
+---
+
 ### 1️⃣ Monitor Forex e Cripto (42 Pares)
 Análise em tempo real de pares Forex e Cripto com 5 pilares (BCs, Técnico, Correlações, Sentimento, Confluência).
 

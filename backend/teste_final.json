@@ -1,0 +1,16 @@
+﻿2025-11-07 17:35:15,560 - __main__ - INFO - Orquestrador inicializado: modelo=gpt-4o-mini, max_tokens=2000
+2025-11-07 17:35:15,561 - __main__ - INFO - Iniciando anßlise de EURUSD no modo 'trader'
+2025-11-07 17:35:15,561 - ferramentas.preco_atual - INFO - Obtendo preþo atual para: EURUSD
+2025-11-07 17:35:16,642 - ferramentas.preco_atual - INFO - Preþo obtido: EURUSD = 1.1567 (+0.13%)
+2025-11-07 17:35:16,643 - __main__ - INFO - Dados de preþo obtidos para EURUSD
+2025-11-07 17:35:16,643 - ferramentas.indicadores_tecnicos - INFO - Calculando indicadores tÚcnicos para EURUSD (SMA20, RSI14)
+2025-11-07 17:35:16,643 - ferramentas.indicadores_tecnicos - INFO - SÝmbolo normalizado: EURUSD -> EURUSD=X
+2025-11-07 17:35:17,677 - ferramentas.indicadores_tecnicos - INFO - Indicadores calculados com sucesso para EURUSD
+2025-11-07 17:35:17,677 - __main__ - INFO - Indicadores tÚcnicos obtidos para EURUSD
+2025-11-07 17:35:17,677 - ferramentas.noticias_resumidas - INFO - Buscando notÝcias resumidas para EURUSD (·ltimos 7 dias)
+2025-11-07 17:35:17,677 - ferramentas.noticias_resumidas - INFO - Encontradas 3 notÝcias mockadas para EURUSD
+2025-11-07 17:35:17,677 - __main__ - INFO - NotÝcias obtidas para EURUSD: 3 notÝcias
+2025-11-07 17:35:17,677 - __main__ - WARNING - Usando resposta mockada - configure OPENAI_API_KEY real no .env
+2025-11-07 17:35:17,678 - __main__ - INFO - Anßlise concluÝda para EURUSD
+2025-11-07 17:35:17,678 - __main__ - ERROR - Erro na anßlise CLI: 'charmap' codec can't encode character '\u2192' in position 774: character maps to <undefined>
+ERRO: 'charmap' codec can't encode character '\u2192' in position 774: character maps to <undefined>

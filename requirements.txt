@@ -24,6 +24,9 @@ pandas-ta>=0.3
 # LLM para análise interativa
 openai>=1.0
 
+# Validação de dados com schema
+pydantic>=2.0
+
 # Opcionais (habilitam integrações adicionais)
 # alpaca-trade-api>=3
 # ib-insync>=0.9
