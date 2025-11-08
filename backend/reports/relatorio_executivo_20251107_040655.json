@@ -1,0 +1,334 @@
+{
+  "timestamp": "2025-11-07T04:06:55.774885+00:00",
+  "portfolio_resumo": {
+    "total_posicoes": 35,
+    "posicoes_abertas": 34,
+    "capital_total": 100000,
+    "exposicao_total": 6154179.6,
+    "percentual_exposicao": 6154.1795999999995,
+    "pnl_realizado": 265660.01,
+    "timestamp_resumo": "2025-11-07T01:06:55.755675"
+  },
+  "analise_risco": {
+    "exposicao_cambial": {
+      "GBP": 400.91033000000004,
+      "JPY": -2034.346005361328,
+      "EUR": 170.02673999999996,
+      "USD": -3226.6356146386715,
+      "CHF": 375.1704400000001,
+      "AUD": 202.25093,
+      "CAD": 109.13483000000001,
+      "NZD": 8.688299999999998,
+      "XAU": 3994.80005,
+      "USDJPY": 153.11599731445312
+    },
+    "concentracao_posicoes": {
+      "GBP/JPY": 0.31531825498026717,
+      "EUR/USD": 0.0024635778406483775,
+      "CHF/JPY": 0.9401013039914209,
+      "EUR/CHF": 0.003035127899678801,
+      "AUD/CAD": 0.0,
+      "AUD/CHF": 0.0,
+      "AUD/JPY": 0.0,
+      "AUD/NZD": 0.0,
+      "AUD/USD": 0.003961433167762591,
+      "CAD/CHF": 0.0,
+      "CAD/JPY": 0.0,
+      "EUR/AUD": 0.0,
+      "EUR/CAD": 0.0,
+      "EUR/GBP": 0.0,
+      "EUR/JPY": 0.5163856240226251,
+      "EUR/NZD": 0.0,
+      "GBP/NZD": 0.0,
+      "NZD/CAD": 0.0,
+      "NZD/CHF": 0.0,
+      "USD/CHF": 0.006602388612937652,
+      "XAU/USD": 22.763557790704635,
+      "USDJPY": 0.007888741933100789,
+      "USD/JPY": 0.0
+    },
+    "risco_drawdown": {
+      "GBP/JPY": 5.5,
+      "EUR/USD": 0.015000000000000123,
+      "CHF/JPY": 3.199999999999989,
+      "USDJPY": 2.2800000000000007,
+      "USD/JPY": 1.632000000000005
+    },
+    "correlacoes_criticas": {
+      "GBP/JPY vs CHF/JPY": 0.85,
+      "EUR/USD vs EUR/CHF": 0.75,
+      "GBP/JPY vs EUR/CHF": -0.15
+    },
+    "risco_total_percentual": 3.0,
+    "maior_exposicao_individual": 3994.8,
+    "maior_concentracao": 22.76,
+    "nivel_risco_geral": "ALTO",
+    "posicoes_abertas": 34
+  },
+  "validacao_macroeconomica": {
+    "regime_dolar": "DOLAR_MODERADO",
+    "eventos_criticos": [
+      {
+        "evento": "Reunião FOMC",
+        "data": "2025-11-08",
+        "impacto": 2,
+        "moedas_afetadas": [
+          "USD"
+        ]
+      }
+    ],
+    "exposicao_risco": {
+      "GBP": {
+        "exposicao_total": 400.91033000000004,
+        "risco_macro": {
+          "nivel": 1,
+          "justificativa": "Regime dólar: DOLAR_MODERADO, eventos: 1"
+        },
+        "coerente": true
+      },
+      "JPY": {
+        "exposicao_total": -2034.346005361328,
+        "risco_macro": {
+          "nivel": 1,
+          "justificativa": "Regime dólar: DOLAR_MODERADO, eventos: 1"
+        },
+        "coerente": true
+      },
+      "EUR": {
+        "exposicao_total": 170.02673999999996,
+        "risco_macro": {
+          "nivel": 1,
+          "justificativa": "Regime dólar: DOLAR_MODERADO, eventos: 1"
+        },
+        "coerente": true
+      },
+      "USD": {
+        "exposicao_total": -3226.6356146386715,
+        "risco_macro": {
+          "nivel": 3,
+          "justificativa": "Regime dólar: DOLAR_MODERADO, eventos: 1"
+        },
+        "coerente": true
+      },
+      "CHF": {
+        "exposicao_total": 375.1704400000001,
+        "risco_macro": {
+          "nivel": 1,
+          "justificativa": "Regime dólar: DOLAR_MODERADO, eventos: 1"
+        },
+        "coerente": true
+      },
+      "AUD": {
+        "exposicao_total": 202.25093,
+        "risco_macro": {
+          "nivel": 1,
+          "justificativa": "Regime dólar: DOLAR_MODERADO, eventos: 1"
+        },
+        "coerente": true
+      },
+      "CAD": {
+        "exposicao_total": 109.13483000000001,
+        "risco_macro": {
+          "nivel": 1,
+          "justificativa": "Regime dólar: DOLAR_MODERADO, eventos: 1"
+        },
+        "coerente": true
+      },
+      "NZD": {
+        "exposicao_total": 8.688299999999998,
+        "risco_macro": {
+          "nivel": 1,
+          "justificativa": "Regime dólar: DOLAR_MODERADO, eventos: 1"
+        },
+        "coerente": true
+      },
+      "XAU": {
+        "exposicao_total": 3994.80005,
+        "risco_macro": {
+          "nivel": 1,
+          "justificativa": "Regime dólar: DOLAR_MODERADO, eventos: 1"
+        },
+        "coerente": true
+      },
+      "USDJPY": {
+        "exposicao_total": 153.11599731445312,
+        "risco_macro": {
+          "nivel": 1,
+          "justificativa": "Regime dólar: DOLAR_MODERADO, eventos: 1"
+        },
+        "coerente": true
+      }
+    },
+    "recomendacoes_macro": []
+  },
+  "analise_correlacao_sistemica": {
+    "concentracao_excessiva": {},
+    "protecao_clusters": {},
+    "clusters_identificados": 0,
+    "timestamp_analise": "2025-11-07T01:06:55.767495"
+  },
+  "sugestoes_balanceamento_protecao": {
+    "impacto_cascata": {
+      "moeda_alvo": "EUR",
+      "choque_simulado": 0.05,
+      "moedas_afetadas": [
+        [
+          "EUR",
+          0.05
+        ],
+        [
+          "GBP",
+          0.016553701475321193
+        ],
+        [
+          "CAD",
+          0.01564490893238707
+        ],
+        [
+          "NZD",
+          0.011173639045459382
+        ]
+      ],
+      "recomendacoes_protecao": {
+        "EUR": {
+          "impacto_cascata": 0.05,
+          "protecao_recomendada": "HEDGE_AGRESSIVO",
+          "urgencia": "ALTA",
+          "justificativa": "Impacto cascata de 5.0% de EUR"
+        }
+      },
+      "timestamp_simulacao": "2025-11-07T01:06:55.767616"
+    },
+    "diversificacao_clusters": []
+  },
+  "sugestoes_niveis_take_reforco": {
+    "pos_001": {
+      "take_profit": [],
+      "reforco": [],
+      "risco": []
+    },
+    "pos_002": {
+      "take_profit": [],
+      "reforco": [],
+      "risco": []
+    },
+    "pos_003": {
+      "take_profit": [],
+      "reforco": [],
+      "risco": []
+    },
+    "pos_005": {
+      "erro": "Ticker não encontrado para EUR/CHF"
+    },
+    "pos_007": {
+      "erro": "Ticker não encontrado para AUD/CAD"
+    },
+    "pos_008": {
+      "take_profit": [],
+      "reforco": [],
+      "risco": []
+    },
+    "pos_009": {
+      "take_profit": [],
+      "reforco": [],
+      "risco": []
+    },
+    "pos_010": {
+      "take_profit": [],
+      "reforco": [],
+      "risco": []
+    },
+    "pos_011": {
+      "erro": "Ticker não encontrado para AUD/NZD"
+    },
+    "pos_012": {
+      "erro": "Ticker não encontrado para AUD/NZD"
+    },
+    "pos_013": {
+      "erro": "Ticker não encontrado para AUD/NZD"
+    },
+    "pos_014": {
+      "erro": "Ticker não encontrado para AUD/NZD"
+    },
+    "pos_015": {
+      "take_profit": [],
+      "reforco": [],
+      "risco": []
+    },
+    "pos_016": {
+      "erro": "Ticker não encontrado para CAD/CHF"
+    },
+    "pos_017": {
+      "erro": "Ticker não encontrado para CAD/JPY"
+    },
+    "pos_018": {
+      "take_profit": [],
+      "reforco": [],
+      "risco": []
+    },
+    "pos_019": {
+      "erro": "Ticker não encontrado para EUR/AUD"
+    },
+    "pos_020": {
+      "erro": "Ticker não encontrado para EUR/CAD"
+    },
+    "pos_021": {
+      "erro": "Ticker não encontrado para EUR/CHF"
+    },
+    "pos_022": {
+      "erro": "Ticker não encontrado para EUR/GBP"
+    },
+    "pos_023": {
+      "erro": "Ticker não encontrado para EUR/JPY"
+    },
+    "pos_024": {
+      "erro": "Ticker não encontrado para EUR/NZD"
+    },
+    "pos_025": {
+      "take_profit": [],
+      "reforco": [],
+      "risco": []
+    },
+    "pos_026": {
+      "take_profit": [],
+      "reforco": [],
+      "risco": []
+    },
+    "pos_027": {
+      "erro": "Ticker não encontrado para GBP/NZD"
+    },
+    "pos_028": {
+      "erro": "Ticker não encontrado para NZD/CAD"
+    },
+    "pos_029": {
+      "erro": "Ticker não encontrado para NZD/CAD"
+    },
+    "pos_030": {
+      "erro": "Ticker não encontrado para NZD/CHF"
+    },
+    "pos_031": {
+      "take_profit": [],
+      "reforco": [],
+      "risco": []
+    },
+    "pos_032": {
+      "erro": "Ticker não encontrado para USDJPY"
+    },
+    "pos_033": {
+      "take_profit": [],
+      "reforco": [],
+      "risco": []
+    },
+    "pos_034": {
+      "take_profit": [],
+      "reforco": [],
+      "risco": []
+    },
+    "pos_035": {
+      "take_profit": [],
+      "reforco": [],
+      "risco": []
+    }
+  },
+  "recomendacoes_finais_integradas": []
+}

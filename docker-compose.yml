@@ -1,0 +1,60 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: especialista_mercado_postgres
+    environment:
+      POSTGRES_DB: especialista_mercado
+      POSTGRES_USER: dev
+      POSTGRES_PASSWORD: dev123
+      POSTGRES_ROOT_PASSWORD: root123
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./scripts/init.sql:/docker-entrypoint-initdb.d/init.sql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U dev -d especialista_mercado"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - especialista_network
+
+  redis:
+    image: redis:7-alpine
+    container_name: especialista_mercado_redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - especialista_network
+
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: especialista_mercado_pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@especialista.com
+      PGADMIN_DEFAULT_PASSWORD: admin123
+    ports:
+      - "5050:80"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - especialista_network
+
+volumes:
+  postgres_data:
+  redis_data:
+
+networks:
+  especialista_network:
+    driver: bridge

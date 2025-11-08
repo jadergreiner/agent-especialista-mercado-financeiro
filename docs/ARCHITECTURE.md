@@ -36,7 +36,66 @@ O Agent Especialista de Mercado Financeiro é composto por duas partes principai
 │  - Economic Calendars (eventos)                             │
 │  - Broker APIs (execução - futuro)                          │
 └──────────────────────────────────────────────────────────────┘
+
+## Sistema de Aprendizado Contínuo
+
+### Visão Geral
+O sistema incorpora aprendizado contínuo baseado em feedback de performance real, criando um loop de melhoria iterativa que adapta o agente às condições de mercado em evolução.
+
 ```
+┌──────────────────────────────────────────────────────────────┐
+│              CONTINUOUS LEARNING SYSTEM                      │
+│  ┌─────────────────┐  ┌─────────────────┐  ┌─────────────┐ │
+│  │ Performance     │  │ Dynamic Weight  │  │ Learning    │ │
+│  │ Analysis Engine │  │ Adjustment      │  │ Database    │ │
+│  │                 │  │ Framework       │  │             │ │
+│  │ - Prompt-based  │  │ - Auto-tuning   │  │ - SQLite     │ │
+│  │ - Structured    │  │ - Historical    │  │ - Metrics    │ │
+│  │ - Comparative   │  │ - Confidence    │  │ - Audit      │ │
+│  └─────────────────┘  └─────────────────┘  └─────────────┘ │
+│  ┌─────────────────────────────────────────────────────┐ │
+│  │              LEARNING FEEDBACK LOOP                  │ │
+│  │  Recommendation → Validation → Analysis → Adjustment │ │
+│  └─────────────────────────────────────────────────────┘ │
+└──────────────────────────────────────────────────────────────┘
+```
+
+### Componentes Principais
+
+#### Performance Analysis Engine
+- **Prompt Estruturado**: Análise sistemática previsto vs real
+- **Comparação Multi-dimensional**: Probabilidade, timeframe, catalisadores, risco
+- **Extração de Aprendizados**: Pontos positivos, melhorias, calibração
+- **Relatórios Estruturados**: Output padronizado para tomada de decisão
+
+#### Dynamic Weight Adjustment Framework
+- **Pesos Adaptativos**: Ajuste automático baseado em performance
+- **Histórico Auditável**: Registro completo de evoluções
+- **Normalização Automática**: Manutenção de equilíbrio do sistema
+- **Confiança Variável**: Níveis de confiança por tipo de ajuste
+
+#### Learning Database
+- **Tabela `analises_performance`**: Armazenamento estruturado de aprendizados
+- **Métricas Consolidadas**: Taxa de acerto, evolução de pesos
+- **Histórico Temporal**: Evolução do sistema ao longo do tempo
+- **Dashboard Integrado**: Visualização de métricas de aprendizado
+
+### Fluxo de Aprendizado
+
+1. **Geração de Recomendação**: Sistema emite sinal baseado em pesos atuais
+2. **Execução e Validação**: Trade é executado e resultado é observado
+3. **Análise de Performance**: Prompt estruturado compara previsto vs real
+4. **Extração de Aprendizados**: Sistema identifica pontos positivos/melhorias
+5. **Ajuste de Pesos**: Framework aplica modificações baseadas em aprendizados
+6. **Registro Histórico**: Todo ciclo é armazenado para auditoria futura
+
+### Benefícios Arquiteturais
+
+- **Adaptação Contínua**: Sistema evolui com condições de mercado
+- **Auto-otimização**: Melhoria automática baseada em feedback real
+- **Robustez**: Capacidade de adaptação a regimes de mercado diferentes
+- **Transparência**: Histórico completo de evoluções e decisões
+- **Escalabilidade**: Framework extensível para novos mercados/ativos
 
 ## Fluxo de Dados
 

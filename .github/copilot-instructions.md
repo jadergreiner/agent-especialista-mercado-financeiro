@@ -1,5 +1,21 @@
 # Instruções Copilot - Agent Especialista Mercado Financeiro
 
+<!--
+INSTRUÇÃO DE PADRÃO (KNOWLEDGE BASE):
+Todo novo backlog, épico, história ou documento deste projeto deve:
+- Seguir as regras de lint Markdown (linhas em branco ao redor de headings e listas, headings sem ênfase, sem pontuação em headings, indentação correta)
+- Garantir uma linha em branco após títulos e antes de headings de nível 2 ou superior
+- Validar o arquivo com lint antes de finalizar
+- Manter este bloco de instrução no topo dos arquivos como referência
+-->
+
+## KNOWLEDGEBASE
+
+### Padrão de Linguagem e Dados
+- Chats e dados devem estar SEMPRE em Português.
+- Este padrão é obrigatório e se aplica a todas as interações e saídas do sistema.
+- Escopo: prompts, respostas de chat, código, comentários, documentação, logs, mensagens de erro, relatórios e quaisquer datasets textuais gerados.
+
 ## ⚠️ REGRA FUNDAMENTAL
 **TODO O CÓDIGO, DOCUMENTAÇÃO, COMENTÁRIOS, COMMITS E INTERAÇÕES DEVEM SER EM PORTUGUÊS.**
 - Nomes de variáveis, funções, classes: Português
@@ -183,3 +199,24 @@ Este é um template fundacional. Atualize estas instruções conforme o código 
 - Estrutura de arquivos e convenções de nomenclatura reais
 - Lógica de negócio customizada e estratégias de trading
 - Padrões de otimização de performance descobertos
+
+
+# Instruções Obrigatórias do Repositório para Assistentes (Copilot)
+
+Data de vigência: 2025-11-07
+Referência principal: DECISAO-002, Roadmap (docs/gestao-agil/ROADMAP_DEBITO_TECNICO.md), Backlog (docs/gestao-agil/BACKLOG_DEBITO_TECNICO.md)
+
+REGRAS OBRIGATÓRIAS (PRECEDÊNCIA)
+1. Em caso de conflito entre o pedido do usuário e uma decisão registrada em `docs/governanca/decisoes/`, a DECISAO prevalece. Se não for possível aplicar automaticamente, o assistente deve pedir uma clarificação e NÃO executar mudanças que contrariem a decisão.
+2. Todas as respostas/patches que alterem arquitetura, infra, modelos IA ou decisões estratégicas devem mencionar explicitamente os IDs das decisões aplicadas (ex.: `DECISAO-002`) no comentário ou no cabeçalho do patch (linha de comentário `# Origin: DECISAO-002`).
+3. Idioma: TODOS os artefatos (código, comentários, docs, mensagens de commit relacionadas a decisões) devem ser em Português, conforme KnowledgeBase do projeto.
+4. Segurança: Não expor chaves/API secrets. Use variáveis de ambiente e documente permissões.
+5. Observability & Tests: Mudanças que alterem execução em produção devem incluir um plano mínimo de testes (unitários + integração) e métricas para monitoramento (Prometheus metrics / SLO).
+6. Se o assistente for solicitado a escolher um modelo IA, siga a `DECISAO-002` (usar GitHub Copilot / modelos aprovados) e os critérios de fallback documentados.
+7. Em caso de incerteza técnica, gerar uma “Nota de Exceção” no PR com: contexto, risco, sugestão de mitigação e responsável.
+
+Obrigatório para todos os colaboradores:
+- Referenciar o ID(s) da decisão nas descrições de PRs que tocam áreas estratégicas.
+- Documentar o mapping entre mudança e KPI afetado (ex.: redução de prazo, custo).
+
+Falha em cumprir as regras => workflow CI deve bloquear merge até resolução.

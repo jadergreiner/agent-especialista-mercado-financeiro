@@ -1,0 +1,33 @@
+{
+  "timestamp": "2025-11-07T00:19:30Z",
+  "fonte": "analise_especialista + niveis_precisao",
+  "oportunidades": [
+    {
+      "par": "GBP/JPY",
+      "direcao": "LONG",
+      "probabilidade": 0.72,
+      "preco_teto": 205.316,
+      "preco_ideal": 200.617,
+      "acao_recomendada": "CONSIDERAR_TAKE_PROFIT / ADD EM PULLBACK",
+      "motivacao": "Carry trade favorável (+3.4%), VIX 19.5 moderado; confluência de resistências 202.80/205.31 e suporte em 200.62."
+    },
+    {
+      "par": "USD/JPY",
+      "direcao": "LONG",
+      "probabilidade": 0.68,
+      "preco_teto": 154.427,
+      "preco_ideal": 152.56,
+      "acao_recomendada": "AGUARDAR_CONFIRMACAO e ENTRADA EM PULLBACK",
+      "motivacao": "Diferencial de juros ~500bps (Fed vs BoJ), suporte 152.16-152.96, alvo inicial 154.43; ADP/ISM podem catalisar."
+    },
+    {
+      "par": "CHF/JPY",
+      "direcao": "LONG",
+      "probabilidade": 0.65,
+      "preco_teto": 191.199,
+      "preco_ideal": 189.589,
+      "acao_recomendada": "MANTER_POSICAO / ADD EM PULLBACK",
+      "motivacao": "Tendência de alta sustentada; suporte 189.59 e resistências 190.46/191.20; SNB neutro vs BoJ dovish."
+    }
+  ]
+}

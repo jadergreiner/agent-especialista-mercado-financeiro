@@ -8,13 +8,15 @@ from datetime import datetime
 import time
 import sys
 import os
+from utils.terminal import limpar_tela
 
 if sys.platform == 'win32':
     import io
     sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 
 def limpar():
-    os.system('cls' if os.name == 'nt' else 'clear')
+    """Adapter local para limpar tela usando utilitário seguro."""
+    limpar_tela()
 
 def barra_visual(valor, min_val, max_val, largura=40):
     """Cria barra visual do preço em relação ao range"""

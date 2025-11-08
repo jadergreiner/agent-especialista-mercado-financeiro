@@ -9,6 +9,7 @@ from datetime import datetime
 import time
 import sys
 import os
+from utils.terminal import limpar_tela
 
 # Configurar encoding UTF-8 para Windows
 if sys.platform == 'win32':
@@ -33,7 +34,7 @@ class MonitorWIN:
 
     def limpar_tela(self):
         """Limpa a tela do terminal"""
-        os.system('cls' if os.name == 'nt' else 'clear')
+        limpar_tela()
 
     def buscar_cotacao(self, ticker):
         """Busca cotação atual de um ativo"""

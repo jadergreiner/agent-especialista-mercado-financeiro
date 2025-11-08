@@ -1,0 +1,6 @@
+# Análises geradas (não versionar)
+*.json
+
+# Permitir schema/exemplos
+!schema.json
+!exemplo_*.json

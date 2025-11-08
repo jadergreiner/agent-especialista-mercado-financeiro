@@ -649,8 +649,10 @@ class CarregadorDadosHistoricos:
             dados_bytes = pickle.dumps(dados_para_cache)
             dados_comprimidos = gzip.compress(dados_bytes)
 
-            # Calcular hash
-            hash_dados = hashlib.md5(dados_bytes).hexdigest()
+            # Calcular hash (substituição de MD5 por SHA256 para mitigar B324 - Bandit)
+            # Origin: AG-SEC-001 - Remediação findings Bandit B324
+            # Motivo: MD5 é inseguro para propósitos de integridade/assinatura; usar SHA-256
+            hash_dados = hashlib.sha256(dados_bytes).hexdigest()
 
             # Salvar no database
             conn = sqlite3.connect(self.db_path)

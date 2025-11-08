@@ -1,0 +1,1181 @@
+{
+  "timestamp_analise": "2025-11-07T00:28:37.493867",
+  "periodo_cobertura": "48h",
+  "total_posicoes_analisadas": 34,
+  "eventos_monitorados": 7,
+  "analises_posicoes": [
+    {
+      "position_id": "pos_001",
+      "par": "GBP/JPY",
+      "direcao": "LONG",
+      "risco_eventos": [
+        {
+          "evento": "UK MPC Member Pill Speaks",
+          "timestamp": "2025-11-07T12:15:00",
+          "moeda": "GBP",
+          "impacto": "MODERATE",
+          "nivel_risco": 10,
+          "justificativa": "Evento afeta diretamente GBP no par GBP/JPY; Risco crítico - considerar saída parcial",
+          "recomendacao": "SAÍDA IMEDIATA - Risco crítico"
+        }
+      ],
+      "oportunidade_eventos": [
+        {
+          "evento": "UK MPC Member Pill Speaks",
+          "timestamp": "2025-11-07T12:15:00",
+          "moeda": "GBP",
+          "potencial_aceleracao": 1.4,
+          "cenarios_favoraveis": [
+            "Comentários dovish do MPC podem beneficiar GBP no carry trade"
+          ],
+          "timing_otimo": "Pré-evento: 2h antes; Pós-evento: 4h após"
+        }
+      ],
+      "timing_saida": {
+        "janela_otima": "Dentro de 12h - Antes do evento",
+        "recomendacao": "Manter posição, monitorar",
+        "evento_critico": "UK MPC Member Pill Speaks",
+        "horas_restantes": 11.8
+      },
+      "ajustes_pre_evento": {
+        "ajuste_recomendado": "MANTER",
+        "justificativa": "Eventos isolados de risco (2 pontos)",
+        "acao_imediata": "Confirmar stops em posição"
+      }
+    },
+    {
+      "position_id": "pos_002",
+      "par": "EUR/USD",
+      "direcao": "SHORT",
+      "risco_eventos": [
+        {
+          "evento": "US Prelim UoM Consumer Sentiment",
+          "timestamp": "2025-11-07T12:00:00",
+          "moeda": "USD",
+          "impacto": "MODERATE",
+          "nivel_risco": 11.0,
+          "justificativa": "Evento afeta diretamente USD no par EUR/USD; Risco crítico - considerar saída parcial",
+          "recomendacao": "SAÍDA IMEDIATA - Risco crítico"
+        },
+        {
+          "evento": "German Trade Balance",
+          "timestamp": "2025-11-07T04:00:00",
+          "moeda": "EUR",
+          "impacto": "MODERATE",
+          "nivel_risco": 10,
+          "justificativa": "Evento afeta diretamente EUR no par EUR/USD; Risco crítico - considerar saída parcial",
+          "recomendacao": "SAÍDA IMEDIATA - Risco crítico"
+        },
+        {
+          "evento": "US Consumer Credit",
+          "timestamp": "2025-11-07T17:00:00",
+          "moeda": "USD",
+          "impacto": "LOW",
+          "nivel_risco": 8.0,
+          "justificativa": "Evento afeta diretamente USD no par EUR/USD; Risco crítico - considerar saída parcial",
+          "recomendacao": "SAÍDA IMEDIATA - Risco crítico"
+        },
+        {
+          "evento": "French Trade Balance",
+          "timestamp": "2025-11-07T04:45:00",
+          "moeda": "EUR",
+          "impacto": "LOW",
+          "nivel_risco": 7.0,
+          "justificativa": "Evento afeta diretamente EUR no par EUR/USD; Risco elevado - monitorar closely",
+          "recomendacao": "REDUZIR POSIÇÃO - Alto risco"
+        }
+      ],
+      "oportunidade_eventos": [
+        {
+          "evento": "US Prelim UoM Consumer Sentiment",
+          "timestamp": "2025-11-07T12:00:00",
+          "moeda": "USD",
+          "potencial_aceleracao": 0.8,
+          "cenarios_favoraveis": [
+            "Sentimento do consumidor EUA melhor que esperado pode beneficiar USD"
+          ],
+          "timing_otimo": "Pré-evento: 2h antes; Pós-evento: 4h após"
+        }
+      ],
+      "timing_saida": {
+        "janela_otima": "Próximas 2h - Antes do evento",
+        "recomendacao": "Preparar saída parcial",
+        "evento_critico": "German Trade Balance",
+        "horas_restantes": 3.5
+      },
+      "ajustes_pre_evento": {
+        "ajuste_recomendado": "REDUZIR 25%",
+        "justificativa": "Eventos moderados de risco (4 pontos)",
+        "acao_imediata": "Aumentar monitoramento"
+      }
+    },
+    {
+      "position_id": "pos_003",
+      "par": "CHF/JPY",
+      "direcao": "LONG",
+      "risco_eventos": [],
+      "oportunidade_eventos": [],
+      "timing_saida": {
+        "janela_otima": "Sem eventos críticos próximos",
+        "recomendacao": "Manter posição até targets técnicos"
+      },
+      "ajustes_pre_evento": {
+        "ajuste_recomendado": "MANTER",
+        "justificativa": "Baixo risco de eventos próximos",
+        "acao_imediata": "Continuar estratégia normal"
+      }
+    },
+    {
+      "position_id": "pos_005",
+      "par": "EUR/CHF",
+      "direcao": "LONG",
+      "risco_eventos": [
+        {
+          "evento": "German Trade Balance",
+          "timestamp": "2025-11-07T04:00:00",
+          "moeda": "EUR",
+          "impacto": "MODERATE",
+          "nivel_risco": 10,
+          "justificativa": "Evento afeta diretamente EUR no par EUR/CHF; Risco crítico - considerar saída parcial",
+          "recomendacao": "SAÍDA IMEDIATA - Risco crítico"
+        },
+        {
+          "evento": "French Trade Balance",
+          "timestamp": "2025-11-07T04:45:00",
+          "moeda": "EUR",
+          "impacto": "LOW",
+          "nivel_risco": 7.0,
+          "justificativa": "Evento afeta diretamente EUR no par EUR/CHF; Risco elevado - monitorar closely",
+          "recomendacao": "REDUZIR POSIÇÃO - Alto risco"
+        }
+      ],
+      "oportunidade_eventos": [],
+      "timing_saida": {
+        "janela_otima": "Próximas 2h - Antes do evento",
+        "recomendacao": "Preparar saída parcial",
+        "evento_critico": "German Trade Balance",
+        "horas_restantes": 3.5
+      },
+      "ajustes_pre_evento": {
+        "ajuste_recomendado": "MANTER",
+        "justificativa": "Eventos isolados de risco (2 pontos)",
+        "acao_imediata": "Confirmar stops em posição"
+      }
+    },
+    {
+      "position_id": "pos_007",
+      "par": "AUD/CAD",
+      "direcao": "LONG",
+      "risco_eventos": [
+        {
+          "evento": "Canada Employment Change & Unemployment",
+          "timestamp": "2025-11-07T10:30:00",
+          "moeda": "CAD",
+          "impacto": "HIGH",
+          "nivel_risco": 9.0,
+          "justificativa": "Evento de alto impacto pode causar volatilidade extrema; Evento afeta diretamente CAD no par AUD/CAD; Risco crítico - considerar saída parcial",
+          "recomendacao": "SAÍDA IMEDIATA - Risco crítico"
+        }
+      ],
+      "oportunidade_eventos": [],
+      "timing_saida": {
+        "janela_otima": "Dentro de 10h - Antes do evento",
+        "recomendacao": "Manter posição, monitorar",
+        "evento_critico": "Canada Employment Change & Unemployment",
+        "horas_restantes": 10.0
+      },
+      "ajustes_pre_evento": {
+        "ajuste_recomendado": "MANTER",
+        "justificativa": "Eventos isolados de risco (3 pontos)",
+        "acao_imediata": "Confirmar stops em posição"
+      }
+    },
+    {
+      "position_id": "pos_008",
+      "par": "AUD/CHF",
+      "direcao": "LONG",
+      "risco_eventos": [],
+      "oportunidade_eventos": [],
+      "timing_saida": {
+        "janela_otima": "Sem eventos críticos próximos",
+        "recomendacao": "Manter posição até targets técnicos"
+      },
+      "ajustes_pre_evento": {
+        "ajuste_recomendado": "MANTER",
+        "justificativa": "Baixo risco de eventos próximos",
+        "acao_imediata": "Continuar estratégia normal"
+      }
+    },
+    {
+      "position_id": "pos_009",
+      "par": "AUD/JPY",
+      "direcao": "LONG",
+      "risco_eventos": [],
+      "oportunidade_eventos": [],
+      "timing_saida": {
+        "janela_otima": "Sem eventos críticos próximos",
+        "recomendacao": "Manter posição até targets técnicos"
+      },
+      "ajustes_pre_evento": {
+        "ajuste_recomendado": "MANTER",
+        "justificativa": "Baixo risco de eventos próximos",
+        "acao_imediata": "Continuar estratégia normal"
+      }
+    },
+    {
+      "position_id": "pos_010",
+      "par": "AUD/JPY",
+      "direcao": "LONG",
+      "risco_eventos": [],
+      "oportunidade_eventos": [],
+      "timing_saida": {
+        "janela_otima": "Sem eventos críticos próximos",
+        "recomendacao": "Manter posição até targets técnicos"
+      },
+      "ajustes_pre_evento": {
+        "ajuste_recomendado": "MANTER",
+        "justificativa": "Baixo risco de eventos próximos",
+        "acao_imediata": "Continuar estratégia normal"
+      }
+    },
+    {
+      "position_id": "pos_011",
+      "par": "AUD/NZD",
+      "direcao": "SHORT",
+      "risco_eventos": [],
+      "oportunidade_eventos": [],
+      "timing_saida": {
+        "janela_otima": "Sem eventos críticos próximos",
+        "recomendacao": "Manter posição até targets técnicos"
+      },
+      "ajustes_pre_evento": {
+        "ajuste_recomendado": "MANTER",
+        "justificativa": "Baixo risco de eventos próximos",
+        "acao_imediata": "Continuar estratégia normal"
+      }
+    },
+    {
+      "position_id": "pos_012",
+      "par": "AUD/NZD",
+      "direcao": "LONG",
+      "risco_eventos": [],
+      "oportunidade_eventos": [],
+      "timing_saida": {
+        "janela_otima": "Sem eventos críticos próximos",
+        "recomendacao": "Manter posição até targets técnicos"
+      },
+      "ajustes_pre_evento": {
+        "ajuste_recomendado": "MANTER",
+        "justificativa": "Baixo risco de eventos próximos",
+        "acao_imediata": "Continuar estratégia normal"
+      }
+    },
+    {
+      "position_id": "pos_013",
+      "par": "AUD/NZD",
+      "direcao": "SHORT",
+      "risco_eventos": [],
+      "oportunidade_eventos": [],
+      "timing_saida": {
+        "janela_otima": "Sem eventos críticos próximos",
+        "recomendacao": "Manter posição até targets técnicos"
+      },
+      "ajustes_pre_evento": {
+        "ajuste_recomendado": "MANTER",
+        "justificativa": "Baixo risco de eventos próximos",
+        "acao_imediata": "Continuar estratégia normal"
+      }
+    },
+    {
+      "position_id": "pos_014",
+      "par": "AUD/NZD",
+      "direcao": "SHORT",
+      "risco_eventos": [],
+      "oportunidade_eventos": [],
+      "timing_saida": {
+        "janela_otima": "Sem eventos críticos próximos",
+        "recomendacao": "Manter posição até targets técnicos"
+      },
+      "ajustes_pre_evento": {
+        "ajuste_recomendado": "MANTER",
+        "justificativa": "Baixo risco de eventos próximos",
+        "acao_imediata": "Continuar estratégia normal"
+      }
+    },
+    {
+      "position_id": "pos_015",
+      "par": "AUD/USD",
+      "direcao": "LONG",
+      "risco_eventos": [
+        {
+          "evento": "US Prelim UoM Consumer Sentiment",
+          "timestamp": "2025-11-07T12:00:00",
+          "moeda": "USD",
+          "impacto": "MODERATE",
+          "nivel_risco": 11.0,
+          "justificativa": "Evento afeta diretamente USD no par AUD/USD; Risco crítico - considerar saída parcial",
+          "recomendacao": "SAÍDA IMEDIATA - Risco crítico"
+        },
+        {
+          "evento": "US Consumer Credit",
+          "timestamp": "2025-11-07T17:00:00",
+          "moeda": "USD",
+          "impacto": "LOW",
+          "nivel_risco": 8.0,
+          "justificativa": "Evento afeta diretamente USD no par AUD/USD; Risco crítico - considerar saída parcial",
+          "recomendacao": "SAÍDA IMEDIATA - Risco crítico"
+        }
+      ],
+      "oportunidade_eventos": [
+        {
+          "evento": "US Prelim UoM Consumer Sentiment",
+          "timestamp": "2025-11-07T12:00:00",
+          "moeda": "USD",
+          "potencial_aceleracao": 1.6,
+          "cenarios_favoraveis": [
+            "Sentimento do consumidor EUA melhor que esperado pode beneficiar USD"
+          ],
+          "timing_otimo": "Pré-evento: 2h antes; Pós-evento: 4h após"
+        }
+      ],
+      "timing_saida": {
+        "janela_otima": "Dentro de 12h - Antes do evento",
+        "recomendacao": "Manter posição, monitorar",
+        "evento_critico": "US Prelim UoM Consumer Sentiment",
+        "horas_restantes": 11.5
+      },
+      "ajustes_pre_evento": {
+        "ajuste_recomendado": "MANTER",
+        "justificativa": "Eventos isolados de risco (2 pontos)",
+        "acao_imediata": "Confirmar stops em posição"
+      }
+    },
+    {
+      "position_id": "pos_016",
+      "par": "CAD/CHF",
+      "direcao": "LONG",
+      "risco_eventos": [
+        {
+          "evento": "Canada Employment Change & Unemployment",
+          "timestamp": "2025-11-07T10:30:00",
+          "moeda": "CAD",
+          "impacto": "HIGH",
+          "nivel_risco": 9.0,
+          "justificativa": "Evento de alto impacto pode causar volatilidade extrema; Evento afeta diretamente CAD no par CAD/CHF; Risco crítico - considerar saída parcial",
+          "recomendacao": "SAÍDA IMEDIATA - Risco crítico"
+        }
+      ],
+      "oportunidade_eventos": [],
+      "timing_saida": {
+        "janela_otima": "Dentro de 10h - Antes do evento",
+        "recomendacao": "Manter posição, monitorar",
+        "evento_critico": "Canada Employment Change & Unemployment",
+        "horas_restantes": 10.0
+      },
+      "ajustes_pre_evento": {
+        "ajuste_recomendado": "MANTER",
+        "justificativa": "Eventos isolados de risco (3 pontos)",
+        "acao_imediata": "Confirmar stops em posição"
+      }
+    },
+    {
+      "position_id": "pos_017",
+      "par": "CAD/JPY",
+      "direcao": "LONG",
+      "risco_eventos": [
+        {
+          "evento": "Canada Employment Change & Unemployment",
+          "timestamp": "2025-11-07T10:30:00",
+          "moeda": "CAD",
+          "impacto": "HIGH",
+          "nivel_risco": 9.0,
+          "justificativa": "Evento de alto impacto pode causar volatilidade extrema; Evento afeta diretamente CAD no par CAD/JPY; Risco crítico - considerar saída parcial",
+          "recomendacao": "SAÍDA IMEDIATA - Risco crítico"
+        }
+      ],
+      "oportunidade_eventos": [],
+      "timing_saida": {
+        "janela_otima": "Dentro de 10h - Antes do evento",
+        "recomendacao": "Manter posição, monitorar",
+        "evento_critico": "Canada Employment Change & Unemployment",
+        "horas_restantes": 10.0
+      },
+      "ajustes_pre_evento": {
+        "ajuste_recomendado": "MANTER",
+        "justificativa": "Eventos isolados de risco (3 pontos)",
+        "acao_imediata": "Confirmar stops em posição"
+      }
+    },
+    {
+      "position_id": "pos_018",
+      "par": "CHF/JPY",
+      "direcao": "LONG",
+      "risco_eventos": [],
+      "oportunidade_eventos": [],
+      "timing_saida": {
+        "janela_otima": "Sem eventos críticos próximos",
+        "recomendacao": "Manter posição até targets técnicos"
+      },
+      "ajustes_pre_evento": {
+        "ajuste_recomendado": "MANTER",
+        "justificativa": "Baixo risco de eventos próximos",
+        "acao_imediata": "Continuar estratégia normal"
+      }
+    },
+    {
+      "position_id": "pos_019",
+      "par": "EUR/AUD",
+      "direcao": "SHORT",
+      "risco_eventos": [
+        {
+          "evento": "German Trade Balance",
+          "timestamp": "2025-11-07T04:00:00",
+          "moeda": "EUR",
+          "impacto": "MODERATE",
+          "nivel_risco": 10,
+          "justificativa": "Evento afeta diretamente EUR no par EUR/AUD; Risco crítico - considerar saída parcial",
+          "recomendacao": "SAÍDA IMEDIATA - Risco crítico"
+        },
+        {
+          "evento": "French Trade Balance",
+          "timestamp": "2025-11-07T04:45:00",
+          "moeda": "EUR",
+          "impacto": "LOW",
+          "nivel_risco": 7.0,
+          "justificativa": "Evento afeta diretamente EUR no par EUR/AUD; Risco elevado - monitorar closely",
+          "recomendacao": "REDUZIR POSIÇÃO - Alto risco"
+        }
+      ],
+      "oportunidade_eventos": [],
+      "timing_saida": {
+        "janela_otima": "Próximas 2h - Antes do evento",
+        "recomendacao": "Preparar saída parcial",
+        "evento_critico": "German Trade Balance",
+        "horas_restantes": 3.5
+      },
+      "ajustes_pre_evento": {
+        "ajuste_recomendado": "MANTER",
+        "justificativa": "Eventos isolados de risco (2 pontos)",
+        "acao_imediata": "Confirmar stops em posição"
+      }
+    },
+    {
+      "position_id": "pos_020",
+      "par": "EUR/CAD",
+      "direcao": "SHORT",
+      "risco_eventos": [
+        {
+          "evento": "German Trade Balance",
+          "timestamp": "2025-11-07T04:00:00",
+          "moeda": "EUR",
+          "impacto": "MODERATE",
+          "nivel_risco": 10,
+          "justificativa": "Evento afeta diretamente EUR no par EUR/CAD; Risco crítico - considerar saída parcial",
+          "recomendacao": "SAÍDA IMEDIATA - Risco crítico"
+        },
+        {
+          "evento": "Canada Employment Change & Unemployment",
+          "timestamp": "2025-11-07T10:30:00",
+          "moeda": "CAD",
+          "impacto": "HIGH",
+          "nivel_risco": 9.0,
+          "justificativa": "Evento de alto impacto pode causar volatilidade extrema; Evento afeta diretamente CAD no par EUR/CAD; Risco crítico - considerar saída parcial",
+          "recomendacao": "SAÍDA IMEDIATA - Risco crítico"
+        },
+        {
+          "evento": "French Trade Balance",
+          "timestamp": "2025-11-07T04:45:00",
+          "moeda": "EUR",
+          "impacto": "LOW",
+          "nivel_risco": 7.0,
+          "justificativa": "Evento afeta diretamente EUR no par EUR/CAD; Risco elevado - monitorar closely",
+          "recomendacao": "REDUZIR POSIÇÃO - Alto risco"
+        }
+      ],
+      "oportunidade_eventos": [],
+      "timing_saida": {
+        "janela_otima": "Próximas 2h - Antes do evento",
+        "recomendacao": "Preparar saída parcial",
+        "evento_critico": "German Trade Balance",
+        "horas_restantes": 3.5
+      },
+      "ajustes_pre_evento": {
+        "ajuste_recomendado": "REDUZIR 25%",
+        "justificativa": "Eventos moderados de risco (5 pontos)",
+        "acao_imediata": "Aumentar monitoramento"
+      }
+    },
+    {
+      "position_id": "pos_021",
+      "par": "EUR/CHF",
+      "direcao": "LONG",
+      "risco_eventos": [
+        {
+          "evento": "German Trade Balance",
+          "timestamp": "2025-11-07T04:00:00",
+          "moeda": "EUR",
+          "impacto": "MODERATE",
+          "nivel_risco": 10,
+          "justificativa": "Evento afeta diretamente EUR no par EUR/CHF; Risco crítico - considerar saída parcial",
+          "recomendacao": "SAÍDA IMEDIATA - Risco crítico"
+        },
+        {
+          "evento": "French Trade Balance",
+          "timestamp": "2025-11-07T04:45:00",
+          "moeda": "EUR",
+          "impacto": "LOW",
+          "nivel_risco": 7.0,
+          "justificativa": "Evento afeta diretamente EUR no par EUR/CHF; Risco elevado - monitorar closely",
+          "recomendacao": "REDUZIR POSIÇÃO - Alto risco"
+        }
+      ],
+      "oportunidade_eventos": [],
+      "timing_saida": {
+        "janela_otima": "Próximas 2h - Antes do evento",
+        "recomendacao": "Preparar saída parcial",
+        "evento_critico": "German Trade Balance",
+        "horas_restantes": 3.5
+      },
+      "ajustes_pre_evento": {
+        "ajuste_recomendado": "MANTER",
+        "justificativa": "Eventos isolados de risco (2 pontos)",
+        "acao_imediata": "Confirmar stops em posição"
+      }
+    },
+    {
+      "position_id": "pos_022",
+      "par": "EUR/GBP",
+      "direcao": "SHORT",
+      "risco_eventos": [
+        {
+          "evento": "German Trade Balance",
+          "timestamp": "2025-11-07T04:00:00",
+          "moeda": "EUR",
+          "impacto": "MODERATE",
+          "nivel_risco": 10,
+          "justificativa": "Evento afeta diretamente EUR no par EUR/GBP; Risco crítico - considerar saída parcial",
+          "recomendacao": "SAÍDA IMEDIATA - Risco crítico"
+        },
+        {
+          "evento": "UK MPC Member Pill Speaks",
+          "timestamp": "2025-11-07T12:15:00",
+          "moeda": "GBP",
+          "impacto": "MODERATE",
+          "nivel_risco": 10,
+          "justificativa": "Evento afeta diretamente GBP no par EUR/GBP; Risco crítico - considerar saída parcial",
+          "recomendacao": "SAÍDA IMEDIATA - Risco crítico"
+        },
+        {
+          "evento": "French Trade Balance",
+          "timestamp": "2025-11-07T04:45:00",
+          "moeda": "EUR",
+          "impacto": "LOW",
+          "nivel_risco": 7.0,
+          "justificativa": "Evento afeta diretamente EUR no par EUR/GBP; Risco elevado - monitorar closely",
+          "recomendacao": "REDUZIR POSIÇÃO - Alto risco"
+        }
+      ],
+      "oportunidade_eventos": [
+        {
+          "evento": "UK MPC Member Pill Speaks",
+          "timestamp": "2025-11-07T12:15:00",
+          "moeda": "GBP",
+          "potencial_aceleracao": 2.8,
+          "cenarios_favoraveis": [
+            "Comentários dovish do MPC podem beneficiar GBP no carry trade"
+          ],
+          "timing_otimo": "Pré-evento: 2h antes; Pós-evento: 4h após"
+        }
+      ],
+      "timing_saida": {
+        "janela_otima": "Próximas 2h - Antes do evento",
+        "recomendacao": "Preparar saída parcial",
+        "evento_critico": "German Trade Balance",
+        "horas_restantes": 3.5
+      },
+      "ajustes_pre_evento": {
+        "ajuste_recomendado": "REDUZIR 25%",
+        "justificativa": "Eventos moderados de risco (4 pontos)",
+        "acao_imediata": "Aumentar monitoramento"
+      }
+    },
+    {
+      "position_id": "pos_023",
+      "par": "EUR/JPY",
+      "direcao": "LONG",
+      "risco_eventos": [
+        {
+          "evento": "German Trade Balance",
+          "timestamp": "2025-11-07T04:00:00",
+          "moeda": "EUR",
+          "impacto": "MODERATE",
+          "nivel_risco": 13.0,
+          "justificativa": "Evento afeta diretamente EUR no par EUR/JPY; Risco crítico - considerar saída parcial",
+          "recomendacao": "SAÍDA IMEDIATA - Risco crítico"
+        },
+        {
+          "evento": "French Trade Balance",
+          "timestamp": "2025-11-07T04:45:00",
+          "moeda": "EUR",
+          "impacto": "LOW",
+          "nivel_risco": 9.1,
+          "justificativa": "Evento afeta diretamente EUR no par EUR/JPY; Risco crítico - considerar saída parcial",
+          "recomendacao": "SAÍDA IMEDIATA - Risco crítico"
+        }
+      ],
+      "oportunidade_eventos": [
+        {
+          "evento": "German Trade Balance",
+          "timestamp": "2025-11-07T04:00:00",
+          "moeda": "EUR",
+          "potencial_aceleracao": 2.4,
+          "cenarios_favoraveis": [
+            "Surpresa positiva no balanço comercial chinês pode acelerar apreciação JPY"
+          ],
+          "timing_otimo": "Pré-evento: 30min antes; Pós-evento: 2h após"
+        },
+        {
+          "evento": "French Trade Balance",
+          "timestamp": "2025-11-07T04:45:00",
+          "moeda": "EUR",
+          "potencial_aceleracao": 2.0,
+          "cenarios_favoraveis": [
+            "Surpresa positiva no balanço comercial chinês pode acelerar apreciação JPY"
+          ],
+          "timing_otimo": "Pré-evento: 30min antes; Pós-evento: 2h após"
+        }
+      ],
+      "timing_saida": {
+        "janela_otima": "Próximas 2h - Antes do evento",
+        "recomendacao": "Preparar saída parcial",
+        "evento_critico": "German Trade Balance",
+        "horas_restantes": 3.5
+      },
+      "ajustes_pre_evento": {
+        "ajuste_recomendado": "MANTER",
+        "justificativa": "Eventos isolados de risco (2 pontos)",
+        "acao_imediata": "Confirmar stops em posição"
+      }
+    },
+    {
+      "position_id": "pos_024",
+      "par": "EUR/NZD",
+      "direcao": "SHORT",
+      "risco_eventos": [
+        {
+          "evento": "German Trade Balance",
+          "timestamp": "2025-11-07T04:00:00",
+          "moeda": "EUR",
+          "impacto": "MODERATE",
+          "nivel_risco": 10,
+          "justificativa": "Evento afeta diretamente EUR no par EUR/NZD; Risco crítico - considerar saída parcial",
+          "recomendacao": "SAÍDA IMEDIATA - Risco crítico"
+        },
+        {
+          "evento": "French Trade Balance",
+          "timestamp": "2025-11-07T04:45:00",
+          "moeda": "EUR",
+          "impacto": "LOW",
+          "nivel_risco": 7.0,
+          "justificativa": "Evento afeta diretamente EUR no par EUR/NZD; Risco elevado - monitorar closely",
+          "recomendacao": "REDUZIR POSIÇÃO - Alto risco"
+        }
+      ],
+      "oportunidade_eventos": [],
+      "timing_saida": {
+        "janela_otima": "Próximas 2h - Antes do evento",
+        "recomendacao": "Preparar saída parcial",
+        "evento_critico": "German Trade Balance",
+        "horas_restantes": 3.5
+      },
+      "ajustes_pre_evento": {
+        "ajuste_recomendado": "MANTER",
+        "justificativa": "Eventos isolados de risco (2 pontos)",
+        "acao_imediata": "Confirmar stops em posição"
+      }
+    },
+    {
+      "position_id": "pos_025",
+      "par": "EUR/USD",
+      "direcao": "SHORT",
+      "risco_eventos": [
+        {
+          "evento": "US Prelim UoM Consumer Sentiment",
+          "timestamp": "2025-11-07T12:00:00",
+          "moeda": "USD",
+          "impacto": "MODERATE",
+          "nivel_risco": 11.0,
+          "justificativa": "Evento afeta diretamente USD no par EUR/USD; Risco crítico - considerar saída parcial",
+          "recomendacao": "SAÍDA IMEDIATA - Risco crítico"
+        },
+        {
+          "evento": "German Trade Balance",
+          "timestamp": "2025-11-07T04:00:00",
+          "moeda": "EUR",
+          "impacto": "MODERATE",
+          "nivel_risco": 10,
+          "justificativa": "Evento afeta diretamente EUR no par EUR/USD; Risco crítico - considerar saída parcial",
+          "recomendacao": "SAÍDA IMEDIATA - Risco crítico"
+        },
+        {
+          "evento": "US Consumer Credit",
+          "timestamp": "2025-11-07T17:00:00",
+          "moeda": "USD",
+          "impacto": "LOW",
+          "nivel_risco": 8.0,
+          "justificativa": "Evento afeta diretamente USD no par EUR/USD; Risco crítico - considerar saída parcial",
+          "recomendacao": "SAÍDA IMEDIATA - Risco crítico"
+        },
+        {
+          "evento": "French Trade Balance",
+          "timestamp": "2025-11-07T04:45:00",
+          "moeda": "EUR",
+          "impacto": "LOW",
+          "nivel_risco": 7.0,
+          "justificativa": "Evento afeta diretamente EUR no par EUR/USD; Risco elevado - monitorar closely",
+          "recomendacao": "REDUZIR POSIÇÃO - Alto risco"
+        }
+      ],
+      "oportunidade_eventos": [
+        {
+          "evento": "US Prelim UoM Consumer Sentiment",
+          "timestamp": "2025-11-07T12:00:00",
+          "moeda": "USD",
+          "potencial_aceleracao": 0.8,
+          "cenarios_favoraveis": [
+            "Sentimento do consumidor EUA melhor que esperado pode beneficiar USD"
+          ],
+          "timing_otimo": "Pré-evento: 2h antes; Pós-evento: 4h após"
+        }
+      ],
+      "timing_saida": {
+        "janela_otima": "Próximas 2h - Antes do evento",
+        "recomendacao": "Preparar saída parcial",
+        "evento_critico": "German Trade Balance",
+        "horas_restantes": 3.5
+      },
+      "ajustes_pre_evento": {
+        "ajuste_recomendado": "REDUZIR 25%",
+        "justificativa": "Eventos moderados de risco (4 pontos)",
+        "acao_imediata": "Aumentar monitoramento"
+      }
+    },
+    {
+      "position_id": "pos_026",
+      "par": "GBP/JPY",
+      "direcao": "LONG",
+      "risco_eventos": [
+        {
+          "evento": "UK MPC Member Pill Speaks",
+          "timestamp": "2025-11-07T12:15:00",
+          "moeda": "GBP",
+          "impacto": "MODERATE",
+          "nivel_risco": 10,
+          "justificativa": "Evento afeta diretamente GBP no par GBP/JPY; Risco crítico - considerar saída parcial",
+          "recomendacao": "SAÍDA IMEDIATA - Risco crítico"
+        }
+      ],
+      "oportunidade_eventos": [
+        {
+          "evento": "UK MPC Member Pill Speaks",
+          "timestamp": "2025-11-07T12:15:00",
+          "moeda": "GBP",
+          "potencial_aceleracao": 1.4,
+          "cenarios_favoraveis": [
+            "Comentários dovish do MPC podem beneficiar GBP no carry trade"
+          ],
+          "timing_otimo": "Pré-evento: 2h antes; Pós-evento: 4h após"
+        }
+      ],
+      "timing_saida": {
+        "janela_otima": "Dentro de 12h - Antes do evento",
+        "recomendacao": "Manter posição, monitorar",
+        "evento_critico": "UK MPC Member Pill Speaks",
+        "horas_restantes": 11.8
+      },
+      "ajustes_pre_evento": {
+        "ajuste_recomendado": "MANTER",
+        "justificativa": "Eventos isolados de risco (2 pontos)",
+        "acao_imediata": "Confirmar stops em posição"
+      }
+    },
+    {
+      "position_id": "pos_027",
+      "par": "GBP/NZD",
+      "direcao": "SHORT",
+      "risco_eventos": [
+        {
+          "evento": "UK MPC Member Pill Speaks",
+          "timestamp": "2025-11-07T12:15:00",
+          "moeda": "GBP",
+          "impacto": "MODERATE",
+          "nivel_risco": 10,
+          "justificativa": "Evento afeta diretamente GBP no par GBP/NZD; Risco crítico - considerar saída parcial",
+          "recomendacao": "SAÍDA IMEDIATA - Risco crítico"
+        }
+      ],
+      "oportunidade_eventos": [
+        {
+          "evento": "UK MPC Member Pill Speaks",
+          "timestamp": "2025-11-07T12:15:00",
+          "moeda": "GBP",
+          "potencial_aceleracao": 1.4,
+          "cenarios_favoraveis": [
+            "Comentários dovish do MPC podem beneficiar GBP no carry trade"
+          ],
+          "timing_otimo": "Pré-evento: 2h antes; Pós-evento: 4h após"
+        }
+      ],
+      "timing_saida": {
+        "janela_otima": "Dentro de 12h - Antes do evento",
+        "recomendacao": "Manter posição, monitorar",
+        "evento_critico": "UK MPC Member Pill Speaks",
+        "horas_restantes": 11.8
+      },
+      "ajustes_pre_evento": {
+        "ajuste_recomendado": "MANTER",
+        "justificativa": "Eventos isolados de risco (2 pontos)",
+        "acao_imediata": "Confirmar stops em posição"
+      }
+    },
+    {
+      "position_id": "pos_028",
+      "par": "NZD/CAD",
+      "direcao": "LONG",
+      "risco_eventos": [
+        {
+          "evento": "Canada Employment Change & Unemployment",
+          "timestamp": "2025-11-07T10:30:00",
+          "moeda": "CAD",
+          "impacto": "HIGH",
+          "nivel_risco": 9.0,
+          "justificativa": "Evento de alto impacto pode causar volatilidade extrema; Evento afeta diretamente CAD no par NZD/CAD; Risco crítico - considerar saída parcial",
+          "recomendacao": "SAÍDA IMEDIATA - Risco crítico"
+        }
+      ],
+      "oportunidade_eventos": [],
+      "timing_saida": {
+        "janela_otima": "Dentro de 10h - Antes do evento",
+        "recomendacao": "Manter posição, monitorar",
+        "evento_critico": "Canada Employment Change & Unemployment",
+        "horas_restantes": 10.0
+      },
+      "ajustes_pre_evento": {
+        "ajuste_recomendado": "MANTER",
+        "justificativa": "Eventos isolados de risco (3 pontos)",
+        "acao_imediata": "Confirmar stops em posição"
+      }
+    },
+    {
+      "position_id": "pos_029",
+      "par": "NZD/CAD",
+      "direcao": "LONG",
+      "risco_eventos": [
+        {
+          "evento": "Canada Employment Change & Unemployment",
+          "timestamp": "2025-11-07T10:30:00",
+          "moeda": "CAD",
+          "impacto": "HIGH",
+          "nivel_risco": 9.0,
+          "justificativa": "Evento de alto impacto pode causar volatilidade extrema; Evento afeta diretamente CAD no par NZD/CAD; Risco crítico - considerar saída parcial",
+          "recomendacao": "SAÍDA IMEDIATA - Risco crítico"
+        }
+      ],
+      "oportunidade_eventos": [],
+      "timing_saida": {
+        "janela_otima": "Dentro de 10h - Antes do evento",
+        "recomendacao": "Manter posição, monitorar",
+        "evento_critico": "Canada Employment Change & Unemployment",
+        "horas_restantes": 10.0
+      },
+      "ajustes_pre_evento": {
+        "ajuste_recomendado": "MANTER",
+        "justificativa": "Eventos isolados de risco (3 pontos)",
+        "acao_imediata": "Confirmar stops em posição"
+      }
+    },
+    {
+      "position_id": "pos_030",
+      "par": "NZD/CHF",
+      "direcao": "LONG",
+      "risco_eventos": [],
+      "oportunidade_eventos": [],
+      "timing_saida": {
+        "janela_otima": "Sem eventos críticos próximos",
+        "recomendacao": "Manter posição até targets técnicos"
+      },
+      "ajustes_pre_evento": {
+        "ajuste_recomendado": "MANTER",
+        "justificativa": "Baixo risco de eventos próximos",
+        "acao_imediata": "Continuar estratégia normal"
+      }
+    },
+    {
+      "position_id": "pos_031",
+      "par": "USD/CHF",
+      "direcao": "LONG",
+      "risco_eventos": [
+        {
+          "evento": "US Prelim UoM Consumer Sentiment",
+          "timestamp": "2025-11-07T12:00:00",
+          "moeda": "USD",
+          "impacto": "MODERATE",
+          "nivel_risco": 11.0,
+          "justificativa": "Evento afeta diretamente USD no par USD/CHF; Risco crítico - considerar saída parcial",
+          "recomendacao": "SAÍDA IMEDIATA - Risco crítico"
+        },
+        {
+          "evento": "US Consumer Credit",
+          "timestamp": "2025-11-07T17:00:00",
+          "moeda": "USD",
+          "impacto": "LOW",
+          "nivel_risco": 8.0,
+          "justificativa": "Evento afeta diretamente USD no par USD/CHF; Risco crítico - considerar saída parcial",
+          "recomendacao": "SAÍDA IMEDIATA - Risco crítico"
+        }
+      ],
+      "oportunidade_eventos": [
+        {
+          "evento": "US Prelim UoM Consumer Sentiment",
+          "timestamp": "2025-11-07T12:00:00",
+          "moeda": "USD",
+          "potencial_aceleracao": 1.6,
+          "cenarios_favoraveis": [
+            "Sentimento do consumidor EUA melhor que esperado pode beneficiar USD"
+          ],
+          "timing_otimo": "Pré-evento: 2h antes; Pós-evento: 4h após"
+        }
+      ],
+      "timing_saida": {
+        "janela_otima": "Dentro de 12h - Antes do evento",
+        "recomendacao": "Manter posição, monitorar",
+        "evento_critico": "US Prelim UoM Consumer Sentiment",
+        "horas_restantes": 11.5
+      },
+      "ajustes_pre_evento": {
+        "ajuste_recomendado": "MANTER",
+        "justificativa": "Eventos isolados de risco (2 pontos)",
+        "acao_imediata": "Confirmar stops em posição"
+      }
+    },
+    {
+      "position_id": "pos_032",
+      "par": "XAU/USD",
+      "direcao": "LONG",
+      "risco_eventos": [
+        {
+          "evento": "US Prelim UoM Consumer Sentiment",
+          "timestamp": "2025-11-07T12:00:00",
+          "moeda": "USD",
+          "impacto": "MODERATE",
+          "nivel_risco": 11.0,
+          "justificativa": "Evento afeta diretamente USD no par XAU/USD; Risco crítico - considerar saída parcial",
+          "recomendacao": "SAÍDA IMEDIATA - Risco crítico"
+        },
+        {
+          "evento": "US Consumer Credit",
+          "timestamp": "2025-11-07T17:00:00",
+          "moeda": "USD",
+          "impacto": "LOW",
+          "nivel_risco": 8.0,
+          "justificativa": "Evento afeta diretamente USD no par XAU/USD; Risco crítico - considerar saída parcial",
+          "recomendacao": "SAÍDA IMEDIATA - Risco crítico"
+        }
+      ],
+      "oportunidade_eventos": [
+        {
+          "evento": "US Prelim UoM Consumer Sentiment",
+          "timestamp": "2025-11-07T12:00:00",
+          "moeda": "USD",
+          "potencial_aceleracao": 1.6,
+          "cenarios_favoraveis": [
+            "Sentimento do consumidor EUA melhor que esperado pode beneficiar USD"
+          ],
+          "timing_otimo": "Pré-evento: 2h antes; Pós-evento: 4h após"
+        }
+      ],
+      "timing_saida": {
+        "janela_otima": "Dentro de 12h - Antes do evento",
+        "recomendacao": "Manter posição, monitorar",
+        "evento_critico": "US Prelim UoM Consumer Sentiment",
+        "horas_restantes": 11.5
+      },
+      "ajustes_pre_evento": {
+        "ajuste_recomendado": "MANTER",
+        "justificativa": "Eventos isolados de risco (2 pontos)",
+        "acao_imediata": "Confirmar stops em posição"
+      }
+    },
+    {
+      "position_id": "pos_032",
+      "par": "USDJPY",
+      "direcao": "LONG",
+      "risco_eventos": [],
+      "oportunidade_eventos": [],
+      "timing_saida": {
+        "janela_otima": "Sem eventos críticos próximos",
+        "recomendacao": "Manter posição até targets técnicos"
+      },
+      "ajustes_pre_evento": {
+        "ajuste_recomendado": "MANTER",
+        "justificativa": "Baixo risco de eventos próximos",
+        "acao_imediata": "Continuar estratégia normal"
+      }
+    },
+    {
+      "position_id": "pos_033",
+      "par": "USD/JPY",
+      "direcao": "LONG",
+      "risco_eventos": [
+        {
+          "evento": "US Prelim UoM Consumer Sentiment",
+          "timestamp": "2025-11-07T12:00:00",
+          "moeda": "USD",
+          "impacto": "MODERATE",
+          "nivel_risco": 11.0,
+          "justificativa": "Evento afeta diretamente USD no par USD/JPY; Risco crítico - considerar saída parcial",
+          "recomendacao": "SAÍDA IMEDIATA - Risco crítico"
+        },
+        {
+          "evento": "US Consumer Credit",
+          "timestamp": "2025-11-07T17:00:00",
+          "moeda": "USD",
+          "impacto": "LOW",
+          "nivel_risco": 8.0,
+          "justificativa": "Evento afeta diretamente USD no par USD/JPY; Risco crítico - considerar saída parcial",
+          "recomendacao": "SAÍDA IMEDIATA - Risco crítico"
+        }
+      ],
+      "oportunidade_eventos": [
+        {
+          "evento": "US Prelim UoM Consumer Sentiment",
+          "timestamp": "2025-11-07T12:00:00",
+          "moeda": "USD",
+          "potencial_aceleracao": 1.6,
+          "cenarios_favoraveis": [
+            "Sentimento do consumidor EUA melhor que esperado pode beneficiar USD"
+          ],
+          "timing_otimo": "Pré-evento: 2h antes; Pós-evento: 4h após"
+        }
+      ],
+      "timing_saida": {
+        "janela_otima": "Dentro de 12h - Antes do evento",
+        "recomendacao": "Manter posição, monitorar",
+        "evento_critico": "US Prelim UoM Consumer Sentiment",
+        "horas_restantes": 11.5
+      },
+      "ajustes_pre_evento": {
+        "ajuste_recomendado": "MANTER",
+        "justificativa": "Eventos isolados de risco (2 pontos)",
+        "acao_imediata": "Confirmar stops em posição"
+      }
+    },
+    {
+      "position_id": "pos_034",
+      "par": "USD/JPY",
+      "direcao": "LONG",
+      "risco_eventos": [
+        {
+          "evento": "US Prelim UoM Consumer Sentiment",
+          "timestamp": "2025-11-07T12:00:00",
+          "moeda": "USD",
+          "impacto": "MODERATE",
+          "nivel_risco": 11.0,
+          "justificativa": "Evento afeta diretamente USD no par USD/JPY; Risco crítico - considerar saída parcial",
+          "recomendacao": "SAÍDA IMEDIATA - Risco crítico"
+        },
+        {
+          "evento": "US Consumer Credit",
+          "timestamp": "2025-11-07T17:00:00",
+          "moeda": "USD",
+          "impacto": "LOW",
+          "nivel_risco": 8.0,
+          "justificativa": "Evento afeta diretamente USD no par USD/JPY; Risco crítico - considerar saída parcial",
+          "recomendacao": "SAÍDA IMEDIATA - Risco crítico"
+        }
+      ],
+      "oportunidade_eventos": [
+        {
+          "evento": "US Prelim UoM Consumer Sentiment",
+          "timestamp": "2025-11-07T12:00:00",
+          "moeda": "USD",
+          "potencial_aceleracao": 1.6,
+          "cenarios_favoraveis": [
+            "Sentimento do consumidor EUA melhor que esperado pode beneficiar USD"
+          ],
+          "timing_otimo": "Pré-evento: 2h antes; Pós-evento: 4h após"
+        }
+      ],
+      "timing_saida": {
+        "janela_otima": "Dentro de 12h - Antes do evento",
+        "recomendacao": "Manter posição, monitorar",
+        "evento_critico": "US Prelim UoM Consumer Sentiment",
+        "horas_restantes": 11.5
+      },
+      "ajustes_pre_evento": {
+        "ajuste_recomendado": "MANTER",
+        "justificativa": "Eventos isolados de risco (2 pontos)",
+        "acao_imediata": "Confirmar stops em posição"
+      }
+    },
+    {
+      "position_id": "pos_035",
+      "par": "USD/JPY",
+      "direcao": "LONG",
+      "risco_eventos": [
+        {
+          "evento": "US Prelim UoM Consumer Sentiment",
+          "timestamp": "2025-11-07T12:00:00",
+          "moeda": "USD",
+          "impacto": "MODERATE",
+          "nivel_risco": 11.0,
+          "justificativa": "Evento afeta diretamente USD no par USD/JPY; Risco crítico - considerar saída parcial",
+          "recomendacao": "SAÍDA IMEDIATA - Risco crítico"
+        },
+        {
+          "evento": "US Consumer Credit",
+          "timestamp": "2025-11-07T17:00:00",
+          "moeda": "USD",
+          "impacto": "LOW",
+          "nivel_risco": 8.0,
+          "justificativa": "Evento afeta diretamente USD no par USD/JPY; Risco crítico - considerar saída parcial",
+          "recomendacao": "SAÍDA IMEDIATA - Risco crítico"
+        }
+      ],
+      "oportunidade_eventos": [
+        {
+          "evento": "US Prelim UoM Consumer Sentiment",
+          "timestamp": "2025-11-07T12:00:00",
+          "moeda": "USD",
+          "potencial_aceleracao": 1.6,
+          "cenarios_favoraveis": [
+            "Sentimento do consumidor EUA melhor que esperado pode beneficiar USD"
+          ],
+          "timing_otimo": "Pré-evento: 2h antes; Pós-evento: 4h após"
+        }
+      ],
+      "timing_saida": {
+        "janela_otima": "Dentro de 12h - Antes do evento",
+        "recomendacao": "Manter posição, monitorar",
+        "evento_critico": "US Prelim UoM Consumer Sentiment",
+        "horas_restantes": 11.5
+      },
+      "ajustes_pre_evento": {
+        "ajuste_recomendado": "MANTER",
+        "justificativa": "Eventos isolados de risco (2 pontos)",
+        "acao_imediata": "Confirmar stops em posição"
+      }
+    }
+  ],
+  "resumo_riscos": {
+    "total_riscos_identificados": 44,
+    "riscos_criticos": 36,
+    "posicoes_em_risco": 23,
+    "recomendacao_geral": "REDUZIR EXPOSIÇÃO"
+  },
+  "recomendacoes_gerais": [
+    "🔴 REDUZIR POSIÇÕES - Múltiplos eventos de alto risco próximos",
+    "🟢 MONITORAR OPORTUNIDADES - Eventos podem acelerar movimentos favoráveis",
+    "⏰ PRÓXIMO EVENTO CRÍTICO: China Trade Balance em -0.5h"
+  ]
+}

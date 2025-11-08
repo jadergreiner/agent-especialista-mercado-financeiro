@@ -1,0 +1,9 @@
+repos:
+  - repo: local
+    hooks:
+      - id: check-portugues-docs
+        name: Verificação de Português em documentação
+        entry: python scripts/check_portugues_docs.py
+        language: system
+        types: [markdown]
+        files: '^(README\.md|docs/.*\.md|\.github/.*\.md)$'

@@ -9,15 +9,18 @@ from datetime import datetime
 import time
 import sys
 import os
+from utils.terminal import limpar_tela
 
 if sys.platform == 'win32':
     import io
     sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 
 # DADOS DA POSIÇÃO
-CONTRATOS = 3
-PRECO_ENTRADA = 156045
-POSICAO = "COMPRA"
+# Observação: posição day trade encerrada ao final do dia.
+# Mantemos o monitor habilitado para contexto macro mesmo sem posição aberta.
+CONTRATOS = 0
+PRECO_ENTRADA = 0
+POSICAO = "FLAT"
 VALOR_PONTO = 0.20  # R$ por ponto do WIN
 
 def calcular_resultado(preco_atual):
@@ -91,17 +94,21 @@ def avaliar_cenario_macro():
 def main():
     print("🚀 MONITOR DE POSIÇÃO WIN - TRADER PROFISSIONAL")
     print("=" * 60)
-    print(f"📊 POSIÇÃO: {POSICAO} {CONTRATOS} contratos em {PRECO_ENTRADA:,}")
+    if CONTRATOS > 0 and POSICAO.upper() != "FLAT" and PRECO_ENTRADA > 0:
+        print(f"📊 POSIÇÃO: {POSICAO} {CONTRATOS} contratos em {PRECO_ENTRADA:,}")
+    else:
+        print("📊 POSIÇÃO: FLAT (sem contratos abertos)")
     print("=" * 60)
 
-    niveis = definir_niveis_gestao(PRECO_ENTRADA)
+    # Níveis de gestão somente quando houver posição aberta
+    niveis = definir_niveis_gestao(PRECO_ENTRADA) if CONTRATOS > 0 and POSICAO.upper() != "FLAT" and PRECO_ENTRADA > 0 else None
 
     tentativa = 0
 
     while True:
         try:
             tentativa += 1
-            os.system('cls' if os.name == 'nt' else 'clear')
+            limpar_tela()
 
             agora = datetime.now().strftime("%H:%M:%S")
 
@@ -120,42 +127,48 @@ def main():
 
             # Posição
             print(f"\n💰 POSIÇÃO ATUAL:")
-            print(f"   📈 {POSICAO}: {CONTRATOS} contratos @ {PRECO_ENTRADA:,}")
+            if CONTRATOS > 0 and POSICAO.upper() != "FLAT" and PRECO_ENTRADA > 0:
+                print(f"   📈 {POSICAO}: {CONTRATOS} contratos @ {PRECO_ENTRADA:,}")
 
-            if win_ok:
-                cor = "🟢" if pontos >= 0 else "🔴"
-                cor_resultado = "🟢" if resultado_total >= 0 else "🔴"
+                if win_ok:
+                    cor = "🟢" if pontos >= 0 else "🔴"
+                    cor_resultado = "🟢" if resultado_total >= 0 else "🔴"
 
-                print(f"   💲 WIN Atual: {win_preco:,} {cor} {pontos:+,} pts")
-                print(f"   💵 P&L Total: R$ {resultado_total:+,.2f} {cor_resultado}")
-                print(f"   📊 P&L/Contrato: R$ {resultado_total/CONTRATOS:+,.2f}")
+                    print(f"   💲 WIN Atual: {win_preco:,} {cor} {pontos:+,} pts")
+                    print(f"   💵 P&L Total: R$ {resultado_total:+,.2f} {cor_resultado}")
+                    # Evita divisão por zero
+                    if CONTRATOS > 0:
+                        print(f"   📊 P&L/Contrato: R$ {resultado_total/CONTRATOS:+,.2f}")
 
-                # Distâncias dos níveis
-                dist_stop = win_preco - niveis['stop']
-                dist_alvo1 = niveis['alvo_1'] - win_preco
-                dist_alvo2 = niveis['alvo_2'] - win_preco
+                    if niveis:
+                        # Distâncias dos níveis
+                        dist_stop = win_preco - niveis['stop']
+                        dist_alvo1 = niveis['alvo_1'] - win_preco
+                        dist_alvo2 = niveis['alvo_2'] - win_preco
 
-                print(f"\n🎯 NÍVEIS DE GESTÃO:")
-                print(f"   🛑 Stop Loss: {niveis['stop']:,} ({dist_stop:+,} pts)")
-                print(f"   🎯 Alvo 1: {niveis['alvo_1']:,} ({dist_alvo1:+,} pts)")
-                print(f"   🎯 Alvo 2: {niveis['alvo_2']:,} ({dist_alvo2:+,} pts)")
-                print(f"   🎯 Alvo 3: {niveis['alvo_3']:,} ({niveis['alvo_3']-win_preco:+,} pts)")
+                        print(f"\n🎯 NÍVEIS DE GESTÃO:")
+                        print(f"   🛑 Stop Loss: {niveis['stop']:,} ({dist_stop:+,} pts)")
+                        print(f"   🎯 Alvo 1: {niveis['alvo_1']:,} ({dist_alvo1:+,} pts)")
+                        print(f"   🎯 Alvo 2: {niveis['alvo_2']:,} ({dist_alvo2:+,} pts)")
+                        print(f"   🎯 Alvo 3: {niveis['alvo_3']:,} ({niveis['alvo_3']-win_preco:+,} pts)")
 
-                # Alertas
-                print(f"\n🔔 ALERTAS:")
-                if win_preco <= niveis['stop']:
-                    print(f"   ❌ STOP LOSS ATINGIDO! ZERAR POSIÇÃO!")
-                elif win_preco >= niveis['alvo_1']:
-                    print(f"   ✅ ALVO 1 ATINGIDO! Considerar parcial")
-                elif win_preco >= niveis['alvo_2']:
-                    print(f"   ✅ ALVO 2 ATINGIDO! Realizar lucros")
-                elif dist_alvo1 <= 200:
-                    print(f"   ⚠️ Próximo do Alvo 1 ({dist_alvo1} pts)")
+                        # Alertas
+                        print(f"\n🔔 ALERTAS:")
+                        if win_ok and niveis:
+                            if win_preco <= niveis['stop']:
+                                print(f"   ❌ STOP LOSS ATINGIDO! ZERAR POSIÇÃO!")
+                            elif win_preco >= niveis['alvo_1']:
+                                print(f"   ✅ ALVO 1 ATINGIDO! Considerar parcial")
+                            elif win_preco >= niveis['alvo_2']:
+                                print(f"   ✅ ALVO 2 ATINGIDO! Realizar lucros")
+                            elif dist_alvo1 <= 200:
+                                print(f"   ⚠️ Próximo do Alvo 1 ({dist_alvo1} pts)")
+                            else:
+                                print(f"   📊 Posição dentro da gestão normal")
                 else:
-                    print(f"   📊 Posição dentro da gestão normal")
-
+                    print(f"   ⚠️ WIN: Cotação não disponível (proxy IBOV)")
             else:
-                print(f"   ⚠️ WIN: Cotação não disponível (proxy IBOV)")
+                print("   📴 Sem posição aberta (FLAT)")
 
             # Cenário Macro
             print(f"\n🌍 CENÁRIO MACRO:")
@@ -184,10 +197,12 @@ def main():
 
         except KeyboardInterrupt:
             print(f"\n\n📊 RESUMO FINAL DA OPERAÇÃO:")
-            if win_ok:
+            if CONTRATOS > 0 and POSICAO.upper() != "FLAT" and PRECO_ENTRADA > 0 and win_ok:
                 print(f"   💰 Última cotação: {win_preco:,}")
                 print(f"   📊 Resultado final: R$ {resultado_total:+,.2f}")
                 print(f"   📈 Movimento: {pontos:+,} pts")
+            else:
+                print("   📴 Sem posição aberta no período (FLAT)")
             print(f"\n👋 Monitor encerrado. Boa operação!")
             break
         except Exception as e:

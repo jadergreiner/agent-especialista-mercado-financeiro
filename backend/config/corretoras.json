@@ -1,0 +1,19 @@
+{
+  "alpaca_paper": {
+    "tipo": "alpaca",
+    "api_key": "SEU_ALPACA_API_KEY",
+    "api_secret": "SEU_ALPACA_SECRET_KEY",
+    "base_url": "https://paper-api.alpaca.markets",
+    "paper_trading": true,
+    "timeout": 30,
+    "rate_limit": 200
+  },
+  "simulado": {
+    "tipo": "simulado",
+    "api_key": "simulado",
+    "api_secret": "simulado",
+    "paper_trading": true,
+    "timeout": 1,
+    "rate_limit": 1000
+  }
+}

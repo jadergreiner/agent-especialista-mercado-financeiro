@@ -1,0 +1,1 @@
+Erro na geração do playbook: invalid syntax (gerador_playbook_win.py, line 319)

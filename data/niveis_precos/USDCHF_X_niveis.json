@@ -1,0 +1,271 @@
+{
+  "ticker": "USDCHF=X",
+  "timestamp_calculo": "2025-11-07T00:17:46.800967",
+  "preco_atual": 0.80735,
+  "timeframes": {
+    "daily": {
+      "suporte_resistencia": {
+        "suportes": [
+          0.7857,
+          0.7874,
+          0.80672,
+          0.833,
+          0.83835,
+          0.8827
+        ],
+        "resistencias": [
+          0.81703,
+          0.90502,
+          0.91994,
+          0.92225
+        ]
+      },
+      "pivot_points": {
+        "pivot_point": 0.8069,
+        "resistencias": {
+          "R1": 0.80785,
+          "R2": 0.80836,
+          "R3": 0.80931
+        },
+        "suportes": {
+          "S1": 0.80639,
+          "S2": 0.80544,
+          "S3": 0.80493
+        }
+      },
+      "fibonacci": {
+        "swing_high": 0.81235,
+        "swing_low": 0.7857,
+        "retracements": {
+          "fib_000": 0.81235,
+          "fib_023": 0.80606,
+          "fib_038": 0.80217,
+          "fib_050": 0.79902,
+          "fib_061": 0.79588,
+          "fib_078": 0.7914,
+          "fib_100": 0.7857
+        }
+      },
+      "vwap": {
+        "vwap_geral": NaN,
+        "vwap_semanal": 0.80598,
+        "vwap_mensal": 0.7993
+      },
+      "volume_liquidez": {
+        "volume_medio_30d": 0.0,
+        "volume_atual": 0,
+        "ratio_volume": 0,
+        "zonas_liquidez": [
+          {
+            "preco": 0.7875,
+            "volume_relativo": NaN,
+            "ranking": 1
+          },
+          {
+            "preco": 0.7905,
+            "volume_relativo": NaN,
+            "ranking": 2
+          },
+          {
+            "preco": 0.793,
+            "volume_relativo": NaN,
+            "ranking": 3
+          },
+          {
+            "preco": 0.7955,
+            "volume_relativo": NaN,
+            "ranking": 4
+          },
+          {
+            "preco": 0.7985,
+            "volume_relativo": NaN,
+            "ranking": 5
+          }
+        ]
+      }
+    },
+    "4h": {
+      "suporte_resistencia": {
+        "suportes": [
+          0.78288,
+          0.78727,
+          0.7915,
+          0.79258,
+          0.79435,
+          0.79853,
+          0.79998
+        ],
+        "resistencias": [
+          0.7987,
+          0.80106,
+          0.8074,
+          0.8104
+        ]
+      },
+      "pivot_points": {
+        "pivot_point": 0.80694,
+        "resistencias": {
+          "R1": 0.80781,
+          "R2": 0.80827,
+          "R3": 0.80914
+        },
+        "suportes": {
+          "S1": 0.80648,
+          "S2": 0.80561,
+          "S3": 0.80515
+        }
+      },
+      "fibonacci": {
+        "swing_high": 0.81242,
+        "swing_low": 0.79247,
+        "retracements": {
+          "fib_000": 0.81242,
+          "fib_023": 0.80771,
+          "fib_038": 0.8048,
+          "fib_050": 0.80244,
+          "fib_061": 0.80009,
+          "fib_078": 0.79674,
+          "fib_100": 0.79247
+        }
+      },
+      "vwap": {
+        "vwap_geral": NaN,
+        "vwap_semanal": 0.80772,
+        "vwap_mensal": 0.8076
+      },
+      "volume_liquidez": {
+        "volume_medio_30d": 0.0,
+        "volume_atual": 0,
+        "ratio_volume": 0,
+        "zonas_liquidez": [
+          {
+            "preco": 0.78625,
+            "volume_relativo": NaN,
+            "ranking": 1
+          },
+          {
+            "preco": 0.78675,
+            "volume_relativo": NaN,
+            "ranking": 2
+          },
+          {
+            "preco": 0.78725,
+            "volume_relativo": NaN,
+            "ranking": 3
+          },
+          {
+            "preco": 0.78775,
+            "volume_relativo": NaN,
+            "ranking": 4
+          },
+          {
+            "preco": 0.78825,
+            "volume_relativo": NaN,
+            "ranking": 5
+          }
+        ]
+      }
+    },
+    "hourly": {
+      "suporte_resistencia": {
+        "suportes": [
+          0.78727,
+          0.79057,
+          0.79259,
+          0.79464,
+          0.79794
+        ],
+        "resistencias": [
+          0.79434,
+          0.7973,
+          0.79903,
+          0.80371,
+          0.8058,
+          0.8076,
+          0.81242
+        ]
+      },
+      "pivot_points": {
+        "pivot_point": 0.80725,
+        "resistencias": {
+          "R1": 0.8075,
+          "R2": 0.80765,
+          "R3": 0.8079
+        },
+        "suportes": {
+          "S1": 0.8071,
+          "S2": 0.80685,
+          "S3": 0.8067
+        }
+      },
+      "fibonacci": {
+        "swing_high": 0.81242,
+        "swing_low": 0.80566,
+        "retracements": {
+          "fib_000": 0.81242,
+          "fib_023": 0.81082,
+          "fib_038": 0.80984,
+          "fib_050": 0.80904,
+          "fib_061": 0.80824,
+          "fib_078": 0.80711,
+          "fib_100": 0.80566
+        }
+      },
+      "vwap": {
+        "vwap_geral": NaN,
+        "vwap_semanal": 0.80671,
+        "vwap_mensal": 0.80813
+      },
+      "volume_liquidez": {
+        "volume_medio_30d": 0.0,
+        "volume_atual": 0,
+        "ratio_volume": 0,
+        "zonas_liquidez": [
+          {
+            "preco": 0.7889,
+            "volume_relativo": NaN,
+            "ranking": 1
+          },
+          {
+            "preco": 0.78935,
+            "volume_relativo": NaN,
+            "ranking": 2
+          },
+          {
+            "preco": 0.7898,
+            "volume_relativo": NaN,
+            "ranking": 3
+          },
+          {
+            "preco": 0.79025,
+            "volume_relativo": NaN,
+            "ranking": 4
+          },
+          {
+            "preco": 0.7907,
+            "volume_relativo": NaN,
+            "ranking": 5
+          }
+        ]
+      }
+    }
+  },
+  "niveis_consolidados": {
+    "suportes_chave": [
+      0.79998,
+      0.80672,
+      0.833,
+      0.83835,
+      0.8827
+    ],
+    "resistencias_chave": [
+      0.81242,
+      0.81703,
+      0.90502,
+      0.91994,
+      0.92225
+    ],
+    "zona_atual": "NEUTRO",
+    "forca_niveis": "MEDIA"
+  }
+}

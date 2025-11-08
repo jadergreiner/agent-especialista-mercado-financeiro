@@ -1,0 +1,58 @@
+{
+  "titulo": "RELATÓRIO DE FECHAMENTO DE POSIÇÕES",
+  "data_geracao": "2025-11-07T00:37:04.848529",
+  "periodo": "Análise de Timing - Eventos Econômicos",
+  "contexto_timing": {
+    "total_riscos_criticos": 0,
+    "total_riscos_elevados": 0,
+    "eventos_analisados": 0
+  },
+  "fechamentos": [
+    {
+      "ticket": "5301566535",
+      "par": "EUR/CHF",
+      "direcao": "SHORT",
+      "swap": 0.1,
+      "profit": 1.49,
+      "total_realizado": 1.59,
+      "motivo": "Análise de timing - Risco crítico evento BCE",
+      "data_fechamento": "2025-11-07T00:37:04.845801"
+    },
+    {
+      "ticket": "5301566496",
+      "par": "EUR/USD",
+      "direcao": "LONG",
+      "swap": 0.03,
+      "profit": 0.2,
+      "total_realizado": 0.23,
+      "motivo": "Análise de timing - Risco crítico evento BCE",
+      "data_fechamento": "2025-11-07T00:37:04.845845"
+    }
+  ],
+  "metricas_fechamento": {
+    "total_posicoes_fechadas": 2,
+    "total_profit": 1.69,
+    "total_swap": 0.13,
+    "total_realizado": 1.82,
+    "pares_afetados": [
+      "EUR/USD",
+      "EUR/CHF"
+    ],
+    "direcoes_fechadas": [
+      "SHORT",
+      "LONG"
+    ]
+  },
+  "analise_impacto": {
+    "reducao_risco_euro": "Sim - Fechamento posições EUR/CHF SHORT e EUR/USD LONG conforme recomendação timing",
+    "alinhamento_estrategia": "Sim - Seguindo recomendações análise de eventos econômicos",
+    "preservacao_capital": "Sim - Realização de lucros em período de risco elevado",
+    "otimizacao_timing": "Sim - Saída antes de eventos de alto impacto (BCE)"
+  },
+  "recomendacoes_seguintes": [
+    "Monitorar impacto dos eventos econômicos no mercado",
+    "Reavaliar exposição EUR após divulgação dos dados",
+    "Considerar reentrada em posições EUR com timing otimizado",
+    "Atualizar análise de correlação após eventos"
+  ]
+}

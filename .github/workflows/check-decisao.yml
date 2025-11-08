@@ -1,0 +1,42 @@
+name: Verificar Decisões Referenciadas
+
+on:
+  pull_request:
+    types: [opened, edited, synchronize]
+
+jobs:
+  check-decisions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Verificar referência de decisão no PR para caminhos sensíveis
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const pr = context.payload.pull_request;
+            const prBody = (pr && pr.body) ? pr.body : '';
+            const changedFiles = await github.paginate(
+              github.rest.pulls.listFiles,
+              { owner: context.repo.owner, repo: context.repo.repo, pull_number: pr.number }
+            );
+
+            const sensitivePaths = [
+              'docs/governanca',
+              'docs/gestao-agil',
+              'backend/',
+              'models/',
+              'infra/',
+              'scripts/',
+              '.github/COPILOT_INSTRUCTIONS.md'
+            ];
+
+            const touchesSensitive = changedFiles.some(f => sensitivePaths.some(p => f.filename.startsWith(p)));
+            const hasDecision = /DECISAO-\d{3}/i.test(prBody);
+
+            if (touchesSensitive && !hasDecision) {
+              core.setFailed('PR altera caminhos sensíveis. É obrigatório referenciar o ID da decisão (ex: DECISAO-002) no corpo do PR. Adicione também checklist de conformidade.');
+            } else {
+              core.info('Check de decisão: OK.');
+            }

@@ -9,6 +9,14 @@ import json
 import yfinance as yf
 from datetime import datetime, timezone
 from typing import Dict, List, Optional, Tuple
+import os
+import sys
+
+# Garantir import de utilitários quando executado a partir da raiz do repo
+BASE_DIR = os.path.dirname(__file__)
+if BASE_DIR not in sys.path:
+    sys.path.append(BASE_DIR)
+
 from utils.feed_resolver import resolver_cotacao_ouro
 
 class GestorPortfolioAtualizado:
@@ -16,7 +24,9 @@ class GestorPortfolioAtualizado:
     Gestor de Portfolio com gates de segurança e validação obrigatória
     """
 
-    def __init__(self, caminho_portfolio: str = "data/portfolio/portfolio_atual.json"):
+    def __init__(self, caminho_portfolio: str = None):
+        if caminho_portfolio is None:
+            caminho_portfolio = os.path.join(BASE_DIR, "data", "portfolio", "portfolio_atual.json")
         self.caminho_portfolio = caminho_portfolio
         self.tickets_processados = set()
         self.carreguar_portfolio()
@@ -339,16 +349,10 @@ class GestorPortfolioAtualizado:
 
         # Executar analisador de risco diretamente
         try:
-            import os
-            import sys
-
-            # Adicionar path atual
-            sys.path.append(os.getcwd())
-
             # Importar e executar
-            from analisador_risco import AnalisadorRisco
+            from analisador_risco import AnalisadorRiscoPortfolio
 
-            analisador = AnalisadorRisco()
+            analisador = AnalisadorRiscoPortfolio(self.caminho_portfolio)
 
             # Obter exposições
             exposicoes = analisador.calcular_exposicao_cambial()
