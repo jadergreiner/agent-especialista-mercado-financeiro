@@ -66,7 +66,7 @@
 
   ```text
   Confiança Base = 100%
-  
+
   Penalizações:
   - Dados incompletos: -30% (relatórios não lidos)
   - Validação insuficiente: -20% (testes não rodados)
@@ -107,13 +107,13 @@
   # 1. Verificar arquivos de entrega
   ls backend/ENTREGA_US-*.md
   ls backend/CONCLUSAO_US-*.md
-  
+
   # 2. Verificar commits recentes
   git log --oneline --grep="US-PROMPT-003" -10
-  
+
   # 3. Rodar testes específicos
   python backend/teste_us_prompt_003.py
-  
+
   # 4. Grep no backlog
   grep "US-PROMPT-003" docs/gestao-agil/backlog.md
   ```
@@ -137,7 +137,7 @@
   # 1. Ver branch atual e últimos commits
   git branch --show-current
   git log --oneline -5
-  
+
   # 2. Ver status do working tree
   git status
   ```
@@ -147,7 +147,7 @@
   ```bash
   # 3. Ler relatório de progresso
   cat docs/gestao-agil/RELATORIO_PROGRESSO_DAY*.md | grep "US-PROMPT"
-  
+
   # 4. Verificar features completadas hoje
   ls -lt backend/ENTREGA_*.md | head -5
   ls -lt backend/CONCLUSAO_*.md | head -5
@@ -158,10 +158,10 @@
   ```bash
   # 5. Identificar próxima pendente no backlog
   grep -A 5 "PENDENTE" docs/gestao-agil/backlog.md | head -20
-  
+
   # 6. Verificar dependências satisfeitas
   grep -B 2 "Dependências:" docs/gestao-agil/backlog.md
-  
+
   # 7. Confirmar que não existe entrega
   ls backend/ENTREGA_US-PROMPT-004.md 2>/dev/null || echo "Feature pendente confirmada"
   ```
@@ -176,6 +176,53 @@
 - **Custo:** 5-10 min por feature
 - **ROI:** Previne 30+ min de retrabalho
 
+
+---
+
+### LA-015: Validação de Contexto Multi-Projeto em Documentação
+
+- **Data:** 2025-11-07
+- **Contexto:** Criação de ESTRUTURA_ORGANIZACIONAL.md sem verificar governança de projetos relacionados (Hub Financeiro Inteligente)
+- **Problema:**
+  - Documento criado sem consultar ATA_DIRETORIA_EXECUTIVA.md do Hub
+  - Estrutura organizacional incompleta (omitiu cargo de Presidente)
+  - Relação hierárquica entre projetos não documentada
+  - Confiança superestimada (90% quando deveria ser 60%)
+- **Impacto Observado:**
+  - Documento oficial incompleto desde criação
+  - Confusão sobre autoridade final (Presidente vs PO)
+  - Risco de decisões desalinhadas entre projetos
+  - Necessidade de correção imediata (2 commits no mesmo dia)
+- **Solução Proposta:** Checklist adicional para documentação organizacional:
+
+  ```bash
+  # 1. Identificar projetos relacionados
+  ls -d c:\repo\projetos\*
+
+  # 2. Buscar documentos de governança em TODOS os projetos
+  grep -r "Presidente\|Diretoria\|Governança\|ATA" */docs/**/*.md
+
+  # 3. Verificar se há estrutura formal superior
+  find . -name "*ATA*" -o -name "*DIRETORIA*" -o -name "*GOVERNANCA*"
+
+  # 4. Validar alinhamento hierárquico
+  # - Este projeto é independente ou módulo de outro?
+  # - Quem tem autoridade final de decisão?
+  # - Há reportes cruzados entre estruturas?
+  ```
+
+- **Penalidades Aplicadas à Confiança:**
+  - Dados incompletos (Hub não consultado): -20%
+  - Validação insuficiente (não busquei Presidente/ATA): -10%
+  - Contexto multi-projeto ignorado: -10%
+  - **Confiança Real:** 60% (não 90%)
+- **Novos Riscos Identificados:**
+  - **Risco 3:** Falta de alinhamento de governança entre projetos (MÉDIO)
+  - **Risco 4:** Ausência de Presidente documentado (BAIXO - mitigado)
+- **Status:** ✅ **IMPLEMENTADA** (documento corrigido v1.1)
+- **Prioridade:** 🟡 ALTA (previne desalinhamento estratégico)
+- **Aplicabilidade:** Documentação de estrutura/governança
+
 ---
 
 ## 📊 Resumo Executivo
@@ -183,11 +230,11 @@
 ### Lições por Criticidade
 
 - 🔴 **CRÍTICA:** 2 lições (LA-011, LA-012)
-- 🟡 **ALTA:** 2 lições (LA-013, LA-014)
+- 🟡 **ALTA:** 3 lições (LA-013, LA-014, LA-015)
 
 ### Status de Implementação
 
-- ✅ **IMPLEMENTADAS:** 3 (LA-011, LA-012, LA-013)
+- ✅ **IMPLEMENTADAS:** 4 (LA-011, LA-012, LA-013, LA-015)
 - 🔄 **PROPOSTAS:** 1 (LA-014)
 
 ### Impacto Esperado
@@ -196,6 +243,7 @@
 - **Melhoria de confiança:** +50-60 pontos (40%→90%)
 - **Economia de tempo:** 30+ min por feature
 - **Redução de risco:** Eliminação de duplicação e regressão
+- **Alinhamento estratégico:** Documentação multi-projeto consistente
 
 ---
 
@@ -205,9 +253,11 @@
 2. ✅ Usar LA-012 (calibração) em todas as análises
 3. ✅ Seguir LA-013 (sinais) para detectar trabalho completo
 4. 🔄 Aprovar LA-014 (sincronização) como processo padrão
+5. ✅ Aplicar LA-015 (multi-projeto) em docs organizacionais
 
 ---
 
-**Última Atualização:** 2025-11-07 22:00 UTC  
-**Responsável:** Engenheiro Senior (Autoavaliação)  
+**Última Atualização:** 2025-11-07 23:30 UTC
+**Responsável:** Engenheiro Senior (Autoavaliação)
 **Aprovação PO:** Pendente para LA-014
+
