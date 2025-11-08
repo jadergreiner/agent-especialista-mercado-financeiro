@@ -18,12 +18,12 @@ st.markdown("---")
 # Função para buscar dados da API
 def get_dashboard_data():
     try:
-        response = requests.get("http://localhost:8000/api/v1/dashboard/summary", timeout=5)
+        response = requests.get("http://localhost:8001/api/v1/dashboard/summary", timeout=5)
         response.raise_for_status()
         return response.json()
     except requests.exceptions.RequestException as e:
         st.error(f"Erro ao conectar com a API: {e}")
-        st.info("Certifique-se de que o backend está rodando: `python backend/api/dashboard.py`")
+        st.info("Certifique-se de que o backend está rodando: `uvicorn backend.api.dashboard:app --host 0.0.0.0 --port 8001 --reload`")
         return None
 
 # Buscar dados
