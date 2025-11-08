@@ -87,60 +87,101 @@
 
 ---
 
-### LA-013: Identificação de Sinais de Feature Já Executada
+### LA-013: Aprendizados da Autoavaliação de Análise
 
 - **Data:** 2025-11-07
-- **Contexto:** Feature estava completa mas não foi identificado antes de iniciar trabalho
-- **Problema:** Falta de sinais claros para detectar trabalho já concluído
-- **Solução Proposta:** Sinais que indicam feature COMPLETA:
-
-  1. ✅ **Arquivo `ENTREGA_US-*.md` existe** na pasta `backend/`
-  2. ✅ **Arquivo `CONCLUSAO_US-*.md` existe** na pasta `backend/`
-  3. ✅ **Relatório de progresso** marca feature como "DONE" ou "COMPLETADA"
-  4. ✅ **Testes específicos** da feature existem e estão passando
-  5. ✅ **Backlog** mostra "✅ COMPLETADO" no status da US
-  6. ✅ **Commits recentes** mencionam a US no histórico do git
-
-- **Checklist de Verificação:**
-
-  ```bash
-  # 1. Verificar arquivos de entrega
-  ls backend/ENTREGA_US-*.md
-  ls backend/CONCLUSAO_US-*.md
-
-  # 2. Verificar commits recentes
-  git log --oneline --grep="US-PROMPT-003" -10
-
-  # 3. Rodar testes específicos
-  python backend/teste_us_prompt_003.py
-
-  # 4. Grep no backlog
-  grep "US-PROMPT-003" docs/gestao-agil/backlog.md
-  ```
-
-- **Status:** ✅ **IMPLEMENTADA** (checklist criado)
-- **Prioridade:** 🟡 ALTA
-- **Aplicabilidade:** Todas as US do sprint
+- **Contexto:** Durante a autoavaliação de análise técnica para o roadmap e backlog, foram identificados gaps e oportunidades de melhoria.
+- **Problema:**
+  - Gaps não identificados previamente (e.g., Business Case, Onboarding, Riscos).
+  - Falta de métricas de sucesso claras para cada fase.
+  - Confiança inicial superestimada (90% ao invés de 80%).
+- **Impacto:**
+  - Planejamento incompleto pode levar a atrasos e retrabalho.
+  - Riscos não mapeados podem comprometer entregas futuras.
+  - Confiança desalinhada pode gerar decisões enviesadas.
+- **Solução Proposta:**
+  1. Incorporar validação contínua de gaps no planejamento.
+  2. Adicionar seção de riscos como padrão em todos os roadmaps.
+  3. Definir KPIs claros para cada sprint e fase.
+  4. Ajustar confiança com base em dados completos e validados.
+- **Impacto Esperado:**
+  - Redução de retrabalho e atrasos.
+  - Melhor previsibilidade e alinhamento estratégico.
+  - Decisões mais embasadas e confiáveis.
+- **Status:** ✅ **IMPLEMENTADA** (roadmap e backlog atualizados)
+- **Prioridade:** 🟡 ALTA (aplicável a todos os projetos futuros)
+- **Aplicabilidade:** Planejamento de roadmaps e backlogs futuros.
 
 ---
 
-### LA-014: Processo de Sincronização Pré-Execução
+
+### LA-014: Implementação de Governança Automatizada e Checks CI
+
+- **Data:** 2025-11-08
+- **Contexto:** Após a autoavaliação e atualização do backlog/roadmap, foram implementadas instruções obrigatórias ao Copilot, um arquivo machine-readable de decisões e um workflow CI para verificar conformidade em PRs.
+- **Problema:** Falta de mecanismo automático para garantir que decisões estratégicas (ex.: DECISAO-002) sejam referenciadas em mudanças críticas levou a riscos de inconsistência e desvios não autorizados.
+- **Solução Proposta:** Implementar políticas obrigatórias no repositório:
+  1. `.github/COPILOT_INSTRUCTIONS.md` com regras obrigatórias derivadas das decisões
+  2. `docs/governanca/decisoes/decisions.json` com decisões em formato machine-readable
+  3. Workflow GitHub Actions (`.github/workflows/check-decisao.yml`) que falha em PRs que alteram áreas sensíveis sem referência a `DECISAO-XXX`
+  4. Template de PR com checklist de conformidade e exemplo de PR
+  5. Criar processo de exceção formal e comunicar time
+- **Impacto Esperado:** Redução de riscos operacionais e alinhamento obrigatório entre decisões e implementações; bloqueio automático de merges não conformes.
+- **Status:** ✅ **IMPLEMENTADA** (arquivos e workflow criados)
+- **Prioridade:** 🔴 CRÍTICA (governança deve preceder mudanças sensíveis)
+- **Aplicabilidade:** Todas as equipes que atuam em áreas sensíveis (backend, infra, IA, docs de governança)
+
+
+### LA-015: Processo de Sincronização Pré-Execução
 
 - **Data:** 2025-11-07
 - **Contexto:** Execução de feature sem sincronização prévia com estado real do projeto
 - **Problema:** Falta de processo formal de sincronização antes de iniciar trabalho
 - **Solução Proposta:** Ritual de Sincronização (5-10 minutos):
 
-  **FASE 1: Contexto Geral (2 min)**
+**FASE 1: Contexto Geral (2 min)**
 
+```bash
+# 1. Ver branch atual e últimos commits
+git branch --show-current
+git log --oneline -5
+
+# 2. Ver status do working tree
+git status
+```
+
+**FASE 2: Status do Sprint (3 min)**
+
+```bash
+# 3. Ler relatório de progresso
+cat docs/gestao-agil/RELATORIO_PROGRESSO_DAY*.md | grep "US-PROMPT"
+
+# 4. Verificar features completadas hoje
+ls -lt backend/ENTREGA_*.md | head -5
+ls -lt backend/CONCLUSAO_*.md | head -5
+```
+
+**FASE 3: Próxima Feature (5 min)**
+
+```bash
+# 5. Identificar próxima pendente no backlog
+grep -A 5 "PENDENTE" docs/gestao-agil/backlog.md | head -20
+
+# 6. Verificar dependências satisfeitas
+grep -B 2 "Dependências:" docs/gestao-agil/backlog.md
+
+# 7. Confirmar que não existe entrega
+ls backend/ENTREGA_US-PROMPT-004.md 2>/dev/null || echo "Feature pendente confirmada"
+```
+
+- **Benefícios:**
+  - Evita duplicação de esforço
+  - Identifica bloqueadores cedo
   ```bash
-  # 1. Ver branch atual e últimos commits
   git branch --show-current
   git log --oneline -5
 
-  # 2. Ver status do working tree
   git status
-  ```
 
   **FASE 2: Status do Sprint (3 min)**
 
@@ -277,6 +318,70 @@
 
 ---
 
+### LA-017: Organização de Módulos por Persona e Valor (Não por Camada Técnica)
+
+- **Data:** 2025-11-07
+- **Contexto:** Discussão sobre estrutura de módulos do sistema focou inicialmente em camadas técnicas (frontend/backend/dados)
+- **Problema:**
+  - Organização técnica dificulta priorização de valor
+  - Backlog estruturado por camada horizontal (ex: "todo frontend", "todo backend")
+  - Cliente não vê valor até integração completa (múltiplos sprints)
+  - Difícil comunicar roadmap para stakeholders não-técnicos
+- **Solução Proposta:** Estrutura modular por **PERSONA** e **VALOR ENTREGUE**:
+
+  ```text
+  VISÃO CLIENTE (Investidor):
+  ├── Meu Home (dashboard consolidado)
+  ├── Forex (28 pares tempo real)
+  ├── Dividendos (renda variável BR)
+  ├── Criptomoedas (spot)
+  ├── Cripto Futuros (derivativos)
+  └── Renda Fixa (tesouro/CDB)
+
+  VISÃO ADMINISTRADOR (Gestão):
+  ├── Gestão Clientes
+  ├── Gestão Licenças
+  └── Gestão Financeira
+
+  VISÃO DESENVOLVEDOR (Infra):
+  ├── Motores de Cálculo
+  ├── Gestor de Regras
+  ├── Dashboard Padrão (template)
+  └── Relatório Padrão (scheduler)
+  ```
+
+- **Benefícios:**
+  - **Priorização clara:** "Forex P0, Dividendos P1" (linguagem de negócio)
+  - **Entrega vertical:** Cada módulo = frontend + backend + dados + docs + testes
+  - **Comunicação eficaz:** Stakeholder entende "Módulo Forex Sprint 2"
+  - **Roadmap visual:** Mermaid com 3 cores (Cliente/Admin/Dev)
+- **Metodologia de Entrega:**
+
+  ```text
+  US-CLIENTE-001: [Forex] Cotações Tempo Real
+  ├── Frontend: Lista 28 pares + WebSocket
+  ├── Backend: API + streaming + cache Redis
+  ├── Dados: Tabela + histórico + índices
+  ├── Docs: Tutorial + API docs + troubleshooting
+  ├── Testes: E2E + unit + integration + performance
+  └── Produção: Deploy + feature flag + monitoring
+
+  = Cliente USA em produção ao final do sprint!
+  ```
+
+- **Comparação com Abordagem Horizontal (Errada):**
+  - ❌ Sprint 1: Todo frontend Forex (sem backend = não funciona)
+  - ❌ Sprint 2: Todo backend Forex (sem integração)
+  - ❌ Sprint 3: Banco de dados
+  - ❌ Sprint 4-5: Integração e bugs
+  - ❌ Sprint 6: Cliente finalmente vê valor (6 sprints!)
+  - ✅ vs 1 sprint na abordagem vertical
+- **Status:** ✅ **IMPLEMENTADA** (proposta documentada)
+- **Prioridade:** 🟡 ALTA (impacta toda estrutura de backlog)
+- **Aplicabilidade:** Organização de backlog, roadmap, comunicação com stakeholders
+
+---
+
 ## �📊 Resumo Executivo
 
 ### Lições por Criticidade
@@ -364,7 +469,7 @@
   ├── Docs: Tutorial + API docs + troubleshooting
   ├── Testes: E2E + unit + integration + performance
   └── Produção: Deploy + feature flag + monitoring
-  
+
   = Cliente USA em produção ao final do sprint!
   ```
 
@@ -420,4 +525,46 @@
 **Última Atualização:** 2025-11-07 23:55 UTC
 **Responsável:** Engenheiro Senior (Autoavaliação + Ajustes)
 **Aprovação PO:** Pendente para LA-014
+
+---
+
+### LA-018: Métricas de Adoção de Governança e Feedback
+
+- **Data:** 2025-11-08
+- **Contexto:** Após implementação inicial das políticas de governança e do workflow CI, foi identificado que falta monitoramento contínuo para avaliar adoção e efetividade.
+- **Problema:**
+  - Sem métricas automáticas, não há visibilidade sobre adoção ou regressões relacionadas a compliance.
+  - Treinamentos podem ocorrer, mas sem dados de participação e impacto.
+- **Solução Proposta:**
+  1. Implementar scripts que coletem semanalmente:
+     - Percentual de PRs que citam decisões (e.g., DECISAO-002)
+     - Percentual de PRs que utilizam o template padrão
+     - Contagem e categoria de exceções abertas
+     - Tempo médio de aprovação de exceções
+     - Taxa de participação em sessões de treinamento
+  2. Expor as métricas em dashboard (Metabase/Grafana) com relatórios semanais e alertas para queda de adesão.
+  3. Revisão semanal no ritual do Tech Lead com ações corretivas registradas no backlog (DT-014).
+- **Impacto Esperado:** Visibilidade operacional, correção rápida de gaps e prova de eficiência do treinamento.
+- **Status:** 🔄 PROPOSTA (scripts iniciais em desenvolvimento)
+- **Prioridade:** 🔴 CRÍTICA
+- **Responsável:** Engenheiro Senior + DevOps
+
+---
+
+### LA-019: Autoavaliação Sistemática de Análises Técnicas
+
+- **Data:** 2025-11-08
+- **Contexto:** Após autoavaliação da análise de docs mestres (roadmap, backlog, proposta estratégica, lições aprendidas), identificados gaps em completude e calibração de confiança.
+- **Problema:**
+  - Gaps em dados quantitativos (métricas de PRs, feedback do time) não considerados, levando a confiança superestimada.
+  - Riscos adicionais não mapeados (dependência de aprovações, conflitos entre velocidade e governança, escopo creep).
+  - Análise macro consistente, mas confiança ajustada de 80% para 70% devido à falta de validação prática.
+- **Solução Proposta:**
+  - Implementar checklist obrigatório de autoavaliação para TODAS as análises: completude (dados considerados?), consistência (alinhamento macro-técnico?), riscos omitidos (lista adicional), confiança calibrada (ajuste baseado em qualidade de dados).
+  - Adicionar seção de métricas quantitativas no backlog para rastrear adoção prática.
+  - Estruturar oportunidade nova: FEAT-005 - Dashboard de Métricas de Governança (vertical slice para visualizar PRs, templates, treinamentos).
+- **Impacto:** Previne decisões enviesadas, reduz riscos não mapeados, aumenta precisão de confiança.
+- **Status:** ✅ **IMPLEMENTADA** (lição registrada; checklist proposto)
+- **Prioridade:** 🔴 CRÍTICA (essencial para qualidade de decisões)
+- **Aplicabilidade:** TODAS as análises futuras
 

@@ -1,8 +1,8 @@
 # Definition of Done (DoD) & WIP Limits - Agent Especialista
 
-**Versão:** 2.0  
-**Data:** 2025-11-07  
-**Aprovado por:** PO + Tech Lead + Scrum Master  
+**Versão:** 2.0
+**Data:** 2025-11-07
+**Aprovado por:** PO + Tech Lead + Scrum Master
 **Status:** ✅ Oficial (substitui DoD anterior)
 
 ---
@@ -170,8 +170,8 @@ US só entra em Planning se:
 ```markdown
 ## US-XXX: [Título 1 Linha]
 
-**Como** [persona]  
-**Quero** [funcionalidade]  
+**Como** [persona]
+**Quero** [funcionalidade]
 **Para** [valor/benefício]
 
 ### Critérios de Aceitação (Gherkin)

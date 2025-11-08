@@ -1,8 +1,33 @@
 # 🗓️ Roadmap: Débito Técnico → MVP Production-Ready
 
-**Versão:** 1.0  
-**Data:** 2025-11-07  
+**Versão:** 1.0
+**Data:** 2025-11-07
 **Objetivo:** Transformar Agent Especialista de monolito SQLite em arquitetura modular production-ready
+
+---
+
+## 📊 MÉTRICAS DE ACOMPANHAMENTO DE GOVERNANÇA E TREINAMENTO
+
+**Status:** Pendente de aprovação formal dos stakeholders
+
+- Percentual de PRs referenciando decisões (DECISAO-002)
+- Percentual de adesão ao template de PR
+- Participação em sessões de treinamento
+- Feedback do time sobre novas regras
+- Número de exceções registradas
+- Tempo médio para aprovação de exceções
+
+---
+
+## ⚠️ STATUS DE APROVAÇÃO FORMAL
+
+> As iniciativas estratégicas deste roadmap estão aguardando validação formal dos seguintes stakeholders:
+
+> - Presidente (Hub Financeiro Inteligente)
+> - Product Owner (Agent Especialista)
+> - Tech Lead
+> - CTO
+> - Diretor Financeiro
 
 ---
 
@@ -30,8 +55,8 @@
 📏 Naming: Padrão DDD (*_service.py, *_repository.py)
 ```
 
-**Timeline:** 8 sprints (16 semanas / 4 meses)  
-**Esforço:** 2 engenheiros fulltime  
+**Timeline:** 8 sprints (16 semanas / 4 meses)
+**Esforço:** 2 engenheiros fulltime
 **ROI:** Após resolução, velocidade aumenta 2-3x (menos rework, menos bugs)
 
 ---
@@ -39,6 +64,50 @@
 ## 🎯 FASE 1: FUNDAÇÃO (Sprints 1-3) - CRÍTICO
 
 **Objetivo:** Resolver bloqueadores P0 que impedem MVP escalar
+
+### Sprint 0-1: Governança e Conformidade (DT-012, DT-013)
+
+**Problema:**
+
+```text
+❌ Ausência de mecanismos automáticos que garantam que decisões estratégicas sejam aplicadas em mudanças críticas
+❌ Risco de alterações não conformes em áreas sensíveis (infra, modelos, docs de governança)
+```
+
+**Solução:**
+
+- Criar `.github/COPILOT_INSTRUCTIONS.md` (regras obrigatórias)
+- Adicionar `docs/governanca/decisoes/decisions.json` (machine-readable)
+- Implementar workflow CI para checar PRs e template de PR com checklist
+- Treinar time e documentar processo de exceção
+
+**Esforço:** 1 sprint (Governança rápida)
+**Prioridade:** 🔴 P0
+**Owner:** Tech Lead + PO
+
+---
+
+## Ajuste de Prioridade: FRONTEND-FIRST (Sprints 1-3)
+
+> Por determinação do PO/Presidência, priorizar entregas de frontend (entregas verticais) nas próximas sprints para demonstrar valor tangível a acionistas. A governança permanece obrigatória e será mantida em paralelo.
+
+### Sprint 1 (Entrega Rápida)
+
+- FEAT-001: MVP Dashboard Público (vertical slice) — Frontend mínimo + endpoint backend mínimo + testes básicos
+
+### Sprint 2 (Entrega Rápida)
+
+- FEAT-002: Lista de pares Forex (frontend) + backend mock
+- FEAT-003: Formulário de Demo / Abertura de Conta (fluxo mínimo)
+
+### Sprint 3 (Entrega Rápida)
+
+- FEAT-004: Painel de Feedback in-app + coleta de feedbacks para PO
+
+**Esforço:** 3 sprints (entregas visíveis semanais)
+**Prioridade:** 🔴 Muito Alta (demonstração de valor)
+**Notas:** Registrar aprovação formal da Presidência/PO em ata; manter compliance com DT-012/DT-013 em paralelo.
+
 
 ### Sprint 1-2: DT-001 - Backend Modularization
 
@@ -136,20 +205,20 @@ def test_portfolio_manager_happy_path(page: Page, auth_token: str):
     page.fill("#username", "gerente@fundo.com")
     page.fill("#password", "senha123")
     page.click("button:has-text('Entrar')")
-    
+
     # 2. Dashboard carrega com posições
     expect(page.locator("h1")).to_contain_text("Dashboard Executivo")
     expect(page.locator("#positions-table tr")).to_have_count(32)  # 32 posições mock
-    
+
     # 3. Gráfico P&L renderizado
     expect(page.locator("#pnl-chart")).to_be_visible()
     expect(page.locator("#pnl-chart .bar")).to_have_count(30)  # 30 dias
-    
+
     # 4. Recomendação IA aparece
     page.click("button:has-text('Gerar Recomendações')")
     expect(page.locator(".ai-recommendation")).to_contain_text("Fechar posição USDBRL")
     expect(page.locator(".confidence-score")).to_contain_text("92%")
-    
+
     # 5. Exportar relatório PDF
     with page.expect_download() as download_info:
         page.click("button:has-text('Exportar PDF')")
@@ -368,11 +437,11 @@ def calcular_risco_portfolio(posicoes: List[Position], volatilidade_mercado: flo
     """
     Calcula risco agregado do portfolio baseado em volatilidade individual
     e correlação entre ativos.
-    
+
     Args:
         posicoes: Lista de posições ativas do portfolio
         volatilidade_mercado: VIX ou índice equivalente (0-100)
-    
+
     Returns:
         Score de risco [0.0-1.0] onde 1.0 = risco extremo
     """
@@ -439,9 +508,9 @@ def test_calcular_risco_portfolio_baixo_quando_diversificado(risk_service):
         # ... 7 mais
     ]
     volatilidade = 15.0  # VIX baixo
-    
+
     score = risk_service.calcular_risco_portfolio(posicoes, volatilidade)
-    
+
     assert score < 0.3, "Portfolio diversificado deve ter risco baixo"
     assert score > 0.0, "Score nunca pode ser zero"
 
@@ -451,9 +520,9 @@ def test_calcular_risco_portfolio_alto_quando_concentrado(risk_service):
        Então retorna score >0.7 (alto risco)"""
     posicoes = [Position("BTCUSD", 10, 45000)]  # 100% crypto
     volatilidade = 80.0  # VIX alto
-    
+
     score = risk_service.calcular_risco_portfolio(posicoes, volatilidade)
-    
+
     assert score > 0.7, "Portfolio concentrado + volatilidade alta = risco extremo"
 ```
 
@@ -465,11 +534,11 @@ def test_calcular_risco_portfolio_alto_quando_concentrado(risk_service):
 async def test_criar_portfolio_persiste_no_banco(db_session, tenant_id):
     """Testa fluxo completo: criar portfolio → salvar BD → recuperar"""
     service = PortfolioService(db_session)
-    
+
     # Criar
     portfolio = await service.criar_portfolio(tenant_id, "Fundo Agressivo")
     assert portfolio.id is not None
-    
+
     # Recuperar
     portfolio_bd = await service.buscar_portfolio(portfolio.id)
     assert portfolio_bd.nome == "Fundo Agressivo"
@@ -490,7 +559,7 @@ def test_calcular_risco_com_volatilidade_negativa_levanta_erro(risk_service):
         risk_service.calcular_risco_portfolio([], volatilidade=-10)
 ```
 
-8. [ ] Property-based testing para funções matemáticas (Hypothesis):
+8. Property-based testing para funções matemáticas (Hypothesis):
 
 ```python
 from hypothesis import given, strategies as st
@@ -505,14 +574,14 @@ def test_calcular_valor_posicao_sempre_positivo(quantidade, preco):
     assert valor > 0
 ```
 
-9. [ ] Mutation testing (verificar se testes realmente detectam bugs):
+9. Mutation testing (verificar se testes realmente detectam bugs):
 
 ```bash
 pip install mutpy
 mutpy --target backend/modules/portfolio_intelligence --unit-test tests/ --report-html htmlmut
 ```
 
-10. [ ] Atualizar DoD: "Coverage >80% ou justificar no PR"
+10. Atualizar DoD: "Coverage >80% ou justificar no PR"
 
 **Critérios de Sucesso:**
 
@@ -601,7 +670,7 @@ app.openapi = custom_openapi
           - Calcula risco agregado (correlações + volatilidade)
           - Gera recomendações IA acionáveis
           - Retorna alertas preditivos
-          
+
           **Exemplo de uso:**
           ```bash
           curl -X POST https://api.agentfinanceiro.com/api/v1/portfolios/123/analysis \
@@ -678,7 +747,6 @@ POST https://seu-servidor.com/webhooks
   "risk_score": 0.85,
   "timestamp": "2025-11-07T10:30:00Z"
 }
-```
 ```
 
 5. [ ] Publicar docs em URL pública (`docs.agentfinanceiro.com`)
@@ -842,11 +910,11 @@ import structlog
 logger = structlog.get_logger()
 
 async def analisar_portfolio(portfolio_id: str):
-    logger.info("iniciando_analise_portfolio", 
-                portfolio_id=portfolio_id, 
+    logger.info("iniciando_analise_portfolio",
+                portfolio_id=portfolio_id,
                 tenant_id=current_tenant.id,
                 user_id=current_user.id)
-    
+
     try:
         analise = await service.analisar(portfolio_id)
         logger.info("analise_portfolio_concluida",
@@ -885,7 +953,7 @@ groups:
         annotations:
           summary: "Taxa de erro >5% por 2min"
           description: "{{ $value }}% requests retornando 5xx"
-      
+
       - alert: DatabaseDown
         expr: up{job="postgres"} == 0
         for: 1m
@@ -916,16 +984,16 @@ tracer = trace.get_tracer(__name__)
 async def analisar_portfolio(portfolio_id: str):
     with tracer.start_as_current_span("analisar_portfolio") as span:
         span.set_attribute("portfolio_id", portfolio_id)
-        
+
         with tracer.start_as_current_span("buscar_posicoes"):
             posicoes = await repo.buscar_posicoes(portfolio_id)
-        
+
         with tracer.start_as_current_span("calcular_risco"):
             risco = risk_service.calcular_risco(posicoes)
-        
+
         with tracer.start_as_current_span("gerar_recomendacoes_ia"):
             recomendacoes = await ia_service.gerar(posicoes, risco)
-        
+
         return PortfolioAnalysis(risco, recomendacoes)
 ```
 
@@ -991,6 +1059,77 @@ Error Rate: <0.1% requests retornam 5xx
 - ✅ 5 dashboards Grafana operacionais
 - ✅ Alertas Slack funcionando (teste com incidente simulado)
 - ✅ SLOs 99.9% uptime alcançado por 2 meses consecutivos
+
+---
+
+## 📘 APRENDIZADOS E MELHORIAS
+
+### Aprendizados da Autoavaliação
+
+1. **Completude:** Identificar gaps no início do planejamento evita retrabalho.
+2. **Consistência:** Alinhar análise macro com recomendações técnicas aumenta a clareza.
+3. **Riscos:** Mapear riscos por sprint melhora a previsibilidade.
+4. **Confiança:** Ajustar confiança com base em dados reduz incertezas.
+
+### Melhorias no Processo
+
+1. **Business Case:** Incorporar projeções de ROI em fases iniciais.
+2. **Onboarding:** Validar processos técnicos antes de escalar o time.
+3. **Riscos:** Adicionar seção de riscos como padrão em roadmaps futuros.
+
+---
+
+## 📈 NOVAS OPORTUNIDADES
+
+1. **Automação de Onboarding:** Estruturar automação como nova iniciativa no backlog.
+2. **Validação Contínua:** Implementar validações incrementais para evitar regressões.
+3. **Métricas de Sucesso:** Definir KPIs claros para cada sprint.
+
+---
+
+## 🔴 RISCOS IDENTIFICADOS
+
+### Sprint 1-2: Modularização Backend
+
+**Riscos:**
+
+1. **Regressões:** Refatoração pode introduzir bugs em funcionalidades existentes.
+2. **Capacitação:** Time pode não estar familiarizado com DDD.
+3. **Integração Contínua:** Falta de pipelines robustos pode atrasar validações.
+
+**Mitigação:**
+
+1. Implementar testes unitários e integração antes da refatoração.
+2. Realizar workshops internos sobre DDD.
+3. Priorizar configuração de pipelines CI/CD no início do sprint.
+
+---
+
+### Sprint 3-5: Cobertura de Testes e E2E
+
+**Riscos:**
+
+1. **Ferramentas:** Adaptação ao Playwright pode ser lenta.
+2. **Cobertura:** Testes podem não cobrir cenários críticos inicialmente.
+
+**Mitigação:**
+
+1. Criar guias rápidos para uso do Playwright.
+2. Priorizar cenários críticos no planejamento de testes.
+
+---
+
+### Sprint 6-8: Observabilidade e Auditoria
+
+**Riscos:**
+
+1. **Complexidade:** Configuração de Prometheus e Grafana pode ser demorada.
+2. **Alertas:** Alertas mal configurados podem gerar ruído excessivo.
+
+**Mitigação:**
+
+1. Usar templates prontos para configuração inicial.
+2. Validar alertas com base em dados históricos.
 
 ---
 

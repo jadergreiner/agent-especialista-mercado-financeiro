@@ -1,0 +1,4 @@
+{
+  "changedFiles": [".github/workflows/check-decisao.yml"],
+  "prBody": "Atualiza workflow sem referenciar decisão."
+}

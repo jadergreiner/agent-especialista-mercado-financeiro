@@ -1,7 +1,7 @@
 # Estrutura Organizacional - Agent Especialista Mercado Financeiro
 
-**Última Atualização:** 2025-11-07 23:30 UTC  
-**Versão:** 1.1  
+**Última Atualização:** 2025-11-07 23:30 UTC
+**Versão:** 1.1
 **Status:** Documento Oficial
 
 ---
@@ -92,16 +92,16 @@ Este projeto (**Agent Especialista Mercado Financeiro**) é um **módulo indepen
 
 ### Engenheiro A (Senior)
 
-**Trilha:** Prompt MVP  
-**Features:** US-PROMPT-001/002/003 ✅, US-PROMPT-004 ▶️  
+**Trilha:** Prompt MVP
+**Features:** US-PROMPT-001/002/003 ✅, US-PROMPT-004 ▶️
 **Performance:** Eficiência 640% (US-PROMPT-003: 2.5h vs 2d estimado)
 
 ---
 
 ### Engenheiro B (Senior)
 
-**Trilha:** Sprint Emergencial - Gestão de Risco  
-**Features:** US-RISCO-004, US-RISCO-005  
+**Trilha:** Sprint Emergencial - Gestão de Risco
+**Features:** US-RISCO-004, US-RISCO-005
 **Contexto:** Resposta a descoberta crítica (78% posições sem stop loss)
 
 ---
@@ -264,7 +264,7 @@ Este projeto (**Agent Especialista Mercado Financeiro**) é um **módulo indepen
 
 ---
 
-**Status:** ✅ Documento Oficial (Atualizado)  
-**Confiança:** 85% (baseado em evidências documentais + ATA Hub)  
+**Status:** ✅ Documento Oficial (Atualizado)
+**Confiança:** 85% (baseado em evidências documentais + ATA Hub)
 **Próxima Revisão:** Trimestral ou quando houver mudanças organizacionais
 
