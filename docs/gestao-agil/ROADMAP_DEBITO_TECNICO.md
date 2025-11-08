@@ -1309,4 +1309,6 @@ Sprint 7-8: ░░░░░░░░░░░░░░░░░░░░░░�
 
 > Observação: esta gate foi adicionada após autoavaliação (AUTOAVALIAÇÃO DA ANÁLISE) que identificou lacunas no plano de testes e evidências de aprovação formal.
 
+- **Documento de Test Plan:** `docs/gestao-agil/test-plan-presidente.md` (Test Plan mínimo para fluxos Presidente; implementado e anexado ao backlog AG-008)
+
 > Referência estratégica: `docs\\07-GOVERNANCA\\PROPOSTAS\\2025-11-07_PROPOSTA_REUNIAO_ESTRATEGICA.md`
