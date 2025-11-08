@@ -7,7 +7,7 @@ como 'name', 'email', 'cpf', 'ssn', 'document' por padrão.
 """
 from typing import Any
 from fastapi import Request
-from starlette.responses import Response, JSONResponse
+from fastapi.responses import JSONResponse
 import json
 import logging
 
@@ -33,6 +33,7 @@ def _mask_value(key: str, val: Any) -> Any:
     if any(x in k for x in ("name",)):
         return s[:1] + "***"
     if any(x in k for x in ("phone", "telefone")):
+        # manter apenas sufixo visível
         return "(*** ) " + s[-4:]
     # fallback: return original
     return val
@@ -64,33 +65,28 @@ def setup_masking_middleware(app):
             pass
         response = await call_next(request)
         try:
-            logger.debug("[masking] got response type=%s, media_type=%s", type(response), getattr(response, 'media_type', None))
+            rt = type(response).__name__
+            mt = getattr(response, "media_type", None)
+            logger.debug("[masking] got response type=%s media_type=%s", rt, mt)
         except Exception:
             pass
 
         # Tentativa genérica: renderizar a resposta e tentar parsear JSON; se for JSON, aplicar masking.
+        # Tentar renderizar a resposta; se for JSON, aplicar masking.
         try:
             rendered = response.render()
             if isinstance(rendered, (bytes, bytearray)):
                 rendered_text = rendered.decode(getattr(response, "charset", "utf-8") or "utf-8")
             else:
                 rendered_text = str(rendered)
+
+            # se não for JSON válido, retornamos a resposta original
             try:
                 content = json.loads(rendered_text)
             except Exception:
-                # não é JSON, retornar resposta original
                 return response
 
-            try:
-                logger.debug("[masking] parsed content keys (generic): %s", (list(content.keys()) if isinstance(content, dict) else type(content)))
-            except Exception:
-                pass
-
             masked = _mask_obj(content)
-            try:
-                logger.debug("[masking] masked sample (generic): %s", (masked.get('name') if isinstance(masked, dict) else None))
-            except Exception:
-                pass
             return JSONResponse(masked, status_code=response.status_code, headers=dict(response.headers))
         except Exception:
             logger.exception("[masking] generic masking failed")

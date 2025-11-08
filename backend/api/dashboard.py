@@ -13,6 +13,8 @@ import random
 from datetime import datetime, timedelta
 
 # Configurar logging estruturado em JSON
+
+
 class JSONFormatter(logging.Formatter):
     def format(self, record):
         log_entry = {
@@ -26,6 +28,7 @@ class JSONFormatter(logging.Formatter):
         if record.exc_info:
             log_entry["exception"] = self.formatException(record.exc_info)
         return json.dumps(log_entry)
+
 
 logger = logging.getLogger()
 handler = logging.StreamHandler()
@@ -85,6 +88,7 @@ except Exception:
 
 app.include_router(users_router)
 
+
 class Position(BaseModel):
     symbol: str
     quantity: float
@@ -92,6 +96,7 @@ class Position(BaseModel):
     current_price: float
     pnl: float
     pnl_percent: float
+
 
 class DashboardSummary(BaseModel):
     total_portfolio_value: float
@@ -101,10 +106,12 @@ class DashboardSummary(BaseModel):
     pnl_history: List[Dict[str, Any]]
     last_updated: str
 
+
 @app.get("/")
 async def root():
     """Endpoint raiz para health check."""
     return {"status": "ok", "message": "Dashboard API is running"}
+
 
 @app.get("/api/v1/dashboard/summary")
 async def get_dashboard_summary() -> DashboardSummary:
@@ -150,7 +157,11 @@ async def get_dashboard_summary() -> DashboardSummary:
 
         total_portfolio_value = sum(p.current_price * p.quantity for p in positions)
         total_pnl = sum(p.pnl for p in positions)
-        total_pnl_percent = (total_pnl / (total_portfolio_value - total_pnl)) * 100 if total_portfolio_value != total_pnl else 0
+        # Calcular percentual de P&L com proteção contra divisão por zero
+        if total_portfolio_value != total_pnl:
+            total_pnl_percent = (total_pnl / (total_portfolio_value - total_pnl)) * 100
+        else:
+            total_pnl_percent = 0
 
         # P&L histórico mock (últimos 30 dias)
         pnl_history = []
@@ -164,13 +175,14 @@ async def get_dashboard_summary() -> DashboardSummary:
                 "pnl_percent": ((pnl_value - base_value) / base_value) * 100
             })
 
+        last_updated_str = datetime.now().isoformat()
         return DashboardSummary(
             total_portfolio_value=round(total_portfolio_value, 2),
             total_pnl=round(total_pnl, 2),
             total_pnl_percent=round(total_pnl_percent, 2),
             positions=positions,
             pnl_history=pnl_history,
-            last_updated=datetime.now().isoformat()
+            last_updated=last_updated_str,
         )
     except Exception as e:
         print(f"Erro na API: {e}")
@@ -191,6 +203,7 @@ async def _test_user_info():
     # Aplicar masking diretamente para garantir resultado previsível nos testes
     masked = _mask_obj_for_tests(payload)
     return JSONResponse(masked)
+
 
 if __name__ == "__main__":
     import uvicorn
