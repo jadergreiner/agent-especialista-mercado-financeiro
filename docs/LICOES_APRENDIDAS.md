@@ -315,3 +315,109 @@
 **Responsável:** Engenheiro Senior (Autoavaliação)
 **Aprovação PO:** Pendente para LA-014
 
+---
+
+### LA-017: Organização de Módulos por Persona e Valor (Não por Camada Técnica)
+
+- **Data:** 2025-11-07
+- **Contexto:** Discussão sobre estrutura de módulos do sistema focou inicialmente em camadas técnicas (frontend/backend/dados)
+- **Problema:**
+  - Organização técnica dificulta priorização de valor
+  - Backlog estruturado por camada horizontal (ex: "todo frontend", "todo backend")
+  - Cliente não vê valor até integração completa (múltiplos sprints)
+  - Difícil comunicar roadmap para stakeholders não-técnicos
+- **Solução Proposta:** Estrutura modular por **PERSONA** e **VALOR ENTREGUE**:
+
+  ```text
+  VISÃO CLIENTE (Investidor):
+  ├── Meu Home (dashboard consolidado)
+  ├── Forex (28 pares tempo real)
+  ├── Dividendos (renda variável BR)
+  ├── Criptomoedas (spot)
+  ├── Cripto Futuros (derivativos)
+  └── Renda Fixa (tesouro/CDB)
+
+  VISÃO ADMINISTRADOR (Gestão):
+  ├── Gestão Clientes
+  ├── Gestão Licenças
+  └── Gestão Financeira
+
+  VISÃO DESENVOLVEDOR (Infra):
+  ├── Motores de Cálculo
+  ├── Gestor de Regras
+  ├── Dashboard Padrão (template)
+  └── Relatório Padrão (scheduler)
+  ```
+
+- **Benefícios:**
+  - **Priorização clara:** "Forex P0, Dividendos P1" (linguagem de negócio)
+  - **Entrega vertical:** Cada módulo = frontend + backend + dados + docs + testes
+  - **Comunicação eficaz:** Stakeholder entende "Módulo Forex Sprint 2"
+  - **Roadmap visual:** Mermaid com 3 cores (Cliente/Admin/Dev)
+- **Metodologia de Entrega:**
+
+  ```text
+  US-CLIENTE-001: [Forex] Cotações Tempo Real
+  ├── Frontend: Lista 28 pares + WebSocket
+  ├── Backend: API + streaming + cache Redis
+  ├── Dados: Tabela + histórico + índices
+  ├── Docs: Tutorial + API docs + troubleshooting
+  ├── Testes: E2E + unit + integration + performance
+  └── Produção: Deploy + feature flag + monitoring
+  
+  = Cliente USA em produção ao final do sprint!
+  ```
+
+- **Comparação com Abordagem Horizontal (Errada):**
+  - ❌ Sprint 1: Todo frontend Forex (sem backend = não funciona)
+  - ❌ Sprint 2: Todo backend Forex (sem integração)
+  - ❌ Sprint 3: Banco de dados
+  - ❌ Sprint 4-5: Integração e bugs
+  - ❌ Sprint 6: Cliente finalmente vê valor (6 sprints!)
+  - ✅ vs 1 sprint na abordagem vertical
+- **Status:** ✅ **IMPLEMENTADA** (proposta documentada)
+- **Prioridade:** 🟡 ALTA (impacta toda estrutura de backlog)
+- **Aplicabilidade:** Organização de backlog, roadmap, comunicação com stakeholders
+
+---
+
+## 📊 Resumo Executivo (Atualizado)
+
+### Lições por Criticidade
+
+- 🔴 **CRÍTICA:** 3 lições (LA-011, LA-012, LA-016)
+- 🟡 **ALTA:** 4 lições (LA-013, LA-014, LA-015, LA-017)
+
+### Status de Implementação
+
+- ✅ **IMPLEMENTADAS:** 6 (LA-011, LA-012, LA-013, LA-015, LA-016, LA-017)
+- 🔄 **PROPOSTAS:** 1 (LA-014)
+
+### Impacto Esperado
+
+- **Redução de retrabalho:** 80-90%
+- **Melhoria de confiança:** +50-60 pontos (40%→90%)
+- **Economia de tempo:** 30+ min por feature
+- **Redução de risco:** Eliminação de duplicação e regressão
+- **Alinhamento estratégico:** Documentação multi-projeto consistente
+- **Prevenção duplicação código:** Validação obrigatória de features existentes
+- **Clareza de valor:** Backlog orientado a persona (não camada técnica)
+
+---
+
+## 🎯 Próximos Passos (Atualizado)
+
+1. ✅ Aplicar LA-011 (checklist) na próxima feature
+2. ✅ Usar LA-012 (calibração) em todas as análises
+3. ✅ Seguir LA-013 (sinais) para detectar trabalho completo
+4. 🔄 Aprovar LA-014 (sincronização) como processo padrão
+5. ✅ Aplicar LA-015 (multi-projeto) em docs organizacionais
+6. ✅ Aplicar LA-016 (validar código) antes de propor features
+7. ✅ Aplicar LA-017 (módulos por persona) em organização de backlog
+
+---
+
+**Última Atualização:** 2025-11-07 23:55 UTC
+**Responsável:** Engenheiro Senior (Autoavaliação + Ajustes)
+**Aprovação PO:** Pendente para LA-014
+

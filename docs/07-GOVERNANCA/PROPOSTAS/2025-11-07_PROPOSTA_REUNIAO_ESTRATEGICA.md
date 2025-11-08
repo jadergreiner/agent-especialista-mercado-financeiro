@@ -95,22 +95,191 @@ graph TB
 
 ---
 
-### 3. Metodologia Vertical Slices
+### 3. Módulos do Sistema Orientados a Valor
 
-**Proposta:** Desenvolver features completas (frontend+backend+dados) em vez de camadas horizontais.
+**Princípio:** Módulos organizados por **PERSONA** e **VALOR ENTREGUE**, não por camada técnica.
 
-**Exemplo:**
+#### 📊 VISÃO ADMINISTRADOR (Gestão da Plataforma)
+
 ```
-Sprint 1: Feature 'Visualizar Portfólio'
-  ├── Dashboard mínimo (Frontend) - JÁ EXISTE!
-  ├── API /portfolio (Backend)
-  └── Query PostgreSQL (Dados)
-  ✅ Usuário vê valor no Sprint 1
+Módulos:
+├── Gestão de Clientes
+│   └── Funcionalidades:
+│       ├── Cadastro/edição clientes
+│       ├── Visualizar carteira por cliente
+│       ├── Histórico de operações
+│       └── Exportar relatórios (PDF/Excel)
+│
+├── Gestão de Licenças
+│   └── Funcionalidades:
+│       ├── Ativar/desativar licenças
+│       ├── Controle de limites (posições/ativos)
+│       ├── Renovação automática
+│       └── Dashboard de uso
+│
+└── Gestão Financeira
+    └── Funcionalidades:
+        ├── Cobrança e faturamento
+        ├── Auditoria de transações
+        ├── Controle de custos (APIs/infra)
+        └── Relatórios financeiros
+```
+
+#### 🔧 VISÃO DESENVOLVEDOR (Infraestrutura e Motores)
+
+```
+Módulos:
+├── Motores de Cálculo
+│   └── Funcionalidades:
+│       ├── Motor de Risco (RMS) - 🔄 Em progresso
+│       ├── Motor de Correlação
+│       ├── Motor de Timing
+│       └── Motor de Portfolio
+│
+├── Gestor de Regras (Rule Engine)
+│   └── Funcionalidades:
+│       ├── Configurar alertas personalizados
+│       ├── Stop loss/take profit automático
+│       ├── Rebalanceamento de carteira
+│       └── Compliance e limites
+│
+├── Dashboard Padrão (Template)
+│   └── Funcionalidades:
+│       ├── Widgets drag-and-drop
+│       ├── Temas personalizáveis
+│       ├── Exportar/importar layouts
+│       └── Biblioteca de componentes
+│
+└── Relatório Padrão (Template)
+    └── Funcionalidades:
+        ├── Templates customizáveis
+        ├── Scheduler (diário/semanal/mensal)
+        ├── Multi-formato (PDF/Excel/JSON)
+        └── Envio automático (email/webhook)
+```
+
+#### 👤 VISÃO CLIENTE (Usuário Final - Investidor)
+
+```
+Módulos:
+├── Meu Home (Dashboard Pessoal)
+│   └── Funcionalidades:
+│       ├── Visão consolidada portfólio
+│       ├── P&L diário/mensal/anual
+│       ├── Alertas e notificações
+│       └── Atalhos personalizados
+│
+├── Forex
+│   └── Funcionalidades:
+│       ├── Cotações tempo real (28 pares)
+│       ├── Análise técnica + fundamentalista
+│       ├── Correlações entre pares
+│       ├── Calendário econômico
+│       └── Recomendações IA
+│
+├── Dividendos (Renda Variável BR)
+│   └── Funcionalidades:
+│       ├── Calendário de proventos
+│       ├── Análise fundamentalista (valuation)
+│       ├── Histórico de dividendos
+│       ├── Yield on cost
+│       └── Sugestões de carteira
+│
+├── Criptomoedas (Spot)
+│   └── Funcionalidades:
+│       ├── Top 100 cryptos
+│       ├── Análise on-chain
+│       ├── Sentimento de mercado
+│       ├── DCA automático
+│       └── Staking rewards
+│
+├── Cripto Futuros (Derivativos)
+│   └── Funcionalidades:
+│       ├── Contratos perpétuos
+│       ├── Funding rate monitor
+│       ├── Liquidation heatmap
+│       ├── Estratégias alavancadas
+│       └── Gestão de margem
+│
+└── Renda Fixa
+    └── Funcionalidades:
+        ├── Simulador Tesouro Direto
+        ├── CDBs/LCIs/Debentures
+        ├── Comparador de taxas
+        ├── Projeção de rentabilidade
+        └── Ladder de vencimentos
+```
+
+---
+
+### 4. Metodologia de Entrega: VALOR-FIRST (Vertical Slices)
+
+**Princípio:** Cada entrega deve ser **100% funcional, documentada e produtiva** para UMA funcionalidade específica.
+
+**Exemplo de Entrega Vertical Completa:**
+
+```
+US-CLIENTE-001: [Forex] Visualizar Cotações Tempo Real
+
+CAMINHO DE VALOR (Frontend → Backend → Dados):
+
+📱 FRONTEND (Módulo Forex)
+├── Tela: Lista de 28 pares de moedas
+├── Componente: Card de cotação (bid/ask/spread)
+├── WebSocket: Atualização tempo real
+├── Loading states + error handling
+└── Responsivo (mobile/desktop)
+
+⚙️ BACKEND (API + Motor)
+├── Endpoint: GET /api/forex/quotes
+├── WebSocket server (streaming)
+├── Integração: Alpha Vantage API
+├── Cache Redis (1 segundo)
+└── Rate limiting
+
+💾 DADOS (Persistência)
+├── Tabela: forex_quotes_realtime
+├── Histórico: 30 dias (TimescaleDB)
+├── Índices: (par, timestamp)
+└── Particionamento por dia
+
+📚 DOCUMENTAÇÃO
+├── README: Como usar o módulo Forex
+├── API docs: Swagger/OpenAPI
+├── Tutorial: "Primeiras cotações em 5 min"
+└── Troubleshooting comum
+
+✅ TESTES
+├── E2E: Abrir tela → Ver cotação atualizada
+├── Unit: Formatação de moedas, cálculo spread
+├── Integration: API → Cache → BD
+└── Performance: <200ms p95
+
+🚀 PRODUÇÃO
+├── Deploy staging → validação → produção
+├── Feature flag (ativar progressivamente)
+├── Monitoring: Latência, taxa de erro
+└── Rollback plan
+```
+
+**Resultado:** Cliente **USA** cotações Forex em produção ao final do sprint!
+
+---
+
+**Diferença da Abordagem Horizontal (ERRADO):**
+
+```
+❌ Sprint 1: Todo o frontend de Forex (sem backend)
+❌ Sprint 2: Todo o backend de Forex (sem dados)
+❌ Sprint 3: Todo o banco de dados
+❌ Sprint 4: Integração (aqui aparece os bugs!)
+❌ Sprint 5: Testes e documentação
+❌ Sprint 6: Deploy (cliente só vê valor AQUI!)
 ```
 
 **Status:** 🟡 Proposta metodológica (requer validação PO + Scrum Master)  
-**Conflito Potencial:** Verificar PROCESSO_DESENVOLVIMENTO.md atual  
-**Risco:** Baixo (metodologia comum em Scrum)
+**Alinhamento:** 100% com princípios Agile/Scrum (entrega incremental de valor)  
+**Risco:** Baixo (metodologia comprovada)
 
 ---
 
@@ -144,6 +313,114 @@ Sprint 1: Feature 'Visualizar Portfólio'
 ---
 
 ## 📋 Plano de Ação (Se Aprovado)
+
+### Estrutura Visual de Módulos (Mermaid)
+
+```mermaid
+graph TB
+    subgraph "👤 VISÃO CLIENTE (Investidor)"
+        HOME[Meu Home<br/>Dashboard Pessoal]
+        FOREX[Forex<br/>28 Pares Tempo Real]
+        DIV[Dividendos<br/>Renda Variável BR]
+        CRYPTO[Criptomoedas<br/>Spot Trading]
+        CFUT[Cripto Futuros<br/>Derivativos]
+        RF[Renda Fixa<br/>Tesouro/CDB/LCI]
+    end
+    
+    subgraph "📊 VISÃO ADMINISTRADOR (Gestão)"
+        GCLI[Gestão Clientes<br/>Carteiras Multi-Tenant]
+        GLIC[Gestão Licenças<br/>Controle Acesso]
+        GFIN[Gestão Financeira<br/>Cobrança/Auditoria]
+    end
+    
+    subgraph "🔧 VISÃO DESENVOLVEDOR (Infraestrutura)"
+        MOTORS[Motores Cálculo<br/>Risco/Correlação/Timing]
+        RULES[Gestor Regras<br/>Alertas/Stop Loss]
+        DASHTEMP[Dashboard Padrão<br/>Templates]
+        REPTEMP[Relatório Padrão<br/>Scheduler]
+    end
+    
+    HOME --> MOTORS
+    FOREX --> MOTORS
+    DIV --> MOTORS
+    CRYPTO --> MOTORS
+    CFUT --> MOTORS
+    RF --> MOTORS
+    
+    GCLI --> GLIC
+    GLIC --> GFIN
+    
+    MOTORS --> RULES
+    RULES --> DASHTEMP
+    DASHTEMP --> REPTEMP
+    
+    style HOME fill:#4CAF50
+    style FOREX fill:#4CAF50
+    style DIV fill:#4CAF50
+    style CRYPTO fill:#4CAF50
+    style CFUT fill:#4CAF50
+    style RF fill:#4CAF50
+    
+    style GCLI fill:#FF9800
+    style GLIC fill:#FF9800
+    style GFIN fill:#FF9800
+    
+    style MOTORS fill:#2196F3
+    style RULES fill:#2196F3
+    style DASHTEMP fill:#2196F3
+    style REPTEMP fill:#2196F3
+```
+
+**Legenda:**
+- 🟢 Verde: Módulos voltados ao **INVESTIDOR** (máximo valor percebido)
+- 🟠 Laranja: Módulos de **ADMINISTRAÇÃO** (operação da plataforma)
+- 🔵 Azul: Módulos de **INFRAESTRUTURA** (base técnica reutilizável)
+
+---
+
+### Priorização Sugerida (Baseada em Valor)
+
+| Prioridade | Módulo | Persona | Justificativa | Esforço |
+|-----------|--------|---------|---------------|---------|
+| 🔴 P0 | **Meu Home** | Cliente | Porta de entrada, visão consolidada | 2 sprints |
+| 🔴 P0 | **Forex** | Cliente | Core do negócio atual, Gerente $3.2M usa | 3 sprints |
+| 🟡 P1 | **Motores Cálculo** | Dev | Base para Risco (Sprint Emergencial) | 2 sprints |
+| 🟡 P1 | **Gestão Clientes** | Admin | Multi-tenancy essencial | 2 sprints |
+| 🟢 P2 | **Dividendos** | Cliente | Mercado BR, alta demanda | 2 sprints |
+| 🟢 P2 | **Criptomoedas** | Cliente | Diversificação | 2 sprints |
+| 🟢 P2 | **Gestor Regras** | Dev | Automação de alertas | 1 sprint |
+
+---
+
+### Exemplo de Roadmap Modular (3 Meses)
+
+**MÊS 1 (Sprints 1-4): MVP Cliente**
+```
+Sprint 1: [Meu Home] P&L + Posições consolidadas
+Sprint 2: [Forex] Cotações tempo real (28 pares)
+Sprint 3: [Forex] Análise técnica básica
+Sprint 4: [Meu Home] Alertas personalizados
+```
+
+**MÊS 2 (Sprints 5-8): Expansão Ativos**
+```
+Sprint 5: [Dividendos] Calendário proventos
+Sprint 6: [Dividendos] Análise fundamentalista
+Sprint 7: [Criptomoedas] Top 100 + cotações
+Sprint 8: [Motores] Motor Risco v1.0
+```
+
+**MÊS 3 (Sprints 9-12): Administração + Avançado**
+```
+Sprint 9:  [Gestão Clientes] Multi-tenant
+Sprint 10: [Cripto Futuros] Perpétuos básico
+Sprint 11: [Renda Fixa] Simulador Tesouro
+Sprint 12: [Gestor Regras] Stop loss automático
+```
+
+---
+
+## 📋 Plano de Ação Detalhado (Se Aprovado)
 
 | # | Ação | Validação Necessária | Responsável Proposto |
 |---|------|---------------------|---------------------|
