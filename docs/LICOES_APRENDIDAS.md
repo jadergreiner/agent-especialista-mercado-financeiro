@@ -225,16 +225,68 @@
 
 ---
 
-## 📊 Resumo Executivo
+### LA-016: Validação de Código Existente Antes de Propor Novas Features
+
+- **Data:** 2025-11-07
+- **Contexto:** Simulação de reunião estratégica propôs US-DASH-001 (Dashboard Streamlit) sem verificar código existente
+- **Problema:**
+  - Dashboard Streamlit já existe (`backend/app_dashboard.py`, 236 linhas)
+  - Proposta de criar algo já implementado
+  - Geraria retrabalho e confusão se executado
+  - Simulação sem disclaimer de que era exercício, não decisão real
+- **Impacto Observado:**
+  - Risco de duplicação de código
+  - Perda de credibilidade (propor o que já existe)
+  - Tempo desperdiçado implementando funcionalidade existente
+  - Confusão sobre o que é real vs simulado
+- **Solução Proposta:** Checklist obrigatório antes de propor novas features:
+
+  ```bash
+  # 1. Buscar funcionalidade similar no código
+  grep -r "dashboard\|streamlit\|flask" backend/
+
+  # 2. Listar arquivos relevantes
+  ls -la backend/*dashboard* backend/*web*
+
+  # 3. Verificar se há ADR sobre decisão de stack
+  ls docs/03-REFERENCIAS/ADRs/ 2>/dev/null
+
+  # 4. Consultar backlog para features similares
+  grep -i "dashboard\|frontend\|gui" docs/gestao-agil/backlog.md
+
+  # 5. Ler README do módulo
+  cat backend/README.md 2>/dev/null
+  ```
+
+- **Penalidades à Confiança:**
+  - Código não validado: -20%
+  - Features duplicadas propostas: -15%
+  - Simulação sem disclaimer: -10%
+- **Disclaimer Obrigatório para Simulações:**
+  ```markdown
+  ⚠️ SIMULAÇÃO: Esta reunião é um EXERCÍCIO de estruturação de pensamento.
+  Todas as decisões são PROPOSTAS e requerem aprovação formal de:
+  - Presidente (decisões estratégicas)
+  - PO (priorização)
+  - Tech Lead (viabilidade técnica)
+  - CTO (arquitetura)
+  ```
+- **Status:** ✅ **IMPLEMENTADA** (checklist documentado)
+- **Prioridade:** � CRÍTICA (previne duplicação e confusão)
+- **Aplicabilidade:** Todas as propostas de novas features
+
+---
+
+## �📊 Resumo Executivo
 
 ### Lições por Criticidade
 
-- 🔴 **CRÍTICA:** 2 lições (LA-011, LA-012)
+- 🔴 **CRÍTICA:** 3 lições (LA-011, LA-012, LA-016)
 - 🟡 **ALTA:** 3 lições (LA-013, LA-014, LA-015)
 
 ### Status de Implementação
 
-- ✅ **IMPLEMENTADAS:** 4 (LA-011, LA-012, LA-013, LA-015)
+- ✅ **IMPLEMENTADAS:** 5 (LA-011, LA-012, LA-013, LA-015, LA-016)
 - 🔄 **PROPOSTAS:** 1 (LA-014)
 
 ### Impacto Esperado
@@ -244,6 +296,7 @@
 - **Economia de tempo:** 30+ min por feature
 - **Redução de risco:** Eliminação de duplicação e regressão
 - **Alinhamento estratégico:** Documentação multi-projeto consistente
+- **Prevenção duplicação código:** Validação obrigatória de features existentes
 
 ---
 
@@ -254,10 +307,11 @@
 3. ✅ Seguir LA-013 (sinais) para detectar trabalho completo
 4. 🔄 Aprovar LA-014 (sincronização) como processo padrão
 5. ✅ Aplicar LA-015 (multi-projeto) em docs organizacionais
+6. ✅ Aplicar LA-016 (validar código) antes de propor features
 
 ---
 
-**Última Atualização:** 2025-11-07 23:30 UTC
+**Última Atualização:** 2025-11-07 23:45 UTC
 **Responsável:** Engenheiro Senior (Autoavaliação)
 **Aprovação PO:** Pendente para LA-014
 
