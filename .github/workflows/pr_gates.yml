@@ -48,3 +48,14 @@ jobs:
       - name: Fail if Bandit finds MEDIUM/HIGH
         run: |
           python .github/scripts/check_bandit.py
+
+      - name: Install test dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f backend/requirements.txt ]; then pip install -r backend/requirements.txt; fi
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          pip install pytest fastapi starlette httpx
+
+      - name: Run unit tests (masking + audit)
+        run: |
+          pytest -q backend/tests/test_masking.py backend/tests/test_audit_middleware.py -q
