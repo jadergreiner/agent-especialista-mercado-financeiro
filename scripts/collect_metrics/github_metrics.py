@@ -37,7 +37,7 @@ def fetch_prs(owner: str, repo: str, state: str = "all", since_days: int = 30):
     while True:
         url = f"{GITHUB_API}/repos/{owner}/{repo}/pulls"
         params = {"state": state, "per_page": per_page, "page": page}
-        resp = requests.get(url, headers=gh_headers(), params=params)
+        resp = requests.get(url, headers=gh_headers(), params=params, timeout=10)
         resp.raise_for_status()
         data = resp.json()
         if not data:

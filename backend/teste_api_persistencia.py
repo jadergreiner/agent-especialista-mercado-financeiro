@@ -19,7 +19,7 @@ def testar_api_persistencia():
     # 1. Health Check
     print("\n1️⃣ Health Check:")
     try:
-        response = requests.get(f"{base_url}/api/health")
+        response = requests.get(f"{base_url}/api/health", timeout=10)
         print(f"   Status: {response.status_code}")
         print(f"   Resposta: {response.json()}")
     except Exception as e:
@@ -28,7 +28,7 @@ def testar_api_persistencia():
     # 2. Listar tipos de dados
     print("\n2️⃣ Tipos de dados disponíveis:")
     try:
-        response = requests.get(f"{base_url}/api/tipos-dado")
+        response = requests.get(f"{base_url}/api/tipos-dado", timeout=10)
         if response.status_code == 200:
             tipos = response.json()['tipos_dados']
             for tipo in tipos:
@@ -83,7 +83,7 @@ def testar_api_persistencia():
     ids_salvos = []
     for i, dados in enumerate(dados_teste):
         try:
-            response = requests.post(f"{base_url}/api/dados", json=dados)
+            response = requests.post(f"{base_url}/api/dados", json=dados, timeout=10)
             if response.status_code == 201:
                 result = response.json()
                 id_versao = result['id_versao']
@@ -98,7 +98,7 @@ def testar_api_persistencia():
     print(f"\n4️⃣ Carregando {len(ids_salvos)} registros salvos:")
     for i, id_versao in enumerate(ids_salvos):
         try:
-            response = requests.get(f"{base_url}/api/dados/{id_versao}")
+            response = requests.get(f"{base_url}/api/dados/{id_versao}", timeout=10)
             if response.status_code == 200:
                 dados = response.json()
                 print(f"   ✅ Carregado #{i+1}: {id_versao[:20]}...")
@@ -112,7 +112,7 @@ def testar_api_persistencia():
 
     # Busca por tipo
     try:
-        response = requests.get(f"{base_url}/api/buscar?tipo_dado=preco_ativo")
+        response = requests.get(f"{base_url}/api/buscar?tipo_dado=preco_ativo", timeout=10)
         if response.status_code == 200:
             result = response.json()
             print(f"   📊 Preços de ativos: {result['total']} encontrados")
@@ -121,7 +121,7 @@ def testar_api_persistencia():
 
     # Busca por tags
     try:
-        response = requests.get(f"{base_url}/api/buscar?tags=tech&tags=nasdaq")
+        response = requests.get(f"{base_url}/api/buscar?tags=tech&tags=nasdaq", timeout=10)
         if response.status_code == 200:
             result = response.json()
             print(f"   🏷️  Tags tech+nasdaq: {result['total']} encontrados")
@@ -131,7 +131,7 @@ def testar_api_persistencia():
     # 6. Estatísticas do sistema
     print(f"\n6️⃣ Estatísticas do sistema:")
     try:
-        response = requests.get(f"{base_url}/api/estatisticas")
+        response = requests.get(f"{base_url}/api/estatisticas", timeout=10)
         if response.status_code == 200:
             stats = response.json()['estatisticas']
 
@@ -155,7 +155,7 @@ def testar_api_persistencia():
     print(f"\n7️⃣ Testando arquivamento:")
     try:
         payload = {"dias_limite": 0}  # Arquivar tudo para teste
-        response = requests.post(f"{base_url}/api/arquivar", json=payload)
+        response = requests.post(f"{base_url}/api/arquivar", json=payload, timeout=10)
         if response.status_code == 200:
             result = response.json()['resultado_arquivamento']
             print(f"   📦 Arquivamento: {result.get('candidatos', 0)} candidatos, {result.get('arquivados', 0)} processados")
