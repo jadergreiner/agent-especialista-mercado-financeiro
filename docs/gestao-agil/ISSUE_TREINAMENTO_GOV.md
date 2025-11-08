@@ -9,20 +9,28 @@ Sessao pratica para apresentar as novas regras de governanca (DECISAO-002), temp
 
 **Local:** Teams / Zoom (link a definir)
 
+
 **Pauta:**
+
 - Motivacao e contexto das decisoes obrigatorias
 - Arquitetura dos artefatos (decisions.json, COPILOT_INSTRUCTIONS.md, workflow)
-- Demonstração pratica: PR que passa e PR que falha
+- Demonstracao pratica: PR que passa e PR que falha
 - Processo de excecao e registro
 - Q&A e proximos passos
 
+
+
 **Materiais:**
+
 - docs/governanca/EXEMPLO_PR_DEMO.md
 - docs/governanca/excecoes.md
 - docs/governanca/TREINAMENTO_COMUNICACAO.md
 - scripts/simulate_pr_check.ps1
 
+
+
 **Acoes:**
+
 - Confirmar data e participantes
 - Enviar comunicado oficial
 - Registrar feedback apos a sessao
