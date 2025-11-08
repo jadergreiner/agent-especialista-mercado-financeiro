@@ -1,0 +1,89 @@
+{
+  "timestamp_execucao": "2025-11-07T02:04:31.205673",
+  "portfolio_analisado": [
+    "AAPL",
+    "MSFT",
+    "GOOGL",
+    "TSLA",
+    "NVDA",
+    "META",
+    "AMZN",
+    "EURUSD=X",
+    "GBPUSD=X",
+    "USDJPY=X",
+    "USDCAD=X",
+    "USDCHF=X"
+  ],
+  "etapas_executadas": {
+    "avaliacao_assertividade": {
+      "avaliacoes_realizadas": 0,
+      "metricas": {
+        "erro": "Nenhuma avaliação encontrada nos últimos 30 dias"
+      },
+      "status": "concluida"
+    },
+    "analise_macro": {
+      "indicadores_coletados": 6,
+      "ambiente_macro": {
+        "score_macro": 0.5375,
+        "ambiente": "neutro",
+        "fatores": [
+          "VIX (Volatilidade) em alta (+8.3%)",
+          "Treasury 10Y em baixa (-1.5%)",
+          "S&P 500 em baixa (-1.1%)"
+        ],
+        "scores_componentes": {
+          "volatilidade": 0.6,
+          "juros": 0.7,
+          "moeda": 0.5,
+          "commodities": 0.55,
+          "equity": 0.2
+        }
+      },
+      "status": "concluida"
+    },
+    "identificacao_oportunidades": {
+      "total_identificadas": 0,
+      "status": "concluida"
+    },
+    "analise_niveis": {
+      "modelo_insights_treinado": true,
+      "estatisticas_gerais": {
+        "total_niveis": 40,
+        "niveis_validos": 1,
+        "taxa_sucesso_geral": 0.025,
+        "forca_media": 0.19200250000000002,
+        "f1_score_medio": 0.014624999999999999
+      },
+      "status": "concluida"
+    }
+  },
+  "oportunidades_identificadas": [],
+  "metricas_sistema": {
+    "timestamp_calculo": "2025-11-07T02:04:59.812801",
+    "portfolio_size": 12,
+    "sistemas_ativos": 6,
+    "status_sistemas": {
+      "avaliacao_assertividade": "concluida",
+      "analise_macro": "concluida",
+      "identificacao_oportunidades": "concluida",
+      "analise_niveis": "concluida"
+    },
+    "cobertura_portfolio": 0.0
+  },
+  "alertas_criticos": [
+    "⚠️ Nenhuma oportunidade qualificada identificada no momento"
+  ],
+  "recomendacoes_melhoria": [
+    "🔄 Executar ciclo de análise diariamente para máxima efetividade",
+    "📊 Monitorar métricas de assertividade semanalmente",
+    "🌐 Incorporar mais indicadores macro (spreads de crédito, fluxo de opções)",
+    "📈 Expandir análise para mais classes de ativos (forex, commodities)",
+    "🎯 Implementar backtesting contínuo para validação de estratégias",
+    "🤖 Considerar ML mais avançado para scoring de oportunidades",
+    "⚡ Implementar alertas em tempo real via webhooks",
+    "📱 Desenvolver dashboard interativo para visualização"
+  ],
+  "status_geral": "concluido_com_sucesso",
+  "tempo_execucao_segundos": 28.61
+}

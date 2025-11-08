@@ -1,0 +1,55 @@
+================================================================================
+💼 RELATÓRIO EXECUTIVO DO FUNDO
+================================================================================
+📅 Data: 07/11/2025 14:42:11
+
+📈 RESUMO DO PORTFÓLIO
+--------------------------------------------------
+💰 Capital Total: $100,000.00
+📊 Posições Ativas: 35
+💵 P&L Total: $+317,376.87 (+317.38%)
+   └─ Não Realizado: $+51,716.86
+   └─ Realizado: $+265,660.01
+💎 Exposição Total: $5,970,192.10
+⚖️  Alavancagem: 59.70x
+
+💱 EXPOSIÇÃO POR MOEDA
+------------------------------
+   XAU: +$3,983,250
+   USD: $-3,081,752
+   JPY: $-1,957,650
+   CHF: +$359,146
+   AUD: +$202,376
+
+⚠️  ANÁLISE DE RISCO
+--------------------------------------------------
+🔴 Nível de Alerta: ALTO
+📊 Concentração Máxima: 66.7% em XAU
+🔗 Correlação Máxima: 0.45
+📉 VaR (95%): $764.43
+
+🌐 COERÊNCIA MACROECONÔMICA
+--------------------------------------------------
+📊 VIX: 21.6 (Volatilidade MODERADA)
+💵 DXY: 99.5 (USD NEUTRO)
+🎯 Cenário: NEUTRO
+✅ Alinhamento: COERENTE
+
+🔗 ANÁLISE DE CORRELAÇÃO
+--------------------------------------------------
+⚠️  Exposições Redundantes: EUR, USD, CHF, JPY, AUD, CAD, NZD
+📊 Pares Únicos: 24
+
+💡 RECOMENDAÇÕES INTELIGENTES
+--------------------------------------------------
+📋 Gestão de Posições: 35 recomendações
+🆕 Novas Oportunidades: 1 identificadas
+🛡️  Gestão de Risco: 1 alertas
+⚖️  Balanceamento: 1 sugestões
+
+📄 Para detalhes completos, execute: gestor.recomendador.gerar_relatorio_recomendacoes(...)
+
+================================================================================
+⚠️  DISCLAIMER: Análise para fins educacionais.
+    Sempre considere seu perfil de risco antes de tomar decisões.
+================================================================================

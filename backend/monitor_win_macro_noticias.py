@@ -1,85 +1,53 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
 """
-Monitor WIN Completo - Preços + Macro + Notícias em Tempo Real
+Monitor WIN Completo - Preços + Macro + Notícias em Tempo Real (Refatorado)
 """
-import yfinance as yf
-from datetime import datetime, timedelta
-import time
 import sys
-import os
-import requests
-from bs4 import BeautifulSoup
-
 if sys.platform == 'win32':
     import io
     sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 
-class MonitorWINCompleto:
+from monitoramento.monitor_win_base import MonitorWinBase
+
+class MonitorWinMacroNoticias(MonitorWinBase):
     def __init__(self):
-        # Níveis de setup
-        self.entrada_compra = 155700
-        self.stop_compra = 155350
-        self.alvo1_compra = 156250
-
-        self.entrada_venda = 155200
-        self.stop_venda = 155550
-        self.alvo1_venda = 154500
-
-        # Cache de notícias (evitar requisições excessivas)
-        self.cache_noticias = []
-        self.ultima_busca_noticias = None
-
-        # Scoring macro
-        self.scoring_macro = {
-            'dol': 0,
-            'vale': 0,
-            'petr': 0,
-            'spx': 0,
-            'eem': 0,
-            'vix': 0,
-            'ouro': 0
+        niveis = {
+            'entrada_compra': 155700,
+            'stop_compra': 155350,
+            'alvo1_compra': 156250,
+            'entrada_venda': 155200,
+            'stop_venda': 155550,
+            'alvo1_venda': 154500
         }
+        ativos = ['WIN=F', 'USDBRL=X', 'VALE3.SA', 'PETR4.SA', '^GSPC', 'GC=F']
+        super().__init__(niveis=niveis, ativos=ativos)
+        self.scoring_macro = {k: 0 for k in ['dol','vale','petr','spx','eem','vix','ouro']}
 
-    def limpar_tela(self):
-        os.system('cls' if os.name == 'nt' else 'clear')
+    def buscar_cotacao_macro(self):
+        tickers = {
+            'dol': 'USDBRL=X',
+            'vale': 'VALE3.SA',
+            'petr': 'PETR4.SA',
+            'spx': '^GSPC',
+            'eem': 'EEM',
+            'vix': '^VIX',
+            'ouro': 'GC=F'
+        }
+        resultados = {}
+        for nome, ticker in tickers.items():
+            info = self.buscar_cotacao(ticker)
+            resultados[nome] = info
+            if info['ok']:
+                self._calcular_scoring(nome, info['var'])
+        return resultados
 
-    def buscar_cotacao(self, ticker, nome=""):
-        """Busca cotação e calcula scoring"""
-        try:
-            ativo = yf.Ticker(ticker)
-            dados = ativo.history(period='5d', interval='1d')
-            if len(dados) >= 2:
-                # Usar últimos 2 dias disponíveis
-                ontem = dados['Close'].iloc[-2]
-                atual = dados['Close'].iloc[-1]
-                var = ((atual / ontem) - 1) * 100
-
-                # Calcular scoring
-                if nome:
-                    self._calcular_scoring(nome, var, atual)
-
-                return {
-                    'ultimo': atual,
-                    'abertura': dados['Open'].iloc[-1],
-                    'maxima': dados['High'].iloc[-1],
-                    'minima': dados['Low'].iloc[-1],
-                    'variacao': var,
-                    'valido': True
-                }
-        except Exception as e:
-            return {'valido': False}
-
-    def _calcular_scoring(self, nome, variacao, valor=None):
-        """Calcula pontuação macro para cada indicador"""
+    def _calcular_scoring(self, nome, variacao):
         if nome == 'dol':
             if variacao < -0.5:
-                self.scoring_macro['dol'] = +1  # DOL caindo = bom para WIN
+                self.scoring_macro['dol'] = +1
             elif variacao > 0.5:
                 self.scoring_macro['dol'] = -1
             else:
                 self.scoring_macro['dol'] = 0
-
         elif nome == 'vale':
             if variacao > 1.0:
                 self.scoring_macro['vale'] = +1
@@ -87,7 +55,6 @@ class MonitorWINCompleto:
                 self.scoring_macro['vale'] = -1
             else:
                 self.scoring_macro['vale'] = 0
-
         elif nome == 'petr':
             if variacao > 1.0:
                 self.scoring_macro['petr'] = +1
@@ -95,9 +62,31 @@ class MonitorWINCompleto:
                 self.scoring_macro['petr'] = -1
             else:
                 self.scoring_macro['petr'] = 0
-
         elif nome == 'spx':
             if variacao > 0.3:
+                self.scoring_macro['spx'] = +1
+            elif variacao < -0.3:
+                self.scoring_macro['spx'] = -1
+            else:
+                self.scoring_macro['spx'] = 0
+        # Adicione regras para eem, vix, ouro conforme necessário
+
+    def exibir_macro(self, resultados):
+        print("\nResumo Macro:")
+        for nome, info in resultados.items():
+            print(f"{nome.upper()}: Preço {info['preco']:.2f} | Variação {info['var']:.2f}%")
+        print("Scoring Macro:", self.scoring_macro)
+
+def main():
+    monitor = MonitorWinMacroNoticias()
+    cotacoes = {ativo: monitor.buscar_cotacao(ativo) for ativo in monitor.ativos}
+    noticias = monitor.buscar_noticias()
+    macro = monitor.buscar_cotacao_macro()
+    monitor.exibir_resumo(cotacoes, noticias)
+    monitor.exibir_macro(macro)
+
+if __name__ == "__main__":
+    main()
                 self.scoring_macro['spx'] = +1
             elif variacao < -0.3:
                 self.scoring_macro['spx'] = -1

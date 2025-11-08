@@ -1,0 +1,19 @@
+{
+  "data_execucao": "2025-11-07T11:53:26.655139",
+  "status": "concluido",
+  "decisoes_executadas": [
+    "rebalanceamento_estrategico",
+    "sistema_stop_loss_aprimorado",
+    "oportunidade_win_futures",
+    "estrategias_alpha_generation",
+    "monitoramento_copom"
+  ],
+  "rebalanceamento": {
+    "nasdaq": -0.1,
+    "euro_stoxx": -0.05,
+    "bitcoin": 0.05,
+    "ouro": 0.18,
+    "petroleo": -0.15
+  },
+  "proxima_revisao": "2025-11-13"
+}

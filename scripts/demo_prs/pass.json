@@ -1,0 +1,4 @@
+{
+  "changedFiles": [".github/workflows/check-decisao.yml"],
+  "prBody": "Esta PR altera o workflow de checagem. Referência de decisão: DECISAO-002."
+}

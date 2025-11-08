@@ -1,0 +1,62 @@
+{
+  "timestamp_relatorio": "2025-11-07T01:42:36.391363",
+  "status_sistema": {
+    "status_geral": "OPERACIONAL",
+    "ultima_execucao": "2025-11-07T01:42:36.387997",
+    "subsistemas": {
+      "analisador_macro": true,
+      "detector_ml": true,
+      "sistema_tracking": true,
+      "sistema_aprendizado": true,
+      "sistema_alertas": true
+    },
+    "configuracao": {
+      "modo_operacao": "DESENVOLVIMENTO",
+      "intervalo_execucao_minutos": 30,
+      "max_oportunidades_por_execucao": 10
+    },
+    "timestamp_status": "2025-11-07T01:42:36.391387"
+  },
+  "metricas_performance": {
+    "resumo_geral": {
+      "total_avaliadas": 127,
+      "sucessos": 98,
+      "taxa_acerto_geral": 77.2
+    },
+    "analise_por_confianca": {
+      "MUITO_ALTA": {
+        "taxa_acerto": 89.5
+      },
+      "ALTA": {
+        "taxa_acerto": 78.2
+      },
+      "MEDIA": {
+        "taxa_acerto": 65.1
+      }
+    }
+  },
+  "relatorio_alertas": {
+    "resumo_geral": {
+      "total_alertas_gerados": 45,
+      "alertas_ativos": 12,
+      "taxa_execucao": 42.3
+    }
+  },
+  "sugestoes_melhoria": {
+    "total_sugestoes": 5,
+    "prioridade_implementacao": [
+      "MELHORIA_ACOES",
+      "CALIBRACAO_CONFIANCA",
+      "FEATURES_GERAIS"
+    ]
+  },
+  "resumo_executivo": {
+    "sistema_operacional": true,
+    "recomendacoes": [],
+    "pontos_atencao": [],
+    "sucessos": [
+      "Boa taxa de acerto: 77.2%",
+      "Boa taxa de execução de alertas: 42.3%"
+    ]
+  }
+}

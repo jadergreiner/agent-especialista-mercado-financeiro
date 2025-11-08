@@ -1,0 +1,51 @@
+{
+  "DECISAO-002": {
+    "id": "DECISAO-002",
+    "titulo": "Adotar GitHub Copilot Business como plataforma de IA",
+    "data": "2025-11-04",
+    "status": "APROVADO",
+    "aprovacao": {
+      "votos": 4,
+      "resultado": "100%"
+    },
+    "resumo": "Substituir uso direto de Azure OpenAI por GitHub Copilot Business para reduzir custos e obter múltiplos modelos aprovados.",
+    "impacto_financeiro": {
+      "economia_3_anos_usd": 39636,
+      "custo_github_copilot_y1_usd": 228,
+      "custo_azure_y1_usd": 1920
+    },
+    "regras_obrigatorias": [
+      "Não fixar um modelo único; testar múltiplos modelos em POCs (Sprints 1-4)",
+      "Seguir fallback para Azure OpenAI quando necessário",
+      "Implementar monitoramento (Prometheus + Grafana) e testes de carga (Sprint 4)",
+      "Não expor chaves em código; usar variáveis de ambiente"
+    ],
+    "models_aprovados": [
+      "Claude Sonnet 3.5",
+      "GPT-4o",
+      "Gemini 2.0 Flash",
+      "GPT-4o mini"
+    ],
+    "responsavel": "Comite de Decisões",
+    "documento_origem": "docs/governanca/decisoes/DECISAO-002-RESUMO-EXECUTIVO.md",
+    "obrigatorio": true
+  },
+  "DECISAO-001": {
+    "id": "DECISAO-001",
+    "titulo": "Unificacao dos projetos",
+    "data": "2025-10-XX",
+    "status": "APROVADO",
+    "resumo": "Decisão de unificar projetos para reduzir custos e consolidar recursos (referência no README de governança).",
+    "documento_origem": "docs/governanca/decisoes/DECISAO-001.md",
+    "obrigatorio": true
+  },
+  "DECISAO-003": {
+    "id": "DECISAO-003",
+    "titulo": "Framework de agents (LangChain + LlamaIndex)",
+    "data": "2025-11-04",
+    "status": "PROPOSTA",
+    "resumo": "Diretriz para adoção de framework de agents para orquestração de componentes de IA. Requer provas de conceito e validação operacional.",
+    "documento_origem": "docs/governanca/decisoes/DECISAO-003.md",
+    "obrigatorio": false
+  }
+}

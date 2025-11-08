@@ -1,0 +1,273 @@
+{
+  "ticker": "AUDNZD=X",
+  "timestamp_calculo": "2025-11-07T00:17:47.230021",
+  "preco_atual": 1.15125,
+  "timeframes": {
+    "daily": {
+      "suporte_resistencia": {
+        "suportes": [
+          0.99154,
+          1.05508,
+          1.06158,
+          1.0646,
+          1.0696,
+          1.0719,
+          1.07864,
+          1.09225,
+          1.1001
+        ],
+        "resistencias": [
+          1.08323,
+          1.09219,
+          1.09887,
+          1.10277,
+          1.10886,
+          1.11477,
+          1.11773
+        ]
+      },
+      "pivot_points": {
+        "pivot_point": 1.15064,
+        "resistencias": {
+          "R1": 1.15212,
+          "R2": 1.153,
+          "R3": 1.15448
+        },
+        "suportes": {
+          "S1": 1.14976,
+          "S2": 1.14828,
+          "S3": 1.1474
+        }
+      },
+      "fibonacci": {
+        "swing_high": 1.15151,
+        "swing_low": 1.1066,
+        "retracements": {
+          "fib_000": 1.15151,
+          "fib_023": 1.14091,
+          "fib_038": 1.13435,
+          "fib_050": 1.12906,
+          "fib_061": 1.12376,
+          "fib_078": 1.11621,
+          "fib_100": 1.1066
+        }
+      },
+      "vwap": {
+        "vwap_geral": NaN,
+        "vwap_semanal": 1.14591,
+        "vwap_mensal": 1.13771
+      },
+      "volume_liquidez": {
+        "volume_medio_30d": 0.0,
+        "volume_atual": 0,
+        "ratio_volume": 0,
+        "zonas_liquidez": [
+          {
+            "preco": 1.06,
+            "volume_relativo": NaN,
+            "ranking": 1
+          },
+          {
+            "preco": 1.0615,
+            "volume_relativo": NaN,
+            "ranking": 2
+          },
+          {
+            "preco": 1.063,
+            "volume_relativo": NaN,
+            "ranking": 3
+          },
+          {
+            "preco": 1.065,
+            "volume_relativo": NaN,
+            "ranking": 4
+          },
+          {
+            "preco": 1.067,
+            "volume_relativo": NaN,
+            "ranking": 5
+          }
+        ]
+      }
+    },
+    "4h": {
+      "suporte_resistencia": {
+        "suportes": [
+          1.1068,
+          1.11219,
+          1.1274,
+          1.12937
+        ],
+        "resistencias": [
+          1.11234,
+          1.11564,
+          1.1418,
+          1.14453
+        ]
+      },
+      "pivot_points": {
+        "pivot_point": 1.15065,
+        "resistencias": {
+          "R1": 1.15211,
+          "R2": 1.15297,
+          "R3": 1.15443
+        },
+        "suportes": {
+          "S1": 1.14979,
+          "S2": 1.14833,
+          "S3": 1.14747
+        }
+      },
+      "fibonacci": {
+        "swing_high": 1.15151,
+        "swing_low": 1.1338,
+        "retracements": {
+          "fib_000": 1.15151,
+          "fib_023": 1.14733,
+          "fib_038": 1.14474,
+          "fib_050": 1.14266,
+          "fib_061": 1.14057,
+          "fib_078": 1.13759,
+          "fib_100": 1.1338
+        }
+      },
+      "vwap": {
+        "vwap_geral": NaN,
+        "vwap_semanal": 1.14999,
+        "vwap_mensal": 1.14709
+      },
+      "volume_liquidez": {
+        "volume_medio_30d": 0.0,
+        "volume_atual": 0,
+        "ratio_volume": 0,
+        "zonas_liquidez": [
+          {
+            "preco": 1.0945,
+            "volume_relativo": NaN,
+            "ranking": 1
+          },
+          {
+            "preco": 1.0955,
+            "volume_relativo": NaN,
+            "ranking": 2
+          },
+          {
+            "preco": 1.097,
+            "volume_relativo": NaN,
+            "ranking": 3
+          },
+          {
+            "preco": 1.0985,
+            "volume_relativo": NaN,
+            "ranking": 4
+          },
+          {
+            "preco": 1.0995,
+            "volume_relativo": NaN,
+            "ranking": 5
+          }
+        ]
+      }
+    },
+    "hourly": {
+      "suporte_resistencia": {
+        "suportes": [
+          1.12917,
+          1.13299,
+          1.13732,
+          1.14233
+        ],
+        "resistencias": [
+          1.13332,
+          1.13552,
+          1.13811,
+          1.13936,
+          1.14249,
+          1.14453,
+          1.15129
+        ]
+      },
+      "pivot_points": {
+        "pivot_point": 1.15118,
+        "resistencias": {
+          "R1": 1.15158,
+          "R2": 1.15192,
+          "R3": 1.15232
+        },
+        "suportes": {
+          "S1": 1.15084,
+          "S2": 1.15044,
+          "S3": 1.1501
+        }
+      },
+      "fibonacci": {
+        "swing_high": 1.15151,
+        "swing_low": 1.14567,
+        "retracements": {
+          "fib_000": 1.15151,
+          "fib_023": 1.15013,
+          "fib_038": 1.14928,
+          "fib_050": 1.14859,
+          "fib_061": 1.1479,
+          "fib_078": 1.14692,
+          "fib_100": 1.14567
+        }
+      },
+      "vwap": {
+        "vwap_geral": NaN,
+        "vwap_semanal": 1.1504,
+        "vwap_mensal": 1.14973
+      },
+      "volume_liquidez": {
+        "volume_medio_30d": 0.0,
+        "volume_atual": 0,
+        "ratio_volume": 0,
+        "zonas_liquidez": [
+          {
+            "preco": 1.12865,
+            "volume_relativo": NaN,
+            "ranking": 1
+          },
+          {
+            "preco": 1.1291,
+            "volume_relativo": NaN,
+            "ranking": 2
+          },
+          {
+            "preco": 1.12955,
+            "volume_relativo": NaN,
+            "ranking": 3
+          },
+          {
+            "preco": 1.13,
+            "volume_relativo": NaN,
+            "ranking": 4
+          },
+          {
+            "preco": 1.13045,
+            "volume_relativo": NaN,
+            "ranking": 5
+          }
+        ]
+      }
+    }
+  },
+  "niveis_consolidados": {
+    "suportes_chave": [
+      1.1274,
+      1.12927,
+      1.13299,
+      1.13732,
+      1.14233
+    ],
+    "resistencias_chave": [
+      1.13936,
+      1.1418,
+      1.14249,
+      1.14453,
+      1.15129
+    ],
+    "zona_atual": "NEUTRO",
+    "forca_niveis": "MEDIA"
+  }
+}

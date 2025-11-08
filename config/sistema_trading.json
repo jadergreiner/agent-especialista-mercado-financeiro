@@ -3,7 +3,7 @@
     "nome": "Agent Especialista - Sistema Integrado de Trading",
     "versao": "1.0.0",
     "modo_debug": false,
-    "intervalo_principal": 30
+    "intervalo_principal": 15
   },
   "componentes": {
     "corretoras": {
@@ -13,7 +13,7 @@
     },
     "trading_automatizado": {
       "ativo": true,
-      "intervalo_analise": 60,
+      "intervalo_analise": 30,
       "execucao_automatica": true
     },
     "monitor_portfolio": {
@@ -29,8 +29,8 @@
     }
   },
   "limites_risco": {
-    "perda_maxima_diaria": 0.05,
-    "drawdown_maximo": 0.15,
+    "perda_maxima_diaria": 0.02,
+    "drawdown_maximo": 0.1,
     "concentracao_maxima": 0.2,
     "volatilidade_maxima": 0.25
   },

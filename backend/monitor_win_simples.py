@@ -1,102 +1,23 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Monitor WIN Simples - Preços + Macro + Notícias
-Versão robusta e confiável
-"""
-import yfinance as yf
-from datetime import datetime, timedelta
-import time
-import sys
-import os
-import requests
-from bs4 import BeautifulSoup
+def limpar():
+def buscar_cotacao_simples(ticker):
+def buscar_noticias_24h():
 
+# Refatorado para usar o módulo base MonitorWinBase
+import sys
 if sys.platform == 'win32':
     import io
     sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 
-def limpar():
-    os.system('cls' if os.name == 'nt' else 'clear')
+from monitoramento.monitor_win_base import MonitorWinBase
 
-def buscar_cotacao_simples(ticker):
-    """Busca cotação de forma simples e robusta"""
-    try:
-        ativo = yf.Ticker(ticker)
-        hist = ativo.history(period='5d')
-        if len(hist) >= 2:
-            ontem = hist['Close'].iloc[-2]
-            hoje = hist['Close'].iloc[-1]
-            var = ((hoje / ontem) - 1) * 100
-            return {
-                'preco': hoje,
-                'var': var,
-                'ok': True
-            }
-    except:
-        pass
-    return {'preco': 0, 'var': 0, 'ok': False}
+def main():
+    monitor = MonitorWinBase()
+    cotacoes = {ativo: monitor.buscar_cotacao(ativo) for ativo in monitor.ativos}
+    noticias = monitor.buscar_noticias()
+    monitor.exibir_resumo(cotacoes, noticias)
 
-def buscar_noticias_24h():
-    """Busca notícias relevantes das últimas 24 horas via Google News RSS"""
-    noticias = []
-
-    try:
-        # Google News RSS - Mercado Financeiro Brasil
-        termos_busca = [
-            'Bovespa',
-            'Ibovespa',
-            'Bolsa Brasil',
-            'Dólar Brasil',
-            'Mercado Financeiro Brasil'
-        ]
-
-        headers = {
-            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
-        }
-
-        for termo in termos_busca[:2]:  # Limitar a 2 termos para não demorar
-            try:
-                url = f'https://news.google.com/rss/search?q={termo.replace(" ", "+")}&hl=pt-BR&gl=BR&ceid=BR:pt-419'
-                response = requests.get(url, headers=headers, timeout=10)
-
-                if response.status_code == 200:
-                    soup = BeautifulSoup(response.content, 'xml')
-                    items = soup.find_all('item', limit=3)
-
-                    for item in items:
-                        try:
-                            titulo = item.find('title')
-                            pubdate = item.find('pubDate')
-
-                            if titulo:
-                                titulo_texto = titulo.get_text(strip=True)
-
-                                # Verificar se não é duplicada
-                                if titulo_texto not in [n['titulo'] for n in noticias]:
-                                    # Extrair horário
-                                    horario = ''
-                                    if pubdate:
-                                        try:
-                                            from datetime import datetime
-                                            dt = datetime.strptime(pubdate.get_text(strip=True),
-                                                                  '%a, %d %b %Y %H:%M:%S %Z')
-                                            horario = dt.strftime('%H:%M')
-                                        except:
-                                            pass
-
-                                    noticias.append({
-                                        'titulo': titulo_texto[:100],
-                                        'horario': horario,
-                                        'fonte': 'Google News'
-                                    })
-                        except:
-                            continue
-            except:
-                continue
-
-    except Exception as e:
-        pass
+if __name__ == "__main__":
+    main()
 
     return noticias[:5]  # Máximo 5 notícias
 

@@ -98,7 +98,7 @@ class MonitorMacroOportunidades:
             'indicadores_importantes': [
                 {'simbolo': '^VIX', 'nome': 'VIX (Volatilidade)', 'peso': 0.25, 'inversao': True},
                 {'simbolo': '^TNX', 'nome': 'Treasury 10Y', 'peso': 0.20, 'inversao': False},
-                {'simbolo': 'DXY=X', 'nome': 'Dólar Index', 'peso': 0.20, 'inversao': False},
+                {'simbolo': 'DX-Y.NYB', 'nome': 'Dólar Index', 'peso': 0.20, 'inversao': False},
                 {'simbolo': 'GC=F', 'nome': 'Ouro', 'peso': 0.15, 'inversao': True},
                 {'simbolo': '^GSPC', 'nome': 'S&P 500', 'peso': 0.10, 'inversao': False},
                 {'simbolo': 'CL=F', 'nome': 'Petróleo', 'peso': 0.10, 'inversao': False}
@@ -383,7 +383,7 @@ class MonitorMacroOportunidades:
     def _calcular_score_moeda(self, indicadores: Dict[str, IndicadorMacro]) -> float:
         """Calcular score baseado em USD (DXY)"""
 
-        dxy = indicadores.get('DXY=X')
+        dxy = indicadores.get('DX-Y.NYB')
         if not dxy:
             return 0.5
 
@@ -512,7 +512,7 @@ class MonitorMacroOportunidades:
 
         # Obter níveis técnicos do nosso sistema
         try:
-            resultado_niveis = self.detector_niveis.processar_ativo_ml_completo(ticker, "6M")
+            resultado_niveis = self.detector_niveis.processar_ativo_ml_completo(ticker, "6mo")
 
             if not resultado_niveis or 'analise_consolidada' not in resultado_niveis:
                 return oportunidades
