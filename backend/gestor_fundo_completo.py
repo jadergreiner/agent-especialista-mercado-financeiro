@@ -31,8 +31,8 @@ if BASE_DIR not in sys.path:
     sys.path.append(BASE_DIR)
 
 try:
-    from analisador_risco_fundo import AnalisadorRiscoFundo
-    from recomendador_operacoes_fundo import RecomendadorOperacoesFundo
+    from modules.portfolio_intelligence.risk_alerts.analisador_risco_fundo import AnalisadorRiscoFundo
+    from modules.portfolio_intelligence.ai_recommendations.recomendador_operacoes_fundo import RecomendadorOperacoesFundo
     from modulo_correlacao_avancada import ModuloCorrelacaoAvancada
     from calculador_niveis_precisao import CalculadorNiveisPrecisao
 except ImportError as e:

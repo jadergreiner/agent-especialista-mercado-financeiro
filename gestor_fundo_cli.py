@@ -24,14 +24,14 @@ if str(backend_dir) not in sys.path:
     sys.path.insert(0, str(backend_dir))
 
 try:
-    from .gestor_fundo import GestorFundo
-    from .analisador_risco_fundo import AnalisadorRiscoFundo
-    from .recomendador_operacoes_fundo import RecomendadorOperacoesFundo
+    from backend.gestor_fundo import GestorFundo
+    from backend.modules.portfolio_intelligence.risk_alerts.analisador_risco_fundo import AnalisadorRiscoFundo
+    from backend.modules.portfolio_intelligence.ai_recommendations.recomendador_operacoes_fundo import RecomendadorOperacoesFundo
 except ImportError:
     try:
-        from gestor_fundo import GestorFundo
-        from analisador_risco_fundo import AnalisadorRiscoFundo
-        from recomendador_operacoes_fundo import RecomendadorOperacoesFundo
+        from backend.gestor_fundo import GestorFundo
+        from backend.modules.portfolio_intelligence.risk_alerts.analisador_risco_fundo import AnalisadorRiscoFundo
+        from backend.modules.portfolio_intelligence.ai_recommendations.recomendador_operacoes_fundo import RecomendadorOperacoesFundo
     except ImportError as e:
         print(f"❌ Erro ao importar módulos: {e}")
         print("Certifique-se de que os arquivos estão no diretório correto.")

@@ -8,6 +8,7 @@ from fastapi import Request
 from uuid import uuid4
 from datetime import datetime
 from backend.api.audit import save_event
+from backend.api.audit import incr_metric
 
 
 def setup_audit_middleware(app):
@@ -42,6 +43,10 @@ def setup_audit_middleware(app):
                 ip=ip,
                 summary=summary,
             )
+            try:
+                incr_metric('audit_events_total', 1)
+            except Exception:
+                pass
         except Exception:
             # não interromper a resposta por falha de auditoria
             pass

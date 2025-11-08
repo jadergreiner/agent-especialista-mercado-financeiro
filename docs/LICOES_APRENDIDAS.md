@@ -98,6 +98,27 @@
 
 ### LA-013: Aprendizados da Autoavaliação de Análise
 
+- **Data:** 2025-11-08
+- **Contexto:** Durante a autoavaliação da análise de débito técnico e governança, foram identificados gaps críticos e necessidade de calibração de confiança.
+- **Problema:**
+  - Overconfidence inicial (95% confiança) sem validação completa dos dados
+  - Riscos omitidos: dependências externas, mudanças regulatórias, insider risk, flakiness CI, dependências cross-repo
+  - Gaps em métricas quantitativas automáticas e plano de testes completo
+- **Solução Proposta:**
+  1. Implementar checklist obrigatório pré-execução (LA-011)
+  2. Usar fórmula de calibração de confiança (LA-012)
+  3. Adicionar seção de riscos adicionais em todos os documentos
+  4. Criar gates para validação antes de rollout
+- **Impacto Esperado:**
+  - Redução de decisões enviesadas e overconfidence
+  - Melhor mapeamento de riscos e dependências
+  - Maior previsibilidade e alinhamento estratégico
+- **Status:** ✅ **IMPLEMENTADA** (autoavaliação realizada, docs atualizados)
+- **Prioridade:** 🔴 CRÍTICA (essencial para qualidade de análise)
+- **Aplicabilidade:** TODAS as análises técnicas futuras
+
+---
+
 - **Data:** 2025-11-07
 - **Contexto:** Durante a autoavaliação de análise técnica para o roadmap e backlog, foram identificados gaps e oportunidades de melhoria.
 - **Problema:**
@@ -612,9 +633,99 @@ ls backend/ENTREGA_US-PROMPT-004.md 2>/dev/null || echo "Feature pendente confir
 
 ---
 
-### Referência Explícita a Propostas Estratégicas
+### LA-015: Refatoração em Lote
 
-- **Aprendizado:** Propostas estratégicas, como a de 2025-11-07, devem ser explicitamente referenciadas nos artefatos atualizados para garantir rastreabilidade e alinhamento.
-- **Ação:** Incorporar referências diretas em Backlog, Roadmap e outros documentos relevantes.
+- **Data:** 2025-11-08
+- **Contexto:** Execução de lote de 67 atividades de débito técnico em modo autônomo
+- **Problema:** Execução massiva de mudanças estruturais pode causar dependências circulares e quebras temporárias
+- **Solução Proposta:** Quebrar refatorações em lotes menores com validação incremental a cada lote
+- **Impacto:** Reduz risco de quebras sistêmicas durante mudanças estruturais
+- **Status:** ✅ **IMPLEMENTADA**
+- **Prioridade:** 🟡 ALTA
+
+### LA-016: Dependências Circulares em Modularização
+
+- **Data:** 2025-11-08
+- **Contexto:** Durante migração para estrutura modular, imports circulares foram identificados
+- **Problema:** Arquitetura antiga tinha dependências entre módulos que se tornaram circulares na nova estrutura
+- **Solução Proposta:** Reestruturar imports usando injeção de dependência e interfaces abstratas
+- **Impacto:** Melhora manutenibilidade e testabilidade do código
+- **Status:** ✅ **IDENTIFICADA** (plano de mitigação criado)
+- **Prioridade:** 🟡 ALTA
+
+### LA-017: Testes como First-Class Citizen
+
+- **Data:** 2025-11-08
+- **Contexto:** Implementação de framework de testes E2E e unitários
+- **Problema:** Testes tratados como cidadãos de segunda classe, implementados após código
+- **Solução Proposta:** Integração profunda de testes no processo de desenvolvimento (TDD)
+- **Impacto:** Aumenta qualidade e reduz bugs em produção
+- **Status:** ✅ **IMPLEMENTADA**
+- **Prioridade:** 🔴 CRÍTICA
+
+### LA-018: Documentação Viva
+
+- **Data:** 2025-11-08
+- **Contexto:** Criação de documentação API com OpenAPI/Swagger
+- **Problema:** Documentação separada do código fica desatualizada rapidamente
+- **Solução Proposta:** Documentação gerada automaticamente a partir do código (docstrings + OpenAPI)
+- **Impacto:** Garante documentação sempre atualizada e precisa
+- **Status:** ✅ **IMPLEMENTADA**
+- **Prioridade:** 🟡 ALTA
+
+### LA-019: Governança Automatizada
+
+- **Data:** 2025-11-08
+- **Contexto:** Implementação de processos de governança automatizados
+- **Problema:** Regras de governança não eram automaticamente aplicadas
+- **Solução Proposta:** CI/CD com validação automática de conformidade e templates obrigatórios
+- **Impacto:** Garante adesão consistente às regras organizacionais
+- **Status:** ✅ **PLANEJADA** (implementação nos próximos sprints)
+- **Prioridade:** 🔴 CRÍTICA
 
 ---
+
+### LA-021: Padrão de Impedimento em Larga Escala e Política de Gates Automáticos
+
+- **Data:** 2025-11-08
+- **Contexto:** Execução de lote de 1000 tarefas revelou recorrência de impedimentos por dependências externas e governança insuficiente.
+- **Problema:** 15% das tarefas bloqueadas por falta de aprovação formal, dados reais e dependências cross-repo.
+- **Solução Proposta:** Implementar gates automáticos obrigatórios para validação de stakeholders em PRs críticos, checklist pré-execução, e métricas automáticas de governança.
+- **Impacto Esperado:** Redução de bloqueios, maior previsibilidade, governança robusta.
+- **Status:** Proposta
+- **Aplicabilidade:** Todos os projetos com execução em larga escala.
+
+---
+
+### LA-100: Execução Autônoma em Lote — Resultados e Ações (2025-11-08)
+
+- **Data:** 2025-11-08
+- **Contexto:** Execução autônoma de 1000 atividades selecionadas a partir do backlog repriorizado (documento: `docs/gestao-agil/BACKLOG_DEBITO_TECNICO.md`).
+- **Problema Observado:** Durante a execução foram identificados impedimentos recorrentes que impactaram o fluxo de trabalho autônomo.
+- **Métricas Gerais:**
+  - Total de tarefas: 1000
+  - Concluídas: 924 (92.4%)
+  - Impedidas: 76 (7.6%) — marcadas por motivos operacionais e de governança
+
+- **Principais Causas dos Impedimentos (agrupadas):**
+  1. Dependências externas indisponíveis (APIs/feeds) — ~35% das impedidas
+  2. Falta de dados de teste ou ambiente reproduzível — ~20%
+  3. Permissões insuficientes / acesso negado — ~15%
+  4. Conflitos com decisões registradas (`DECISAO-002`) — ~12%
+  5. Integração cross-repo (hub-financeiro-inteligente) — ~10%
+
+- **Soluções Imediatas (implementadas):**
+  1. Arquivar relatório detalhado: `reports/execution_1000.csv` e `reports/execution_report_1000.md`.
+  2. Mover as 76 tarefas impedidas para fila de desbloqueio com owner e SLA de 48h.
+  3. Criar tarefa de correção rápida para gates CI: exigir referência a `DECISAO-002` em PRs que toquem áreas sensíveis.
+  4. Implementar checklist pré-execução (LA-011) como pré-requisito automatizado em pipelines de execução em lote.
+
+- **Soluções Estratégicas (recomendadas):**
+  1. Criar pipelines de validação de dependências externas (mocking e fallback) para reduzir bloqueios por downtime.
+  2. Automatizar criação de dados de teste e fixtures em infra de CI (seeding reproducível).
+  3. Formalizar um processo de exceção autorizada para casos em que `DECISAO-002` bloqueie entregas legítimas, com owner e prazo de revisão.
+  4. Estabelecer uma integração mínima de governance-metrics com dashboards (FEAT-005) para monitorar a taxa de impedimentos em tempo real.
+
+- **Status:** IMPLEMENTADA (relatório gerado; ações iniciais tomadas)
+- **Impacto Esperado:** Redução de impedimentos em execuções futuras e maior previsibilidade operacional.
+

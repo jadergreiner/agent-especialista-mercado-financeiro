@@ -30,15 +30,15 @@ try:
     from .modulo_correlacao_avancada import ModuloCorrelacaoAvancada
     from .calculador_niveis_precisao import CalculadorNiveisPrecisao
     from .analisador_risco import AnalisadorRisco
-    from .analisador_risco_fundo import AnalisadorRiscoFundo
-    from .recomendador_operacoes_fundo import RecomendadorOperacoesFundo
+    from modules.portfolio_intelligence.risk_alerts.analisador_risco_fundo import AnalisadorRiscoFundo
+    from modules.portfolio_intelligence.ai_recommendations.recomendador_operacoes_fundo import RecomendadorOperacoesFundo
 except ImportError:
     try:
         from modulo_correlacao_avancada import ModuloCorrelacaoAvancada
         from calculador_niveis_precisao import CalculadorNiveisPrecisao
         from analisador_risco import AnalisadorRisco
-        from analisador_risco_fundo import AnalisadorRiscoFundo
-        from recomendador_operacoes_fundo import RecomendadorOperacoesFundo
+        from modules.portfolio_intelligence.risk_alerts.analisador_risco_fundo import AnalisadorRiscoFundo
+        from modules.portfolio_intelligence.ai_recommendations.recomendador_operacoes_fundo import RecomendadorOperacoesFundo
     except ImportError:
         ModuloCorrelacaoAvancada = None
         CalculadorNiveisPrecisao = None

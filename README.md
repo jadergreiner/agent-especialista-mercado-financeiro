@@ -7,8 +7,37 @@ Plataforma de IA que atua como Especialista Global de Mercado Financeiro: integr
 - Integração com Corretoras (Alpaca, IB, Simulado)
 - Trading Automatizado (estratégias plugáveis: média móvel, RSI, etc.)
 - Monitor de Portfólio (P&L, Sharpe, drawdown, volatilidade, alertas)
-- Dashboard Web (Flask + Plotly) opcional
+- **Dashboard Web MVP** (FastAPI + Streamlit) - **NOVO!**
 - Persistência (SQLite) e configuração por JSON
+
+## 🎯 Dashboard MVP - Acesso Imediato
+
+**Status: ✅ IMPLEMENTADO E FUNCIONAL**
+
+O dashboard público MVP está disponível para visualização imediata do portfólio:
+
+### Como Acessar
+
+```bash
+# Opção 1: Dashboard completo (backend + frontend)
+python run_dashboard.py
+
+# Opção 2: Apenas frontend (se backend já estiver rodando)
+python run_dashboard_frontend.py
+```
+
+### URLs de Acesso
+
+- **Dashboard Principal**: [http://localhost:8501](http://localhost:8501)
+- **API Backend**: [http://localhost:8002](http://localhost:8002)
+- **Documentação API**: [http://localhost:8002/docs](http://localhost:8002/docs)
+
+### Funcionalidades
+
+- 📊 Métricas de portfólio (valor total, P&L, %)
+- 📈 Gráfico de histórico P&L (30 dias)
+- 📋 Tabela de posições atuais
+- 🔄 Dados atualizados em tempo real
 
 ## 🏗️ Arquitetura (alto nível)
 

@@ -1,0 +1,20 @@
+groups:
+  - name: audit_alerts
+    rules:
+      - alert: HighAuditEvents
+        expr: audit_events_total > 100
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: "Alto volume de eventos de auditoria"
+          description: "Mais de 100 eventos de auditoria em 5 minutos"
+
+      - alert: ServiceDown
+        expr: up == 0
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Serviço indisponível"
+          description: "O serviço backend está down"

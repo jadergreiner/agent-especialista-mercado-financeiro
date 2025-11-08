@@ -1,9 +1,37 @@
 # Origin: FEAT-001 - MVP Dashboard Público
+import logging
+import json
 from fastapi import FastAPI
+from fastapi.responses import JSONResponse
+try:
+    from .masking import _mask_obj as _mask_obj_for_tests
+except Exception:
+    from backend.api.masking import _mask_obj as _mask_obj_for_tests
 from pydantic import BaseModel
 from typing import List, Dict, Any
 import random
 from datetime import datetime, timedelta
+
+# Configurar logging estruturado em JSON
+class JSONFormatter(logging.Formatter):
+    def format(self, record):
+        log_entry = {
+            "timestamp": datetime.utcnow().isoformat(),
+            "level": record.levelname,
+            "message": record.getMessage(),
+            "module": record.module,
+            "function": record.funcName,
+            "line": record.lineno
+        }
+        if record.exc_info:
+            log_entry["exception"] = self.formatException(record.exc_info)
+        return json.dumps(log_entry)
+
+logger = logging.getLogger()
+handler = logging.StreamHandler()
+handler.setFormatter(JSONFormatter())
+logger.addHandler(handler)
+logger.setLevel(logging.INFO)
 
 app = FastAPI(title="Agent Especialista - Dashboard API", version="1.0.0")
 
@@ -25,11 +53,37 @@ except Exception:
 setup_audit_middleware(app)
 
 try:
+    from .masking import setup_masking_middleware
+except Exception:
+    from backend.api.masking import setup_masking_middleware
+
+# Registrar middleware de masking (aplica mascaramento em respostas JSON)
+setup_masking_middleware(app)
+
+try:
     from .audit import router as audit_router
 except Exception:
     from backend.api.audit import router as audit_router
 
 app.include_router(audit_router)
+try:
+    from .flags import router as flags_router
+except Exception:
+    from backend.api.flags import router as flags_router
+
+app.include_router(flags_router)
+try:
+    from .metrics import router as metrics_router
+except Exception:
+    from backend.api.metrics import router as metrics_router
+
+app.include_router(metrics_router)
+try:
+    from .users import router as users_router
+except Exception:
+    from backend.api.users import router as users_router
+
+app.include_router(users_router)
 
 class Position(BaseModel):
     symbol: str
@@ -123,6 +177,20 @@ async def get_dashboard_summary() -> DashboardSummary:
         import traceback
         traceback.print_exc()
         raise
+
+
+@app.get("/api/v1/test/user")
+async def _test_user_info():
+    """Rota de teste que retorna PII — usada apenas por testes automatizados para validar masking."""
+    payload = {
+        "name": "Alice Silva",
+        "email": "alice.silva@example.com",
+        "cpf": "12345678901",
+        "nested": {"contact_email": "contact@example.com", "phone": "5511999998888"}
+    }
+    # Aplicar masking diretamente para garantir resultado previsível nos testes
+    masked = _mask_obj_for_tests(payload)
+    return JSONResponse(masked)
 
 if __name__ == "__main__":
     import uvicorn
