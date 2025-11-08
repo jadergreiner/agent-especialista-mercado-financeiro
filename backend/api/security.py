@@ -6,7 +6,7 @@ simulados (`X-User` e `X-Roles`) para autenticação em modo de desenvolvimento.
 Em ambientes reais, substitua por autenticação segura (OAuth2 / JWT) e integração
 com o provedor de identidade.
 """
-from fastapi import APIRouter, Header, HTTPException, Depends
+from fastapi import APIRouter, Header, HTTPException, Depends, Request
 from pydantic import BaseModel
 from typing import List, Optional
 from enum import Enum
@@ -25,23 +25,44 @@ class User(BaseModel):
     roles: List[Role]
 
 
-def get_current_user(x_user: Optional[str] = Header(None), x_roles: Optional[str] = Header(None)) -> User:
-    """Mock de autenticação para desenvolvimento.
+from backend.api.auth import decode_token
 
-    - `X-User`: nome do usuário
-    - `X-Roles`: roles separadas por vírgula (ex.: "admin,presidente")
+
+def get_current_user(request: Request, x_user: Optional[str] = Header(None), x_roles: Optional[str] = Header(None)) -> User:
+    """Mock de autenticação para desenvolvimento com suporte a Authorization Bearer token.
+
+    Prioriza o token Bearer no header `Authorization`. Se ausente, usa o fallback
+    `X-User` e `X-Roles` para compatibilidade com ferramentas de teste.
     """
-    if not x_user:
-        raise HTTPException(status_code=401, detail="Usuário não autenticado (X-User header ausente)")
+    # tentar token primeiro
+    auth = request.headers.get("authorization")
     roles: List[Role] = []
-    if x_roles:
-        for r in [i.strip() for i in x_roles.split(",") if i.strip()]:
+    username: Optional[str] = None
+    if auth and auth.lower().startswith("bearer "):
+        token = auth.split(None, 1)[1]
+        payload = decode_token(token)
+        if not payload:
+            raise HTTPException(status_code=401, detail="Token inválido ou expirado")
+        username = payload.get("username")
+        for r in payload.get("roles", []):
             try:
                 roles.append(Role(r))
             except ValueError:
-                # ignora roles desconhecidas no mock
                 pass
-    return User(username=x_user, roles=roles)
+
+    # fallback para X-User/X-Roles (compatibilidade de desenvolvimento)
+    if not username:
+        if not x_user:
+            raise HTTPException(status_code=401, detail="Usuário não autenticado (Authorization ou X-User requerido)")
+        username = x_user
+        if x_roles:
+            for r in [i.strip() for i in x_roles.split(",") if i.strip()]:
+                try:
+                    roles.append(Role(r))
+                except ValueError:
+                    pass
+
+    return User(username=username, roles=roles)
 
 
 def require_role(role: Role):
