@@ -24,7 +24,7 @@ Princípios:
 
 ## 🔷 FRONTEND - ENTREGAS VISÍVEIS (PRIORIDADE ALTA)
 
-### FEAT-001: MVP Dashboard Público (Meu Home)
+### FEAT-001: MVP Dashboard Público (Meu Home) ✅ COMPLETED
 
 **Objetivo:** Entregar uma visão inicial do produto para acionistas/usuários: dashboard com posições simuladas, P&L e resumo de correlações.
 
@@ -34,9 +34,9 @@ Princípios:
 - Docs: README curto de como rodar localmente e rota OpenAPI básica
 - Testes: 2 testes E2E simples que validam página e dados
 
-**Esforço:** 1 sprint
-**Prioridade:** 🔴 P0 (Sprint atual)
-**Owner:** Engenheiro Frontend + Engenheiro Backend
+**Esforço:** 1 sprint ✅ ENTREGUE
+**Prioridade:** 🔴 P0 (Sprint atual) ✅ CONCLUÍDO
+**Owner:** Engenheiro Frontend + Engenheiro Backend ✅ IMPLEMENTADO
 
 ---
 
