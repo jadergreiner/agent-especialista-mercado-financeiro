@@ -16,6 +16,20 @@ except Exception:
     from backend.api.security import router as controls_router
 
 app.include_router(controls_router)
+try:
+    # registrar middleware de auditoria
+    from .middleware import setup_audit_middleware
+except Exception:
+    from backend.api.middleware import setup_audit_middleware
+
+setup_audit_middleware(app)
+
+try:
+    from .audit import router as audit_router
+except Exception:
+    from backend.api.audit import router as audit_router
+
+app.include_router(audit_router)
 
 class Position(BaseModel):
     symbol: str
