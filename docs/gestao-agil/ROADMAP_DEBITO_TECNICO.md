@@ -6,6 +6,16 @@
 
 ---
 
+## 🔔 Riscos e Dependências Críticas (2025-11-08)
+
+- Aprovação formal dos stakeholders (Presidente, PO, Tech Lead, CTO, Diretor Financeiro) é pré-requisito para execução do roadmap.
+- Cobertura de testes insuficiente (<30%) aumenta risco de bugs e regressões. Meta: 80%.
+- Falta de acompanhamento das métricas de governança pode gerar rework e baixa adesão às regras.
+- Overconfidence sem validação real (ver LA-011, LA-012) pode causar desperdício de recursos.
+- Nível de confiança ajustado para 60% até validação dos stakeholders e aumento da cobertura de testes.
+
+---
+
 ## 📊 MÉTRICAS DE ACOMPANHAMENTO DE GOVERNANÇA E TREINAMENTO
 
 **Status:** Pendente de aprovação formal dos stakeholders
@@ -107,7 +117,6 @@
 **Esforço:** 3 sprints (entregas visíveis semanais)
 **Prioridade:** 🔴 Muito Alta (demonstração de valor)
 **Notas:** Registrar aprovação formal da Presidência/PO em ata; manter compliance com DT-012/DT-013 em paralelo.
-
 
 ### Sprint 1-2: DT-001 - Backend Modularization
 
@@ -1264,3 +1273,40 @@ Sprint 7-8: ░░░░░░░░░░░░░░░░░░░░░░�
 
 **Próxima Revisão:** Sprint 3 (validar se Fase 1 foi bem-sucedida)
 
+## Oportunidades de Melhoria Contínua
+
+- **Adoção de Métricas de Governança:** Estruturar iniciativas para acelerar a adesão às métricas, incluindo treinamentos e acompanhamento semanal. Referência: Proposta Estratégica 2025-11-07.
+
+# Correções de lint
+
+- Remover linhas em branco dentro de citações.
+- Ajustar prefixos de listas ordenadas para serem consistentes.
+
+---
+
+## Q4 2025
+
+### MVP Administrador
+- Cadastro de clientes e licenças.
+
+### MVP Cliente/Investidor
+- Login e cadastro de operações/ativos.
+
+### Marcos e Gating (Q4 2025)
+
+- **Milestone:** Validação Stakeholder (Presidente + Jurídico/Compliance) — bloquear deploy em produção até aprovação formal.
+- **Milestone:** Revisão de Segurança e PII — checklist de conformidade aprovada.
+- **Milestone:** Rollout controlado em staging com dados reais do Presidente (somente após aprovação jurídica).
+
+<!-- Origin: DECISAO-002 -->
+### Gate adicional (Test Plan & Acceptance Criteria)
+
+- **Milestone:** Criar e validar `Test Plan` e `Critérios de Aceitação` para fluxos críticos (Presidente → cadastro de operações → masking → audit log).
+- **Regra:** Nenhum rollout em staging com dados reais será permitido sem:
+  1. Test Plan documentado e aprovado (E2E + rollback)
+  2. Critérios de aceitação assinados pelo PO e Tech Lead
+  3. E2E críticos passando em CI para a branch de release
+
+> Observação: esta gate foi adicionada após autoavaliação (AUTOAVALIAÇÃO DA ANÁLISE) que identificou lacunas no plano de testes e evidências de aprovação formal.
+
+> Referência estratégica: `docs\\07-GOVERNANCA\\PROPOSTAS\\2025-11-07_PROPOSTA_REUNIAO_ESTRATEGICA.md`

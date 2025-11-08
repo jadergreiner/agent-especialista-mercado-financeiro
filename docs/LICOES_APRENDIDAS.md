@@ -15,6 +15,15 @@
 
 ---
 
+## Checklist Obrigatório para Execução de Features (2025-11-08)
+
+- Toda feature deve seguir checklist de execução (LA-011) e calibração de confiança (LA-012) antes de iniciar desenvolvimento.
+- Validar status real da feature, progresso, entregas e cobertura de testes.
+- Registrar validação no backlog e roadmap.
+- Nível de confiança só pode ser elevado após validação dos stakeholders e cobertura de testes >80%.
+
+---
+
 ## 📚 Lições Registradas
 
 ### LA-011: Validação de Status de Feature Antes de Execução
@@ -114,6 +123,20 @@
 
 ---
 
+### LA-016: Uso de Dados Reais por Stakeholders (Presidente)
+
+- **Data:** 2025-11-08
+- **Contexto:** Preparação para o Presidente usar o sistema com dados reais (MVP Cliente/Investidor).
+- **Problema:** Risco alto de exposição de PII, ausência de políticas de consentimento documentadas, falta de auditoria e ausência de validação legal pré-deploy.
+- **Solução Proposta:** Antes de qualquer exposição de dados reais:
+  1. Bloquear deploy em produção até aprovação formal do Presidente, Jurídico e Compliance.
+  2. Criar ambiente de staging controlado para testes com dados reais com políticas de mascaramento/anonimização quando aplicável.
+  3. Implementar audit trails e retenção definida; registrar aceite/consentimento do presidente.
+  4. Executar testes E2E com casos reais e plano de rollback validado.
+- **Impacto Esperado:** Minimização de risco legal e reputacional; maior segurança sobre dados sensíveis; confiança calibrada antes do rollout.
+- **Status:** ✅ **REGISTRADA** (Backlog e Roadmap atualizados; milestone criado)
+
+---
 
 ### LA-014: Implementação de Governança Automatizada e Checks CI
 
@@ -130,7 +153,6 @@
 - **Status:** ✅ **IMPLEMENTADA** (arquivos e workflow criados)
 - **Prioridade:** 🔴 CRÍTICA (governança deve preceder mudanças sensíveis)
 - **Aplicabilidade:** Todas as equipes que atuam em áreas sensíveis (backend, infra, IA, docs de governança)
-
 
 ### LA-015: Processo de Sincronização Pré-Execução
 
@@ -177,6 +199,7 @@ ls backend/ENTREGA_US-PROMPT-004.md 2>/dev/null || echo "Feature pendente confir
 - **Benefícios:**
   - Evita duplicação de esforço
   - Identifica bloqueadores cedo
+
   ```bash
   git branch --show-current
   git log --oneline -5
@@ -216,7 +239,6 @@ ls backend/ENTREGA_US-PROMPT-004.md 2>/dev/null || echo "Feature pendente confir
 - **Prioridade:** 🟡 ALTA
 - **Custo:** 5-10 min por feature
 - **ROI:** Previne 30+ min de retrabalho
-
 
 ---
 
@@ -304,6 +326,7 @@ ls backend/ENTREGA_US-PROMPT-004.md 2>/dev/null || echo "Feature pendente confir
   - Features duplicadas propostas: -15%
   - Simulação sem disclaimer: -10%
 - **Disclaimer Obrigatório para Simulações:**
+
   ```markdown
   ⚠️ SIMULAÇÃO: Esta reunião é um EXERCÍCIO de estruturação de pensamento.
   Todas as decisões são PROPOSTAS e requerem aprovação formal de:
@@ -312,6 +335,7 @@ ls backend/ENTREGA_US-PROMPT-004.md 2>/dev/null || echo "Feature pendente confir
   - Tech Lead (viabilidade técnica)
   - CTO (arquitetura)
   ```
+
 - **Status:** ✅ **IMPLEMENTADA** (checklist documentado)
 - **Prioridade:** � CRÍTICA (previne duplicação e confusão)
 - **Aplicabilidade:** Todas as propostas de novas features
@@ -528,6 +552,24 @@ ls backend/ENTREGA_US-PROMPT-004.md 2>/dev/null || echo "Feature pendente confir
 
 ---
 
+### LA-020: Autoavaliação e Correção de Gaps Operacionais
+
+- **Data:** 2025-11-08
+- **Contexto:** Realizada autoavaliação da análise dos documentos mestres (ROADMAP, BACKLOG, PROPOSTA) que identificou lacunas operacionais e de evidência, em especial ausência de Test Plan formal e métricas automáticas de governança.
+- **Problema:**
+  - Falta de um Test Plan e critérios de aceitação formal para fluxos que expõem dados reais (Presidente).
+  - Métricas automáticas de adoção de governança (PRs que referenciam decisões, uso de template) não estavam sendo coletadas.
+  - Falta de gate explícito no roadmap para requerer aprovação de testes e evidenciação antes do rollout.
+- **Solução Proposta:**
+  1. Inserir gate "Test Plan & Acceptance Criteria" no Roadmap (bloqueador antes de rollout em staging com dados reais).
+  2. Adicionar tarefa no Backlog para definir Critérios de Aceitação e Test Plan (E2E + rollback) e criar issue AG-008.
+  3. Implementar scripts de coleta de métricas de governança e expor em dashboard (FEAT-005 / LA-018).
+  4. Registrar a aprovação formal (ata / assinatura eletrônica) no backlog e vincular ao milestone.
+- **Impacto Esperado:** Redução de risco legal e operacional, evidência objetiva para liberar exposição de dados reais, maior confiança nas decisões.
+- **Status:** ✅ REGISTRADA e aplicada no Roadmap/Backlog (gate criado; tarefa de critérios/test plan adicionada)
+- **Prioridade:** 🔴 CRÍTICA
+
+
 ### LA-018: Métricas de Adoção de Governança e Feedback
 
 - **Data:** 2025-11-08
@@ -568,3 +610,11 @@ ls backend/ENTREGA_US-PROMPT-004.md 2>/dev/null || echo "Feature pendente confir
 - **Prioridade:** 🔴 CRÍTICA (essencial para qualidade de decisões)
 - **Aplicabilidade:** TODAS as análises futuras
 
+---
+
+### Referência Explícita a Propostas Estratégicas
+
+- **Aprendizado:** Propostas estratégicas, como a de 2025-11-07, devem ser explicitamente referenciadas nos artefatos atualizados para garantir rastreabilidade e alinhamento.
+- **Ação:** Incorporar referências diretas em Backlog, Roadmap e outros documentos relevantes.
+
+---

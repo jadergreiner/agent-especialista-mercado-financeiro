@@ -6,6 +6,47 @@
 
 ---
 
+## 🔔 Riscos e Dependências Críticas (2025-11-08)
+
+- Aprovação formal dos stakeholders (Presidente, PO, Tech Lead, CTO, Diretor Financeiro) é pré-requisito para execução do roadmap.
+- Cobertura de testes insuficiente (<30%) aumenta risco de bugs e regressões. Meta: 80%.
+- Falta de acompanhamento das métricas de governança pode gerar rework e baixa adesão às regras.
+- Overconfidence sem validação real (ver LA-011, LA-012) pode causar desperdício de recursos.
+- Nível de confiança ajustado para 60% até validação dos stakeholders e aumento da cobertura de testes.
+
+---
+
+<!-- Origin: DECISAO-002 -->
+## 🧭 AUTOAVALIAÇÃO DA ANÁLISE
+
+Esta seção registra a autoavaliação solicitada (completude, consistência, riscos omitidos e confiança calibrada) e descreve ações imediatas tomadas no backlog.
+
+1. COMPLETUDE: Todos os dados fornecidos foram considerados?
+  - Resposta: SIM, com gaps identificados.
+  - Gaps especificados: métricas quantitativas automáticas (PRs referenciando decisões, adesão a template), plano de testes completo (E2E + rollback) e evidências de aprovação formal (ata assinada). Estas lacunas foram registradas como tarefas no backlog (ver seção "ISSUES CRIADAS AUTOMATICAMENTE").
+
+2. CONSISTÊNCIA: Análise macro alinhada com recomendação técnica?
+  - Resposta: SIM, em linhas gerais. Divergências: a opção "Frontend-first" foi adotada por prioridade de stakeholder (Presidência) — isso reduz tempo para demonstrar valor, mas aumenta risco técnico (necessidade de reservar capacidade para DT-001 e DT-002). A análise técnica prevê essas compensações e propõe gates para mitigar risco.
+
+3. RISCO OMITIDO: Algum fator de risco importante não mencionado?
+  - Lista adicional de riscos identificados agora:
+    - Dependência de provedores de dados externos (rate limits / downtime)
+    - Mudanças regulatórias e requisitos legais emergentes
+    - Exposição interna por acessos privilegiados (insider risk)
+    - Falhas flakiness em pipelines CI/E2E que podem mascarar regressões
+    - Dependências cross-repo entre `hub-financeiro-inteligente` e este repositório (alinhar governança entre projetos)
+
+4. CONFIANÇA CALIBRADA: Nível de confiança condizente com qualidade dos dados?
+  - Resposta: AJUSTAR para baixo. Nível de confiança atual ajustado para ~60% até que: (a) testes E2E críticos passem em CI, (b) métricas de governança automáticas estejam em produção, e (c) aprovação formal (Presidente + Jurídico) seja registrada.
+
+AÇÕES IMEDIATAS (executadas ou agendadas):
+
+- Inserir tarefa de "Definir Critérios de Aceitação e Test Plan" no backlog (aceitação e rollback) — tarefa criada como AG-008 (descrição abaixo).
+- Registrar milestone no Roadmap: "Test Plan & Acceptance Criteria" como gate antes do rollout em staging com dados reais.
+- Adicionar riscos adicionais (acima) em todas as seções de risco e no checklist de revisão de PRs.
+
+<!-- Fim Autoavaliação -->
+
 
 <!-- Origin: DECISAO-002 - Prioridade revisada pelo PO/Presidência -->
 ## 🚀 Estratégia Prioritária (FRONTEND FIRST)
@@ -29,6 +70,7 @@ Princípios:
 **Objetivo:** Entregar uma visão inicial do produto para acionistas/usuários: dashboard com posições simuladas, P&L e resumo de correlações.
 
 **Escopo mínimo (vertical slice):**
+
 - Frontend: página `Meu Home` com cards de posições, P&L total e gráfico simples (chart)
 - Backend mínimo: endpoint `/api/v1/dashboard/summary` com dados mock/limitados
 - Docs: README curto de como rodar localmente e rota OpenAPI básica
@@ -45,6 +87,7 @@ Princípios:
 **Objetivo:** Mostrar lista de pares (28 pares) com cotações em tempo real (mock/streaming mínimo)
 
 **Escopo mínimo:**
+
 - Frontend: componente listagem, busca e filtros
 - Backend: endpoint `/api/v1/market/forex` com dados cacheados (mock)
 - Testes: 1-2 testes de integração
@@ -60,6 +103,7 @@ Princípios:
 **Objetivo:** Permitir que stakeholders testem fluxo de criação/visualização (form + backend mínimo)
 
 **Escopo mínimo:**
+
 - Frontend: formulário com validação básica
 - Backend: endpoint de submissão (salvar em memória / db)
 - Docs: instruções de teste
@@ -75,6 +119,7 @@ Princípios:
 **Objetivo:** Capturar feedback de acionistas/usuários diretamente no produto.
 
 **Escopo mínimo:**
+
 - Widget simples no frontend que envia mensagens para backend (endpoint) e registra como issue interna
 - Mecanismo simples de visualização no admin
 
@@ -108,11 +153,13 @@ Princípios:
 ### DT-001: Refatoração Modularização Backend
 
 **Problema:**
+
 - 200 arquivos na raiz `/backend` sem organização
 - Naming inconsistente (`monitor_*`, `analisador_*`, `consultar_*`)
 - Zero separação por domínio/módulo
 
 **Impacto:**
+
 - Impossível escalar time (novo dev leva 1+ semana para entender)
 - Conflitos de merge constantes
 - Testes difíceis de escrever/manter
@@ -152,11 +199,13 @@ Princípios:
 ### DT-002: Implementar Framework de Testes E2E
 
 **Problema:**
+
 - Zero testes E2E (end-to-end)
 - Proposta de "vertical slices" requer E2E para validar frontend→backend→db
 - Sem E2E, impossível garantir qualidade de módulos
 
 **Solução Proposta:**
+
 - Framework: Playwright (Python) ou Cypress (se houver frontend JS)
 - Estrutura:
 
@@ -198,6 +247,7 @@ Princípios:
 ### DT-003: PostgreSQL + Docker Local
 
 **Problema:**
+
 - Código usa SQLite (não suporta multi-tenant)
 - MVP B2B requer isolamento de dados por cliente
 - Proposta citou "Sprint 15", mas sem planejamento real
@@ -229,6 +279,7 @@ Princípios:
     ```
 
 **Migração:**
+
 - Usar Alembic (migrations)
 - Manter SQLite para testes (rápido)
 - PostgreSQL para dev/staging/prod
@@ -244,11 +295,13 @@ Princípios:
 ### DT-004: Padronização de Naming
 
 **Problema:**
+
 - `monitor_*`, `analisador_*`, `consultar_*` sem convenção clara
 - Dificulta busca de arquivos
 - Código parece amador
 
 **Solução:**
+
 - Adotar convenção Domain-Driven Design (DDD):
   - `portfolio_service.py` (serviços)
   - `position_repository.py` (acesso dados)
@@ -264,11 +317,13 @@ Princípios:
 ### DT-005: Cobertura de Testes (TDD)
 
 **Problema:**
+
 - Poucos `test_*.py` (cobertura <30% estimada)
 - Sem CI/CD validando testes
 - Regressões frequentes
 
 **Solução:**
+
 - Meta: 80% cobertura (já definido em PROCESSO_DESENVOLVIMENTO.md)
 - Implementar pytest + coverage
 - CI/CD: Build falha se coverage <80%
@@ -289,11 +344,13 @@ Princípios:
 ### DT-006: Documentação API (OpenAPI/Swagger)
 
 **Problema:**
+
 - Zero docs de API
 - Frontend (futuro) não terá contrato claro
 - Impossível terceiros integrarem
 
 **Solução:**
+
 - FastAPI auto-gera Swagger (se usar FastAPI)
 - Adicionar docstrings completos:
 
@@ -333,10 +390,12 @@ Princípios:
 ### DT-007: Auditoria de Código Legacy
 
 **Problema:**
+
 - 50% do código pode estar obsoleto/não usado
 - Arquivos como `monitor_win_*` (específico para WIN) não escaláveis
 
 **Solução:**
+
 - Sprint dedicado: Auditar 200 arquivos
 - Categorizar:
   - 🟢 Usar: Refatorar e manter
@@ -352,10 +411,12 @@ Princípios:
 ### DT-008: Observabilidade (Logs + Métricas)
 
 **Problema:**
+
 - Difícil debugar problemas em produção
 - Sem métricas de performance
 
 **Solução:**
+
 - Logs: Estruturados (JSON) com contexto
 - Métricas: Prometheus + Grafana
 - Tracing: OpenTelemetry (opcional)
@@ -486,16 +547,19 @@ Alto Impacto
 ## 🎯 Roadmap de Execução
 
 **Fase 1: Fundação (Sprints 1-3)**
+
 - Sprint 1-2: DT-001 (Modularização)
 - Sprint 2: DT-002 (Testes E2E)
 - Sprint 3: DT-003 (PostgreSQL)
 
 **Fase 2: Qualidade (Sprints 3-5)**
+
 - Sprint 3-5: DT-005 (Cobertura 80%)
 - Sprint 4-5: DT-004 (Naming padrão)
 - Sprint 5: DT-006 (API docs)
 
 **Fase 3: Maturidade (Sprints 6-8)**
+
 - Sprint 6: DT-007 (Auditoria legacy)
 - Sprint 7-8: DT-008 (Observabilidade)
 
@@ -504,6 +568,7 @@ Alto Impacto
 ## ✅ Definition of "Débito Resolvido"
 
 Cada item deve ter:
+
 - [ ] Código refatorado + testado
 - [ ] Docs atualizados
 - [ ] Code review aprovado (Tech Lead)
@@ -514,6 +579,13 @@ Cada item deve ter:
 
 **Atualizado:** 2025-11-07
 **Próxima Revisão:** Semanal (reunião Tech Lead + Engenheiros)
+
+---
+
+## Dependências e Riscos Estratégicos
+
+- **Dependência de Aprovação Formal:** Todas as novas features devem ser validadas formalmente com stakeholders antes da execução, conforme destacado na proposta estratégica de 2025-11-07.
+- **Risco de Adoção de Métricas:** A adesão às métricas de governança pode ser lenta, impactando a eficácia do processo. Estratégias de mitigação incluem workshops e comunicação contínua.
 
 ---
 
@@ -559,3 +631,125 @@ Cada item deve ter:
 **Atualização:** Semanal via GitHub Actions
 **Responsável:** Tech Lead + PO
 
+---
+
+## Novas Tarefas
+
+### Administrador
+
+- Criar endpoint para cadastro de clientes.
+
+- Criar endpoint para cadastro de licenças.
+
+- Criar interface para cadastro de clientes e licenças.
+
+### Cliente/Investidor
+
+- Criar endpoint para login.
+
+- Criar endpoint para cadastro de operações abertas.
+
+- Criar endpoint para cadastro de ativos.
+
+- Criar interface para login e cadastro de operações/ativos.
+
+### Banco de Dados
+
+- Criar tabelas para clientes, licenças, operações e ativos.
+
+### Governança
+
+- Atualizar backlog e roadmap.
+
+- Garantir métricas de governança para as novas tarefas.
+
+## MVP Presidente - Requisitos Não-Funcionais e Segurança
+
+- **Referência:** `docs\\07-GOVERNANCA\\PROPOSTAS\\2025-11-07_PROPOSTA_REUNIAO_ESTRATEGICA.md`
+- **Contexto:** O Presidente será usuário do sistema com dados reais; portanto, além das tasks funcionais são obrigatórios controles de segurança, privacidade e validação legal antes do rollout.
+
+### Requisitos Não-Funcionais (Tasks)
+
+- Implementar autenticação forte (senha + 2FA opcional) e fluxo de recuperação de conta.
+- Implementar RBAC (papéis: admin, cliente/investidor, auditor) e escopo de permissões por tenant.
+- Criptografia at-rest para dados sensíveis (colunas com PII) e TLS para tráfego.
+- Logging estruturado e audit trails (quem fez o quê, quando) com retenção configurável.
+- Política de consentimento e termos aceitos pelo presidente (registro de aceite em DB).
+- Backup automatizado e políticas de retenção/restauração para dados do presidente.
+- Testes de privacidade e PII (scripts que validam anonimização em ambientes não-prod).
+
+### Critérios de Aceitação (Mínimos)
+
+- Presidente consegue logar com conta criada e visualizar seu dashboard de cliente.
+- Operações cadastradas no ambiente de staging respeitam a política de PII (dados sensíveis mascarados quando necessário).
+- Audit log registra criação/alteração/exclusão de operações com timestamps e user_id.
+- Rollback definido e testado para operação de cadastro em caso de erro crítico.
+- Aprovação formal (ata/assinatura eletrônica) do Presidente e do Jurídico/Compliance antes do deploy em produção.
+
+### Tasks de Compliance / Legal
+
+- Validar políticas de uso de dados com Jurídico/Compliance (consentimento explícito).
+- Documentar e aprovar termos de uso e SLA para o Presidente.
+- Registrar decisão de aprovação/recusa no backlog (issue vinculada) e no Roadmap como milestone.
+
+### Observações
+
+- Estas tasks devem ser tratadas como blocker para a primeira exposição de dados reais do Presidente em produção. Veja referência estratégica: `docs\\07-GOVERNANCA\\PROPOSTAS\\2025-11-07_PROPOSTA_REUNIAO_ESTRATEGICA.md`.
+
+---
+
+## ISSUES CRIADAS AUTOMATICAMENTE (Top 7 ações para MVP Presidente)
+
+> Estas entradas foram geradas automaticamente a partir da autoavaliação e priorizadas pelo PO (Presidência). Cada ISSUE deve ser criada no tracker (ou GitHub) com copy desta descrição.
+
+- ISSUE AG-001: Agendar validação formal (Presidente + Jurídico + Compliance)
+  - Descrição: Agendar e conduzir sessão de validação com Presidente, Jurídico e Compliance para aprovar exposição de dados reais e termos de uso.
+  - Critério de Aceitação: Ata assinada ou aprovação registrada no backlog; milestone criada no Roadmap.
+  - Owner: PO
+  - Estimativa: 1 dia
+
+- ISSUE AG-002: Criar PR/Issue Template de Aprovação Jurídica
+  - Descrição: Criar template de PR/Issue que exige anexar ata/assinatura eletrônica do jurídico para merges de funcionalidades que expõem dados reais.
+  - Critério de Aceitação: Template disponível em `.github/PULL_REQUEST_TEMPLATE.md` e workflow CI falha se template/ata ausente.
+  - Owner: Tech Lead
+  - Estimativa: 0.5 dia
+
+- ISSUE AG-003: Implementar RBAC e Autenticação Forte
+  - Descrição: Implementar papéis (admin, cliente/investidor, auditor), endpoints de login seguro e 2FA opcional.
+  - Critério de Aceitação: Testes unitários e E2E que cobrem login com papéis e permissões; roles documentadas.
+  - Owner: Engenheiro Backend
+  - Estimativa: 3 dias
+
+- ISSUE AG-004: Implementar Audit Trails e Logging Estruturado
+  - Descrição: Registrar criação/alteração/exclusão de operações com user_id, timestamp, IP e action; logs estruturados (JSON) e retenção configurável.
+  - Critério de Aceitação: Logs consultáveis em staging; testes que validam registros de audit para operações simuladas.
+  - Owner: Engenheiro Backend
+  - Estimativa: 2 dias
+
+- ISSUE AG-005: Criar ambiente de Staging controlado e scripts de Masking/Anonymize
+  - Descrição: Provisionar staging para testes com dados reais e implementar scripts que mascaram PII em ambientes não-prod.
+  - Critério de Aceitação: Dados reais carregados em staging com PII mascarado; documentação de processo.
+  - Owner: DevOps / Engenheiro Backend
+  - Estimativa: 3 dias
+
+- ISSUE AG-006: Implementar Backup Automático e Plano de Rollback
+  - Descrição: Automatizar backups, testar restauração e documentar playbook de rollback para operações críticas.
+  - Critério de Aceitação: Teste de restauração validado e documentado; playbook anexado à issue.
+  - Owner: DevOps / DBA
+  - Estimativa: 2 dias
+
+- ISSUE AG-007: Criar E2E Checklist e Testes para fluxo Presidente→Cadastro de Operações
+  - Descrição: Definir critérios de aceitação e escrever testes E2E (Playwright) cobrindo autenticação, criação de operação, masking e audit log.
+  - Critério de Aceitação: E2E passando em CI para a branch de release; checklist anexado à issue.
+  - Owner: Engenheiro QA / Engenheiro Backend
+  - Estimativa: 3 dias
+
+- ISSUE AG-008: Definir Critérios de Aceitação e Test Plan (E2E + Rollback)
+  - Descrição: Documentar Test Plan detalhado para fluxos críticos (incluindo rollback playbooks), mapear cenários E2E obrigatórios e critérios de aceitação oficiais para liberar staging/produção com dados reais.
+  - Critério de Aceitação: Documento de Test Plan anexado à issue; checklist de aprovação (PO + Tech Lead) preenchido; playbook de rollback validado em staging.
+  - Owner: Engenheiro QA + Engenheiro Backend
+  - Estimativa: 2 dias
+
+---
+
+Nota: após criação das issues no tracker, vincular cada uma ao milestone correspondente no `ROADMAP_DEBITO_TECNICO.md`.
