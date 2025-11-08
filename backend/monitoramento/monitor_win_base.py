@@ -4,6 +4,7 @@ Módulo base para monitoramento WIN - parametrizável para diferentes estratégi
 import yfinance as yf
 from datetime import datetime, timedelta
 import os
+from utils.terminal import limpar_tela
 import requests
 from bs4 import BeautifulSoup
 
@@ -16,7 +17,7 @@ class MonitorWinBase:
         self.ultima_busca_noticias = None
 
     def limpar_tela(self):
-        os.system('cls' if os.name == 'nt' else 'clear')
+        limpar_tela()
 
     def buscar_cotacao(self, ticker):
         try:

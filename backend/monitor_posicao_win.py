@@ -9,6 +9,7 @@ from datetime import datetime
 import time
 import sys
 import os
+from utils.terminal import limpar_tela
 
 if sys.platform == 'win32':
     import io
@@ -107,7 +108,7 @@ def main():
     while True:
         try:
             tentativa += 1
-            os.system('cls' if os.name == 'nt' else 'clear')
+            limpar_tela()
 
             agora = datetime.now().strftime("%H:%M:%S")
 

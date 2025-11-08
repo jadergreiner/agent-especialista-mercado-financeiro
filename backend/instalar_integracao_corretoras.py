@@ -7,6 +7,7 @@ Data: 2025-01-06
 """
 
 import subprocess
+import shlex
 import sys
 import os
 from pathlib import Path
@@ -15,7 +16,12 @@ def executar_comando(comando, descricao):
     """Executa um comando e trata erros"""
     print(f"📦 {descricao}...")
     try:
-        resultado = subprocess.run(comando, shell=True, check=True, capture_output=True, text=True)
+        # Evitar shell=True: aceitar `comando` como lista ou string e executar com shell=False
+        if isinstance(comando, str):
+            args = shlex.split(comando)
+        else:
+            args = comando
+        resultado = subprocess.run(args, shell=False, check=True, capture_output=True, text=True)
         print(f"✅ {descricao} - Concluído")
         return True
     except subprocess.CalledProcessError as e:
