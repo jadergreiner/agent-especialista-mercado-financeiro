@@ -1615,7 +1615,48 @@ Obs.: Todas as subtarefas seguem padrão: testes unitários, logs em português,
 
 ---
 
-## 🆕 NOVAS OPORTUNIDADES IDENTIFICADAS
+## 🆕 NOVAS OPORTUNIDADES IDENTIFICADAS (ATUALIZADO 2025-11-07 22:45 UTC)
+
+### 🔴 **PROC-001: Automação de Verificação de Status de Feature** ⚡ QUICK WIN
+
+- **Identificada em:** Autoavaliação US-PROMPT-003 (LA-011, LA-014)
+- **Problema:** Feature US-PROMPT-003 já estava completa mas não foi detectado antes de iniciar trabalho
+- **Impacto Observado:** 30 min de trabalho redundante, risco de duplicação de esforço
+- **Solução:** Script CLI para validar status de feature automaticamente
+- **Funcionalidades:**
+  - Verifica existência de arquivos ENTREGA e CONCLUSAO
+  - Valida status no backlog (PENDENTE vs COMPLETADO)
+  - Confirma dependências satisfeitas
+  - Verifica commits recentes relacionados à US
+  - Roda testes existentes para validar funcionalidade
+- **Benefício:** Elimina 80-90% de risco de duplicação, economiza 30+ min por feature
+- **Estimativa:** 2h (implementação simples)
+- **Prioridade:** 🔴 CRÍTICA (implementar HOJE, antes de US-PROMPT-004)
+- **Dependências:** Nenhuma
+- **Timeline:** Sprint atual (implementar imediatamente)
+- **Responsável:** Engenheiro A
+
+### 🟡 **PROC-002: Dashboard de Progresso de Sprint** 📊
+
+- **Identificada em:** Autoavaliação US-PROMPT-003
+- **Problema:** Relatórios de progresso manuais, propensos a desatualização
+- **Solução:** Dashboard HTML auto-gerado a partir de backlog, commits e testes
+- **Benefício:** Visibilidade em tempo real, reduz overhead de atualização manual
+- **Estimativa:** 1d (8h)
+- **Prioridade:** 🟡 ALTA
+- **Dependências:** PROC-001
+- **Timeline:** Próximo sprint (Sprint 1)
+
+### 🟡 **PROC-003: Pre-commit Hook para Validação de Padrões** 🛡️
+
+- **Identificada em:** Autoavaliação US-PROMPT-003 (LA-002, KNOWLEDGEBASE)
+- **Problema:** Commits sem padrão, acentos em mensagens, falta de referência a US
+- **Solução:** Git hook que valida antes de permitir commit
+- **Validações:** Formato conventional commits, ASCII apenas, referência a US
+- **Benefício:** 100% de conformidade com padrão
+- **Estimativa:** 4h
+- **Prioridade:** 🟡 ALTA
+- **Timeline:** Sprint 1
 
 ### 🔵 **US-PROMPT-009: Modo Híbrido "Analista Rápido"**
 
