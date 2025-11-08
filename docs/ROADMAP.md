@@ -15,7 +15,7 @@ Atualizado: 2025-11-07 22:40 UTC (pós-Autoavaliação US-PROMPT-003 + Processo 
   ```bash
   # Comando proposto
   python scripts/check_feature_status.py US-PROMPT-004
-  
+
   # Output esperado
   ✅ Feature Status: PENDENTE
   ✅ Dependências: Satisfeitas (US-001, US-002, US-003)

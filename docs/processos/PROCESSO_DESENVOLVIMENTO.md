@@ -119,7 +119,7 @@ code docs/gestao-agil/backlog.md
 
 **Contexto:** [Situação atual]
 **Dúvida:** [Pergunta específica]
-**Opções:** 
+**Opções:**
   A) [Opção 1 + Prós/Contras]
   B) [Opção 2 + Prós/Contras]
 **Recomendação Técnica:** [Opção preferida e justificativa]
@@ -283,7 +283,7 @@ git log --oneline --grep="US-XXXX" -10
 - [✅] Cada modo tem 2 exemplos few-shot
   - Teste: `python backend/teste_us_prompt_003.py::test_exemplos_analista`
   - Resultado: PASS
-  
+
 - [✅] Templates geram contexto correto para LLM
   - Teste: Manual - análise EURUSD modo analista
   - Resultado: Contexto completo com 4000+ chars
@@ -297,21 +297,21 @@ git log --oneline --grep="US-XXXX" -10
 
    ```markdown
    # ✅ ENTREGA: US-XXXX - [Título]
-   
+
    ## Resumo
    - Status: ✅ CONCLUÍDA
    - Data: YYYY-MM-DD
    - Tempo: Xh (estimativa: Yd)
    - Testes: X/X PASSANDO
-   
+
    ## Arquivos Entregues
    - `backend/modulo.py` (X linhas)
    - `backend/teste_us_xxxx.py` (Y linhas)
-   
+
    ## Funcionalidades
    - Feature 1: Descrição
    - Feature 2: Descrição
-   
+
    ## Validação
    - [✅] Critério 1
    - [✅] Critério 2
@@ -321,24 +321,24 @@ git log --oneline --grep="US-XXXX" -10
 
    ```markdown
    # 🎯 US-XXXX - [Título] [✅ COMPLETADA]
-   
+
    ## Contexto Técnico
    [Detalhes da implementação]
-   
+
    ## Arquitetura
    [Diagramas, classes, fluxos]
-   
+
    ## Exemplos de Uso
    [Código exemplo]
-   
+
    ## Métricas
    - Tempo: X vs Y estimado
    - Linhas de código: X
    - Cobertura: X%
-   
+
    ## Extensibilidade
    [Como estender no futuro]
-   
+
    ## Lições Aprendidas
    [Insights técnicos]
    ```
@@ -474,6 +474,6 @@ git push origin feature/sprint-X-nome
 
 ---
 
-**Última Atualização:** 2025-11-07 22:30 UTC  
-**Status:** ✅ APROVADO (baseado em lições LA-011, LA-012, LA-013, LA-014)  
+**Última Atualização:** 2025-11-07 22:30 UTC
+**Status:** ✅ APROVADO (baseado em lições LA-011, LA-012, LA-013, LA-014)
 **Aplicabilidade:** TODAS as US do projeto
